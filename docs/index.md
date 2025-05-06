@@ -1,20 +1,47 @@
 # Home
 
-Welcome to Codelogium where true craftsmanship last.
-Unlearn, relearn and keep fostering your learning
+## Welcome to **Codelogium** 🧠
+
+> Where true craftsmanship lasts.  
+> *Unlearn. Relearn. Keep learning.*
+
+---
 
 ## Project Overview
 
-As I jump into, sometimes diving deep into multiple topics, discovering new passions or reviving old ones, I still can't get rid of them old good tools from the ol' days: paper, copy books, pens, pencil ... taking notes still works and is awesome.
+This space is my digital notepad, my logium, my messy mind organized — or at least *trying to be*.
 
-But hey, why not digitize it! Thus the idea of this small documentation logium logius website about coding.
-I 
-## What in the holy molly in this website?
+I often dive deep into tech topics, sometimes bounce around — discovering new passions or revisiting old ones. Despite all the tools out there, I still love good old paper, notebooks, pens, and pencils.
 
-Well, nothing much than what's are in countless website ...
-A bit of Java, Spring, Python, FastAPI, Databases, Networks, Books (prolly )... etc
-I mean a bit of what I touch on daily basis when I'm in the mood to or a log to my messy mind and my unorganized thoughts, notes, things I think I understand, practice, experienced ... and the list goes on.
+But hey, why not digitize it?
 
-But I promise you won't find boring stuff here, well not really sure but I hope so!
+Thus, **Codelogium** was born:  
+A simple space for my notes, thoughts, ideas, and learnings in the world of code.
 
-    
+---
+
+## What's Inside?
+
+Well… probably nothing revolutionary.
+
+But here’s what you *might* stumble upon:
+
+- 🚀 Java & Spring (Boot, Security, REST...)
+- 🐍 Python & FastAPI
+- 🧠 Databases (SQL, ORM, H2, Postgres...)
+- 🌐 Networking basics & useful concepts
+- 📚 Books, ideas, random sparks of inspiration
+- 🧪 Experiments, drafts, projects-in-progress
+
+And maybe more... or less. Depends on the day 😄
+
+---
+
+## 🙏 Just One Promise
+
+No boring stuff (hopefully).  
+This is more of a log than a guide — raw, honest, sometimes chaotic.
+
+---
+
+> _“Note-taking is thinking made visible.”_ — Codelogium philosophy
