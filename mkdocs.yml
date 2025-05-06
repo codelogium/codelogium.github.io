@@ -34,6 +34,24 @@ theme:
     navigation.top
 extra_css:
   - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Databases:
+      - Overview: databases/index.md
+      - Postgres vs H2: databases/postgres-vs-h2.md
+      - Hibernate Tips: databases/hibernate-tips.md
+  - Java:
+      - Overview: java/index.md
+      - Some Java Post: java/some-java-post.md
+  - Spring:
+      - Overview: spring/index.md
+      - JWT Auth: spring/jwt-auth.md
+  - Blog:
+      - Overview: blog/index.md
+      - Random Thought: blog/random-thought.md
+      - Things I Learned: blog/things-i-learned.md
+
 plugins:
   - search:
   - blog:
