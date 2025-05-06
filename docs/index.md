@@ -55,10 +55,10 @@ This is more of a log than a guide — raw, honest, sometimes chaotic.
 
 ## Sections
 
-- [🗃️ Databases](databases/)
-- [☕ Java](java/)
-- [🌱 Spring](spring/)
-- [📝 Blog](blog/)
+- [🗃️ Databases](databases/index.md)
+- [☕ Java](java/index.md)
+- [🌱 Spring](spring/index.md)
+- [📝 Blog](blog/index.md)
 
 ---
 
