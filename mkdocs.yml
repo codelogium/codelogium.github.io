@@ -30,13 +30,13 @@ theme:
     # - navigation.sections
     # - navigation.top
     - navigation.tabs
-    - navigation.footer
+    # - navigation.footer
     - navigation.indexes
     - toc.integrate
     - content.tabs.link
     - content.code.annotate
     - content.code.copy
-    - header.autohide
+    # - header.autohide
     - search.suggest
     - search.highlight
 
@@ -54,11 +54,11 @@ nav:
   - Home: index.md
   - Databases:
       - Overview: databases/index.md
-      - Postgres vs H2: databases/postgres-vs-h2.md
-      - Hibernate Tips: databases/hibernate-tips.md
+      - Postgres vs H2: blog/post/database/postgres-vs-h2.md
+      - Hibernate Tips: blog/post/database/hibernate-tips.md
   - Java:
       - Overview: java/index.md
-      - Some Java Post: java/some-java-post.md
+      - Generic Types with Java: blog/post/java/generic-types.md
   - Spring:
       - Overview: spring/index.md
       - JWT Auth: spring/jwt-auth.md
