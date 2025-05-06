@@ -37,7 +37,7 @@ And maybe more... or less. Depends on the day 😄
 
 ---
 
-## 🙏 Just One Promise
+## Just One Promise
 
 No boring stuff (hopefully).  
 This is more of a log than a guide — raw, honest, sometimes chaotic.
