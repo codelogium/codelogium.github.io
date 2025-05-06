@@ -13,6 +13,7 @@ theme:
   #favicon: assets/favicon.ico
   palette:
     - scheme: default
+      toggle:
       primary: teal
       accent: orange
     - scheme: slate
@@ -25,23 +26,22 @@ theme:
     text: Inter
     code: Fira Code
   features:
-    #- navigation.instant
-    - navigation.sections
-    - navigation.top
+    # - navigation.instant
+    # - navigation.sections
+    # - navigation.top
     - navigation.tabs
-    - #navigation.footer
+    - navigation.footer
     - navigation.indexes
     - toc.integrate
     - content.tabs.link
     - content.code.annotate
     - content.code.copy
-    - #header.autohide
+    - header.autohide
     - search.suggest
     - search.highlight
 
 markdown_extensions:
   - admonition
-  - pymdownx.tabbed
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.inlinehilite
@@ -80,7 +80,6 @@ copyright: "© 2025 Codelogium • Crafted with curiosity accompanied by a cup o
 
 extra_css:
   - stylesheets/extra.css
-
 
 plugins:
   - search:
