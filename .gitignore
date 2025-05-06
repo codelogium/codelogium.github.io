@@ -2,3 +2,4 @@ mkdocs-material/*
 venv/*
 .vscode/*
 mkdocs.yml
+settings.json

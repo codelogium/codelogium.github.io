@@ -5,10 +5,20 @@
 
   } */
 
-  
-  .md-typeset h1 {
-    font-size: 2.5rem;
+  /* Make sidebar navigation links bold */
+  .md-header-nav .md-nav__link a {
+    font-weight: bold !important;
+}
+
+
+  .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+    font-weight: 700;
   }
+  /* Bold nav links in the sidebar */
+
+.md-typeset h1 {
+  font-size: 2.5rem;
+}
 
 
   /* Footer */

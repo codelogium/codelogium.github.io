@@ -8,6 +8,7 @@ edit_uri: "GitHub"
 theme:
   name: material
   language: en
+  #custom_dir: overrides
   #logo: assets/logo.png          
   #favicon: assets/favicon.ico
   palette:
@@ -24,11 +25,12 @@ theme:
     text: Inter
     code: Fira Code
   features:
-    - navigation.instant
+    #- navigation.instant
     - navigation.sections
     - navigation.top
     - navigation.tabs
     - #navigation.footer
+    - navigation.indexes
     - toc.integrate
     - content.tabs.link
     - content.code.annotate
@@ -84,6 +86,7 @@ plugins:
   - search:
   - awesome-pages:
   - blog:
+  - tags:
   - git-revision-date-localized:
       fallback_to_build_date: true
 

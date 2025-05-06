@@ -12,7 +12,7 @@ This is the **Java** corner of Codelogium — where I log things I’ve explored
 
 ## Posts
 
-- [Some Java Post](some-java-post.md)  
-  _A placeholder title for a future post on Java-related insights or discoveries._
+- [Generic Types in Java](../blog/post/java/generic-types.md)  
+  _“Write once, use many” — Generics let you write flexible and reusable code._
 
 *(More Java thoughts coming soon...)*
