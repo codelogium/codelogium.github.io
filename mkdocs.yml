@@ -2,8 +2,8 @@ site_name: Codelogium
 site_description: Developer logs, notes, and learning paths
 site_url: https://codelogium.github.io
 repo_url: https://github.com/codelogium/codelogium
-repo_name: GitHub
-edit_uri: ""
+repo_name: codelogium/codelogium
+edit_uri: "GitHub"
 
 theme:
   name: material
@@ -28,6 +28,7 @@ theme:
     - navigation.sections
     - navigation.top
     - navigation.tabs
+    - #navigation.footer
     - toc.integrate
     - content.tabs.link
     - content.code.annotate
@@ -66,13 +67,13 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/codelogium
+      link: https://github.com/alfahami
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/alfahami
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/yourhandle
-  copyright:
-    "© 2025 Codelogium. Crafted with curiosity accompanied by a cup of coffee."
+      link: https://twitter.com/al_fahami
+
+copyright: "© 2025 Codelogium • Crafted with curiosity accompanied by a cup of tea."
 
 
 extra_css:

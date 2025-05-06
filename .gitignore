@@ -1,3 +1,4 @@
 mkdocs-material/*
 venv/*
 .vscode/*
+mkdocs.yml
