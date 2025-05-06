@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # ☕ Java
 
 This is the **Java** corner of Codelogium — where I log things I’ve explored, built, or broken in the Java universe.

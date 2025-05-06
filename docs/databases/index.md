@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # 🗃️ Databases
 
 Welcome to the **Databases** section of Codelogium.
@@ -6,7 +12,7 @@ Here you’ll find posts about SQL, ORMs, in-memory databases, performance tips,
 
 ---
 
-## 📌 Posts
+## Posts
 
 - [Postgres vs H2: What to Use When](postgres-vs-h2.md)  
   _A quick dive into when to use a full-fledged DB like Postgres vs a lightweight in-memory option like H2._

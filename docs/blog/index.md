@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # 📝 Blog
 
 Welcome to the **Blog** — the free zone.  
