@@ -1,6 +1,34 @@
-:root  > * {
+/* :root  > * {
     --md-primary-fg-color:        #358544;
     --md-primary-fg-color--light: #CCE0D0;
     --md-primary-fg-color--dark:  #35856C;
 
+  } */
+
+  
+  .md-typeset h1 {
+    font-size: 2.5rem;
   }
+
+
+  /* Footer */
+  .md-footer {
+    background: var(--md-primary-fg-color);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .md-footer a {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .md-footer a:hover {
+    color: white;
+  }
+  
+  

@@ -51,3 +51,16 @@ This is more of a log than a guide — raw, honest, sometimes chaotic.
 ---
 
 > _“Note-taking is thinking made visible.”_ — Codelogium philosophy
+
+
+## Sections
+
+- [🗃️ Databases](databases/)
+- [☕ Java](java/)
+- [🌱 Spring](spring/)
+- [📝 Blog](blog/)
+
+---
+
+_Codelogium is my digital workshop — where I log, learn, and sometimes rant about dev life._
+
