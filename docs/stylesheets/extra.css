@@ -100,6 +100,42 @@ blockquote {
   text-decoration: none;
 }
 
+/* Hide mobile metadata block on desktop */
+.mobile-meta {
+  display: none;
+}
+
+/* Show only on small screens */
+@media (max-width: 768px) {
+  .mobile-meta {
+    display: block;
+    margin-top: 2rem;
+    background: #e6f7ff;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-meta p {
+    margin: 0.3rem 0;
+  }
+
+  .mobile-meta a {
+    text-decoration: none;
+    color: #007acc;
+  }
+
+  .mobile-meta a:hover {
+    text-decoration: underline;
+  }
+
+  /* Also hide original .blog-meta block on mobile if needed */
+  .blog-meta {
+    display: none !important;
+  }
+}
+
 /* Footer */
 .md-footer {
   background: var(--md-primary-fg-color);
@@ -119,3 +155,4 @@ blockquote {
 .md-footer a:hover {
   color: white;
 }
+

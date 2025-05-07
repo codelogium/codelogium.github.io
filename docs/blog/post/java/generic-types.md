@@ -36,6 +36,8 @@ summary: |
   </div>
 </div>
 
+
+
 > “Write once, use many” — Generics let you write flexible and reusable code.
 
 Generics in Java allow you to write code that works with different data types while still being type-safe. They reduce boilerplate, prevent runtime errors like `ClassCastException`, and make your code easier to read and maintain.
@@ -317,5 +319,21 @@ The full Java file for this learning could be found here: [GenericType.java](htt
         System.out.println(stringBox.getItem());
     }
     ```
+    
+<!-- Mobile-only metadata block at bottom -->
+<div class="mobile-meta">
+  <p><strong>Author:</strong> <a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></p>
+  <p><strong>Published:</strong> May 7, 2025</p>
+  <p><strong>Categories:</strong>
+    <a href="/categories/java/">Java</a>,
+    <a href="/categories/programming/">Programming</a>,
+    <a href="/categories/oop/">OOP</a>
+  </p>
+  <p><strong>Reading Time:</strong> ~5 min</p>
+</div>
+
+
+
+
 
 

@@ -48,7 +48,8 @@ markdown_extensions:
   - pymdownx.emoji
   - pymdownx.details
   - attr_list
-  - tables
+  - tables 
+
 
 nav:
   - HOME: index.md
