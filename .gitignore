@@ -1,5 +1,6 @@
 mkdocs-material/
 venv/
 .vscode/
+site/
 mkdocs.yml
 settings.json
