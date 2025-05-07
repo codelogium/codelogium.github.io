@@ -27,8 +27,8 @@ summary: |
       <a href="https://github.com/alfahami" target="_blank" class="author-avatar-link">
         <img class="author-avatar" src="https://github.com/alfahami.png" alt="Author avatar">
       </a>
-      • 📅 <em> May 7, 2025 </em> •  
-      🏷️ <a href="/categories/java/">&nbsp;Java</a>&nbsp;•&nbsp;  
+      • 📅&nbsp;<em> May 7, 2025</em>&nbsp;•&nbsp;  
+      🏷️&nbsp;<a href="/categories/java/">Java</a>&nbsp;•&nbsp;  
          <a href="/categories/programming/">Programming </a>&nbsp;•&nbsp; 
          <a href="/categories/programming/">OOP </a>&nbsp;•&nbsp; 
       ⏱️ ~5 min read
@@ -319,7 +319,7 @@ The full Java file for this learning could be found here: [GenericType.java](htt
         System.out.println(stringBox.getItem());
     }
     ```
-    
+
 <!-- Mobile-only metadata block at bottom -->
 <div class="mobile-meta">
   <p><strong>Author:</strong> <a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></p>
