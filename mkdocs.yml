@@ -28,19 +28,24 @@ theme:
   features:
     # - navigation.instant
     # - navigation.sections
-    # - navigation.top
+    - navigation.top
     - navigation.tabs
     # - navigation.footer
     - navigation.indexes
-    - toc.integrate
     - content.tabs.link
-    - content.code.annotate
     - content.code.copy
     # - header.autohide
     - search.suggest
+    - toc.integrate
+    - content.code.annotate
     - search.highlight
 
 markdown_extensions:
+  - toc:
+      title: "On this page"
+      permalink: "¶"  # Use the pilcrow sign
+      # Or use other symbols like "§", "#", "↩", "🔗", etc.
+      permalink_title: Permalink 
   - admonition
   - pymdownx.superfences
   - pymdownx.highlight
@@ -48,16 +53,15 @@ markdown_extensions:
   - pymdownx.emoji
   - pymdownx.details
   - attr_list
-  - tables 
-
-
+  - tables
+  
 nav:
   - HOME: index.md
   - DATABASES:
       - Overview: databases/index.md
       - Postgres vs H2: blog/post/database/postgres-vs-h2.md
       - Hibernate Tips: blog/post/database/hibernate-tips.md
-  - JAVA:
+  - JAVA: 
       - Overview: java/index.md
       - Generic Types with Java: blog/post/java/generic-types.md
   - SPRING:
@@ -67,7 +71,9 @@ nav:
       - Overview: blog/index.md
       - Random Thought: blog/random-thought.md
       - Things I Learned: blog/things-i-learned.md
+
 extra:
+  pagetime: 'on'
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/alfahami
@@ -77,7 +83,6 @@ extra:
       link: https://twitter.com/al_fahami
 
 copyright: "© 2025 Codelogium • Crafted with curiosity accompanied by a cup of tea."
-
 
 extra_css:
   - stylesheets/extra.css
@@ -90,5 +95,3 @@ plugins:
   - tags:
   # - git-revision-date-localized:
       fallback_to_build_date: false
-
-

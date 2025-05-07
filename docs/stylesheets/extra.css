@@ -19,17 +19,37 @@
   font-weight: 700;
 }
 
-/* Bold nav links in the sidebar */
-
-.md-typeset h1 {
-  font-size: 2.5rem;
-}
-
+.md-typeset h1 { font-size: 2rem; }
+.md-typeset h2 { font-size: 1.4rem; }
+.md-typeset h3 { font-size: 1rem; }
 
 /* Bold for top navigation links */
 .md-tabs__link {
   font-weight: 700;
 }
+
+/* Increase base font size for body content */
+.md-typeset {
+  font-size: .8rem; /* or try 1.05rem / 1.1rem */
+  line-height: 1.6;
+}
+
+/* Center main content and allow TOC space */
+.md-content {
+  max-width: 800px; /* or 900px or 65ch for readability */
+  margin: 0 auto;   /* Center the content */
+}
+
+@media screen and (min-width: 1220px) {
+  .md-main__inner {
+    justify-content: center;
+  }
+
+  .md-content {
+    margin-left: 2rem; /* Give space for the TOC */
+  }
+}
+
 
 /* Code block container */
 pre code {

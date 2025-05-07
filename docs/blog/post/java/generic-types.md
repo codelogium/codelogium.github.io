@@ -10,7 +10,6 @@ categories:
   - Programming
   - Java
   - OOP
-hide:
 reading_time: 5
 cover: /assets/images/generics-cover.png  # Optional: update with an actual image path
 summary: |
@@ -302,7 +301,6 @@ This reinforced our understanding of how Java Collections use generics under the
 The full Java file for this learning could be found here: [GenericType.java](https://github.com/codelogium/codelogium/blob/main/java/GenericType.java)
 
 ---
-
 ## Collateral Knowledge
 
 !!! info "Collateral Knowledge"
