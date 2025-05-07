@@ -51,18 +51,18 @@ markdown_extensions:
   - tables
 
 nav:
-  - Home: index.md
-  - Databases:
+  - HOME: index.md
+  - DATABASES:
       - Overview: databases/index.md
       - Postgres vs H2: blog/post/database/postgres-vs-h2.md
       - Hibernate Tips: blog/post/database/hibernate-tips.md
-  - Java:
+  - JAVA:
       - Overview: java/index.md
       - Generic Types with Java: blog/post/java/generic-types.md
-  - Spring:
+  - SPRING:
       - Overview: spring/index.md
       - JWT Auth: spring/jwt-auth.md
-  - Blog:
+  - BLOG:
       - Overview: blog/index.md
       - Random Thought: blog/random-thought.md
       - Things I Learned: blog/things-i-learned.md
@@ -85,8 +85,9 @@ plugins:
   - search:
   - awesome-pages:
   - blog:
+  - categories:
   - tags:
-  - git-revision-date-localized:
-      fallback_to_build_date: true
+  # - git-revision-date-localized:
+      fallback_to_build_date: false
 
 
