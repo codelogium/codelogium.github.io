@@ -1,6 +1,7 @@
 ---
 title: "Generic Types"
-author: "Al-Fahami Toihir"
+authors: 
+  - alfahami
 description: "Explore how Java generics work across interfaces, classes, and multi-type scenarios with real examples."
 date: 2025-05-07
 tags:
@@ -22,14 +23,10 @@ summary: |
 <div class="blog-meta">
   <div class="blog-meta-container">
     <span class="meta-content">
-      <strong>Author: <a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
-      <a href="https://github.com/alfahami" target="_blank" class="author-avatar-link">
-        <img class="author-avatar" src="https://github.com/alfahami.png" alt="Author avatar">
-      </a>
-      • 📅&nbsp;<em> May 7, 2025</em>&nbsp;•&nbsp;  
-      🏷️&nbsp;<a href="/categories/java/">Java</a>&nbsp;•&nbsp;  
-         <a href="/categories/programming/">Programming </a>&nbsp;•&nbsp; 
-         <a href="/categories/programming/">OOP </a>&nbsp;•&nbsp; 
+      By —<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
+      &nbsp;🏷️&nbsp;<a href="/categories/java/"><em>Java</em></a>&nbsp;•&nbsp;  
+         <a href="/categories/programming/"><em>Programming</em></a>&nbsp;•&nbsp; 
+         <a href="/categories/programming/"><em>OOP</em></a>&nbsp;•&nbsp; 
       ⏱️ ~5 min read
     </span>
   </div>

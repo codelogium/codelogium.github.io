@@ -91,8 +91,14 @@ plugins:
   - search:
   - awesome-pages:
   - blog:
-  #- blogging:
+  - blogging:
   - categories:
   - tags:
-  # - git-revision-date-localized:
-      fallback_to_build_date: false
+  # - social: can be installed later prefarably in a linux machine
+  - git-committers:
+      repository: codelogium/codelogium.github.io
+      branch: main
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+      type: timeago  # or 'timeago', 'datetime'
+      enable_creation_date: true
