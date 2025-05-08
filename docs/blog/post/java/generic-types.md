@@ -90,6 +90,17 @@ Box<Integer> intBox = new Box<>();
 intBox.set(123);
 ```
 
+??? tip "Quite a Stretch"
+    Imagine a strong iron box that can hold *any* kind of item — even ones crafted by the user themselves.
+
+    Now let’s stretch that idea a bit further...
+
+    What if this box could hold another box just like it? Could it nest within itself, over and over?
+
+    The answer is: **yes**!  
+    That’s the idea behind recursive generics — a container that can hold its own kind.  
+    (But don’t worry — we won’t dive into that here.)
+
 ---
 
 ## Generic Methods
