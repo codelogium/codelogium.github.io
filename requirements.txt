@@ -1,5 +1,6 @@
 mkdocs
 mkdocs-material
+mkdocs-tags-plugin
 mkdocs-awesome-pages-plugin
 mkdocs-blogging-plugin
 mkdocs-categories-plugin

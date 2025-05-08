@@ -332,6 +332,7 @@ The full Java file for this learning could be found here: [GenericType.java](htt
         System.out.println(stringBox.getItem());
     }
     ```
+---
 
 <!-- Mobile-only metadata block at bottom -->
 <div class="mobile-meta">
