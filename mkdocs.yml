@@ -36,16 +36,17 @@ theme:
     - content.code.copy
     # - header.autohide
     - search.suggest
-    - toc.integrate
+    # - toc.integrate
     - content.code.annotate
     - search.highlight
 
 markdown_extensions:
   - toc:
-      title: "On this page"
+      title: "Table of content"
       permalink: "¶"  # Use the pilcrow sign
       # Or use other symbols like "§", "#", "↩", "🔗", etc.
       permalink_title: Permalink 
+      toc_depth: "1-6"
   - admonition
   - pymdownx.superfences
   - pymdownx.highlight
@@ -62,8 +63,8 @@ nav:
       - Postgres vs H2: blog/post/database/postgres-vs-h2.md
       - Hibernate Tips: blog/post/database/hibernate-tips.md
   - JAVA: 
-      - Overview: java/index.md
-      - Generic Types with Java: blog/post/java/generic-types.md
+      - java/index.md
+      - blog/post/java/generic-types.md
   - SPRING:
       - Overview: spring/index.md
       - JWT Auth: spring/jwt-auth.md

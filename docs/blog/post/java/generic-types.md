@@ -1,5 +1,5 @@
 ---
-title: "Generic Types in Java"
+title: "Generic Types"
 description: "Explore how Java generics work across interfaces, classes, and multi-type scenarios with real examples."
 date: 2025-05-07
 tags:

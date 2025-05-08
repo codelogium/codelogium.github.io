@@ -24,23 +24,7 @@
 }
 
 .md-nav__link, .md-nav--secondary a {
-  font-size: 0.6rem;  /* Standardize font size for TOC links */
-}
-
-/* Main Content Layout */
-.md-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-@media screen and (min-width: 1220px) {
-  .md-main__inner {
-    justify-content: center;
-  }
-
-  .md-content {
-    margin-left: 2rem; /* Allow space for TOC */
-  }
+  font-size: 0.62rem;  /* Standardize font size for TOC links */
 }
 
 /* Blockquotes */
@@ -158,9 +142,4 @@ pre code {
 .md-typeset .admonition.tip {
   background-color: #e6fffa;
   border-left: 5px solid #2dd4bf;
-}
-
-/* Sidebar Navigation Styling */
-.md-header-nav .md-nav__link a {
-  font-weight: bold !important;
 }
