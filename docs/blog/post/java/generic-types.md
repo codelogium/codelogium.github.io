@@ -6,10 +6,6 @@ tags:
   - Generics
   - Type Safety
   - Interfaces
-categories:
-  - Programming
-  - Java
-  - OOP
 reading_time: 5
 cover: /assets/images/generics-cover.png  # Optional: update with an actual image path
 summary: |
@@ -337,6 +333,11 @@ The full Java file for this learning could be found here: [GenericType.java](htt
 <div class="mobile-meta">
   <p><strong>Author:</strong> <a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></p>
   <p><strong>Published:</strong> May 7, 2025</p>
+  <p><strong>Categories:</strong>
+    <a href="/categories/java/">Java</a>,
+    <a href="/categories/programming/">Programming</a>,
+    <a href="/categories/oop/">OOP</a>
+  </p>
   <p><strong>Reading Time:</strong> ~5 min</p>
 </div>
 
