@@ -1,5 +1,6 @@
 ---
 title: "Generic Types"
+author: "Al-Fahami Toihir"
 description: "Explore how Java generics work across interfaces, classes, and multi-type scenarios with real examples."
 date: 2025-05-07
 tags:
@@ -14,7 +15,6 @@ summary: |
 
 # Generic Types in Java
 
-<!-- HTML Structure -->
 <div class="blog-meta">
   <div class="blog-meta-container">
     <span class="meta-content">
@@ -32,6 +32,29 @@ summary: |
 </div>
 
 
+<!-- {% if page.meta.author %}
+<div class="blog-meta">
+  <div class="blog-meta-container">
+    <span class="meta-content">
+      <strong>Author: <a href="https://github.com/{{ page.meta.author | replace(' ', '') | lower }}" target="_blank">{{ page.meta.author }}</a></strong>
+      {% if page.meta.author %}
+      <a href="https://github.com/{{ page.meta.author | replace(' ', '') | lower }}" target="_blank" class="author-avatar-link">
+        <img class="author-avatar" src="https://github.com/{{ page.meta.author | replace(' ', '') | lower }}.png" alt="Author avatar">
+      </a>
+      {% endif %}
+      • 📅&nbsp;<em> {{ page.meta.date }}</em>&nbsp;•&nbsp;  
+      {% if page.meta.categories %}
+        🏷️&nbsp;
+        {% for category in page.meta.categories %}
+          <a href="/categories/{{ category | lower }}/">{{ category }}</a>{% if not loop.last %}&nbsp;•&nbsp;{% endif %}
+        {% endfor %}
+        &nbsp;•&nbsp;
+      {% endif %}
+      ⏱️ ~{{ page.meta.reading_time }} min read
+    </span>
+  </div>
+</div>
+{% endif %} -->
 
 > “Write once, use many” — Generics let you write flexible and reusable code.
 

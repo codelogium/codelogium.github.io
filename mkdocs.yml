@@ -94,6 +94,7 @@ plugins:
   - search:
   - awesome-pages:
   - blog:
+  - blogging:
   - categories:
   - tags:
   # - git-revision-date-localized:
