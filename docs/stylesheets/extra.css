@@ -1,21 +1,12 @@
-/* :root  > * {
-    --md-primary-fg-color:        #358544;
-    --md-primary-fg-color--light: #CCE0D0;
-    --md-primary-fg-color--dark:  #35856C;
-
-  } */
-
-/* Make sidebar navigation links bold */
-.md-header-nav .md-nav__link a {
-  font-weight: bold !important;
+/* Global Colors */
+:root {
+  --md-primary-fg-color: #358544;
+  --md-primary-fg-color--light: #CCE0D0;
+  --md-primary-fg-color--dark: #35856C;
 }
 
-.md-typeset h1,
-.md-typeset h2,
-.md-typeset h3,
-.md-typeset h4,
-.md-typeset h5,
-.md-typeset h6 {
+/* Typography Styles */
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
   font-weight: 700;
 }
 
@@ -23,26 +14,23 @@
 .md-typeset h2 { font-size: 1.4rem; }
 .md-typeset h3 { font-size: 1rem; }
 
-/* Bold for top navigation links */
-.md-tabs__link {
-  font-weight: 700;
-}
-
-/* Increase base font size for body content */
 .md-typeset {
-  font-size: .75rem; /* or try 1.05rem / 1.1rem */
+  font-size: 0.75rem; /* Adjust base font size */
   line-height: 1.6;
 }
 
-.md-nav--secondary,
-.md-nav--secondary a {
-  font-size: 0.6rem;
+.md-header-nav .md-nav__link a, .md-tabs__link {
+  font-weight: bold !important;
 }
 
-/* Center main content and allow TOC space */
+.md-nav__link, .md-nav--secondary a {
+  font-size: 0.6rem;  /* Standardize font size for TOC links */
+}
+
+/* Main Content Layout */
 .md-content {
-  max-width: 800px; /* or 900px or 65ch for readability */
-  margin: 0 auto;   /* Center the content */
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 1220px) {
@@ -51,21 +39,11 @@
   }
 
   .md-content {
-    margin-left: 2rem; /* Give space for the TOC */
+    margin-left: 2rem; /* Allow space for TOC */
   }
 }
 
-
-/* Code block container */
-pre code {
-  background-color: #f6f8fa;
-  border: 1px solid #e1e4e8;
-  padding: 1em;
-  border-radius: 8px;
-  display: block;
-}
-
-/* Style blockquotes */
+/* Blockquotes */
 blockquote {
   background-color: #f0f4ff;
   border-left: 5px solid #3b82f6;
@@ -74,27 +52,22 @@ blockquote {
   font-style: italic;
 }
 
-/* Blog post metadata inline style */
+/* Code Blocks */
+pre code {
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  padding: 1em;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Blog Meta */
 .blog-meta {
   font-size: 0.65rem;
   color: #666;
   margin-top: 0.5rem;
-  /* margin-bottom: 1.5rem; */
   display: block;
-}
-
-/* Custom background for .md-typeset .admonition.tip */
-.md-typeset .admonition.tip {
-  background-color: #e6fffa;
-  border-left: 5px solid #2dd4bf;
-}
-
-.blog-meta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  margin: 20px 0;
 }
 
 .blog-meta-container {
@@ -106,8 +79,7 @@ blockquote {
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin: 0 8px;
   filter: grayscale(100%);
   transition: filter 0.3s ease;
 }
@@ -125,12 +97,7 @@ blockquote {
   text-decoration: none;
 }
 
-/* Hide mobile metadata block on desktop */
-.mobile-meta {
-  display: none;
-}
-
-/* Show only on small screens */
+/* Mobile Meta Block */
 @media (max-width: 768px) {
   .mobile-meta {
     display: block;
@@ -155,8 +122,15 @@ blockquote {
     text-decoration: underline;
   }
 
-  /* Also hide original .blog-meta block on mobile if needed */
+  /* Hide the mobile metadata on larger screens */
   .blog-meta {
+    display: none !important;
+  }
+}
+
+/* Hide mobile metadata block on desktop */
+@media (min-width: 769px) {
+  .mobile-meta {
     display: none !important;
   }
 }
@@ -166,7 +140,6 @@ blockquote {
   background: var(--md-primary-fg-color);
   color: white;
   padding: 2rem 1rem;
-  /* text-align: center; */
   font-size: 0.9rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -181,3 +154,13 @@ blockquote {
   color: white;
 }
 
+/* Custom Admonition (Tip) Style */
+.md-typeset .admonition.tip {
+  background-color: #e6fffa;
+  border-left: 5px solid #2dd4bf;
+}
+
+/* Sidebar Navigation Styling */
+.md-header-nav .md-nav__link a {
+  font-weight: bold !important;
+}
