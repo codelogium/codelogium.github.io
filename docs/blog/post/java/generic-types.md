@@ -39,7 +39,12 @@ summary: |
 
 > “Write once, use many” — Generics let you write flexible and reusable code.
 
-In a nutshell, *Generic Types* let you define interfaces, classes, or methods using a placeholder type that you specify later when calling or instantiating them. This is common in Java Collections, like `List<String> quotes`, `ArrayList<Integer>`, or `Map<Long, String> identifier`.<br>
+In a nutshell, *Generic Types* let you define interfaces, classes, or methods using a placeholder type that you specify later when calling or instantiating them. This is common in Java Collections, like `List<String> quotes`, `ArrayList<Integer>`, or `Map<Long, String> identifier`.
+
+??? note "Loosely Speaking"
+    When using a single letter (e.g., `<T>`, `<E>`, or `<K, V>`) in `public interface <T> GenericInterface {}`, `public class GenericClass<T> {}`, or `public <T> genericMethod() {}`, you're essentially telling the user of your generic interface, class, or method that they can use any type they wish when instantiating it — even a custom type they create themselves.
+
+
 In simple terms, generics let you write a class or method that can operate on objects of various types — like `Integer`, `String`, or even your own custom classes — without rewriting the code for each type.
 
 Generics in Java allow you to write code that works with different data types while still being type-safe. They reduce boilerplate, prevent runtime errors like `ClassCastException`, and make your code easier to read and maintain.
