@@ -3,5 +3,4 @@ mkdocs-material
 mkdocs-awesome-pages-plugin
 mkdocs-blogging-plugin
 mkdocs-categories-plugin
-mkdocs-tags-plugin
 mkdocs-git-revision-date-localized-plugin
