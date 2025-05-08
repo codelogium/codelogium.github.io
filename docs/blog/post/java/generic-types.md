@@ -7,6 +7,10 @@ tags:
   - Generics
   - Type Safety
   - Interfaces
+categories:
+  - Java
+  - Programming
+  - OOP
 reading_time: 5
 cover: /assets/images/generics-cover.png  # Optional: update with an actual image path
 summary: |
