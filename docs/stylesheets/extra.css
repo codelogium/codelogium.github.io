@@ -30,8 +30,13 @@
 
 /* Increase base font size for body content */
 .md-typeset {
-  font-size: .8rem; /* or try 1.05rem / 1.1rem */
+  font-size: .75rem; /* or try 1.05rem / 1.1rem */
   line-height: 1.6;
+}
+
+.md-nav--secondary,
+.md-nav--secondary a {
+  font-size: 0.6rem;
 }
 
 /* Center main content and allow TOC space */

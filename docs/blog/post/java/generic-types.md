@@ -39,9 +39,10 @@ summary: |
 
 > “Write once, use many” — Generics let you write flexible and reusable code.
 
-Generics in Java allow you to write code that works with different data types while still being type-safe. They reduce boilerplate, prevent runtime errors like `ClassCastException`, and make your code easier to read and maintain.
-
+In a nutshell, *Generic Types* let you define interfaces, classes, or methods using a placeholder type that you specify later when calling or instantiating them. This is common in Java Collections, like `List<String> quotes`, `ArrayList<Integer>`, or `Map<Long, String> identifier`.<br>
 In simple terms, generics let you write a class or method that can operate on objects of various types — like `Integer`, `String`, or even your own custom classes — without rewriting the code for each type.
+
+Generics in Java allow you to write code that works with different data types while still being type-safe. They reduce boilerplate, prevent runtime errors like `ClassCastException`, and make your code easier to read and maintain.
 
 According to the [official Java documentation](http://docs.oracle.com/javase/tutorial/java/generics/types.html):
 
@@ -54,6 +55,8 @@ In a generic class, you usually use a type parameter (like `T`) to represent the
 ---
 
 ## Generic Classes
+
+In generic classes, **static methods cannot use class-level type parameters.**
 
 Here’s a simple generic class called `Box`:
 
@@ -117,16 +120,7 @@ Utility.printArray(stringArray);
 
 ### Generic Interfaces
 
-It's an interesting and sometimes subtle aspect of Java!<br>
-Even if you don’t explicitly use the static keyword, any interface declared inside a class is
-implicitly static by definition.
-
-This means you can reference it without creating an instance of the enclosing
-class, and it behaves independently of any specific instance of the outer
-class.
-
-Generics improve type safety and code reusability, ensuring compile-time
-checks and reducing runtime errors.
+Generics improve type safety and code reusability, ensuring compile-time checks and reducing runtime errors.
 You can define generic interfaces to operate on various types, improving flexibility and reuse:
 
 ```java
@@ -135,8 +129,6 @@ public interface InnerGenericType<T> {
     T findByIndex(int id);
 }
 ```
-
-This interface is implicitly `static` when declared inside a class. You don't need an instance of the outer class to use it.
 
 ### Implementing a Generic Interface
 
@@ -169,8 +161,7 @@ public class UserRepository implements InnerGenericType<Utilisateur> {
 ### Using `E` for Element in a Custom Collection
 
 Adding <E> in the class defintion defines the class as generic.<br>
-The class can operate on objects of any type specified when the class is
-instantiated, rather than being tied to a specific type.<br>
+The class can operate on objects of any type specified when the class is instantiated, rather than being tied to a specific type.<br>
 E is a placeholder for the type you will specify later when using the class.
 Java needs <E> in the class definition to treat E as a valid type parameter.
 Otherwise, it assumes E is a class or type that hasn't been defined.
@@ -294,7 +285,7 @@ System.out.println("The " + fruitInfo.getKey() + " is " + fruitInfo.getValue() +
 
 ## What We Learned
 
-Java generics allow us to write flexible, type-safe code. In this post, we explored how generic interfaces and classes enhance reusability and improve readability. One key takeaway: interfaces declared inside a class are **implicitly static**, meaning they can be used without creating an instance of the outer class.
+Java generics allow us to write flexible, type-safe code. In this post, we explored how generic interfaces and classes enhance reusability and improve readability. 
 
 This reinforced our understanding of how Java Collections use generics under the hood, and how **type erasure** comes into play at runtime.
 
@@ -304,7 +295,15 @@ The full Java file for this learning could be found here: [GenericType.java](htt
 ## Collateral Knowledge
 
 !!! info "Collateral Knowledge"
-    Along the way, we also discovered an interesting aspect of OOP: it's possible to instantiate a class from within itself in the `main` method — something not usually needed but helpful when everything is enclosed in one file.
+    Along the way, we also discovered two interesting aspects of OOP: 
+    
+    1. **Interfaces inside classes are implicitly static.**<br> 
+    If you're declaring an interface inside a class, **you can** make it `static` — and **you usually should**, to avoid holding an implicit reference to the outer class.
+    Interfaces declared inside a class are **implicitly static**, meaning they can be used without creating an instance of the outer class. And that's an interesting and sometimes subtle aspect of Java! <br><br>
+    Even if you don’t explicitly use the static keyword, any interface declared inside a class is implicitly static by definition. This means you can reference it without creating an instance of the enclosing class, and it behaves independently of any specific instance of the outer class. An interface is implicitly `static` when declared inside a class. You don't need an instance of the outer class to use it.
+
+    2. **Classes can instantiate themselves (and it’s totally valid)**<br>
+    It's possible to instantiate a class from within itself in the `main` method (!like I'm creating this class, but I'm also instatiating this class in this class ... cool tho!) — something not usually needed but helpful when everything is enclosed in one file.
     Because we used a single Java class to contain all the examples, we had to reference generic classes and interfaces from within the same outer class. That’s where we learned this pattern:
 
     ```java

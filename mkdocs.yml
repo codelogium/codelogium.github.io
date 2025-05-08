@@ -15,10 +15,10 @@ theme:
     - scheme: default
       toggle:
       primary: teal
-      accent: orange
+      accent: teal
     - scheme: slate
       primary: teal
-      accent: orange
+      accent: teal
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
