@@ -6,25 +6,42 @@
 }
 
 /* Typography Styles */
-.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
   font-weight: 700;
 }
 
-.md-typeset h1 { font-size: 2rem; }
-.md-typeset h2 { font-size: 1.4rem; }
-.md-typeset h3 { font-size: 1rem; }
+.md-typeset h1 {
+  font-size: 2rem;
+}
+
+.md-typeset h2 {
+  font-size: 1.4rem;
+}
+
+.md-typeset h3 {
+  font-size: 1rem;
+}
 
 .md-typeset {
-  font-size: 0.75rem; /* Adjust base font size */
+  font-size: 0.75rem;
+  /* Adjust base font size */
   line-height: 1.6;
 }
 
-.md-header-nav .md-nav__link a, .md-tabs__link {
+.md-header-nav .md-nav__link a,
+.md-tabs__link {
   font-weight: bold !important;
 }
 
-.md-nav__link, .md-nav--secondary a {
-  font-size: 0.62rem;  /* Standardize font size for TOC links */
+.md-nav__link,
+.md-nav--secondary a {
+  font-size: 0.62rem;
+  /* Standardize font size for TOC links */
 }
 
 /* Blockquotes */
