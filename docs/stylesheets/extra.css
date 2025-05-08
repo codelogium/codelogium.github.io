@@ -1,9 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Load Roboto from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Import Roboto and Source Code Pro from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Source+Code+Pro&display=swap');
+
 /* Global Colors */
 :root {
   --md-primary-fg-color: #358544;
   --md-primary-fg-color--light: #CCE0D0;
   --md-primary-fg-color--dark: #35856C;
 }
+
+/* Use Roboto for all text */
+body,
+input,
+button,
+select,
+textarea {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif !important;
+}
+
+/* Use Source Code Pro for code blocks */
+code,
+pre,
+code span {
+  font-family: 'Source Code Pro', monospace !important;
+}
+
 
 /* Typography Styles */
 .md-typeset h1,
@@ -12,6 +37,8 @@
 .md-typeset h4,
 .md-typeset h5,
 .md-typeset h6 {
+
+  font-family: 'Poppins', sans-serif !important;
   font-weight: 700;
 }
 
@@ -28,20 +55,56 @@
 }
 
 .md-typeset {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   /* Adjust base font size */
   line-height: 1.6;
+}
+
+/* Style for the preformatted code blocks */
+.markdown-body pre {
+  background: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+  color: #e0e0e0; /* Light text color */
+  padding: 15px;
+  border-radius: 5px;
+  font-family: 'Source Code Pro', monospace !important;
+  overflow-x: auto; /* Allow horizontal scrolling for long lines */
+  border: none; /* Remove default border */
+}
+
+/* Style for inline code snippets */
+.markdown-body code {
+  background: rgba(0, 0, 0, 0.5); /* Slightly darker background for inline code */
+  color: #e0e0e0; /* Light text color */
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: 'Source Code Pro', monospace !important;
 }
 
 .md-header-nav .md-nav__link a,
 .md-tabs__link {
   font-weight: bold !important;
+  font-family: 'Poppins', sans-serif !important;
 }
 
-.md-nav__link,
+.md-header__title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 400;
+}
+
 .md-nav--secondary a {
-  font-size: 0.62rem;
-  /* Standardize font size for TOC links */
+  font-size: 0.65rem;
+}
+
+/* Make top header nav links white on hover */
+.md-tabs__link:hover {
+  color: white !important;
+}
+
+.md-tabs__link--active {
+  border-bottom: 2px solid white !important;
+  color: white !important;
+  padding-bottom: 4px;
+  /* Add some space for the border to show */
 }
 
 /* Blockquotes */

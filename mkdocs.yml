@@ -22,9 +22,6 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
-  font:
-    text: Inter
-    code: Fira Code
   features:
     # - navigation.instant
     # - navigation.sections
@@ -57,20 +54,20 @@ markdown_extensions:
   - tables
   
 nav:
-  - HOME: index.md
-  - DATABASES:
+  - Home: index.md
+  - Databases:
       - Overview: databases/index.md
       - Postgres vs H2: blog/post/database/postgres-vs-h2.md
       - Hibernate Tips: blog/post/database/hibernate-tips.md
-  - JAVA: 
+  - Java: 
       - java/index.md
       - blog/post/java/generic-types.md
-  - SPRING:
+  - Spring:
       - Overview: spring/index.md
       - JWT Auth: spring/jwt-auth.md
-  - LAB:
+  - Lab:
       - Overview: lab/index.md
-  - BLOG:
+  - Blog:
       - Overview: blog/index.md
       - Random Thought: blog/random-thought.md
       - Things I Learned: blog/things-i-learned.md
