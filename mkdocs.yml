@@ -92,6 +92,7 @@ plugins:
   - awesome-pages:
   - blog:
   - blogging:
+    show_metadata: false
   - categories:
   - tags:
   # - git-revision-date-localized:
