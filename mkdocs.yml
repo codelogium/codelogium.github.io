@@ -67,6 +67,8 @@ nav:
   - SPRING:
       - Overview: spring/index.md
       - JWT Auth: spring/jwt-auth.md
+  - LAB:
+      - Overview: lab/index.md
   - BLOG:
       - Overview: blog/index.md
       - Random Thought: blog/random-thought.md
