@@ -19,8 +19,8 @@ summary: |
 
 # Generic Types in Java
 
-<div class="blog-meta">
-  <div class="blog-meta-container">
+<div class="blog-meta-custom">
+  <div class="blog-meta-custom-container">
     <span class="meta-content">
       <strong>Author: <a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
       <a href="https://github.com/alfahami" target="_blank" class="author-avatar-link">

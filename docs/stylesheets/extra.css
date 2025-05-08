@@ -126,7 +126,7 @@ pre code {
 }
 
 /* Blog Meta */
-.blog-meta {
+.blog-meta-custom {
   font-size: 0.65rem;
   color: #666;
   margin-top: 0.5rem;
@@ -134,7 +134,7 @@ pre code {
   text-align: center;
 }
 
-.blog-meta-container {
+.blog-meta-custom-container {
   display: flex;
   align-items: center;
 }
