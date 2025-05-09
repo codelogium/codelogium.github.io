@@ -8,7 +8,7 @@ edit_uri: "GitHub"
 theme:
   name: material
   language: en
-  # custom_dir: overrides
+  custom_dir: overrides
   #logo: assets/logo.png          
   #favicon: assets/favicon.ico
   palette:
@@ -68,6 +68,7 @@ nav:
       - Random Thought: blog/random-thought.md
       - Things I Learned: blog/things-i-learned.md
   - Categories:
+      - Overview: categories/index.md
       - Java: categories/java.md
       - Programming: categories/programming.md
       - OOP: categories/oop.md

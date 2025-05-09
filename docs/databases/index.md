@@ -1,5 +1,5 @@
 ---
-title: Databases | Codelogium
+title: Databases
 committers_disable: true
 hide:
   - toc
