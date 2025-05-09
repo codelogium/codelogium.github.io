@@ -55,6 +55,13 @@ code span {
   display: none;
 }
 
+/* Active tab styles */
+.md-tabs__item--active .md-tabs__link,
+.md-tabs__link.md-tabs__link--active {
+  color: white !important;
+  border-bottom: 2px solid white !important;
+}
+
 /* Code Block Styles */
 .markdown-body pre {
   background: rgba(0, 0, 0, 0.7);
