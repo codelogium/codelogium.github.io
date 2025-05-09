@@ -81,6 +81,23 @@ extra:
       link: https://www.linkedin.com/in/alfahami
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/al_fahami
+  analytics: 
+    provider: google
+    property: G-XXXXXXXXXX
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
 
 copyright: "© 2025 Codelogium • Crafted with curiosity accompanied by a cup of tea."
 
