@@ -116,14 +116,8 @@ code span {
 /* Add this to your stylesheets/extra.css file */
 
 /* Target only blog post pages by using a specific selector that matches your post URLs */
-body[data-url^="/blog/post/"] h2:last-of-type,
-body[data-url^="/blog/post/"] h2:last-of-type + ul {
-  display: none;
-}
-
-/* If the above doesn't work, try this more specific version */
-.md-content__inner article h2:last-of-type:contains("Categories"),
-.md-content__inner article h2:last-of-type:contains("Categories") + ul {
+body[data-url^="/blog/*/post/"] h2:last-of-type,
+body[data-url^="/blog/*/post/"] h2:last-of-type + ul {
   display: none;
 }
 
