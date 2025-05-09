@@ -101,6 +101,8 @@ plugins:
   - git-committers:
       repository: codelogium/codelogium.github.io
       branch: main
+      token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
+      enabled: !ENV [MKDOCS_GIT_COMMITTERS_APIKEY, false]
   - git-revision-date-localized:
       fallback_to_build_date: true
       type: timeago  # or 'timeago', 'datetime'

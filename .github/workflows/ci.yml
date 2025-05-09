@@ -39,4 +39,6 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Deploy to GitHub Pages
+        env:
+          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
         run: mkdocs gh-deploy --force
