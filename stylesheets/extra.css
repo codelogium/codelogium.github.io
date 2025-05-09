@@ -166,7 +166,7 @@ pre code {
 }
 
 /* Hide the categories section initially */
-#categories {
+#categories, #categories + ul {
   display: none !important;
 }
 
