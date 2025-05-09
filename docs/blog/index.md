@@ -22,3 +22,5 @@ Here, you’ll find posts that don’t quite fit under a specific tech category.
 ---
 
 > _Not all who wander are lost — some are just debugging._
+
+*(More posts coming soon...)*
