@@ -166,19 +166,43 @@ pre code {
 }
 
 /* Hide the categories section (h2, ul, and a tags) initially */
-#categories, 
-#categories + ul, 
-#categories + ul li a {
+#categories,
+#categories+ul,
+#categories+ul li a {
   display: none !important;
 }
 
-/* Hide the categories section (h2 and ul) initially */
-body[data-url^="/blog/post/"] #categories,
-body[data-url^="/blog/post/"] #categories + ul,
-body[data-url^="/blog/post/"] #categories + ul li a {
-  display: none !important;
+blockquote {
+  background: #f9f9f9;
+  border-left: 8px solid #00645A !important;
+  margin: 1.8em 10px;
+  padding: 0.8em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
 }
 
+blockquote:before {
+  color: #00645A;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
+}
+
+/* Blockquotes inside body with data-md-color-scheme="slate" */
+body[data-md-color-scheme="slate"] blockquote {
+  background-color: #00645A;
+  border-left: 5px solid #3b82f6;
+  padding: 1em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: #e1e1e1;
+  box-shadow: 0 1px 5px rgba(97, 97, 97, 0.1);
+}
 
 @media (max-width: 768px) {
   .blog-meta-container {
