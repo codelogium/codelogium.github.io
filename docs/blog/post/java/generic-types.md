@@ -1,19 +1,15 @@
 ---
 title: "Generic Types"
-authors: 
-  - alfahami
-description: "Explore how Java generics work across interfaces, classes, and multi-type scenarios with real examples."
 date: 2025-05-07
-tags:
-  - Generics
-  - Type Safety
-  - Interfaces
 categories:
   - Java
   - Programming
   - OOP
-hide:
-  - categories
+description: "Explore how Java generics work across interfaces, classes, and multi-type scenarios with real examples."
+tags:
+  - Generics
+  - Type Safety
+  - Interfaces
 reading_time: 5
 cover: /assets/images/generics-cover.png  # Optional: update with an actual image path
 summary: |

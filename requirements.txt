@@ -1,9 +1,7 @@
-mkdocs
-mkdocs-material
-mkdocs-material-extensions
-mkdocs-awesome-pages-plugin
-mkdocs-blogging-plugin
-mkdocs-categories-plugin
-mkdocs-get-deps
-mkdocs-git-committers-plugin-2
+mkdocs-material 
+mkdocs-awesome-pages-plugin 
+mkdocs-blog-plugin 
+mkdocs-blogging-plugin 
+mkdocs-categories-plugin 
+mkdocs-git-committers-plugin 
 mkdocs-git-revision-date-localized-plugin

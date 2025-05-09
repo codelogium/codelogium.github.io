@@ -13,35 +13,31 @@ theme:
   #favicon: assets/favicon.ico
   palette:
     - scheme: default
-      toggle:
       primary: teal
       accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
     - scheme: slate
       primary: teal
       accent: teal
       toggle:
         icon: material/weather-night
-        name: Switch to dark mode
+        name: Switch to light mode
   features:
-    # - navigation.instant
-    # - navigation.sections
     - navigation.top
     - navigation.tabs
-    # - navigation.footer
     - navigation.indexes
     - content.tabs.link
     - content.code.copy
-    # - header.autohide
     - search.suggest
-    # - toc.integrate
     - content.code.annotate
     - search.highlight
 
 markdown_extensions:
   - toc:
       title: "Table of content"
-      permalink: "¶"  # Use the pilcrow sign
-      # Or use other symbols like "§", "#", "↩", "🔗", etc.
+      permalink: "¶"
       permalink_title: Permalink 
       toc_depth: "1-6"
   - admonition
@@ -97,13 +93,10 @@ plugins:
   - blog:
   - blogging:
   - categories:
-      enabled: true
-      categories:
-        Java: categories/java.md
-        Programming: categories/programming.md
-        OOP: categories/oop.md
-  - tags:
-  # - social: can be installed later prefarably in a linux machine
+      taxonomy: categories
+      slugify: true
+  - tags
+  # - social: can be installed later preferably in a linux machine
   - git-committers:
       repository: codelogium/codelogium.github.io
       branch: main
