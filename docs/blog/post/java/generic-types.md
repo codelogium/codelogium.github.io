@@ -296,7 +296,7 @@ The full Java file for this learning can be found here: [GenericType.java](https
 
 ## Collateral Knowledge
 
-!!! info "Key Insights into Nested Interface and Self-Instatiating Classes in OOP"
+??? info "Key Insights into Nested Interface and Self-Instatiating Classes in OOP"
     Along the way, we also discovered two interesting aspects of OOP:
 
     1. **Interfaces inside classes are implicitly static.**<br> 
