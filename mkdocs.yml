@@ -122,3 +122,9 @@ plugins:
       fallback_to_build_date: true
       type: timeago  # or 'timeago', 'datetime'
       enable_creation_date: true
+      exclude:
+        - index.md
+        - java/index.md    
+        - spring/index.md
+        - databases/index.md
+        - lab/index.md

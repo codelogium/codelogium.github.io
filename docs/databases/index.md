@@ -1,7 +1,10 @@
 ---
 hide:
-  - navigation
   - toc
+  - navigation
+  - feedback
+  - metadata
+  - footer
 ---
 
 # 🗃️ Databases
