@@ -165,8 +165,10 @@ pre code {
   text-decoration: none;
 }
 
-/* Hide the categories section initially */
-#categories, #categories + ul {
+/* Hide the categories section (h2, ul, and a tags) initially */
+#categories, 
+#categories + ul, 
+#categories + ul li a {
   display: none !important;
 }
 
