@@ -14,7 +14,7 @@ hide:
 
 <blockquote>
   <p>Where true craftsmanship lasts.</p><br>
-  <p>&emsp;<strong>Unlearn. Relearn. Keep learning.</strong></p>
+  <p>&emsp;&emsp;&ensp;<strong>Unlearn. Relearn. Keep learning.</strong></p>
 </blockquote>
 
 ---

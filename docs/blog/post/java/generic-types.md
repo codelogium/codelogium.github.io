@@ -45,7 +45,7 @@ Generics in Java allow you to write code that works with different data types wh
 According to the [official Java documentation](http://docs.oracle.com/javase/tutorial/java/generics/types.html):
 
 
-> A generic type is a generic class or interface that is parameterized over types.
+<blockquote><p>A generic type is a generic class or interface that is parameterized over types.</p></blockquote>
 
 You typically use a generic class when all its behavior (like its methods) should apply consistently to a single data type. A great example? Most of the **Java Collections Framework** — like `ArrayList<T>` and `HashMap<K, V>` — are built with generics.
 
