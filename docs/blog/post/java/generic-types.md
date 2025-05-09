@@ -12,6 +12,8 @@ categories:
   - Java
   - Programming
   - OOP
+hide:
+  - categories
 reading_time: 5
 cover: /assets/images/generics-cover.png  # Optional: update with an actual image path
 summary: |
