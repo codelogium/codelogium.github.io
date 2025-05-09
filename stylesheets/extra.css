@@ -100,30 +100,16 @@ code span {
   font-size: 0.65rem;
 }
 
-/* Make top header nav links white on hover */
 .md-tabs__link:hover {
   color: white !important;
-  border-bottom: 2px solid white !important;
 }
 
-.md-tabs__link--active {
-  border-bottom: 2px solid white !important;
+/* Active tab styles */
+.md-tabs__item--active .md-tabs__link,
+.md-tabs__link.md-tabs__link--active {
   color: white !important;
-  padding-bottom: 4px;
-  /* Add some space for the border to show */
+  border-bottom: 2px solid white !important;
 }
-
-/* Add this to your stylesheets/extra.css file */
-
-/* Target only blog post pages by using a specific selector that matches your post URLs */
-body[data-url^="/blog/*/post/"] h2:last-of-type,
-body[data-url^="/blog/*/post/"] h2:last-of-type + ul {
-  display: none;
-}
-
-/* .md-meta {
-  display: none;
-} */
 
 /* Blockquotes */
 blockquote {
@@ -177,6 +163,11 @@ pre code {
 
 .meta-content a {
   text-decoration: none;
+}
+
+/* Target only blog post pages and hide the categories section */
+body[data-url^="/blog/post/"] #categories {
+  display: none;
 }
 
 @media (max-width: 768px) {
