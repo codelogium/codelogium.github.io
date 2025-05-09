@@ -197,12 +197,21 @@ blockquote p {
 /* Blockquotes inside body with data-md-color-scheme="slate" */
 body[data-md-color-scheme="slate"] blockquote {
   background-color: #00645A;
-  border-left: 5px solid #3b82f6;
+  border-left: 8px solid #e1e1e1 !important;
   padding: 1em;
   margin: 1.5em 0;
   font-style: italic;
   color: #e1e1e1;
   box-shadow: 0 1px 5px rgba(97, 97, 97, 0.1);
+}
+
+body[data-md-color-scheme="slate"] blockquote:before {
+  color: #e1e1e1;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
 }
 
 @media (max-width: 768px) {
