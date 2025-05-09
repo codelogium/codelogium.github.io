@@ -201,23 +201,3 @@ pre code {
   background-color: #e6fffa;
   border-left: 5px solid #2dd4bf;
 }
-
-/* Add this to your extra.css file */
-
-/* Hide the auto-generated categories section at the bottom */
-.md-typeset h2:last-of-type,
-.md-typeset h2:last-of-type + ul {
-  display: none;
-}
-
-/* More specific version if the above doesn't work */
-.md-typeset h2:last-of-type:contains("Categories"),
-.md-typeset h2:last-of-type:contains("Categories") + ul {
-  display: none;
-}
-
-/* If your category section has a specific class */
-.category-section,
-.categories-section {
-  display: none;
-}
