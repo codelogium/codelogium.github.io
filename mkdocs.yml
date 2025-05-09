@@ -3,7 +3,6 @@ site_description: Developer logs, notes, and learning paths
 site_url: https://codelogium.github.io
 repo_url: https://github.com/codelogium/codelogium
 repo_name: codelogium/codelogium
-edit_uri: "GitHub"
 
 theme:
   name: material
@@ -101,8 +100,8 @@ extra:
             Thanks for your feedback! Help us improve this page by
             using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
         
-copyright: © 2025 Codelogium • Crafted with curiosity accompanied by a cup of tea ☕<br> 
-        Built with ♥ using <a href="https://squidfunk.github.io/mkdocs-material/">MkDocs Material</a>
+copyright: © 2025 <a href="https://codelogium.github.io/">Codelogium</a> • Crafted with curiosity accompanied by a cup of tea ☕<br> 
+        Built with ♥ using <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank">MkDocs Material</a>
 
 extra_css:
   - stylesheets/extra.css
