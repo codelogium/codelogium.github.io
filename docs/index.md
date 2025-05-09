@@ -6,15 +6,16 @@ hide:
   - feedback
   - metadata
   - footer
-committers_disable: true
 ---
 
 # Home
 
 ## Welcome to **Codelogium** 🧠
 
-> Where true craftsmanship lasts.  
-> *Unlearn. Relearn. Keep learning.*
+<blockquote>
+  <p>Where true craftsmanship lasts.</p><br>
+  <p>&emsp;<strong>Unlearn. Relearn. Keep learning.</strong></p>
+</blockquote>
 
 ---
 

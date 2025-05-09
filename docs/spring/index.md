@@ -6,7 +6,6 @@ hide:
   - feedback
   - metadata
   - footer
-committers_disable: true
 ---
 
 # 🌱 Spring

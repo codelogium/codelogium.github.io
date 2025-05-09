@@ -1,6 +1,5 @@
 ---
 title: Databases
-committers_disable: true
 hide:
   - toc
   - navigation

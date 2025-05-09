@@ -5,7 +5,6 @@ hide:
   - navigation
   - feedback
   - footer
-committers_disable: true
 ---
 
 # 🧪 **Lab**
