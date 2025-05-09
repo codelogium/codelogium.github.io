@@ -62,9 +62,10 @@ code span {
   border-bottom: 2px solid white !important;
 }
 
-.md-header-nav--secondary a {
-  font-size: 0.65rem;
+.md-nav__link {
+  font-size: 0.65rem; /* adjust as needed */
 }
+
 
 /* Code Block Styles */
 .markdown-body pre {
