@@ -165,11 +165,6 @@ pre code {
   text-decoration: none;
 }
 
-/* Target only blog post pages and hide the categories section more specifically */
-body[data-url^="/blog/post/"] .md-content #categories {
-  display: none !important;
-}
-
 @media (max-width: 768px) {
   .blog-meta-container {
     display: block;
