@@ -166,11 +166,11 @@ pre code {
 }
 
 /* Hide the categories section (h2, ul, and a tags) initially */
-/* #categories, 
+#categories, 
 #categories + ul, 
 #categories + ul li a {
   display: none !important;
-} */
+}
 
 /* Hide the categories section (h2 and ul) initially */
 body[data-url^="/blog/post/"] #categories,
