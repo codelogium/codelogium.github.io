@@ -111,8 +111,6 @@ plugins:
   - blogging:
   - categories:
       enabled: true
-      categories_folder: categories
-      append_categories: false  # This disables the automatic category listing
   - tags
   # - social: can be installed later preferably in a linux machine
   - git-committers:
