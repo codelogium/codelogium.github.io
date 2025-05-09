@@ -3,22 +3,23 @@
 // extra_javascript:
 //   - javascripts/hide-contributors.js
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Check if this is an index page
+document.addEventListener('DOMContentLoaded', function () {
   const path = window.location.pathname;
-  const isIndexPage = path.endsWith('/index') || 
-                      path.endsWith('/index/') || 
-                      path.endsWith('/') || 
-                      path === '';
-  
-  // Hide contributors on index pages
-  if (isIndexPage) {
+
+  // Only show contributors and feedback on blog pages
+  const isBlogPage = path.includes('/blog/');
+
+  if (!isBlogPage) {
+    // Hide contributors
     const contributorElements = document.querySelectorAll('.md-source-file');
-    contributorElements.forEach(function(element) {
+    contributorElements.forEach(function (element) {
       element.style.display = 'none';
     });
-    
-    // Add a class to the body for potential CSS targeting
-    document.body.classList.add('index-page');
+
+    // Hide feedback form
+    const feedbackElements = document.querySelectorAll('.md-feedback');
+    feedbackElements.forEach(function (element) {
+      element.style.display = 'none';
+    });
   }
 });
