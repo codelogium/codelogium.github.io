@@ -175,8 +175,9 @@ pre code {
 blockquote {
   background: #f9f9f9;
   border-left: 8px solid #00645A !important;
-  margin: 1.8em 10px;
-  padding: 0.8em 10px;
+  /* font-size: inherit; */
+  margin: 1.8em 10px !important;
+  padding: 1em 10px !important;
   quotes: "\201C""\201D""\2018""\2019";
 }
 
@@ -232,6 +233,5 @@ body[data-md-color-scheme="slate"] blockquote {
 
 /* Custom Admonition (Tip) Style */
 .md-typeset .admonition.tip {
-  background-color: #e6fffa;
   border-left: 5px solid #2dd4bf;
 }
