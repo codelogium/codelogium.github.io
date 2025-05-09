@@ -166,11 +166,19 @@ pre code {
 }
 
 /* Hide the categories section (h2, ul, and a tags) initially */
-#categories, 
+/* #categories, 
 #categories + ul, 
 #categories + ul li a {
   display: none !important;
+} */
+
+/* Hide the categories section (h2 and ul) initially */
+body[data-url^="/blog/post/"] #categories,
+body[data-url^="/blog/post/"] #categories + ul,
+body[data-url^="/blog/post/"] #categories + ul li a {
+  display: none !important;
 }
+
 
 @media (max-width: 768px) {
   .blog-meta-container {
