@@ -326,6 +326,13 @@ The full Java file for this learning could be found here: [GenericType.java](htt
     }
     ```
 
+<script>
+  if (document.body.dataset.url.startsWith("/blog/post/")) {
+    document.getElementById('categories').style.display = 'none';
+  }
+</script>
+
+
 
 
 
