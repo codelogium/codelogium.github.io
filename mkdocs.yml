@@ -98,7 +98,7 @@ plugins:
       append_categories: false  # This disables the automatic category listing
   - tags
   # - social: can be installed later preferably in a linux machine
-  - git-committers:
+  - git-committers-plugin-2:
       repository: codelogium/codelogium.github.io
       branch: main
   - git-revision-date-localized:
