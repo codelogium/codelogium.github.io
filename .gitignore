@@ -1,7 +1,8 @@
 mkdocs-material/
 venv/
 .vscode/
-.cache
+categories/
 site/
+.cache
 mkdocs.yml
 settings.json
