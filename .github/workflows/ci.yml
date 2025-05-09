@@ -42,3 +42,14 @@ jobs:
         env:
           MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
         run: mkdocs gh-deploy --force
+
+      - name: Debug env var presence
+        run: |
+          if [ -z "$MKDOCS_GIT_COMMITTERS_APIKEY" ]; then
+            echo "TOKEN IS MISSING"
+            exit 1
+          else
+            echo "TOKEN IS SET"
+          fi
+        env:
+          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
