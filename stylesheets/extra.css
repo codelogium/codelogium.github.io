@@ -167,7 +167,7 @@ pre code {
 
 /* Target only blog post pages and hide the categories section */
 body[data-url^="/blog/post/"] #categories {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 768px) {
