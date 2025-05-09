@@ -29,7 +29,6 @@ code span {
   font-family: 'Source Code Pro', monospace !important;
 }
 
-
 /* Typography Styles */
 .md-typeset h1,
 .md-typeset h2,
@@ -62,19 +61,25 @@ code span {
 
 /* Style for the preformatted code blocks */
 .markdown-body pre {
-  background: rgba(0, 0, 0, 0.7); /* Dark transparent background */
-  color: #e0e0e0; /* Light text color */
+  background: rgba(0, 0, 0, 0.7);
+  /* Dark transparent background */
+  color: #e0e0e0;
+  /* Light text color */
   padding: 15px;
   border-radius: 5px;
   font-family: 'Source Code Pro', monospace !important;
-  overflow-x: auto; /* Allow horizontal scrolling for long lines */
-  border: none; /* Remove default border */
+  overflow-x: auto;
+  /* Allow horizontal scrolling for long lines */
+  border: none;
+  /* Remove default border */
 }
 
 /* Style for inline code snippets */
 .markdown-body code {
-  background: rgba(0, 0, 0, 0.5); /* Slightly darker background for inline code */
-  color: #e0e0e0; /* Light text color */
+  background: rgba(0, 0, 0, 0.5);
+  /* Slightly darker background for inline code */
+  color: #e0e0e0;
+  /* Light text color */
   padding: 2px 5px;
   border-radius: 4px;
   font-family: 'Source Code Pro', monospace !important;
@@ -107,6 +112,10 @@ code span {
   /* Add some space for the border to show */
 }
 
+.md-meta {
+  display: none;
+}
+
 /* Blockquotes */
 blockquote {
   background-color: #f0f4ff;
@@ -126,15 +135,15 @@ pre code {
 }
 
 /* Blog Meta */
-.blog-meta-custom {
-  font-size: 0.65rem;
+.blog-meta {
+  font-size: 0.72rem;
   color: #666;
   margin-top: 0.5rem;
   display: block;
   text-align: center;
 }
 
-.blog-meta-custom-container {
+.blog-meta-container {
   display: flex;
   align-items: center;
 }
@@ -161,41 +170,10 @@ pre code {
   text-decoration: none;
 }
 
-/* Mobile Meta Block */
 @media (max-width: 768px) {
-  .mobile-meta {
+  .blog-meta-container {
     display: block;
-    margin-top: 2rem;
-    background: #e6f7ff;
-    padding: 1rem;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .mobile-meta p {
-    margin: 0.3rem 0;
-  }
-
-  .mobile-meta a {
-    text-decoration: none;
-    color: #007acc;
-  }
-
-  .mobile-meta a:hover {
-    text-decoration: underline;
-  }
-
-  /* Hide the mobile metadata on larger screens */
-  .blog-meta {
-    display: none !important;
-  }
-}
-
-/* Hide mobile metadata block on desktop */
-@media (min-width: 769px) {
-  .mobile-meta {
-    display: none !important;
+    font-size: 70%;
   }
 }
 

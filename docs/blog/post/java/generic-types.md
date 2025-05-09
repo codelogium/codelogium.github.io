@@ -24,38 +24,13 @@ summary: |
   <div class="blog-meta-container">
     <span class="meta-content">
       By —<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
-      &nbsp;🏷️&nbsp;<a href="/categories/java/"><em>Java</em></a>&nbsp;•&nbsp;  
+      &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/java/"><em>Java</em></a>&nbsp;•&nbsp;  
          <a href="/categories/programming/"><em>Programming</em></a>&nbsp;•&nbsp; 
          <a href="/categories/programming/"><em>OOP</em></a>&nbsp;•&nbsp; 
-      ⏱️ ~5 min read
+      ⏱️ ~5 min read</span>
     </span>
   </div>
 </div>
-
-
-<!-- {% if page.meta.author %}
-<div class="blog-meta">
-  <div class="blog-meta-container">
-    <span class="meta-content">
-      <strong>Author: <a href="https://github.com/{{ page.meta.author | replace(' ', '') | lower }}" target="_blank">{{ page.meta.author }}</a></strong>
-      {% if page.meta.author %}
-      <a href="https://github.com/{{ page.meta.author | replace(' ', '') | lower }}" target="_blank" class="author-avatar-link">
-        <img class="author-avatar" src="https://github.com/{{ page.meta.author | replace(' ', '') | lower }}.png" alt="Author avatar">
-      </a>
-      {% endif %}
-      • 📅&nbsp;<em> {{ page.meta.date }}</em>&nbsp;•&nbsp;  
-      {% if page.meta.categories %}
-        🏷️&nbsp;
-        {% for category in page.meta.categories %}
-          <a href="/categories/{{ category | lower }}/">{{ category }}</a>{% if not loop.last %}&nbsp;•&nbsp;{% endif %}
-        {% endfor %}
-        &nbsp;•&nbsp;
-      {% endif %}
-      ⏱️ ~{{ page.meta.reading_time }} min read
-    </span>
-  </div>
-</div>
-{% endif %} -->
 
 > “Write once, use many” — Generics let you write flexible and reusable code.
 
@@ -352,19 +327,6 @@ The full Java file for this learning could be found here: [GenericType.java](htt
         System.out.println(stringBox.getItem());
     }
     ```
-
-<!-- Mobile-only metadata block at bottom -->
-<div class="mobile-meta">
-  <p><strong>Author:</strong> <a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></p>
-  <p><strong>Published:</strong> May 7, 2025</p>
-  <p><strong>Categories:</strong>
-    <a href="/categories/java/">Java</a>,
-    <a href="/categories/programming/">Programming</a>,
-    <a href="/categories/oop/">OOP</a>
-  </p>
-  <p><strong>Reading Time:</strong> ~5 min</p>
-</div>
-
 
 
 
