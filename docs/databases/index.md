@@ -1,9 +1,10 @@
 ---
+title: Databases | Codelogium
+committers_disable: true
 hide:
   - toc
   - navigation
   - feedback
-  - metadata
   - footer
 ---
 

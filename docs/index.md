@@ -1,12 +1,12 @@
 ---
-title: Home | Codelogium
-hide_git_committers: true
+title: Home
 hide:
   - toc
   - navigation
   - feedback
   - metadata
   - footer
+committers_disable: true
 ---
 
 # Home

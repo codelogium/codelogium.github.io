@@ -1,10 +1,11 @@
 ---
+title: Lab
 hide:
   - toc
   - navigation
   - feedback
-  - metadata
   - footer
+committers_disable: true
 ---
 
 # 🧪 **Lab**
