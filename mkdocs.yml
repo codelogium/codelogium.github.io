@@ -78,10 +78,13 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/alfahami
+      name: alfahami on Github
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/alfahami
+      name: alfahami on LinkedIn
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/al_fahami 
+      name: alfahami on X (ex Twitter)
   analytics: 
     provider: google
     property: G-XXXXXXXXXX
