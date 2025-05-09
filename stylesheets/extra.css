@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Load Roboto from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Import Roboto and Source Code Pro from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Source+Code+Pro&display=swap');
+
+/* Global Colors */
+:root {
+  --md-primary-fg-color: #358544;
+  --md-primary-fg-color--light: #CCE0D0;
+  --md-primary-fg-color--dark: #35856C;
+}
+
+/* Use Roboto for all text */
+body,
+input,
+button,
+select,
+textarea {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif !important;
+}
+
+/* Use Source Code Pro for code blocks */
+code,
+pre,
+code span {
+  font-family: 'Source Code Pro', monospace !important;
+}
+
+/* Typography Styles */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700;
+}
+
+.md-typeset h1 {
+  font-size: 2rem;
+}
+
+.md-typeset h2 {
+  font-size: 1.4rem;
+}
+
+.md-typeset h3 {
+  font-size: 1rem;
+}
+
+.md-typeset {
+  font-size: 0.75rem;
+  /* Adjust base font size */
+  line-height: 1.6;
+}
+
+/* Style for the preformatted code blocks */
+.markdown-body pre {
+  background: rgba(0, 0, 0, 0.7);
+  /* Dark transparent background */
+  color: #e0e0e0;
+  /* Light text color */
+  padding: 15px;
+  border-radius: 5px;
+  font-family: 'Source Code Pro', monospace !important;
+  overflow-x: auto;
+  /* Allow horizontal scrolling for long lines */
+  border: none;
+  /* Remove default border */
+}
+
+/* Style for inline code snippets */
+.markdown-body code {
+  background: rgba(0, 0, 0, 0.5);
+  /* Slightly darker background for inline code */
+  color: #e0e0e0;
+  /* Light text color */
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: 'Source Code Pro', monospace !important;
+}
+
+.md-header-nav .md-nav__link a,
+.md-tabs__link {
+  font-weight: bold !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.md-header__title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 400;
+}
+
+.md-nav--secondary a {
+  font-size: 0.65rem;
+}
+
+/* Make top header nav links white on hover */
+.md-tabs__link:hover {
+  color: white !important;
+}
+
+.md-tabs__link--active {
+  border-bottom: 2px solid white !important;
+  color: white !important;
+  padding-bottom: 4px;
+  /* Add some space for the border to show */
+}
+
+.md-meta {
+  display: none;
+}
+
+/* Blockquotes */
+blockquote {
+  background-color: #f0f4ff;
+  border-left: 5px solid #3b82f6;
+  padding: 1em;
+  margin: 1.5em 0;
+  font-style: italic;
+}
+
+/* Code Blocks */
+pre code {
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  padding: 1em;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Blog Meta */
+.blog-meta {
+  font-size: 0.72rem;
+  color: #666;
+  margin-top: 0.5rem;
+  display: block;
+  text-align: center;
+}
+
+.blog-meta-container {
+  display: flex;
+  align-items: center;
+}
+
+.author-avatar {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin: 0 8px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.author-avatar-link:hover .author-avatar {
+  filter: grayscale(0%);
+}
+
+.meta-content {
+  display: flex;
+  align-items: center;
+}
+
+.meta-content a {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .blog-meta-container {
+    display: block;
+    font-size: 70%;
+  }
+}
+
+/* Footer */
+.md-footer {
+  background: var(--md-primary-fg-color);
+  color: white;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.md-footer a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.md-footer a:hover {
+  color: white;
+}
+
+/* Custom Admonition (Tip) Style */
+.md-typeset .admonition.tip {
+  background-color: #e6fffa;
+  border-left: 5px solid #2dd4bf;
+}
