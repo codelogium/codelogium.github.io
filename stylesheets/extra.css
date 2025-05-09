@@ -165,6 +165,11 @@ pre code {
   text-decoration: none;
 }
 
+/* Hide the categories section initially */
+#categories {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .blog-meta-container {
     display: block;
