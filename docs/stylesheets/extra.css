@@ -219,6 +219,17 @@ body[data-md-color-scheme="slate"] blockquote:before {
   vertical-align: -0.4em;
 }
 
+/* Hide contributors and feedback sections by default */
+.md-source-file,
+.md-feedback {
+  display: none !important;
+}
+
+/* Only show them when 'show-contrib-feedback' class is added to body */
+.show-contrib-feedback .md-source-file,
+.show-contrib-feedback .md-feedback {
+  display: block !important;
+}
 
 @media (max-width: 768px) {
   .blog-meta-container {
