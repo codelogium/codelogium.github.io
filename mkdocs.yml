@@ -105,6 +105,9 @@ copyright: "© 2025 Codelogium • Crafted with curiosity accompanied by a cup o
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascript/extra.js
+  
 plugins:
   - search:
   - awesome-pages:
