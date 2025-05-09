@@ -62,6 +62,10 @@ code span {
   border-bottom: 2px solid white !important;
 }
 
+.md-header-nav--secondary a {
+  font-size: 0.65rem;
+}
+
 /* Code Block Styles */
 .markdown-body pre {
   background: rgba(0, 0, 0, 0.7);
@@ -110,7 +114,7 @@ blockquote p {
 
 /* Custom Admonition (Info) Style */
 .md-typeset details.info p {
-  font-size: .68rem !important;
+  font-size: .65rem !important;
 }
 
 /* Blockquotes with Slate color scheme */
