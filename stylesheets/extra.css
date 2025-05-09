@@ -167,7 +167,7 @@ pre code {
 
 /* Hide the categories section initially */
 #categories {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 768px) {
