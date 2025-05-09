@@ -1427,7 +1427,7 @@
       By —<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
       &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/java/"><em>Java</em></a>&nbsp;•&nbsp;  
          <a href="/categories/programming/"><em>Programming</em></a>&nbsp;•&nbsp; 
-         <a href="/categories/programming/"><em>OOP</em></a>&nbsp;•&nbsp; 
+         <a href="/categories/programming/"><em>OOP</em></a>&nbsp;•&nbsp;  
       ⏱️ ~5 min read</span>
     </span>
   </div>
@@ -1436,21 +1436,23 @@
 <blockquote>
 <p>“Write once, use many” — Generics let you write flexible and reusable code.</p>
 </blockquote>
-<p>In a nutshell, <em>Generic Types</em> let you define interfaces, classes, or methods using a placeholder type that you specify later when calling or instantiating them. This is common in Java Collections, like <code>List&lt;String&gt; quotes</code>, <code>ArrayList&lt;Integer&gt;</code>, or <code>Map&lt;Long, String&gt; identifier</code>.</p>
+<p>In short, <em>Generic Types</em> allow you to define interfaces, classes, or methods using a placeholder type that is specified later when the class or method is instantiated. This is common in Java Collections, like <code>List&lt;String&gt;</code>, <code>ArrayList&lt;Integer&gt;</code>, or <code>Map&lt;Long, String&gt;</code>.</p>
 <details class="note">
 <summary>Loosely Speaking</summary>
-<p>When using a single letter (e.g., <code>&lt;T&gt;</code>, <code>&lt;E&gt;</code>, or <code>&lt;K, V&gt;</code>) in <code>public interface &lt;T&gt; GenericInterface {}</code>, <code>public class GenericClass&lt;T&gt; {}</code>, or <code>public &lt;T&gt; genericMethod() {}</code>, you're essentially telling the user of your generic interface, class, or method that they can use any type they wish when instantiating it — even a custom type they create themselves.</p>
+<p>When using a single letter (e.g., <code>&lt;T&gt;</code>, <code>&lt;E&gt;</code>, or <code>&lt;K, V&gt;</code>) in <code>public interface &lt;T&gt; GenericInterface {}</code>, <code>public class GenericClass&lt;T&gt; {}</code>, or <code>public &lt;T&gt; genericMethod() {}</code>, you're essentially telling the user of your generic interface, class, or method that they can use any type they wish when instantiating it — even custom types.</p>
 </details>
-<p>In simple terms, generics let you write a class or method that can operate on objects of various types — like <code>Integer</code>, <code>String</code>, or even your own custom classes — without rewriting the code for each type.</p>
-<p>Generics in Java allow you to write code that works with different data types while still being type-safe. They reduce boilerplate, prevent runtime errors like <code>ClassCastException</code>, and make your code easier to read and maintain.</p>
+<p>Generics allow you to write a class or method that operates on objects of various types — such as <code>Integer</code>, <code>String</code>, or custom classes — without rewriting the code for each type.</p>
+<p>Generics in Java ensure type safety, reduce boilerplate, prevent runtime errors (like <code>ClassCastException</code>), and make the code easier to read and maintain.</p>
 <p>According to the <a href="http://docs.oracle.com/javase/tutorial/java/generics/types.html">official Java documentation</a>:</p>
 <blockquote><p>A generic type is a generic class or interface that is parameterized over types.</p></blockquote>
 
-<p>You typically use a generic class when all its behavior (like its methods) should apply consistently to a single data type. A great example? Most of the <strong>Java Collections Framework</strong> — like <code>ArrayList&lt;T&gt;</code> and <code>HashMap&lt;K, V&gt;</code> — are built with generics.</p>
-<p>In a generic class, you usually use a type parameter (like <code>T</code>) to represent the data type. This makes it possible to write flexible and reusable code that works with any type: <code>Integer</code>, <code>String</code>, <code>Double</code>, <code>Character</code>, or even user-defined types.</p>
+<p>You typically use a generic class when all its behavior (like its methods) should apply consistently to a single data type. A great example is the <strong>Java Collections Framework</strong> — such as <code>ArrayList&lt;T&gt;</code> and <code>HashMap&lt;K, V&gt;</code>.</p>
+<p>In a generic class, you use a type parameter (e.g., <code>T</code>) to represent the data type. This allows you to write flexible and reusable code that can work with any type: <code>Integer</code>, <code>String</code>, <code>Double</code>, <code>Character</code>, or even user-defined types.</p>
 <hr />
 <h2 id="generic-classes">Generic Classes<a class="headerlink" href="#generic-classes" title="Permalink">¶</a></h2>
-<p>In generic classes, <strong>static methods cannot use class-level type parameters.</strong></p>
+<p>In generic classes, <strong>static methods cannot use class-level type parameters.</strong><br>
+You typically use a generic class when all its behavior (like its methods) should apply consistently to a single data type. A great example?<br>
+Most of the <strong>Java Collections Framework --</strong> like <code>ArrayList&lt;T&gt;</code>, <code>HashMap&lt;K,V&gt;</code> are build with generics.</p>
 <p>Here’s a simple generic class called <code>Box</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// T can be any type (Integer, String, Object, etc.)</span>
@@ -1474,11 +1476,11 @@
 </code></pre></div>
 <details class="tip">
 <summary>Quite a Stretch</summary>
-<p>Imagine a strong iron box that can hold <em>any</em> kind of item — even ones crafted by the user themselves.</p>
-<p>Now let’s stretch that idea a bit further...</p>
+<p>Imagine a strong iron box that can hold <em>any</em> kind of item — even ones crafted by the user themselves.<br>
+Now, let’s stretch that idea a bit further...</p>
 <p>What if this box could hold another box just like it? Could it nest within itself, over and over?</p>
-<p>The answer is: <strong>yes</strong>!<br />
-That’s the idea behind recursive generics — a container that can hold its own kind.<br />
+<p>The answer is: <strong>yes</strong>! <br> 
+That’s the idea behind recursive generics — a container that can hold its own kind.<br><br />
 (But don’t worry — we won’t dive into that here.)</p>
 </details>
 <hr />
@@ -1506,8 +1508,7 @@ That’s the idea behind recursive generics — a container that can hold its ow
 <hr />
 <h2 id="advanced-uses-of-generics-in-java">Advanced Uses of Generics in Java<a class="headerlink" href="#advanced-uses-of-generics-in-java" title="Permalink">¶</a></h2>
 <h3 id="generic-interfaces">Generic Interfaces<a class="headerlink" href="#generic-interfaces" title="Permalink">¶</a></h3>
-<p>Generics improve type safety and code reusability, ensuring compile-time checks and reducing runtime errors.
-You can define generic interfaces to operate on various types, improving flexibility and reuse:</p>
+<p>Generics improve type safety and code reusability, ensuring compile-time checks and reducing runtime errors. You can define generic interfaces to operate on various types, improving flexibility and reuse:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">InnerGenericType</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">entity</span><span class="p">);</span>
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="nf">findByIndex</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
@@ -1539,11 +1540,7 @@ You can define generic interfaces to operate on various types, improving flexibi
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="using-e-for-element-in-a-custom-collection">Using <code>E</code> for Element in a Custom Collection<a class="headerlink" href="#using-e-for-element-in-a-custom-collection" title="Permalink">¶</a></h3>
-<p>Adding <E> in the class defintion defines the class as generic.<br>
-The class can operate on objects of any type specified when the class is instantiated, rather than being tied to a specific type.<br>
-E is a placeholder for the type you will specify later when using the class.
-Java needs <E> in the class definition to treat E as a valid type parameter.
-Otherwise, it assumes E is a class or type that hasn't been defined.</p>
+<p>Adding <code>&lt;E&gt;</code> in the class definition defines the class as generic. The class can operate on objects of any type specified at the time of instantiation, rather than being tied to a specific type. <code>E</code> is a placeholder for the type you specify later when using the class.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 
@@ -1621,7 +1618,6 @@ Otherwise, it assumes E is a class or type that hasn't been defined.</p>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">((</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
 
 <span class="c1">// Using CustomList with E</span>
 <span class="n">CustomList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">customStringList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CustomList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
@@ -1648,27 +1644,25 @@ Otherwise, it assumes E is a class or type that hasn't been defined.</p>
 </code></pre></div>
 <hr />
 <h2 id="what-we-learned">What We Learned<a class="headerlink" href="#what-we-learned" title="Permalink">¶</a></h2>
-<p>Java generics allow us to write flexible, type-safe code. In this post, we explored how generic interfaces and classes enhance reusability and improve readability. </p>
-<p>This reinforced our understanding of how Java Collections use generics under the hood, and how <strong>type erasure</strong> comes into play at runtime.</p>
-<p>The full Java file for this learning could be found here: <a href="https://github.com/codelogium/codelogium/blob/main/java/GenericType.java">GenericType.java</a></p>
+<p>Java generics allow us to write flexible, type-safe code. In this post, we explored how generic interfaces and classes enhance reusability and improve readability.</p>
+<p>We also saw how Java Collections use generics under the hood and discussed <strong>type erasure</strong> at runtime.</p>
+<p>The full Java file for this learning can be found here: <a href="https://github.com/codelogium/codelogium/blob/main/java/GenericType.java">GenericType.java</a></p>
 <hr />
 <h2 id="collateral-knowledge">Collateral Knowledge<a class="headerlink" href="#collateral-knowledge" title="Permalink">¶</a></h2>
 <div class="admonition info">
-<p class="admonition-title">Collateral Knowledge</p>
-<p>Along the way, we also discovered two interesting aspects of OOP: </p>
+<p class="admonition-title">Key Insights into Nested Interface and Self-Instatiating Classes in OOP</p>
+<p>Along the way, we also discovered two interesting aspects of OOP:</p>
 <ol>
 <li>
 <p><strong>Interfaces inside classes are implicitly static.</strong><br> 
 If you're declaring an interface inside a class, <strong>you can</strong> make it <code>static</code> — and <strong>you usually should</strong>, to avoid holding an implicit reference to the outer class.
-Interfaces declared inside a class are <strong>implicitly static</strong>, meaning they can be used without creating an instance of the outer class. And that's an interesting and sometimes subtle aspect of Java! <br><br>
+Interfaces declared inside a class are <strong>implicitly static</strong>, meaning they can be used without creating an instance of the outer class. And that's an interesting and sometimes subtle aspect of Java! <br>
 Even if you don’t explicitly use the static keyword, any interface declared inside a class is implicitly static by definition. This means you can reference it without creating an instance of the enclosing class, and it behaves independently of any specific instance of the outer class. An interface is implicitly <code>static</code> when declared inside a class. You don't need an instance of the outer class to use it.</p>
 </li>
 <li>
 <p><strong>Classes can instantiate themselves (and it’s totally valid)</strong><br>
-It's possible to instantiate a class from within itself in the <code>main</code> method (!like I'm creating this class, but I'm also instatiating this class in this class ... cool tho!) — something not usually needed but helpful when everything is enclosed in one file.
+It's possible to instantiate a class from within itself in the <code>main</code> method (!like I'm creating this class, but I'm also instantiating this class in this class ... cool tho!) — something not usually needed but helpful when everything is enclosed in one file.
 Because we used a single Java class to contain all the examples, we had to reference generic classes and interfaces from within the same outer class. That’s where we learned this pattern:</p>
-</li>
-</ol>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// We need an instance of the outer class to access inner non-static classes</span>
 <span class="w">    </span><span class="n">GenericType</span><span class="w"> </span><span class="n">outerInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GenericType</span><span class="p">();</span>
@@ -1678,7 +1672,10 @@ Because we used a single Java class to contain all the examples, we had to refer
 <span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">stringBox</span><span class="p">.</span><span class="na">getItem</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
+</li>
+</ol>
 </div>
+<hr />
 <h2 id="categories">Categories<a class="headerlink" href="#categories" title="Permalink">¶</a></h2>
 <ul>
 <li><a href="../../../../categories/java/">Java</a></li>
@@ -1707,7 +1704,7 @@ Because we used a single Java class to contain all the examples, we had to refer
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2025 15:38:25"><span class="timeago" datetime="2025-05-09T15:38:25+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2025 15:38:25">2025-05-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2025 19:56:51"><span class="timeago" datetime="2025-05-09T19:56:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2025 19:56:51">2025-05-09</span>
   </span>
 
     
@@ -1829,14 +1826,9 @@ Because we used a single Java class to contain all the examples, we had to refer
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      © 2025 Codelogium • Crafted with curiosity accompanied by a cup of tea.
+      © 2025 Codelogium • Crafted with curiosity accompanied by a cup of tea ☕<br> Built with ♥ using <a href="https://squidfunk.github.io/mkdocs-material/">MkDocs Material</a>
     </div>
   
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
   
 </div>
       
