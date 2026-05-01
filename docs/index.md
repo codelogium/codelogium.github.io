@@ -61,6 +61,7 @@ This is more of a log than a guide — raw, honest, sometimes chaotic.
 
 ## Sections
 
+- [🌐 Network](network/index.md)
 - [🗃️ Databases](databases/index.md)
 - [☕ Java](java/index.md)
 - [🌱 Spring](spring/index.md)

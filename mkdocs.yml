@@ -50,6 +50,10 @@ markdown_extensions:
   
 nav:
   - Home: index.md
+  - Network: 
+    - Overview: network/index.md
+    - Basic Network Concepts: blog/network/basic-network.md
+
   - Databases:
       - Overview: databases/index.md
       - Postgres vs H2: blog/post/database/postgres-vs-h2.md
