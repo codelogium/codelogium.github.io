@@ -15,7 +15,7 @@ summary: |
   Dive deeper into Java generics through interfaces, key-value pairs, and multi-type generic classes. Understand how to apply them in real use cases like repositories and collections.
 ---
 
-# Generic Types in Java
+# Basic Network Concepts
 
 <div class="blog-meta">
   <div class="blog-meta-container">
