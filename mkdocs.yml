@@ -52,7 +52,7 @@ nav:
   - Home: index.md
   - Network: 
     - Overview: network/index.md
-    - Basic Network Concepts: blog/network/network1.md
+    - Basic Network Concepts (Part I): blog/network/basic-network1.md
 
   - Databases:
       - Overview: databases/index.md
