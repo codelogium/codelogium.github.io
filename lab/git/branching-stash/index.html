@@ -6,35 +6,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A practical reference built from real experience — commands, workflows, and solutions that actually came up.">
+        <meta name="description" content="Branching strategies, stash workflows, reverting commits, resetting history, and inspecting specific commits.">
       
       
       
-        <link rel="canonical" href="https://codelogium.github.io/lab/git/">
+        <link rel="canonical" href="https://codelogium.github.io/lab/git/branching-stash/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../basics/">
       
       
-        <link rel="next" href="basics/">
+        <link rel="next" href="../remotes-workflows/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Git & GitHub - Codelogium</title>
+        <title>Branches, Stash & Undoing - Codelogium</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,11 +53,11 @@
       
     
     
-      <link rel="stylesheet" href="../../css/timeago.css">
+      <link rel="stylesheet" href="../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git-github" class="md-skip">
+        <a href="#branches-stash-undoing" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Codelogium" class="md-header__button md-logo" aria-label="Codelogium" data-md-component="logo">
+    <a href="../../.." title="Codelogium" class="md-header__button md-logo" aria-label="Codelogium" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Git & GitHub
+              Branches, Stash & Undoing
             
           </span>
         </div>
@@ -239,7 +239,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -260,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../network/" class="md-tabs__link">
+        <a href="../../../network/" class="md-tabs__link">
           
   
   
@@ -282,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../databases/" class="md-tabs__link">
+        <a href="../../../databases/" class="md-tabs__link">
           
   
   
@@ -304,7 +304,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../java/" class="md-tabs__link">
+        <a href="../../../java/" class="md-tabs__link">
           
   
   
@@ -326,7 +326,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../spring/" class="md-tabs__link">
+        <a href="../../../spring/" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -372,7 +372,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
   
@@ -394,7 +394,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../categories/" class="md-tabs__link">
+        <a href="../../../categories/" class="md-tabs__link">
           
   
   
@@ -430,7 +430,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Codelogium" class="md-nav__button md-logo" aria-label="Codelogium" data-md-component="logo">
+    <a href="../../.." title="Codelogium" class="md-nav__button md-logo" aria-label="Codelogium" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -460,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -510,7 +510,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../network/" class="md-nav__link ">
+            <a href="../../../network/" class="md-nav__link ">
               
   
   
@@ -554,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/post/network/basic-network1/" class="md-nav__link">
+      <a href="../../../blog/post/network/basic-network1/" class="md-nav__link">
         
   
   
@@ -614,7 +614,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../databases/" class="md-nav__link ">
+            <a href="../../../databases/" class="md-nav__link ">
               
   
   
@@ -658,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/post/database/postgres-vs-h2/" class="md-nav__link">
+      <a href="../../../blog/post/database/postgres-vs-h2/" class="md-nav__link">
         
   
   
@@ -686,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/post/database/hibernate-tips/" class="md-nav__link">
+      <a href="../../../blog/post/database/hibernate-tips/" class="md-nav__link">
         
   
   
@@ -744,7 +744,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../java/" class="md-nav__link ">
+            <a href="../../../java/" class="md-nav__link ">
               
   
   
@@ -788,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/post/java/generic-types/" class="md-nav__link">
+      <a href="../../../blog/post/java/generic-types/" class="md-nav__link">
         
   
   
@@ -846,7 +846,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../spring/" class="md-nav__link ">
+            <a href="../../../spring/" class="md-nav__link ">
               
   
   
@@ -890,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/jwt-auth/" class="md-nav__link">
+      <a href="../../../spring/jwt-auth/" class="md-nav__link">
         
   
   
@@ -953,7 +953,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -1026,7 +1026,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1044,7 +1044,7 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -1070,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="basics/" class="md-nav__link">
+      <a href="../basics/" class="md-nav__link">
         
   
   
@@ -1095,10 +1095,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="branching-stash/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Branches, Stash & Undoing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1114,6 +1141,283 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of content">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branches
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#branch-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branch Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merging
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branch-naming-sub-branches-dont-exist-in-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branch Naming — Sub-branches Don't Exist in Git
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Branch Naming — Sub-branches Don&#39;t Exist in Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Naming Conventions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moving-uncommitted-work-to-a-new-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving Uncommitted Work to a New Branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-stash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Stash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Stash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-stash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Stash Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stash-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stash Naming Convention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renaming-a-stash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Renaming a Stash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-a-stash-before-applying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspecting a Stash Before Applying
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-only-specific-files-from-a-stash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applying Only Specific Files from a Stash
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undoing-reverting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Undoing &amp; Reverting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Undoing &amp; Reverting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#revert-a-commit-safe-creates-a-new-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revert a Commit (Safe — Creates a New Commit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revert-a-repository-to-a-previous-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revert a Repository to a Previous Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-the-last-commit-locally-and-remotely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete the Last Commit Locally and Remotely
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-local-commit-interactive-rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete a Local Commit (Interactive Rebase)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-prune" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Prune
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#divergent-branches-on-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Divergent Branches on Pull
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ways-of-resolving-git-push-rejected-non-fast-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ways of Resolving git push rejected non-fast-forward
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categories
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1126,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="remotes-workflows/" class="md-nav__link">
+      <a href="../remotes-workflows/" class="md-nav__link">
         
   
   
@@ -1196,7 +1500,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   
@@ -1240,7 +1544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/random-thought/" class="md-nav__link">
+      <a href="../../../blog/random-thought/" class="md-nav__link">
         
   
   
@@ -1268,7 +1572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/things-i-learned/" class="md-nav__link">
+      <a href="../../../blog/things-i-learned/" class="md-nav__link">
         
   
   
@@ -1296,7 +1600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -1358,7 +1662,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../categories/" class="md-nav__link ">
+            <a href="../../../categories/" class="md-nav__link ">
               
   
   
@@ -1402,7 +1706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../categories/java/" class="md-nav__link">
+      <a href="../../../categories/java/" class="md-nav__link">
         
   
   
@@ -1430,7 +1734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../categories/programming/" class="md-nav__link">
+      <a href="../../../categories/programming/" class="md-nav__link">
         
   
   
@@ -1458,7 +1762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../categories/oop/" class="md-nav__link">
+      <a href="../../../categories/oop/" class="md-nav__link">
         
   
   
@@ -1515,10 +1819,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#whats-inside" class="md-nav__link">
+  <a href="#branches" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What's Inside
+        Branches
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#branch-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branch Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merging
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branch-naming-sub-branches-dont-exist-in-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branch Naming — Sub-branches Don't Exist in Git
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Branch Naming — Sub-branches Don&#39;t Exist in Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Naming Conventions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moving-uncommitted-work-to-a-new-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving Uncommitted Work to a New Branch
       
     </span>
   </a>
@@ -1526,10 +1897,143 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
+  <a href="#git-stash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Reference
+        Git Stash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Stash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-stash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Stash Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stash-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stash Naming Convention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renaming-a-stash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Renaming a Stash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-a-stash-before-applying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspecting a Stash Before Applying
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-only-specific-files-from-a-stash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applying Only Specific Files from a Stash
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undoing-reverting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Undoing &amp; Reverting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Undoing &amp; Reverting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#revert-a-commit-safe-creates-a-new-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revert a Commit (Safe — Creates a New Commit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revert-a-repository-to-a-previous-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revert a Repository to a Previous Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-the-last-commit-locally-and-remotely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete the Last Commit Locally and Remotely
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-local-commit-interactive-rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete a Local Commit (Interactive Rebase)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-prune" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Prune
       
     </span>
   </a>
@@ -1537,10 +2041,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
+  <a href="#divergent-branches-on-pull" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resources
+        Divergent Branches on Pull
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ways-of-resolving-git-push-rejected-non-fast-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ways of Resolving git push rejected non-fast-forward
       
     </span>
   </a>
@@ -1579,6 +2094,13 @@
       
       
       
+        <span class="md-tag">Branches</span>
+      
+    
+      
+      
+      
+      
         <span class="md-tag">Git</span>
       
     
@@ -1586,21 +2108,14 @@
       
       
       
-        <span class="md-tag">GitHub</span>
+        <span class="md-tag">Revert</span>
       
     
       
       
       
       
-        <span class="md-tag">Version Control</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Workflow</span>
+        <span class="md-tag">Stash</span>
       
     
   </nav>
@@ -1610,71 +2125,171 @@
   
 
 
-<h1 id="git-github">Git &amp; GitHub<a class="headerlink" href="#git-github" title="Permalink">¶</a></h1>
+<h1 id="branches-stash-undoing">Branches, Stash &amp; Undoing<a class="headerlink" href="#branches-stash-undoing" title="Permalink">¶</a></h1>
 <div class="blog-meta">
   <div class="blog-meta-container">
     <span class="meta-content">
       By —<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
       &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/git/"><em>Git</em></a>&nbsp;•&nbsp;
-         <a href="/categories/github/"><em>GitHub</em></a>&nbsp;•&nbsp;
-         <a href="/categories/workflow/"><em>Workflow</em></a>&nbsp;•&nbsp;
-      ⏱️ ~3 min read</span>
+      ⏱️ ~6 min read</span>
     </span>
   </div>
 </div>
 
 <blockquote>
-<p>"Version control is not just a tool — it's a habit."</p>
+<p>"A branch is a lightweight movable pointer to one of these commits."</p>
 </blockquote>
-<p>Git is a <strong>distributed version control system</strong> for tracking changes in files, coordinating work across multiple developers, and reverting to any point in history. GitHub extends that with remote hosting, collaboration, and workflow automation.</p>
-<p>This section is a <strong>living reference</strong> — not a tutorial. Every entry here came from a real situation: a merge gone wrong, a stale creation date, a pushed commit that shouldn't have been, a branch tracking the wrong remote. If it happened, it's here.</p>
 <hr />
-<h2 id="whats-inside">What's Inside<a class="headerlink" href="#whats-inside" title="Permalink">¶</a></h2>
-<p><strong><a href="basics/">Basics &amp; Daily Commands</a></strong></p>
-<p>The commands you run every day — init, add, commit, status, .gitignore, aliases, and commit message conventions.</p>
-<hr />
-<p><strong><a href="branching-stash/">Branches, Stash &amp; Undoing</a></strong></p>
-<p>Branching strategies, stash workflows, reverting commits, resetting history, and inspecting specific commits.</p>
-<hr />
-<p><strong><a href="remotes-workflows/">Remotes, GitHub &amp; Workflows</a></strong></p>
-<p>Push, pull, SSH setup, fork workflows, multiple Git identities, divergent branches, and Git LFS.</p>
-<hr />
-<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permalink">¶</a></h2>
-<p>The commands you reach for daily — no need to open a full article:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status<span class="w">                        </span><span class="c1"># what&#39;s going on</span>
-git<span class="w"> </span>add<span class="w"> </span>.<span class="w">                         </span><span class="c1"># stage everything</span>
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add thing&quot;</span><span class="w">   </span><span class="c1"># commit with message</span>
-git<span class="w"> </span>push<span class="w">                          </span><span class="c1"># push to remote</span>
-git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w">                 </span><span class="c1"># pull and keep history linear</span>
-
-git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;wip/my-work&quot;</span><span class="w">   </span><span class="c1"># stash with a name</span>
-git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">                     </span><span class="c1"># apply and drop latest stash</span>
-git<span class="w"> </span>stash<span class="w"> </span>list<span class="w">                    </span><span class="c1"># see all stashes</span>
-
-git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-10<span class="w">             </span><span class="c1"># last 10 commits at a glance</span>
-git<span class="w"> </span>diff<span class="w">                          </span><span class="c1"># unstaged changes</span>
-git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>.<span class="w">            </span><span class="c1"># unstage everything</span>
-
-git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feat/my-feature<span class="w">     </span><span class="c1"># create and switch to new branch</span>
-git<span class="w"> </span>merge<span class="w"> </span>&lt;branch&gt;<span class="w">                </span><span class="c1"># merge branch into current</span>
-git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>&lt;branch&gt;<span class="w">            </span><span class="c1"># delete local branch</span>
+<h2 id="branches">Branches<a class="headerlink" href="#branches" title="Permalink">¶</a></h2>
+<p>A branch is a lightweight movable pointer to a commit. Creating a branch means creating a new pointer to move around. <code>main</code> (or <code>master</code>) is the default branch.</p>
+<h3 id="branch-commands">Branch Commands<a class="headerlink" href="#branch-commands" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>&lt;name&gt;<span class="w">                                </span><span class="c1"># Create a new branch</span>
+git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>&lt;name&gt;<span class="w">                             </span><span class="c1"># Create and switch to new branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;name&gt;<span class="w">                           </span><span class="c1"># Same as above (older syntax)</span>
+git<span class="w"> </span>checkout<span class="w"> </span>&lt;name&gt;<span class="w">                              </span><span class="c1"># Switch to a branch</span>
+git<span class="w"> </span>branch<span class="w"> </span>-a<span class="w">                                    </span><span class="c1"># List all local and remote branches</span>
+git<span class="w"> </span>branch<span class="w"> </span>-r<span class="w">                                    </span><span class="c1"># List only remote branches</span>
+git<span class="w"> </span>show-branch<span class="w">                                  </span><span class="c1"># List branches with their commits</span>
+git<span class="w"> </span>rev-parse<span class="w"> </span>--abbrev-ref<span class="w"> </span>HEAD<span class="w">                  </span><span class="c1"># Show current branch name only</span>
+git<span class="w"> </span>branch<span class="w"> </span>-m<span class="w"> </span>old-name<span class="w"> </span>new-name<span class="w">                  </span><span class="c1"># Rename a branch</span>
+git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>&lt;name&gt;<span class="w">                             </span><span class="c1"># Delete a local branch</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;name&gt;<span class="w">                           </span><span class="c1"># Push and create remote branch</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>&lt;name&gt;<span class="w">                  </span><span class="c1"># Delete a remote branch</span>
+git<span class="w"> </span>branch<span class="w"> </span>--set-upstream-to<span class="o">=</span>origin/&lt;name&gt;<span class="w">       </span><span class="c1"># Set branch to track remote</span>
+git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>&lt;name&gt;<span class="w">            </span><span class="c1"># Push and set upstream in one command</span>
+</code></pre></div>
+<h3 id="merging">Merging<a class="headerlink" href="#merging" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>&lt;branch&gt;<span class="w">                               </span><span class="c1"># Merge branch into current (be on target branch)</span>
 </code></pre></div>
 <hr />
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permalink">¶</a></h2>
+<h2 id="branch-naming-sub-branches-dont-exist-in-git">Branch Naming — Sub-branches Don't Exist in Git<a class="headerlink" href="#branch-naming-sub-branches-dont-exist-in-git" title="Permalink">¶</a></h2>
+<p>Git has no concept of sub-branches. The <code>/</code> in a branch name is just a string character — purely a human convention for visual grouping.</p>
+<div class="highlight"><pre><span></span><code>feat/FeatureName
+test/feat/FeatureName<span class="w">     </span><span class="c1"># only &quot;related&quot; by name — Git has no idea</span>
+</code></pre></div>
+<p>Git sees both as equal, independent branches. The naming is for <strong>you</strong>, not for Git.</p>
+<h3 id="common-naming-conventions">Common Naming Conventions<a class="headerlink" href="#common-naming-conventions" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>feat/&lt;feature-name&gt;<span class="w">        </span><span class="c1"># new feature</span>
+fix/&lt;bug-description&gt;<span class="w">      </span><span class="c1"># bug fix</span>
+refactor/&lt;scope&gt;<span class="w">           </span><span class="c1"># refactoring</span>
+chore/&lt;task&gt;<span class="w">               </span><span class="c1"># maintenance</span>
+test/&lt;what-youre-testing&gt;<span class="w">  </span><span class="c1"># local test branches</span>
+</code></pre></div>
+<hr />
+<h2 id="moving-uncommitted-work-to-a-new-branch">Moving Uncommitted Work to a New Branch<a class="headerlink" href="#moving-uncommitted-work-to-a-new-branch" title="Permalink">¶</a></h2>
+<p>If you made changes on the wrong branch:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feat/correct-branch<span class="w">               </span><span class="c1"># uncommitted changes travel with you</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: your message&quot;</span>
+</code></pre></div>
+<p>If you already committed on the wrong branch:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1<span class="w">                          </span><span class="c1"># undo commit, keep changes staged</span>
+git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feat/correct-branch
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: your message&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="git-stash">Git Stash<a class="headerlink" href="#git-stash" title="Permalink">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Uncommitted changes live in the <strong>working directory and staging area</strong>, not in a specific branch. Always stash before switching branches when work is still in progress.</p>
+</div>
+<h3 id="basic-stash-commands">Basic Stash Commands<a class="headerlink" href="#basic-stash-commands" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w">                                        </span><span class="c1"># Stash current changes</span>
+git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="w">                      </span><span class="c1"># Stash with a descriptive name</span>
+git<span class="w"> </span>stash<span class="w"> </span>list<span class="w">                                   </span><span class="c1"># List all stashes</span>
+git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w">                                  </span><span class="c1"># Apply latest stash (keeps it in list)</span>
+git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w"> </span>&lt;index&gt;<span class="w">                          </span><span class="c1"># Apply a specific stash by index</span>
+git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">                                    </span><span class="c1"># Apply and drop latest stash</span>
+git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w"> </span>&lt;index&gt;<span class="w">                            </span><span class="c1"># Apply and drop specific stash</span>
+git<span class="w"> </span>stash<span class="w"> </span>drop<span class="w"> </span>&lt;index&gt;<span class="w">                           </span><span class="c1"># Delete a specific stash</span>
+git<span class="w"> </span>stash<span class="w"> </span>clear<span class="w">                                  </span><span class="c1"># Delete all stashes</span>
+</code></pre></div>
+<h3 id="stash-naming-convention">Stash Naming Convention<a class="headerlink" href="#stash-naming-convention" title="Permalink">¶</a></h3>
+<p>Always name stashes with a prefix for clarity:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;local/properties-logback&quot;</span><span class="w">    </span><span class="c1"># config files reused across branches, never pushed</span>
+git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;wip/&lt;branch&gt;-description&quot;</span><span class="w">    </span><span class="c1"># WIP code tied to a specific branch</span>
+git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test/what-youre-testing&quot;</span><span class="w">     </span><span class="c1"># local test data only</span>
+git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;drop/whatever&quot;</span><span class="w">               </span><span class="c1"># marked for deletion</span>
+</code></pre></div>
+<p><strong>Golden rules:</strong></p>
 <ul>
-<li><a href="https://git-scm.com/doc">Official Git Documentation</a></li>
-<li><a href="https://www.conventionalcommits.org/">Conventional Commits Spec</a></li>
-<li><a href="https://git-scm.com/docs/gitignore">gitignore patterns</a></li>
-<li><a href="https://help.github.com/en/github/using-git/ignoring-files">Ignoring files — GitHub Docs</a></li>
-<li><a href="https://git-lfs.com/">Git LFS</a></li>
-<li><a href="https://christoph.ruegg.name/blog/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html">Revert a pushed commit</a></li>
-<li><a href="https://stackoverflow.com/questions/20467179/git-push-rejected-non-fast-forward">Fix non-fast-forward push errors</a></li>
+<li>Keep <strong>one</strong> <code>local/</code> config stash total — pop it, use it, re-stash it. Never duplicate</li>
+<li>Never commit with local config applied — re-stash before <code>git push</code></li>
+<li>Never mix <code>wip/</code> and <code>local/</code> in the same stash — stash them separately</li>
+<li>Drop a <code>wip/</code> stash as soon as its branch is merged</li>
 </ul>
+<h3 id="renaming-a-stash">Renaming a Stash<a class="headerlink" href="#renaming-a-stash" title="Permalink">¶</a></h3>
+<p>Git has no native rename command — pop and re-stash:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w"> </span>stash@<span class="o">{</span>N<span class="o">}</span><span class="w">                          </span><span class="c1"># pop the one to rename</span>
+git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;proper/name&quot;</span><span class="w">                  </span><span class="c1"># re-stash with the correct name</span>
+</code></pre></div>
+<h3 id="inspecting-a-stash-before-applying">Inspecting a Stash Before Applying<a class="headerlink" href="#inspecting-a-stash-before-applying" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span>show<span class="w"> </span>-p<span class="w"> </span>stash@<span class="o">{</span>N<span class="o">}</span><span class="w">                      </span><span class="c1"># full diff of stash N</span>
+git<span class="w"> </span>show<span class="w"> </span>stash@<span class="o">{</span>N<span class="o">}</span>:path/to/file<span class="w">                  </span><span class="c1"># see one specific file from a stash</span>
+git<span class="w"> </span>diff<span class="w"> </span>stash@<span class="o">{</span>N<span class="o">}</span><span class="w"> </span>--<span class="w"> </span>path/to/file<span class="w">               </span><span class="c1"># compare stash version vs current</span>
+</code></pre></div>
+<h3 id="applying-only-specific-files-from-a-stash">Applying Only Specific Files from a Stash<a class="headerlink" href="#applying-only-specific-files-from-a-stash" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span><span class="w"> </span>--<span class="w"> </span>path/to/file.java<span class="w">      </span><span class="c1"># cherry-pick one file from a stash</span>
+</code></pre></div>
+<hr />
+<h2 id="undoing-reverting">Undoing &amp; Reverting<a class="headerlink" href="#undoing-reverting" title="Permalink">¶</a></h2>
+<h3 id="revert-a-commit-safe-creates-a-new-commit">Revert a Commit (Safe — Creates a New Commit)<a class="headerlink" href="#revert-a-commit-safe-creates-a-new-commit" title="Permalink">¶</a></h3>
+<p>Reverting creates a new commit that undoes the changes of a previous one. The original commit stays in history.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>revert<span class="w"> </span>&lt;commit-id&gt;<span class="w">                           </span><span class="c1"># revert a specific commit</span>
+</code></pre></div>
+<h3 id="revert-a-repository-to-a-previous-commit">Revert a Repository to a Previous Commit<a class="headerlink" href="#revert-a-repository-to-a-previous-commit" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>revert<span class="w"> </span>--no-commit<span class="w"> </span>0766c053..HEAD
+git<span class="w"> </span>commit
+git<span class="w"> </span>push
+</code></pre></div>
+<h3 id="delete-the-last-commit-locally-and-remotely">Delete the Last Commit Locally and Remotely<a class="headerlink" href="#delete-the-last-commit-locally-and-remotely" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>HEAD^<span class="w"> </span>--hard<span class="w">                           </span><span class="c1"># reset local branch to parent commit</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>-f<span class="w">                               </span><span class="c1"># force push to remote</span>
+</code></pre></div>
+<p>Or using the commit hash directly:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>+&lt;commit-hash&gt;^:master<span class="w">           </span><span class="c1"># force remote to parent of that commit</span>
+</code></pre></div>
+<h3 id="delete-a-local-commit-interactive-rebase">Delete a Local Commit (Interactive Rebase)<a class="headerlink" href="#delete-a-local-commit-interactive-rebase" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~x<span class="w">                             </span><span class="c1"># x = number of commits back to edit</span>
+</code></pre></div>
+<p>In the editor, change <code>pick</code> to <code>drop</code> for the commit you want to remove.</p>
+<hr />
+<h2 id="git-prune">Git Prune<a class="headerlink" href="#git-prune" title="Permalink">¶</a></h2>
+<p>Cleans up unreachable or orphaned git objects and outdated remote branch references:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>prune<span class="w">                                        </span><span class="c1"># clean up unreachable objects</span>
+git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--prune<span class="w">                          </span><span class="c1"># fetch and clean outdated remote branches</span>
+</code></pre></div>
+<hr />
+<h2 id="divergent-branches-on-pull">Divergent Branches on Pull<a class="headerlink" href="#divergent-branches-on-pull" title="Permalink">¶</a></h2>
+<p>Happens when two sources commit to the same branch (e.g. you locally + GitHub Actions). Git refuses to pull without knowing how to reconcile.</p>
+<p>Fix permanently:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>pull.rebase<span class="w"> </span><span class="nb">true</span><span class="w">             </span><span class="c1"># always rebase instead of merge on pull</span>
+</code></pre></div>
+<p>For a one-time fix:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w"> </span>origin<span class="w"> </span>&lt;branch-name&gt;
+</code></pre></div>
+<hr />
+<h2 id="ways-of-resolving-git-push-rejected-non-fast-forward">Ways of Resolving <code>git push rejected non-fast-forward</code><a class="headerlink" href="#ways-of-resolving-git-push-rejected-non-fast-forward" title="Permalink">¶</a></h2>
+<p>Start with:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>origin
+</code></pre></div>
+<p>If that doesn't work, fetch and rebase manually:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>origin<span class="w"> </span>feature/my-branch:tmp<span class="w">           </span><span class="c1"># fetch remote branch to tmp</span>
+git<span class="w"> </span>rebase<span class="w"> </span>tmp<span class="w">                                   </span><span class="c1"># rebase on it</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>HEAD:feature/my-branch<span class="w">           </span><span class="c1"># push rebased changes</span>
+git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>tmp<span class="w">                                </span><span class="c1"># clean up temp branch</span>
+</code></pre></div>
+<p>Or the simpler approach:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch
+git<span class="w"> </span>rebase<span class="w"> </span>feature/my-branch
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/my-branch
+</code></pre></div>
+<p>See more approaches <a href="https://stackoverflow.com/questions/20467179/git-push-rejected-non-fast-forward">here</a>.</p>
 <h2 id="categories">Categories<a class="headerlink" href="#categories" title="Permalink">¶</a></h2>
 <ul>
-<li><a href="../../categories/git/">Git</a></li>
-<li><a href="../../categories/github/">GitHub</a></li>
-<li><a href="../../categories/workflow/">Workflow</a></li>
+<li><a href="../../../categories/git/">Git</a></li>
+<li><a href="../../../categories/github/">GitHub</a></li>
+<li><a href="../../../categories/workflow/">Workflow</a></li>
 </ul>
 
 
@@ -1698,7 +2313,7 @@ git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </sp
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 11:03:09 UTC"><span class="timeago" datetime="2026-05-09T11:03:09+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 11:03:09 UTC">2026-05-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 12:00:05 UTC"><span class="timeago" datetime="2026-05-09T12:00:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 12:00:05 UTC">2026-05-09</span>
   </span>
 
     
@@ -1708,7 +2323,7 @@ git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </sp
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 10:47:34 UTC"><span class="timeago" datetime="2026-05-09T10:47:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 10:47:34 UTC">2026-05-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 12:00:05 UTC"><span class="timeago" datetime="2026-05-09T12:00:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 12:00:05 UTC">2026-05-09</span>
   </span>
 
     
@@ -1868,16 +2483,16 @@ git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </sp
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes", "content.tabs.link", "content.code.copy", "search.suggest", "content.code.annotate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes", "content.tabs.link", "content.code.copy", "search.suggest", "content.code.annotate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../js/timeago.min.js"></script>
+        <script src="../../../js/timeago.min.js"></script>
       
-        <script src="../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../javascript/extra.js"></script>
+        <script src="../../../javascript/extra.js"></script>
       
     
   </body>

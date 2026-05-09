@@ -6,35 +6,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Developer logs, notes, and learning paths">
+        <meta name="description" content="The git commands you use every day — init, add, commit, status, .gitignore, aliases, and commit message conventions.">
       
       
       
-        <link rel="canonical" href="https://codelogium.github.io/blog/post/network/basic-network1/">
+        <link rel="canonical" href="https://codelogium.github.io/lab/git/basics/">
       
       
-        <link rel="prev" href="../../../../network/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../../../databases/">
+        <link rel="next" href="../branching-stash/">
       
       
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Basic Network Concepts (Part I) - Codelogium</title>
+        <title>Basics & Daily Commands - Codelogium</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,11 +53,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../../css/timeago.css">
+      <link rel="stylesheet" href="../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#basic-network-concept-part-i" class="md-skip">
+        <a href="#basics-daily-commands" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Codelogium" class="md-header__button md-logo" aria-label="Codelogium" data-md-component="logo">
+    <a href="../../.." title="Codelogium" class="md-header__button md-logo" aria-label="Codelogium" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Basic Network Concepts (Part I)
+              Basics & Daily Commands
             
           </span>
         </div>
@@ -239,7 +239,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -256,13 +256,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../../network/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../network/" class="md-tabs__link">
           
   
   
@@ -284,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../databases/" class="md-tabs__link">
+        <a href="../../../databases/" class="md-tabs__link">
           
   
   
@@ -306,7 +304,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../java/" class="md-tabs__link">
+        <a href="../../../java/" class="md-tabs__link">
           
   
   
@@ -328,7 +326,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../spring/" class="md-tabs__link">
+        <a href="../../../spring/" class="md-tabs__link">
           
   
   
@@ -346,11 +344,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../lab/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -372,7 +372,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
   
@@ -394,7 +394,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../categories/" class="md-tabs__link">
+        <a href="../../../categories/" class="md-tabs__link">
           
   
   
@@ -430,7 +430,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Codelogium" class="md-nav__button md-logo" aria-label="Codelogium" data-md-component="logo">
+    <a href="../../.." title="Codelogium" class="md-nav__button md-logo" aria-label="Codelogium" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -460,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -484,8 +484,6 @@
       
   
   
-    
-  
   
   
     
@@ -501,21 +499,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../network/" class="md-nav__link ">
+            <a href="../../../network/" class="md-nav__link ">
               
   
   
@@ -533,13 +528,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -556,19 +551,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../blog/post/network/basic-network1/" class="md-nav__link">
         
   
   
@@ -584,7 +570,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -629,7 +614,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../databases/" class="md-nav__link ">
+            <a href="../../../databases/" class="md-nav__link ">
               
   
   
@@ -673,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../database/postgres-vs-h2/" class="md-nav__link">
+      <a href="../../../blog/post/database/postgres-vs-h2/" class="md-nav__link">
         
   
   
@@ -701,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../database/hibernate-tips/" class="md-nav__link">
+      <a href="../../../blog/post/database/hibernate-tips/" class="md-nav__link">
         
   
   
@@ -759,7 +744,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../java/" class="md-nav__link ">
+            <a href="../../../java/" class="md-nav__link ">
               
   
   
@@ -803,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/generic-types/" class="md-nav__link">
+      <a href="../../../blog/post/java/generic-types/" class="md-nav__link">
         
   
   
@@ -861,7 +846,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../spring/" class="md-nav__link ">
+            <a href="../../../spring/" class="md-nav__link ">
               
   
   
@@ -905,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../spring/jwt-auth/" class="md-nav__link">
+      <a href="../../../spring/jwt-auth/" class="md-nav__link">
         
   
   
@@ -937,6 +922,8 @@
       
   
   
+    
+  
   
   
     
@@ -952,18 +939,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../lab/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -981,13 +971,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1004,6 +994,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1026,15 +1018,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../lab/git/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1058,7 +1050,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1075,10 +1067,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../lab/git/basics/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics & Daily Commands
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1094,6 +1113,216 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of content">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Git
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-repository-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Repository Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amending-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amending Commits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amending Commits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-last-commit-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the last commit message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amend-the-last-commit-author" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amend the last commit author
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .gitignore
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Aliases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-message-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Message Convention
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commit Message Convention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspecting-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspecting History
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categories
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1106,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../lab/git/branching-stash/" class="md-nav__link">
+      <a href="../branching-stash/" class="md-nav__link">
         
   
   
@@ -1134,7 +1363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../lab/git/remotes-workflows/" class="md-nav__link">
+      <a href="../remotes-workflows/" class="md-nav__link">
         
   
   
@@ -1204,7 +1433,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   
@@ -1248,7 +1477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../random-thought/" class="md-nav__link">
+      <a href="../../../blog/random-thought/" class="md-nav__link">
         
   
   
@@ -1276,7 +1505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../things-i-learned/" class="md-nav__link">
+      <a href="../../../blog/things-i-learned/" class="md-nav__link">
         
   
   
@@ -1304,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -1366,7 +1595,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../categories/" class="md-nav__link ">
+            <a href="../../../categories/" class="md-nav__link ">
               
   
   
@@ -1410,7 +1639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../categories/java/" class="md-nav__link">
+      <a href="../../../categories/java/" class="md-nav__link">
         
   
   
@@ -1438,7 +1667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../categories/programming/" class="md-nav__link">
+      <a href="../../../categories/programming/" class="md-nav__link">
         
   
   
@@ -1466,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../categories/oop/" class="md-nav__link">
+      <a href="../../../categories/oop/" class="md-nav__link">
         
   
   
@@ -1516,6 +1745,202 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Git
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-repository-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Repository Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amending-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amending Commits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amending Commits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-last-commit-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the last commit message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amend-the-last-commit-author" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amend the last commit author
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .gitignore
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Aliases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-message-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Message Convention
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commit Message Convention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspecting-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspecting History
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categories
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1529,13 +1954,239 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">Basics</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">Commands</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">Commit</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">Git</span>
+      
+    
+  </nav>
+
 
   
   
 
 
-<h1 id="basic-network-concept-part-i">Basic Network Concept (Part I)<a class="headerlink" href="#basic-network-concept-part-i" title="Permalink">¶</a></h1>
-<p>coming Soon</p>
+<h1 id="basics-daily-commands">Basics &amp; Daily Commands<a class="headerlink" href="#basics-daily-commands" title="Permalink">¶</a></h1>
+<div class="blog-meta">
+  <div class="blog-meta-container">
+    <span class="meta-content">
+      By —<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
+      &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/git/"><em>Git</em></a>&nbsp;•&nbsp;
+      ⏱️ ~5 min read</span>
+    </span>
+  </div>
+</div>
+
+<blockquote>
+<p>"You decide when to take a snapshot by making a commit."</p>
+</blockquote>
+<hr />
+<h2 id="what-is-git">What is Git<a class="headerlink" href="#what-is-git" title="Permalink">¶</a></h2>
+<p>Git is a <strong>Version Control System (VCS)</strong> for tracking changes in computer files.</p>
+<ul>
+<li>Distributed version control</li>
+<li>Coordinates work between multiple developers</li>
+<li>Tracks who made what changes and when</li>
+<li>Allows reverting back to any point in time</li>
+<li>Supports both local and remote repositories</li>
+</ul>
+<hr />
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink">¶</a></h2>
+<ul>
+<li>Keeps track of code history</li>
+<li>Takes <strong>snapshots</strong> of your files</li>
+<li>You decide when to take a snapshot by making a <strong>commit</strong></li>
+<li>You can visit any snapshot at any time</li>
+<li>You can <strong>stage</strong> files before committing</li>
+</ul>
+<hr />
+<h2 id="local-repository-commands">Local Repository Commands<a class="headerlink" href="#local-repository-commands" title="Permalink">¶</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>init<span class="w">                                         </span><span class="c1"># Initialize local git repository</span>
+git<span class="w"> </span>add<span class="w"> </span>&lt;file&gt;<span class="w">                                   </span><span class="c1"># Add a file to the staging area</span>
+git<span class="w"> </span>add<span class="w"> </span>.<span class="w">                                        </span><span class="c1"># Add all files to the staging area</span>
+git<span class="w"> </span>add<span class="w"> </span>*.extension<span class="w">                              </span><span class="c1"># Add all files with a specific extension</span>
+git<span class="w"> </span>status<span class="w">                                       </span><span class="c1"># Check status of working tree</span>
+git<span class="w"> </span>commit<span class="w">                                       </span><span class="c1"># Commit changes (opens editor)</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;message&#39;</span><span class="w">                          </span><span class="c1"># Commit with inline message</span>
+git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>--allow-empty-message<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">        </span><span class="c1"># Commit with no message</span>
+git<span class="w"> </span>reset<span class="w"> </span>HEAD<span class="w"> </span>&lt;file&gt;<span class="w">                            </span><span class="c1"># Unstage a specific file</span>
+git<span class="w"> </span>rm<span class="w"> </span>--cached<span class="w"> </span>&lt;file&gt;<span class="w">                           </span><span class="c1"># Remove a file from the staging area</span>
+git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>.<span class="w">                           </span><span class="c1"># Unstage everything</span>
+git<span class="w"> </span>restore<span class="w"> </span>-S<span class="w"> </span>.<span class="w">                                 </span><span class="c1"># Shorthand for unstage everything</span>
+git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>&lt;file&gt;<span class="w">                           </span><span class="c1"># Discard changes in working directory</span>
+</code></pre></div>
+<hr />
+<h2 id="git-configuration">Git Configuration<a class="headerlink" href="#git-configuration" title="Permalink">¶</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s1">&#39;Your Name&#39;</span><span class="w">        </span><span class="c1"># Set your name</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s1">&#39;your@email.com&#39;</span><span class="w">  </span><span class="c1"># Set your email</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span>store<span class="w">      </span><span class="c1"># Store credentials permanently</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span>cache<span class="w">      </span><span class="c1"># Cache credentials for a session</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span><span class="s1">&#39;cache --timeout=600&#39;</span><span class="w">  </span><span class="c1"># Cache with timeout</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>pull.rebase<span class="w"> </span><span class="nb">true</span><span class="w">             </span><span class="c1"># Always rebase on pull (linear history)</span>
+</code></pre></div>
+<hr />
+<h2 id="amending-commits">Amending Commits<a class="headerlink" href="#amending-commits" title="Permalink">¶</a></h2>
+<h3 id="change-the-last-commit-message">Change the last commit message<a class="headerlink" href="#change-the-last-commit-message" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w">                               </span><span class="c1"># Opens editor to change last commit message</span>
+git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;New commit message&quot;</span><span class="w">       </span><span class="c1"># Change inline without opening editor</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Make sure you have no staged changes before amending, or they'll be included in the commit.</p>
+</div>
+<h3 id="amend-the-last-commit-author">Amend the last commit author<a class="headerlink" href="#amend-the-last-commit-author" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>--reset-author<span class="w"> </span>--no-edit<span class="w">      </span><span class="c1"># Fix author of last commit</span>
+git<span class="w"> </span>log<span class="w"> </span>-1<span class="w"> </span>--pretty<span class="o">=</span>format:<span class="s2">&quot;%an &lt;%ae&gt;&quot;</span><span class="w">           </span><span class="c1"># Verify the author is correct</span>
+git<span class="w"> </span>push<span class="w"> </span>--force-with-lease<span class="w">                      </span><span class="c1"># Force push safely after amend</span>
+</code></pre></div>
+<hr />
+<h2 id="gitignore">.gitignore<a class="headerlink" href="#gitignore" title="Permalink">¶</a></h2>
+<p>Contains all files and folders you don't want tracked in your repository. Create a <code>.gitignore</code> file in the root of your repo and list files or patterns to ignore.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example .gitignore entries</span>
+*.log
+*.env
+node_modules/
+target/
+.idea/
+</code></pre></div>
+<details class="tip">
+<summary>Other ways to ignore files</summary>
+<ul>
+<li>Add entries to <code>.git/info/exclude</code> — works like <code>.gitignore</code> but stays local and never shows in <code>git status</code></li>
+<li><code>.gitignore</code> can ignore itself, but adding it to <code>.git/info/exclude</code> is cleaner</li>
+</ul>
+</details>
+<p>See the <a href="https://git-scm.com/docs/gitignore">official gitignore documentation</a> and <a href="https://help.github.com/en/github/using-git/ignoring-files">GitHub's guide on ignoring files</a> for pattern syntax.</p>
+<hr />
+<h2 id="git-aliases">Git Aliases<a class="headerlink" href="#git-aliases" title="Permalink">¶</a></h2>
+<p>Aliases let you create shortcuts for long or frequently used commands. Configure them in <code>~/.gitconfig</code> or <code>.git/config</code>:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.co<span class="w"> </span>checkout<span class="w">           </span><span class="c1"># git co instead of git checkout</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.st<span class="w"> </span>status<span class="w">             </span><span class="c1"># git st instead of git status</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.lg<span class="w"> </span><span class="s2">&quot;log --oneline&quot;</span><span class="w">    </span><span class="c1"># git lg for compact log</span>
+</code></pre></div>
+<p>Or edit <code>~/.gitconfig</code> directly:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[alias]</span>
+<span class="w">    </span><span class="na">co</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">checkout</span>
+<span class="w">    </span><span class="na">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">status</span>
+<span class="w">    </span><span class="na">lg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">log --oneline</span>
+</code></pre></div>
+<hr />
+<h2 id="commit-message-convention">Commit Message Convention<a class="headerlink" href="#commit-message-convention" title="Permalink">¶</a></h2>
+<p>Using a consistent commit message format keeps your git history clean and readable. The most widely used convention is <strong>Conventional Commits</strong>.</p>
+<h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>&lt;type&gt;(&lt;scope&gt;): &lt;short description&gt;
+
+[optional body]
+
+[optional footer]
+</code></pre></div>
+<h3 id="commit-types">Commit Types<a class="headerlink" href="#commit-types" title="Permalink">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>feat</code></td>
+<td>Introduces a new feature</td>
+</tr>
+<tr>
+<td><code>fix</code></td>
+<td>Fixes a bug</td>
+</tr>
+<tr>
+<td><code>refactor</code></td>
+<td>Code change that doesn't fix a bug or add a feature</td>
+</tr>
+<tr>
+<td><code>chore</code></td>
+<td>Maintenance tasks (e.g., updating dependencies)</td>
+</tr>
+<tr>
+<td><code>docs</code></td>
+<td>Documentation updates</td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>Adds or updates tests</td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td>Formatting (spaces, indentation — no code changes)</td>
+</tr>
+<tr>
+<td><code>perf</code></td>
+<td>Performance improvements</td>
+</tr>
+<tr>
+<td><code>ci</code></td>
+<td>Changes to CI/CD pipeline</td>
+</tr>
+<tr>
+<td><code>build</code></td>
+<td>Changes affecting the build system or dependencies</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>feat<span class="o">(</span>auth<span class="o">)</span>:<span class="w"> </span>add<span class="w"> </span>JWT<span class="w"> </span>token<span class="w"> </span>refresh<span class="w"> </span>endpoint
+fix<span class="o">(</span>portfolio<span class="o">)</span>:<span class="w"> </span>resolve<span class="w"> </span>NPE<span class="w"> </span>when<span class="w"> </span>fetching<span class="w"> </span>holdings
+refactor<span class="o">(</span>repository<span class="o">)</span>:<span class="w"> </span>improve<span class="w"> </span>query<span class="w"> </span>performance<span class="w"> </span><span class="k">for</span><span class="w"> </span>holdings<span class="w"> </span>lookup
+docs<span class="o">(</span>readme<span class="o">)</span>:<span class="w"> </span>update<span class="w"> </span>setup<span class="w"> </span>instructions
+chore:<span class="w"> </span>bump<span class="w"> </span>spring-boot<span class="w"> </span>to<span class="w"> </span><span class="m">3</span>.2.1
+</code></pre></div>
+<h3 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permalink">¶</a></h3>
+<ul>
+<li>Use <strong>imperative mood</strong> — "Add method" not "Added method"</li>
+<li>Keep the title <strong>under 50 characters</strong></li>
+<li>Add context in the body when necessary</li>
+</ul>
+<hr />
+<h2 id="inspecting-history">Inspecting History<a class="headerlink" href="#inspecting-history" title="Permalink">¶</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w">                                          </span><span class="c1"># Full commit history</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-10<span class="w">                            </span><span class="c1"># Last 10 commits, compact</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--<span class="w"> </span>path/to/file<span class="w">                </span><span class="c1"># History of a specific file</span>
+git<span class="w"> </span>log<span class="w"> </span>--all<span class="w"> </span>--follow<span class="w"> </span>--oneline<span class="w"> </span>--<span class="w"> </span>file<span class="w">         </span><span class="c1"># Follow renames across history</span>
+git<span class="w"> </span>show<span class="w"> </span>&lt;commit-hash&gt;<span class="w">                           </span><span class="c1"># Full diff of a commit</span>
+git<span class="w"> </span>show<span class="w"> </span>&lt;commit-hash&gt;<span class="w"> </span>--stat<span class="w">                    </span><span class="c1"># Files changed in a commit</span>
+git<span class="w"> </span>show<span class="w"> </span>&lt;commit-hash&gt;<span class="w"> </span>--<span class="w"> </span>path/to/file<span class="w">           </span><span class="c1"># Specific file from a commit</span>
+git<span class="w"> </span>diff<span class="w">                                         </span><span class="c1"># Unstaged changes</span>
+git<span class="w"> </span>diff<span class="w"> </span>--staged<span class="w">                                </span><span class="c1"># Staged changes</span>
+</code></pre></div>
+<h2 id="categories">Categories<a class="headerlink" href="#categories" title="Permalink">¶</a></h2>
+<ul>
+<li><a href="../../../categories/git/">Git</a></li>
+<li><a href="../../../categories/github/">GitHub</a></li>
+<li><a href="../../../categories/workflow/">Workflow</a></li>
+</ul>
 
 
 
@@ -1558,7 +2209,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 4, 2026 19:34:27 UTC"><span class="timeago" datetime="2026-05-04T19:34:27+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 4, 2026 19:34:27 UTC">2026-05-04</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 12:00:05 UTC"><span class="timeago" datetime="2026-05-09T12:00:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 12:00:05 UTC">2026-05-09</span>
   </span>
 
     
@@ -1568,7 +2219,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 4, 2026 19:34:27 UTC"><span class="timeago" datetime="2026-05-04T19:34:27+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 4, 2026 19:34:27 UTC">2026-05-04</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 12:00:05 UTC"><span class="timeago" datetime="2026-05-09T12:00:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 12:00:05 UTC">2026-05-09</span>
   </span>
 
     
@@ -1728,16 +2379,16 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes", "content.tabs.link", "content.code.copy", "search.suggest", "content.code.annotate", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes", "content.tabs.link", "content.code.copy", "search.suggest", "content.code.annotate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../../js/timeago.min.js"></script>
+        <script src="../../../js/timeago.min.js"></script>
       
-        <script src="../../../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../../../javascript/extra.js"></script>
+        <script src="../../../javascript/extra.js"></script>
       
     
   </body>

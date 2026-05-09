@@ -6,35 +6,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A practical reference built from real experience — commands, workflows, and solutions that actually came up.">
+        <meta name="description" content="Push, pull, SSH setup, fork workflows, multiple Git identities, divergent branches, skip-worktree, assume-unchanged, LFS, and gist transfer.">
       
       
       
-        <link rel="canonical" href="https://codelogium.github.io/lab/git/">
+        <link rel="canonical" href="https://codelogium.github.io/lab/git/remotes-workflows/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../branching-stash/">
       
       
-        <link rel="next" href="basics/">
+        <link rel="next" href="../../../blog/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Git & GitHub - Codelogium</title>
+        <title>Remotes, GitHub & Workflows - Codelogium</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,11 +53,11 @@
       
     
     
-      <link rel="stylesheet" href="../../css/timeago.css">
+      <link rel="stylesheet" href="../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git-github" class="md-skip">
+        <a href="#remotes-github-workflows" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Codelogium" class="md-header__button md-logo" aria-label="Codelogium" data-md-component="logo">
+    <a href="../../.." title="Codelogium" class="md-header__button md-logo" aria-label="Codelogium" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Git & GitHub
+              Remotes, GitHub & Workflows
             
           </span>
         </div>
@@ -239,7 +239,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -260,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../network/" class="md-tabs__link">
+        <a href="../../../network/" class="md-tabs__link">
           
   
   
@@ -282,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../databases/" class="md-tabs__link">
+        <a href="../../../databases/" class="md-tabs__link">
           
   
   
@@ -304,7 +304,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../java/" class="md-tabs__link">
+        <a href="../../../java/" class="md-tabs__link">
           
   
   
@@ -326,7 +326,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../spring/" class="md-tabs__link">
+        <a href="../../../spring/" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -372,7 +372,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
   
@@ -394,7 +394,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../categories/" class="md-tabs__link">
+        <a href="../../../categories/" class="md-tabs__link">
           
   
   
@@ -430,7 +430,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Codelogium" class="md-nav__button md-logo" aria-label="Codelogium" data-md-component="logo">
+    <a href="../../.." title="Codelogium" class="md-nav__button md-logo" aria-label="Codelogium" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -460,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -510,7 +510,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../network/" class="md-nav__link ">
+            <a href="../../../network/" class="md-nav__link ">
               
   
   
@@ -554,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/post/network/basic-network1/" class="md-nav__link">
+      <a href="../../../blog/post/network/basic-network1/" class="md-nav__link">
         
   
   
@@ -614,7 +614,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../databases/" class="md-nav__link ">
+            <a href="../../../databases/" class="md-nav__link ">
               
   
   
@@ -658,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/post/database/postgres-vs-h2/" class="md-nav__link">
+      <a href="../../../blog/post/database/postgres-vs-h2/" class="md-nav__link">
         
   
   
@@ -686,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/post/database/hibernate-tips/" class="md-nav__link">
+      <a href="../../../blog/post/database/hibernate-tips/" class="md-nav__link">
         
   
   
@@ -744,7 +744,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../java/" class="md-nav__link ">
+            <a href="../../../java/" class="md-nav__link ">
               
   
   
@@ -788,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/post/java/generic-types/" class="md-nav__link">
+      <a href="../../../blog/post/java/generic-types/" class="md-nav__link">
         
   
   
@@ -846,7 +846,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../spring/" class="md-nav__link ">
+            <a href="../../../spring/" class="md-nav__link ">
               
   
   
@@ -890,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/jwt-auth/" class="md-nav__link">
+      <a href="../../../spring/jwt-auth/" class="md-nav__link">
         
   
   
@@ -953,7 +953,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -1026,7 +1026,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1044,7 +1044,7 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -1070,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="basics/" class="md-nav__link">
+      <a href="../basics/" class="md-nav__link">
         
   
   
@@ -1098,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="branching-stash/" class="md-nav__link">
+      <a href="../branching-stash/" class="md-nav__link">
         
   
   
@@ -1123,10 +1123,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="remotes-workflows/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remotes, GitHub & Workflows
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1142,6 +1169,272 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of content">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#remote-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Repositories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merging-a-pull-request-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merging a Pull Request Locally
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch-a-single-file-from-another-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fetch a Single File from Another Branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ignore-future-changes-but-keep-the-file-in-the-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ignore Future Changes but Keep the File in the Repo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ignore Future Changes but Keep the File in the Repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assume-unchanged-performance-hint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        assume-unchanged (performance hint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-worktree-local-config-files-you-never-want-to-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        skip-worktree (local config files you never want to push)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-ssh-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding SSH to GitHub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding SSH to GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-for-existing-ssh-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check for existing SSH keys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-new-ssh-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generate a new SSH key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-key-to-the-ssh-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add the key to the SSH agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-the-public-key-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy the public key to GitHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fork-workflow-remote-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fork Workflow &amp; Remote Tracking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fork Workflow &amp; Remote Tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#re-fork-syncing-with-upstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Re-fork / Syncing with Upstream
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-git-identities-conditional-includes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Git Identities (Conditional Includes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfer-a-gist-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer a Gist to GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-large-file-storage-lfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Large File Storage (LFS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Large File Storage (LFS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrate-existing-files-to-lfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrate existing files to LFS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revert-a-commit-pushed-remotely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revert a Commit Pushed Remotely
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categories
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1196,7 +1489,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   
@@ -1240,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/random-thought/" class="md-nav__link">
+      <a href="../../../blog/random-thought/" class="md-nav__link">
         
   
   
@@ -1268,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/things-i-learned/" class="md-nav__link">
+      <a href="../../../blog/things-i-learned/" class="md-nav__link">
         
   
   
@@ -1296,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -1358,7 +1651,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../categories/" class="md-nav__link ">
+            <a href="../../../categories/" class="md-nav__link ">
               
   
   
@@ -1402,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../categories/java/" class="md-nav__link">
+      <a href="../../../categories/java/" class="md-nav__link">
         
   
   
@@ -1430,7 +1723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../categories/programming/" class="md-nav__link">
+      <a href="../../../categories/programming/" class="md-nav__link">
         
   
   
@@ -1458,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../categories/oop/" class="md-nav__link">
+      <a href="../../../categories/oop/" class="md-nav__link">
         
   
   
@@ -1515,10 +1808,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#whats-inside" class="md-nav__link">
+  <a href="#remote-repositories" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What's Inside
+        Remote Repositories
       
     </span>
   </a>
@@ -1526,10 +1819,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
+  <a href="#merging-a-pull-request-locally" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Reference
+        Merging a Pull Request Locally
       
     </span>
   </a>
@@ -1537,10 +1830,210 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
+  <a href="#fetch-a-single-file-from-another-branch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resources
+        Fetch a Single File from Another Branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ignore-future-changes-but-keep-the-file-in-the-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ignore Future Changes but Keep the File in the Repo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ignore Future Changes but Keep the File in the Repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assume-unchanged-performance-hint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        assume-unchanged (performance hint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-worktree-local-config-files-you-never-want-to-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        skip-worktree (local config files you never want to push)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-ssh-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding SSH to GitHub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding SSH to GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-for-existing-ssh-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check for existing SSH keys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-new-ssh-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generate a new SSH key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-key-to-the-ssh-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add the key to the SSH agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-the-public-key-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy the public key to GitHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fork-workflow-remote-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fork Workflow &amp; Remote Tracking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fork Workflow &amp; Remote Tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#re-fork-syncing-with-upstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Re-fork / Syncing with Upstream
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-git-identities-conditional-includes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Git Identities (Conditional Includes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfer-a-gist-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer a Gist to GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-large-file-storage-lfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Large File Storage (LFS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Large File Storage (LFS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrate-existing-files-to-lfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrate existing files to LFS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revert-a-commit-pushed-remotely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revert a Commit Pushed Remotely
       
     </span>
   </a>
@@ -1579,6 +2072,13 @@
       
       
       
+        <span class="md-tag">Fork</span>
+      
+    
+      
+      
+      
+      
         <span class="md-tag">Git</span>
       
     
@@ -1593,14 +2093,14 @@
       
       
       
-        <span class="md-tag">Version Control</span>
+        <span class="md-tag">Remote</span>
       
     
       
       
       
       
-        <span class="md-tag">Workflow</span>
+        <span class="md-tag">SSH</span>
       
     
   </nav>
@@ -1610,71 +2110,197 @@
   
 
 
-<h1 id="git-github">Git &amp; GitHub<a class="headerlink" href="#git-github" title="Permalink">¶</a></h1>
+<h1 id="remotes-github-workflows">Remotes, GitHub &amp; Workflows<a class="headerlink" href="#remotes-github-workflows" title="Permalink">¶</a></h1>
 <div class="blog-meta">
   <div class="blog-meta-container">
     <span class="meta-content">
       By —<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
       &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/git/"><em>Git</em></a>&nbsp;•&nbsp;
-         <a href="/categories/github/"><em>GitHub</em></a>&nbsp;•&nbsp;
-         <a href="/categories/workflow/"><em>Workflow</em></a>&nbsp;•&nbsp;
-      ⏱️ ~3 min read</span>
+      ⏱️ ~8 min read</span>
     </span>
   </div>
 </div>
 
 <blockquote>
-<p>"Version control is not just a tool — it's a habit."</p>
+<p>"GitHub is a free tool that lets you host your local repository."</p>
 </blockquote>
-<p>Git is a <strong>distributed version control system</strong> for tracking changes in files, coordinating work across multiple developers, and reverting to any point in history. GitHub extends that with remote hosting, collaboration, and workflow automation.</p>
-<p>This section is a <strong>living reference</strong> — not a tutorial. Every entry here came from a real situation: a merge gone wrong, a stale creation date, a pushed commit that shouldn't have been, a branch tracking the wrong remote. If it happened, it's here.</p>
 <hr />
-<h2 id="whats-inside">What's Inside<a class="headerlink" href="#whats-inside" title="Permalink">¶</a></h2>
-<p><strong><a href="basics/">Basics &amp; Daily Commands</a></strong></p>
-<p>The commands you run every day — init, add, commit, status, .gitignore, aliases, and commit message conventions.</p>
-<hr />
-<p><strong><a href="branching-stash/">Branches, Stash &amp; Undoing</a></strong></p>
-<p>Branching strategies, stash workflows, reverting commits, resetting history, and inspecting specific commits.</p>
-<hr />
-<p><strong><a href="remotes-workflows/">Remotes, GitHub &amp; Workflows</a></strong></p>
-<p>Push, pull, SSH setup, fork workflows, multiple Git identities, divergent branches, and Git LFS.</p>
-<hr />
-<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permalink">¶</a></h2>
-<p>The commands you reach for daily — no need to open a full article:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status<span class="w">                        </span><span class="c1"># what&#39;s going on</span>
-git<span class="w"> </span>add<span class="w"> </span>.<span class="w">                         </span><span class="c1"># stage everything</span>
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add thing&quot;</span><span class="w">   </span><span class="c1"># commit with message</span>
-git<span class="w"> </span>push<span class="w">                          </span><span class="c1"># push to remote</span>
-git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w">                 </span><span class="c1"># pull and keep history linear</span>
-
-git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;wip/my-work&quot;</span><span class="w">   </span><span class="c1"># stash with a name</span>
-git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">                     </span><span class="c1"># apply and drop latest stash</span>
-git<span class="w"> </span>stash<span class="w"> </span>list<span class="w">                    </span><span class="c1"># see all stashes</span>
-
-git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-10<span class="w">             </span><span class="c1"># last 10 commits at a glance</span>
-git<span class="w"> </span>diff<span class="w">                          </span><span class="c1"># unstaged changes</span>
-git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>.<span class="w">            </span><span class="c1"># unstage everything</span>
-
-git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feat/my-feature<span class="w">     </span><span class="c1"># create and switch to new branch</span>
-git<span class="w"> </span>merge<span class="w"> </span>&lt;branch&gt;<span class="w">                </span><span class="c1"># merge branch into current</span>
-git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>&lt;branch&gt;<span class="w">            </span><span class="c1"># delete local branch</span>
+<h2 id="remote-repositories">Remote Repositories<a class="headerlink" href="#remote-repositories" title="Permalink">¶</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w">                                       </span><span class="c1"># List all linked remote repositories</span>
+git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w">                                    </span><span class="c1"># Verify remotes with URLs</span>
+git<span class="w"> </span>remote<span class="w"> </span>show<span class="w"> </span>origin<span class="w">                           </span><span class="c1"># Show URL of remote repository</span>
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>&lt;url&gt;<span class="w">                      </span><span class="c1"># Add remote via HTTPS</span>
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:user/repo.git<span class="w">  </span><span class="c1"># Add remote via SSH</span>
+git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>origin<span class="w"> </span>git@github.com:user/repo.git<span class="w">  </span><span class="c1"># Update remote URL to SSH</span>
+git<span class="w"> </span>remote<span class="w"> </span>remove<span class="w"> </span>&lt;name&gt;<span class="w">                         </span><span class="c1"># Remove a linked remote</span>
+git<span class="w"> </span>push<span class="w">                                         </span><span class="c1"># Push to remote</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main<span class="w">                          </span><span class="c1"># Push and set upstream tracking</span>
+git<span class="w"> </span>pull<span class="w">                                         </span><span class="c1"># Pull latest from remote</span>
+git<span class="w"> </span>clone<span class="w"> </span>&lt;url&gt;<span class="w">                                  </span><span class="c1"># Clone a repository</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>+master<span class="w">                          </span><span class="c1"># Remove a commit already pushed remotely</span>
 </code></pre></div>
 <hr />
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permalink">¶</a></h2>
-<ul>
-<li><a href="https://git-scm.com/doc">Official Git Documentation</a></li>
-<li><a href="https://www.conventionalcommits.org/">Conventional Commits Spec</a></li>
-<li><a href="https://git-scm.com/docs/gitignore">gitignore patterns</a></li>
-<li><a href="https://help.github.com/en/github/using-git/ignoring-files">Ignoring files — GitHub Docs</a></li>
-<li><a href="https://git-lfs.com/">Git LFS</a></li>
-<li><a href="https://christoph.ruegg.name/blog/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html">Revert a pushed commit</a></li>
-<li><a href="https://stackoverflow.com/questions/20467179/git-push-rejected-non-fast-forward">Fix non-fast-forward push errors</a></li>
-</ul>
+<h2 id="merging-a-pull-request-locally">Merging a Pull Request Locally<a class="headerlink" href="#merging-a-pull-request-locally" title="Permalink">¶</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main<span class="w">                             </span><span class="c1"># Step 1: update local repo</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main<span class="w">                                </span><span class="c1"># Step 2: switch to base branch</span>
+git<span class="w"> </span>merge<span class="w"> </span>&lt;branch-name&gt;<span class="w">                          </span><span class="c1"># Step 3: merge the PR branch</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main<span class="w">                          </span><span class="c1"># Step 4: push the result</span>
+</code></pre></div>
+<hr />
+<h2 id="fetch-a-single-file-from-another-branch">Fetch a Single File from Another Branch<a class="headerlink" href="#fetch-a-single-file-from-another-branch" title="Permalink">¶</a></h2>
+<p>Pull one specific file from another branch without merging everything:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>upstream/&lt;branch&gt;<span class="w"> </span>--<span class="w"> </span>path/to/file.java<span class="w">   </span><span class="c1"># overwrite local file with branch version</span>
+git<span class="w"> </span>checkout<span class="w"> </span>HEAD<span class="w"> </span>--<span class="w"> </span>path/to/file.java<span class="w">                </span><span class="c1"># undo — restore from current branch</span>
+</code></pre></div>
+<p>The file is overwritten locally and staged automatically.</p>
+<hr />
+<h2 id="ignore-future-changes-but-keep-the-file-in-the-repo">Ignore Future Changes but Keep the File in the Repo<a class="headerlink" href="#ignore-future-changes-but-keep-the-file-in-the-repo" title="Permalink">¶</a></h2>
+<h3 id="assume-unchanged-performance-hint">assume-unchanged (performance hint)<a class="headerlink" href="#assume-unchanged-performance-hint" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>update-index<span class="w"> </span>--assume-unchanged<span class="w"> </span>&lt;path/to/file&gt;<span class="w">    </span><span class="c1"># git won&#39;t notice local edits</span>
+git<span class="w"> </span>update-index<span class="w"> </span>--no-assume-unchanged<span class="w"> </span>&lt;path/to/file&gt;<span class="w"> </span><span class="c1"># resume tracking</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>assume-unchanged</code> can be silently overwritten by Git during merges and checkouts. Use <code>skip-worktree</code> instead for files you actively modify locally.</p>
+</div>
+<h3 id="skip-worktree-local-config-files-you-never-want-to-push">skip-worktree (local config files you never want to push)<a class="headerlink" href="#skip-worktree-local-config-files-you-never-want-to-push" title="Permalink">¶</a></h3>
+<p><code>.gitignore</code> only works for untracked files. If a file is already committed, use <code>skip-worktree</code>:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>path/to/application.properties
+git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>path/to/logback.xml
+</code></pre></div>
+<p>The file won't appear in <code>git status</code>, won't be touched by <code>git add .</code>, and won't be committed. Your local changes stay permanently without any effort.</p>
+<p>To undo:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>update-index<span class="w"> </span>--no-skip-worktree<span class="w"> </span>path/to/application.properties
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>skip-worktree</code> breaks during merges — if the incoming merge touches that file, Git blocks. Workaround:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>application.properties<span class="w"> </span>application.properties.local.bak<span class="w">   </span><span class="c1"># backup local values</span>
+git<span class="w"> </span>update-index<span class="w"> </span>--no-skip-worktree<span class="w"> </span>application.properties<span class="w">    </span><span class="c1"># lift skip-worktree</span>
+git<span class="w"> </span>merge<span class="w"> </span>upstream/&lt;branch&gt;<span class="w">                                   </span><span class="c1"># merge</span>
+git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>application.properties<span class="w">       </span><span class="c1"># re-apply skip-worktree</span>
+cp<span class="w"> </span>application.properties.local.bak<span class="w"> </span>application.properties<span class="w">    </span><span class="c1"># restore local values</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;*.local.bak&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.git/info/exclude<span class="w">                       </span><span class="c1"># never track backups</span>
+</code></pre></div>
+</div>
+<hr />
+<h2 id="adding-ssh-to-github">Adding SSH to GitHub<a class="headerlink" href="#adding-ssh-to-github" title="Permalink">¶</a></h2>
+<h3 id="check-for-existing-ssh-keys">Check for existing SSH keys<a class="headerlink" href="#check-for-existing-ssh-keys" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-al<span class="w"> </span>~/.ssh<span class="w">                                    </span><span class="c1"># list existing SSH keys</span>
+</code></pre></div>
+<p>Default public key filenames: <code>id_rsa.pub</code>, <code>id_ecdsa.pub</code>, <code>id_ed25519.pub</code></p>
+<h3 id="generate-a-new-ssh-key">Generate a new SSH key<a class="headerlink" href="#generate-a-new-ssh-key" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
+</code></pre></div>
+<p>For legacy systems that don't support Ed25519:</p>
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
+</code></pre></div>
+<p>Press Enter to accept the default file location, then enter a passphrase.</p>
+<h3 id="add-the-key-to-the-ssh-agent">Add the key to the SSH agent<a class="headerlink" href="#add-the-key-to-the-ssh-agent" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>ssh-agent<span class="w"> </span>-s<span class="k">)</span><span class="s2">&quot;</span><span class="w">                           </span><span class="c1"># start the SSH agent</span>
+ssh-add<span class="w"> </span>~/.ssh/id_ed25519<span class="w">                        </span><span class="c1"># add your private key</span>
+</code></pre></div>
+<h3 id="copy-the-public-key-to-github">Copy the public key to GitHub<a class="headerlink" href="#copy-the-public-key-to-github" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>xclip
+xclip<span class="w"> </span>-selection<span class="w"> </span>clipboard<span class="w"> </span>&lt;<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w">   </span><span class="c1"># copies key to clipboard</span>
+</code></pre></div>
+<p>Then go to GitHub → Settings → SSH and GPG keys → New SSH key → paste → Add SSH key.</p>
+<hr />
+<h2 id="fork-workflow-remote-tracking">Fork Workflow &amp; Remote Tracking<a class="headerlink" href="#fork-workflow-remote-tracking" title="Permalink">¶</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w">                                    </span><span class="c1"># check all configured remotes</span>
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>&lt;url&gt;<span class="w">                    </span><span class="c1"># add upstream when missing</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>-u<span class="w"> </span>&lt;branch-name&gt;<span class="w">                 </span><span class="c1"># push to fork AND fix tracking</span>
+git<span class="w"> </span>branch<span class="w"> </span>-u<span class="w"> </span>origin/&lt;branch-name&gt;<span class="w">               </span><span class="c1"># fix tracking without pushing</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>&lt;branch-name&gt;<span class="w">           </span><span class="c1"># delete a remote branch</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When you <code>git switch</code> to a branch fetched from upstream, Git auto-sets tracking to upstream. Fix it to point to your fork before pushing using <code>git push origin -u &lt;branch-name&gt;</code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>"Write access not granted" on <code>git push</code> means your branch is still tracking upstream where you have no write access. Always use <code>git push origin &lt;branch-name&gt;</code> explicitly until tracking is fixed.</p>
+</div>
+<h3 id="re-fork-syncing-with-upstream">Re-fork / Syncing with Upstream<a class="headerlink" href="#re-fork-syncing-with-upstream" title="Permalink">¶</a></h3>
+<p>When the upstream repo has new commits you want in your fork:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>&lt;original-repo-url&gt;<span class="w">      </span><span class="c1"># link to the original repo</span>
+git<span class="w"> </span>fetch<span class="w"> </span>upstream<span class="w">                               </span><span class="c1"># fetch upstream changes</span>
+git<span class="w"> </span>rebase<span class="w"> </span>upstream/master<span class="w">                       </span><span class="c1"># rebase your fork on upstream</span>
+</code></pre></div>
+<hr />
+<h2 id="multiple-git-identities-conditional-includes">Multiple Git Identities (Conditional Includes)<a class="headerlink" href="#multiple-git-identities-conditional-includes" title="Permalink">¶</a></h2>
+<p>Problem: work PC with work credentials, wanting personal project commits attributed to a personal identity.</p>
+<p>Solution: Git's <code>[includeIf]</code> with <code>hasconfig:remote.*.url</code> — switches credentials automatically based on the repo's remote URL, no folder structure required.</p>
+<p><strong><code>~/.gitconfig</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">[user]</span>
+<span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">work@company.com</span>
+<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Work Name</span>
+
+<span class="k">[includeIf &quot;hasconfig:remote.*.url:git@github.com:yourusername/**&quot;]</span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.gitconfig-personal</span>
+
+<span class="k">[includeIf &quot;hasconfig:remote.*.url:git@gitea.example.com:yourusername/**&quot;]</span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.gitconfig-work</span>
+</code></pre></div>
+<p><strong><code>~/.gitconfig-personal</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">[user]</span>
+<span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">personal@gmail.com</span>
+<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Personal Name</span>
+</code></pre></div>
+<p><strong>Useful verification commands:</strong></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--show-origin<span class="w"> </span>user.email<span class="w">              </span><span class="c1"># which config file is being used</span>
+git<span class="w"> </span>config<span class="w"> </span>--list<span class="w"> </span>--show-origin<span class="w">                  </span><span class="c1"># inspect the full config chain</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code>[includeIf]</code> block must go in <code>~/.gitconfig</code>, NOT in <code>~/.ssh/config</code>. SSH config only understands Host blocks — mixing them breaks git clone.</p>
+</div>
+<hr />
+<h2 id="transfer-a-gist-to-github">Transfer a Gist to GitHub<a class="headerlink" href="#transfer-a-gist-to-github" title="Permalink">¶</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://gist.github.com/&lt;gist-id&gt;<span class="w">     </span><span class="c1"># clone the gist</span>
+mv<span class="w"> </span>&lt;gist-id&gt;/<span class="w"> </span>gist-github/<span class="w">                      </span><span class="c1"># rename the directory</span>
+<span class="nb">cd</span><span class="w"> </span>gist-github/
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>github<span class="w"> </span>https://github.com/&lt;user&gt;/&lt;repo&gt;<span class="w">  </span><span class="c1"># add github as remote</span>
+git<span class="w"> </span>push<span class="w"> </span>github<span class="w"> </span>master<span class="w">                           </span><span class="c1"># push to github</span>
+
+<span class="c1"># Sync changes going forward</span>
+git<span class="w"> </span>push<span class="w"> </span>github<span class="w"> </span>master<span class="w">                           </span><span class="c1"># to GitHub</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w">                           </span><span class="c1"># to Gist (origin = gist)</span>
+
+<span class="c1"># Clean up remotes</span>
+git<span class="w"> </span>remote<span class="w"> </span>rename<span class="w"> </span>origin<span class="w"> </span>gist
+git<span class="w"> </span>remote<span class="w"> </span>rename<span class="w"> </span>github<span class="w"> </span>origin
+git<span class="w"> </span>remote<span class="w"> </span>remove<span class="w"> </span>gist
+</code></pre></div>
+<hr />
+<h2 id="git-large-file-storage-lfs">Git Large File Storage (LFS)<a class="headerlink" href="#git-large-file-storage-lfs" title="Permalink">¶</a></h2>
+<p>Git LFS replaces large files (audio, video, datasets, graphics) with text pointers inside Git, while storing the actual file contents on a remote server.</p>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>lfs<span class="w"> </span>install<span class="w">                                  </span><span class="c1"># set up LFS once per user account</span>
+git<span class="w"> </span>lfs<span class="w"> </span>track<span class="w"> </span><span class="s2">&quot;*.psd&quot;</span><span class="w">                            </span><span class="c1"># track all .psd files with LFS</span>
+git<span class="w"> </span>add<span class="w"> </span>.gitattributes<span class="w">                           </span><span class="c1"># always track .gitattributes</span>
+</code></pre></div>
+<h3 id="migrate-existing-files-to-lfs">Migrate existing files to LFS<a class="headerlink" href="#migrate-existing-files-to-lfs" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>lfs<span class="w"> </span>migrate<span class="w"> </span>import<span class="w"> </span>--include<span class="o">=</span><span class="s2">&quot;*.ipynb&quot;</span><span class="w">       </span><span class="c1"># convert pre-existing files to LFS</span>
+</code></pre></div>
+<p>Then commit and push as normal — LFS handles the rest.</p>
+<p>Download LFS: <a href="https://github.com/git-lfs/git-lfs/releases">git-lfs releases</a></p>
+<hr />
+<h2 id="revert-a-commit-pushed-remotely">Revert a Commit Pushed Remotely<a class="headerlink" href="#revert-a-commit-pushed-remotely" title="Permalink">¶</a></h2>
+<p>Reverting creates a new commit that undoes the bad one — the original commit stays in history but no longer affects the current state.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>revert<span class="w"> </span>&lt;commit-id&gt;<span class="w">                           </span><span class="c1"># safe revert — creates a new commit</span>
+</code></pre></div>
+<p>For reverting a range of commits:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>revert<span class="w"> </span>--no-commit<span class="w"> </span>&lt;old-commit&gt;..HEAD
+git<span class="w"> </span>commit
+git<span class="w"> </span>push
+</code></pre></div>
+<p>See: <a href="https://christoph.ruegg.name/blog/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html">Git HowTo: revert a pushed commit</a></p>
 <h2 id="categories">Categories<a class="headerlink" href="#categories" title="Permalink">¶</a></h2>
 <ul>
-<li><a href="../../categories/git/">Git</a></li>
-<li><a href="../../categories/github/">GitHub</a></li>
-<li><a href="../../categories/workflow/">Workflow</a></li>
+<li><a href="../../../categories/git/">Git</a></li>
+<li><a href="../../../categories/github/">GitHub</a></li>
+<li><a href="../../../categories/workflow/">Workflow</a></li>
 </ul>
 
 
@@ -1698,7 +2324,7 @@ git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </sp
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 11:03:09 UTC"><span class="timeago" datetime="2026-05-09T11:03:09+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 11:03:09 UTC">2026-05-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 12:00:05 UTC"><span class="timeago" datetime="2026-05-09T12:00:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 12:00:05 UTC">2026-05-09</span>
   </span>
 
     
@@ -1708,7 +2334,7 @@ git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </sp
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 10:47:34 UTC"><span class="timeago" datetime="2026-05-09T10:47:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 10:47:34 UTC">2026-05-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 12:00:05 UTC"><span class="timeago" datetime="2026-05-09T12:00:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 12:00:05 UTC">2026-05-09</span>
   </span>
 
     
@@ -1868,16 +2494,16 @@ git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </sp
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes", "content.tabs.link", "content.code.copy", "search.suggest", "content.code.annotate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes", "content.tabs.link", "content.code.copy", "search.suggest", "content.code.annotate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../js/timeago.min.js"></script>
+        <script src="../../../js/timeago.min.js"></script>
       
-        <script src="../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../javascript/extra.js"></script>
+        <script src="../../../javascript/extra.js"></script>
       
     
   </body>
