@@ -17,27 +17,23 @@
          <lastmod>2026-05-09</lastmod>
     </url>
     <url>
-         <loc>https://codelogium.github.io/blog/post/database/hibernate-tips/</loc>
-         <lastmod>2026-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://codelogium.github.io/blog/post/database/postgres-vs-h2/</loc>
-         <lastmod>2026-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://codelogium.github.io/blog/post/java/generic-types/</loc>
-         <lastmod>2026-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://codelogium.github.io/blog/post/network/basic-network1/</loc>
-         <lastmod>2026-05-09</lastmod>
-    </url>
-    <url>
          <loc>https://codelogium.github.io/databases/</loc>
          <lastmod>2026-05-09</lastmod>
     </url>
     <url>
+         <loc>https://codelogium.github.io/databases/hibernate-tips/</loc>
+         <lastmod>2026-05-09</lastmod>
+    </url>
+    <url>
+         <loc>https://codelogium.github.io/databases/postgres-vs-h2/</loc>
+         <lastmod>2026-05-09</lastmod>
+    </url>
+    <url>
          <loc>https://codelogium.github.io/java/</loc>
+         <lastmod>2026-05-09</lastmod>
+    </url>
+    <url>
+         <loc>https://codelogium.github.io/java/generic-types/</loc>
          <lastmod>2026-05-09</lastmod>
     </url>
     <url>
@@ -62,6 +58,10 @@
     </url>
     <url>
          <loc>https://codelogium.github.io/network/</loc>
+         <lastmod>2026-05-09</lastmod>
+    </url>
+    <url>
+         <loc>https://codelogium.github.io/network/basic-network1/</loc>
          <lastmod>2026-05-09</lastmod>
     </url>
     <url>
