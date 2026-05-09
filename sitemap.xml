@@ -9,11 +9,7 @@
          <lastmod>2026-05-09</lastmod>
     </url>
     <url>
-         <loc>https://codelogium.github.io/blog/random-thought/</loc>
-         <lastmod>2026-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://codelogium.github.io/blog/things-i-learned/</loc>
+         <loc>https://codelogium.github.io/blog/2026/05/09/why-my-mkdocs-article-showed-11-months-ago-as-creation-date/</loc>
          <lastmod>2026-05-09</lastmod>
     </url>
     <url>
@@ -73,6 +69,18 @@
          <lastmod>2026-05-09</lastmod>
     </url>
     <url>
+         <loc>https://codelogium.github.io/categories/mkdocs/</loc>
+         <lastmod>2026-05-09</lastmod>
+    </url>
+    <url>
+         <loc>https://codelogium.github.io/categories/git/</loc>
+         <lastmod>2026-05-09</lastmod>
+    </url>
+    <url>
+         <loc>https://codelogium.github.io/categories/debugging/</loc>
+         <lastmod>2026-05-09</lastmod>
+    </url>
+    <url>
          <loc>https://codelogium.github.io/categories/java/</loc>
          <lastmod>2026-05-09</lastmod>
     </url>
@@ -85,23 +93,27 @@
          <lastmod>2026-05-09</lastmod>
     </url>
     <url>
-         <loc>https://codelogium.github.io/categories/git/</loc>
-         <lastmod>2026-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://codelogium.github.io/categories/remote/</loc>
-         <lastmod>2026-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://codelogium.github.io/categories/ssh/</loc>
-         <lastmod>2026-05-09</lastmod>
-    </url>
-    <url>
          <loc>https://codelogium.github.io/categories/workflow/</loc>
          <lastmod>2026-05-09</lastmod>
     </url>
     <url>
          <loc>https://codelogium.github.io/categories/</loc>
+         <lastmod>2026-05-09</lastmod>
+    </url>
+    <url>
+         <loc>https://codelogium.github.io/blog/archive/2026/</loc>
+         <lastmod>2026-05-09</lastmod>
+    </url>
+    <url>
+         <loc>https://codelogium.github.io/blog/category/mkdocs/</loc>
+         <lastmod>2026-05-09</lastmod>
+    </url>
+    <url>
+         <loc>https://codelogium.github.io/blog/category/git/</loc>
+         <lastmod>2026-05-09</lastmod>
+    </url>
+    <url>
+         <loc>https://codelogium.github.io/blog/category/debugging/</loc>
          <lastmod>2026-05-09</lastmod>
     </url>
 </urlset>
