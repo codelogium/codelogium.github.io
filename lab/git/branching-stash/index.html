@@ -1393,6 +1393,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cherry-pick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cherry-pick
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abort-a-merge-or-rebase-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abort a Merge or Rebase in Progress
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagnose-a-contaminated-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnose a Contaminated Branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ways-of-resolving-git-push-rejected-non-fast-forward" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2304,6 +2337,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cherry-pick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cherry-pick
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abort-a-merge-or-rebase-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abort a Merge or Rebase in Progress
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagnose-a-contaminated-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnose a Contaminated Branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ways-of-resolving-git-push-rejected-non-fast-forward" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2416,7 +2482,7 @@ git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class
 </code></pre></div>
 <hr />
 <h2 id="branch-naming-sub-branches-dont-exist-in-git">Branch Naming — Sub-branches Don't Exist in Git<a class="headerlink" href="#branch-naming-sub-branches-dont-exist-in-git" title="Permalink">¶</a></h2>
-<p>Git has no concept of sub-branches. The <code>/</code> in a branch name is just a string character — purely a human convention for visual grouping.</p>
+<p>Git has no concept of sub-branches. The <code>/</code> in a branch name is just a string character, purely a human convention for visual grouping.</p>
 <div class="highlight"><pre><span></span><code>feat/FeatureName
 test/feat/FeatureName<span class="w">     </span><span class="c1"># only &quot;related&quot; by name — Git has no idea</span>
 </code></pre></div>
@@ -2466,9 +2532,9 @@ git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </s
 </code></pre></div>
 <p><strong>Golden rules:</strong></p>
 <ul>
-<li>Keep <strong>one</strong> <code>local/</code> config stash total — pop it, use it, re-stash it. Never duplicate</li>
-<li>Never commit with local config applied — re-stash before <code>git push</code></li>
-<li>Never mix <code>wip/</code> and <code>local/</code> in the same stash — stash them separately</li>
+<li>Keep <strong>one</strong> <code>local/</code> config stash total, pop it, use it, re-stash it. Never duplicate</li>
+<li>Never commit with local config applied, re-stash before <code>git push</code></li>
+<li>Never mix <code>wip/</code> and <code>local/</code> in the same stash; stash them separately</li>
 <li>Drop a <code>wip/</code> stash as soon as its branch is merged</li>
 </ul>
 <h3 id="renaming-a-stash">Renaming a Stash<a class="headerlink" href="#renaming-a-stash" title="Permalink">¶</a></h3>
@@ -2522,6 +2588,51 @@ git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w"> </span>origin<span class="w"> </span>&lt;branch-name&gt;
 </code></pre></div>
 <hr />
+<hr />
+<h2 id="cherry-pick">Cherry-pick<a class="headerlink" href="#cherry-pick" title="Permalink">¶</a></h2>
+<p>Apply a specific commit from any branch to your current branch without merging everything:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;commit-hash&gt;<span class="w">                    </span><span class="c1"># apply one specific commit</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;hash1&gt;<span class="w"> </span>&lt;hash2&gt;<span class="w"> </span>&lt;hash3&gt;<span class="w">          </span><span class="c1"># apply multiple commits in order</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;hash1&gt;..&lt;hash2&gt;<span class="w">                 </span><span class="c1"># apply a range of commits</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Real use case</p>
+<p>Your branch picked up commits you didn't make (contaminated branch). Start fresh and bring only your work:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>&lt;base-branch&gt;
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/clean-branch<span class="w">            </span><span class="c1"># fresh branch from base</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;your-commit-hash&gt;<span class="w">           </span><span class="c1"># bring only your commit(s)</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feat/clean-branch
+</code></pre></div>
+This is cleaner than trying to untangle a messy branch history.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Cherry-pick replays commits; if the commit touches files that have changed since, you may get conflicts to resolve manually.</p>
+</div>
+<hr />
+<h2 id="abort-a-merge-or-rebase-in-progress">Abort a Merge or Rebase in Progress<a class="headerlink" href="#abort-a-merge-or-rebase-in-progress" title="Permalink">¶</a></h2>
+<p>If a merge or rebase goes wrong and you want to get back to a clean state:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>--abort<span class="w">                                </span><span class="c1"># abort an in-progress merge</span>
+git<span class="w"> </span>rebase<span class="w"> </span>--abort<span class="w">                               </span><span class="c1"># abort an in-progress rebase</span>
+</code></pre></div>
+<p>Both commands restore your branch to the state it was in before you started. Safe to run at any point during a conflict resolution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you accidentally closed your terminal mid-rebase and git is still in rebase state, check with <code>git status</code>: it will tell you a rebase is in progress. Then run <code>git rebase --abort</code> to clean up.</p>
+</div>
+<hr />
+<h2 id="diagnose-a-contaminated-branch">Diagnose a Contaminated Branch<a class="headerlink" href="#diagnose-a-contaminated-branch" title="Permalink">¶</a></h2>
+<p>When your branch has commits you didn't make, usually because it was created from an old or wrong base:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>base-branch..your-branch<span class="w"> </span>--oneline<span class="w">      </span><span class="c1"># commits in your branch not in base</span>
+git<span class="w"> </span>diff<span class="w"> </span>base-branch..your-branch<span class="w"> </span>--name-only<span class="w">   </span><span class="c1"># files that differ between branches</span>
+</code></pre></div>
+<p>If you see commits you didn't make, start clean:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>&lt;base-branch&gt;
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/clean-branch<span class="w">               </span><span class="c1"># fresh branch from correct base</span>
+git<span class="w"> </span>checkout<span class="w"> </span>feat/OldBranch<span class="w"> </span>--<span class="w"> </span>path/to/your/file.java<span class="w">  </span><span class="c1"># bring only your files</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: port changes to clean branch&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feat/clean-branch
+</code></pre></div>
 <h2 id="ways-of-resolving-git-push-rejected-non-fast-forward">Ways of Resolving <code>git push rejected non-fast-forward</code><a class="headerlink" href="#ways-of-resolving-git-push-rejected-non-fast-forward" title="Permalink">¶</a></h2>
 <p>Start with:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>origin
@@ -2565,7 +2676,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 15:57:38 UTC"><span class="timeago" datetime="2026-05-09T15:57:38+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 15:57:38 UTC">2026-05-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 11, 2026 10:03:19 UTC"><span class="timeago" datetime="2026-05-11T10:03:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2026 10:03:19 UTC">2026-05-11</span>
   </span>
 
     

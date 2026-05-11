@@ -2256,7 +2256,7 @@
 
 <h1 id="why-my-mkdocs-article-showed-11-months-ago-as-creation-date">Why My MkDocs Article Showed 11 Months Ago as Creation Date<a class="headerlink" href="#why-my-mkdocs-article-showed-11-months-ago-as-creation-date" title="Permalink">¶</a></h1>
 <blockquote>
-<p>"It's not a bug — it's a debugging story worth writing down."</p>
+<p>"It's not a bug, it's a debugging story worth writing down."</p>
 </blockquote>
 <p>I created a new article for my MkDocs Material site. Fresh file, new content, committed today. And yet the footer showed:</p>
 <!-- more -->
@@ -2276,12 +2276,12 @@
 <hr />
 <h2 id="what-i-tried-first-and-why-it-didnt-work">What I Tried First — And Why It Didn't Work<a class="headerlink" href="#what-i-tried-first-and-why-it-didnt-work" title="Permalink">¶</a></h2>
 <h3 id="theory-1-wrong-date-in-front-matter">Theory 1: Wrong date in front matter<a class="headerlink" href="#theory-1-wrong-date-in-front-matter" title="Permalink">¶</a></h3>
-<p>I had copied an old article as a template. The front matter still had the old <code>date: 2025-05-07</code>. I updated it to today's date — and the update date changed, but the creation date stayed at 11 months ago.</p>
+<p>I had copied an old article as a template. The front matter still had the old <code>date: 2025-05-07</code>. I updated it to today's date and the update date changed, but the creation date stayed at 11 months ago.</p>
 <p>The <code>date</code> field in front matter controls something different from what <code>git-revision-date-localized</code> reads. The plugin reads <strong>git history</strong>, not front matter.</p>
 <h3 id="theory-2-cdn-or-browser-cache">Theory 2: CDN or browser cache<a class="headerlink" href="#theory-2-cdn-or-browser-cache" title="Permalink">¶</a></h3>
-<p>Classic debugging move — hard refresh, clear cache, wait for GitHub Pages to redeploy. Nothing changed. The 11 months persisted.</p>
+<p>Classic debugging move, hard refresh, clear cache, wait for GitHub Pages to redeploy. Nothing changed. The 11 months persisted.</p>
 <h3 id="theory-3-content-similarity">Theory 3: Content similarity<a class="headerlink" href="#theory-3-content-similarity" title="Permalink">¶</a></h3>
-<p>I deleted the file and created a brand new one. Still 11 months ago. I even replaced the body with just "Coming soon." — still 11 months ago.</p>
+<p>I deleted the file and created a brand new one. Still 11 months ago. I even replaced the body with just "Coming soon."; still 11 months ago.</p>
 <p>At this point it was clear this wasn't a cache issue.</p>
 <hr />
 <h2 id="finding-the-real-cause-git-history">Finding the Real Cause — Git History<a class="headerlink" href="#finding-the-real-cause-git-history" title="Permalink">¶</a></h2>
@@ -2289,7 +2289,7 @@
 <p>But with <code>--follow</code>:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--all<span class="w"> </span>--follow<span class="w"> </span>--oneline<span class="w"> </span>--<span class="w"> </span>docs/blog/post/network/network1.md
 </code></pre></div>
-<p>The output traced all the way back to commits from May 2025 — 11 months ago. Git was following the file's rename history across remotes and linking it to the old <code>generic-types.md</code> article I had copied from.</p>
+<p>The output traced all the way back to commits from May 2025: 11 months ago. Git was following the file's rename history across remotes and linking it to the old <code>generic-types.md</code> article I had copied from.</p>
 <p>The culprit was the <strong>upstream remote</strong>. I had a fork setup with an <code>upstream</code> remote still configured, and the plugin was scanning commits from that remote's history:</p>
 <div class="highlight"><pre><span></span><code>864e78b (upstream/main, upstream/HEAD) Update generic-types.md
 </code></pre></div>
@@ -2301,7 +2301,7 @@
 <span class="w">    </span><span class="nt">enable_creation_date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">follow_renames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
-<p>It didn't work — the option wasn't recognized in my plugin version. The correct option was:</p>
+<p>It didn't work, the option wasn't recognized in my plugin version. The correct option was:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">git-revision-date-localized</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">enable_creation_date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">enable_git_follow</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
@@ -2330,7 +2330,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;show-contrib-feedback&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>My new article was under <code>/lab/git/</code> — no <code>blog</code> in the URL, so dates were hidden by design. The fix was updating the JS to show dates on all content pages:</p>
+<p>My new article was under <code>/lab/git/</code>, no <code>blog</code> in the URL, so dates were hidden by design. The fix was updating the JS to show dates on all content pages:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">overviewSlugs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/network/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/databases/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/java/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/spring/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/lab/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/blog/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/categories/&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/tags/&#39;</span><span class="p">];</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">isOverviewPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">overviewSlugs</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span>
 <span class="w">  </span><span class="o">||</span><span class="w"> </span><span class="nx">path</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;/index.html&#39;</span><span class="p">)</span>
@@ -2372,18 +2372,18 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permalink">¶</a></h2>
 <ul>
 <li><code>git-revision-date-localized</code> reads <strong>git history</strong>, not front matter dates</li>
-<li><code>--follow</code> in git can trace history across remotes — old remotes you forgot about can affect plugin behavior</li>
+<li><code>--follow</code> in git can trace history across remotes, old remotes you forgot about can affect plugin behavior</li>
 <li>The correct option to disable follow behavior is <code>enable_git_follow: false</code>, not <code>follow_renames: false</code></li>
-<li>If dates aren't showing at all, check your CSS and JS — the plugin might be injecting them correctly but they're hidden</li>
+<li>If dates aren't showing at all, check your CSS and JS, the plugin might be injecting them correctly but they're hidden</li>
 <li>Deleting and recreating a file won't help if the upstream remote still has old history for that path</li>
 </ul>
 <hr />
 <h2 id="collateral-discoveries">Collateral Discoveries<a class="headerlink" href="#collateral-discoveries" title="Permalink">¶</a></h2>
 <p>Along the way I also learned:</p>
 <ul>
-<li><code>git log --all --follow</code> vs <code>git log</code> — the <code>--all</code> flag includes all remotes, <code>--follow</code> traces renames. Use both when debugging date issues</li>
+<li><code>git log --all --follow</code> vs <code>git log</code>, the <code>--all</code> flag includes all remotes, <code>--follow</code> traces renames. Use both when debugging date issues</li>
 <li>The <code>git-committers</code> plugin and <code>git-revision-date-localized</code> are separate — one handles author avatars, the other handles dates. They can fail independently</li>
-<li>MkDocs <code>--dirtyreload</code> flag is useful for faster local development but can serve stale plugin data — sometimes a full restart is needed</li>
+<li>MkDocs <code>--dirtyreload</code> flag is useful for faster local development but can serve stale plugin data, sometimes a full restart is needed</li>
 </ul>
 <hr />
 <p>If you're hitting the same "wrong creation date" issue on your MkDocs Material site, start by checking your remotes:</p>
@@ -2419,7 +2419,7 @@ git<span class="w"> </span>log<span class="w"> </span>--all<span class="w"> </sp
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 19:18:16 UTC"><span class="timeago" datetime="2026-05-09T19:18:16+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 19:18:16 UTC">2026-05-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 11, 2026 10:03:19 UTC"><span class="timeago" datetime="2026-05-11T10:03:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2026 10:03:19 UTC">2026-05-11</span>
   </span>
 
     
