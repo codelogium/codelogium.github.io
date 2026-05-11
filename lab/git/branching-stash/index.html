@@ -1202,12 +1202,12 @@
   <a href="#branch-naming-sub-branches-dont-exist-in-git" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Branch Naming — Sub-branches Don't Exist in Git
+        Branch Naming: sub-branches don't exist in Git
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Branch Naming — Sub-branches Don&#39;t Exist in Git">
+    <nav class="md-nav" aria-label="Branch Naming: sub-branches don&#39;t exist in Git">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1325,7 +1325,7 @@
   <a href="#revert-a-commit-safe-creates-a-new-commit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Revert a Commit (Safe — Creates a New Commit)
+        Revert a Commit (Safe, Creates a New Commit)
       
     </span>
   </a>
@@ -2146,12 +2146,12 @@
   <a href="#branch-naming-sub-branches-dont-exist-in-git" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Branch Naming — Sub-branches Don't Exist in Git
+        Branch Naming: sub-branches don't exist in Git
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Branch Naming — Sub-branches Don&#39;t Exist in Git">
+    <nav class="md-nav" aria-label="Branch Naming: sub-branches don&#39;t exist in Git">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2269,7 +2269,7 @@
   <a href="#revert-a-commit-safe-creates-a-new-commit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Revert a Commit (Safe — Creates a New Commit)
+        Revert a Commit (Safe, Creates a New Commit)
       
     </span>
   </a>
@@ -2481,10 +2481,10 @@ git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>&lt;branch&gt;<span class="w"> </span><span class="c1"># Merge branch into current (be on target branch)</span>
 </code></pre></div>
 <hr />
-<h2 id="branch-naming-sub-branches-dont-exist-in-git">Branch Naming — Sub-branches Don't Exist in Git<a class="headerlink" href="#branch-naming-sub-branches-dont-exist-in-git" title="Permalink">¶</a></h2>
+<h2 id="branch-naming-sub-branches-dont-exist-in-git">Branch Naming: sub-branches don't exist in Git<a class="headerlink" href="#branch-naming-sub-branches-dont-exist-in-git" title="Permalink">¶</a></h2>
 <p>Git has no concept of sub-branches. The <code>/</code> in a branch name is just a string character, purely a human convention for visual grouping.</p>
 <div class="highlight"><pre><span></span><code>feat/FeatureName
-test/feat/FeatureName<span class="w">     </span><span class="c1"># only &quot;related&quot; by name — Git has no idea</span>
+test/feat/FeatureName<span class="w">     </span><span class="c1"># only &quot;related&quot; by name. Git has no idea</span>
 </code></pre></div>
 <p>Git sees both as equal, independent branches. The naming is for <strong>you</strong>, not for Git.</p>
 <h3 id="common-naming-conventions">Common Naming Conventions<a class="headerlink" href="#common-naming-conventions" title="Permalink">¶</a></h3>
@@ -2538,7 +2538,7 @@ git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </s
 <li>Drop a <code>wip/</code> stash as soon as its branch is merged</li>
 </ul>
 <h3 id="renaming-a-stash">Renaming a Stash<a class="headerlink" href="#renaming-a-stash" title="Permalink">¶</a></h3>
-<p>Git has no native rename command — pop and re-stash:</p>
+<p>Git has no native rename command, pop and re-stash:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w"> </span>stash@<span class="o">{</span>N<span class="o">}</span><span class="w">                          </span><span class="c1"># pop the one to rename</span>
 git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;proper/name&quot;</span><span class="w">                  </span><span class="c1"># re-stash with the correct name</span>
 </code></pre></div>
@@ -2552,7 +2552,7 @@ git<span class="w"> </span>diff<span class="w"> </span>stash@<span class="o">{</
 </code></pre></div>
 <hr />
 <h2 id="undoing-reverting">Undoing &amp; Reverting<a class="headerlink" href="#undoing-reverting" title="Permalink">¶</a></h2>
-<h3 id="revert-a-commit-safe-creates-a-new-commit">Revert a Commit (Safe — Creates a New Commit)<a class="headerlink" href="#revert-a-commit-safe-creates-a-new-commit" title="Permalink">¶</a></h3>
+<h3 id="revert-a-commit-safe-creates-a-new-commit">Revert a Commit (Safe, Creates a New Commit)<a class="headerlink" href="#revert-a-commit-safe-creates-a-new-commit" title="Permalink">¶</a></h3>
 <p>Reverting creates a new commit that undoes the changes of a previous one. The original commit stays in history.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>revert<span class="w"> </span>&lt;commit-id&gt;<span class="w">                           </span><span class="c1"># revert a specific commit</span>
 </code></pre></div>
@@ -2676,7 +2676,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 11, 2026 10:03:19 UTC"><span class="timeago" datetime="2026-05-11T10:03:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2026 10:03:19 UTC">2026-05-11</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 11, 2026 10:20:59 UTC"><span class="timeago" datetime="2026-05-11T10:20:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2026 10:20:59 UTC">2026-05-11</span>
   </span>
 
     
