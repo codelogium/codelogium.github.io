@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Push, pull, SSH setup, fork workflows, multiple Git identities, divergent branches, skip-worktree, assume-unchanged, LFS, and gist transfer.">
+        <meta name="description" content="Real git issues encountered during development; root causes, investigation steps, and fixes.">
       
       
       
-        <link rel="canonical" href="https://codelogium.github.io/lab/git/remotes-workflows/">
+        <link rel="canonical" href="https://codelogium.github.io/lab/git/issues/">
       
       
-        <link rel="prev" href="../branching-stash/">
+        <link rel="prev" href="../remotes-workflows/">
       
       
-        <link rel="next" href="../issues/">
+        <link rel="next" href="../../../blog/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Remotes & Workflows - Codelogium</title>
+        <title>Issues & Troubleshooting - Codelogium</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#remotes-workflows" class="md-skip">
+        <a href="#issues-troubleshooting" class="md-skip">
           Skip to content
         </a>
       
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Remotes & Workflows
+              Issues & Troubleshooting
             
           </span>
         </div>
@@ -1125,6 +1125,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../remotes-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remotes & Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1144,7 +1172,7 @@
   <span class="md-ellipsis">
     
   
-    Remotes & Workflows
+    Issues & Troubleshooting
   
 
     
@@ -1162,7 +1190,7 @@
   <span class="md-ellipsis">
     
   
-    Remotes & Workflows
+    Issues & Troubleshooting
   
 
     
@@ -1190,66 +1218,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#remote-repositories" class="md-nav__link">
+  <a href="#1-merge-blocked-by-skip-worktree-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Remote Repositories
+        1. Merge Blocked by skip-worktree File
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#merging-a-pull-request-locally" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Merging a Pull Request Locally
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-push-workflow-always-pull-before-you-push" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Push Workflow: Always Pull Before You Push
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fetch-a-single-file-from-another-branch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fetch a Single File from Another Branch
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ignore-future-changes-but-keep-the-file-in-the-repo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ignore Future Changes but Keep the File in the Repo
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ignore Future Changes but Keep the File in the Repo">
+    <nav class="md-nav" aria-label="1. Merge Blocked by skip-worktree File">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#assume-unchanged-performance-hint" class="md-nav__link">
+  <a href="#problem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        assume-unchanged (performance hint)
+        Problem
       
     </span>
   </a>
@@ -1257,10 +1241,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#skip-worktree-local-config-files-you-never-want-to-push" class="md-nav__link">
+  <a href="#investigation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        skip-worktree (local config files you never want to push)
+        Investigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root-cause" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Root Cause
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
       
     </span>
   </a>
@@ -1273,22 +1290,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-ssh-to-a-remote-platform" class="md-nav__link">
+  <a href="#2-setting-up-skip-worktree-for-local-config-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding SSH to a Remote Platform
+        2. Setting up skip-worktree for Local Config Files
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Adding SSH to a Remote Platform">
+    <nav class="md-nav" aria-label="2. Setting up skip-worktree for Local Config Files">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#check-for-existing-ssh-keys" class="md-nav__link">
+  <a href="#problem_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Check for existing SSH keys
+        Problem
       
     </span>
   </a>
@@ -1296,10 +1313,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-a-new-ssh-key" class="md-nav__link">
+  <a href="#solution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generate a new SSH key
+        Solution
       
     </span>
   </a>
@@ -1307,10 +1324,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#add-the-key-to-the-ssh-agent" class="md-nav__link">
+  <a href="#verify-it-worked" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Add the key to the SSH agent
+        Verify it worked
       
     </span>
   </a>
@@ -1318,10 +1335,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#copy-the-public-key" class="md-nav__link">
+  <a href="#common-mistake" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Copy the public key
+        Common Mistake
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitation
       
     </span>
   </a>
@@ -1334,22 +1362,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fork-workflow-remote-tracking" class="md-nav__link">
+  <a href="#3-merge-conflicts-with-teammates-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fork Workflow &amp; Remote Tracking
+        3. Merge Conflicts with Teammates' Changes
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Fork Workflow &amp; Remote Tracking">
+    <nav class="md-nav" aria-label="3. Merge Conflicts with Teammates&#39; Changes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#re-fork-syncing-with-upstream" class="md-nav__link">
+  <a href="#problem_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Re-fork / Syncing with Upstream
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root-cause_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Root Cause
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolution Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nuclear-option-discard-all-local-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nuclear Option (discard all local changes)
       
     </span>
   </a>
@@ -1362,44 +1423,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#multiple-git-identities-conditional-includes" class="md-nav__link">
+  <a href="#4-stash-conflict-on-pop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Multiple Git Identities (Conditional Includes)
+        4. Stash Conflict on Pop
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transfer-a-gist-to-github" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transfer a Gist to GitHub
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-large-file-storage-lfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Git Large File Storage (LFS)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Git Large File Storage (LFS)">
+    <nav class="md-nav" aria-label="4. Stash Conflict on Pop">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
+  <a href="#problem_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setup
+        Problem
       
     </span>
   </a>
@@ -1407,10 +1446,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#migrate-existing-files-to-lfs" class="md-nav__link">
+  <a href="#fix-abort-and-get-back-to-clean" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Migrate existing files to LFS
+        Fix — Abort and get back to clean
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-stash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful Stash Commands
       
     </span>
   </a>
@@ -1423,44 +1473,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#revert-a-commit-pushed-remotely" class="md-nav__link">
+  <a href="#5-fetching-a-single-file-from-upstream" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Revert a Commit Pushed Remotely
+        5. Fetching a Single File from Upstream
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hard-reset-to-match-upstream-exactly" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hard Reset to Match Upstream Exactly
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#moving-or-retargeting-a-pull-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Moving or Retargeting a Pull Request
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Moving or Retargeting a Pull Request">
+    <nav class="md-nav" aria-label="5. Fetching a Single File from Upstream">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#change-the-base-branch-on-github-easiest" class="md-nav__link">
+  <a href="#use-case" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Change the base branch on GitHub (easiest)
+        Use Case
       
     </span>
   </a>
@@ -1468,10 +1496,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pr-closed-after-upstream-rebase" class="md-nav__link">
+  <a href="#solution_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PR closed after upstream rebase
+        Solution
       
     </span>
   </a>
@@ -1479,10 +1507,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rebase-your-pr-branch-onto-a-new-base" class="md-nav__link">
+  <a href="#notes_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rebase your PR branch onto a new base
+        Notes
       
     </span>
   </a>
@@ -1495,10 +1523,188 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#git-garbage-collection" class="md-nav__link">
+  <a href="#6-moving-uncommitted-changes-to-a-new-branch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Git Garbage Collection
+        6. Moving Uncommitted Changes to a New Branch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Moving Uncommitted Changes to a New Branch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-1-changes-not-yet-committed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case 1: Changes not yet committed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-2-already-committed-on-wrong-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case 2: Already committed on wrong branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-3-extra-safe-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case 3: Extra safe approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-reset-branch-to-match-upstream-exactly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Reset Branch to Match Upstream Exactly
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Reset Branch to Match Upstream Exactly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-case_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Case
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safer-version-save-work-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safer version — save work first
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ssh-post-quantum-warning-on-git-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. SSH Post-Quantum Warning on git fetch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. SSH Post-Quantum Warning on git fetch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root-cause_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Root Cause
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-pr-closed-after-upstream-rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. PR Closed After Upstream Rebase
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. PR Closed After Upstream Rebase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-inspecting-what-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Inspecting What Changed
       
     </span>
   </a>
@@ -1506,10 +1712,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#categories" class="md-nav__link">
+  <a href="#quick-reference-skip-worktree-vs-assume-unchanged" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Categories
+        Quick Reference: skip-worktree vs assume-unchanged
       
     </span>
   </a>
@@ -1520,34 +1726,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../issues/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Issues & Troubleshooting
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2173,66 +2351,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#remote-repositories" class="md-nav__link">
+  <a href="#1-merge-blocked-by-skip-worktree-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Remote Repositories
+        1. Merge Blocked by skip-worktree File
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#merging-a-pull-request-locally" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Merging a Pull Request Locally
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-push-workflow-always-pull-before-you-push" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Push Workflow: Always Pull Before You Push
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fetch-a-single-file-from-another-branch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fetch a Single File from Another Branch
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ignore-future-changes-but-keep-the-file-in-the-repo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ignore Future Changes but Keep the File in the Repo
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ignore Future Changes but Keep the File in the Repo">
+    <nav class="md-nav" aria-label="1. Merge Blocked by skip-worktree File">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#assume-unchanged-performance-hint" class="md-nav__link">
+  <a href="#problem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        assume-unchanged (performance hint)
+        Problem
       
     </span>
   </a>
@@ -2240,10 +2374,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#skip-worktree-local-config-files-you-never-want-to-push" class="md-nav__link">
+  <a href="#investigation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        skip-worktree (local config files you never want to push)
+        Investigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root-cause" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Root Cause
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
       
     </span>
   </a>
@@ -2256,22 +2423,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-ssh-to-a-remote-platform" class="md-nav__link">
+  <a href="#2-setting-up-skip-worktree-for-local-config-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding SSH to a Remote Platform
+        2. Setting up skip-worktree for Local Config Files
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Adding SSH to a Remote Platform">
+    <nav class="md-nav" aria-label="2. Setting up skip-worktree for Local Config Files">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#check-for-existing-ssh-keys" class="md-nav__link">
+  <a href="#problem_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Check for existing SSH keys
+        Problem
       
     </span>
   </a>
@@ -2279,10 +2446,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-a-new-ssh-key" class="md-nav__link">
+  <a href="#solution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generate a new SSH key
+        Solution
       
     </span>
   </a>
@@ -2290,10 +2457,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#add-the-key-to-the-ssh-agent" class="md-nav__link">
+  <a href="#verify-it-worked" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Add the key to the SSH agent
+        Verify it worked
       
     </span>
   </a>
@@ -2301,10 +2468,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#copy-the-public-key" class="md-nav__link">
+  <a href="#common-mistake" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Copy the public key
+        Common Mistake
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitation
       
     </span>
   </a>
@@ -2317,22 +2495,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fork-workflow-remote-tracking" class="md-nav__link">
+  <a href="#3-merge-conflicts-with-teammates-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fork Workflow &amp; Remote Tracking
+        3. Merge Conflicts with Teammates' Changes
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Fork Workflow &amp; Remote Tracking">
+    <nav class="md-nav" aria-label="3. Merge Conflicts with Teammates&#39; Changes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#re-fork-syncing-with-upstream" class="md-nav__link">
+  <a href="#problem_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Re-fork / Syncing with Upstream
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root-cause_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Root Cause
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolution Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nuclear-option-discard-all-local-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nuclear Option (discard all local changes)
       
     </span>
   </a>
@@ -2345,44 +2556,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#multiple-git-identities-conditional-includes" class="md-nav__link">
+  <a href="#4-stash-conflict-on-pop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Multiple Git Identities (Conditional Includes)
+        4. Stash Conflict on Pop
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transfer-a-gist-to-github" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transfer a Gist to GitHub
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-large-file-storage-lfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Git Large File Storage (LFS)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Git Large File Storage (LFS)">
+    <nav class="md-nav" aria-label="4. Stash Conflict on Pop">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
+  <a href="#problem_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setup
+        Problem
       
     </span>
   </a>
@@ -2390,10 +2579,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#migrate-existing-files-to-lfs" class="md-nav__link">
+  <a href="#fix-abort-and-get-back-to-clean" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Migrate existing files to LFS
+        Fix — Abort and get back to clean
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-stash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful Stash Commands
       
     </span>
   </a>
@@ -2406,44 +2606,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#revert-a-commit-pushed-remotely" class="md-nav__link">
+  <a href="#5-fetching-a-single-file-from-upstream" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Revert a Commit Pushed Remotely
+        5. Fetching a Single File from Upstream
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hard-reset-to-match-upstream-exactly" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hard Reset to Match Upstream Exactly
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#moving-or-retargeting-a-pull-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Moving or Retargeting a Pull Request
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Moving or Retargeting a Pull Request">
+    <nav class="md-nav" aria-label="5. Fetching a Single File from Upstream">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#change-the-base-branch-on-github-easiest" class="md-nav__link">
+  <a href="#use-case" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Change the base branch on GitHub (easiest)
+        Use Case
       
     </span>
   </a>
@@ -2451,10 +2629,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pr-closed-after-upstream-rebase" class="md-nav__link">
+  <a href="#solution_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PR closed after upstream rebase
+        Solution
       
     </span>
   </a>
@@ -2462,10 +2640,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rebase-your-pr-branch-onto-a-new-base" class="md-nav__link">
+  <a href="#notes_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rebase your PR branch onto a new base
+        Notes
       
     </span>
   </a>
@@ -2478,10 +2656,188 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#git-garbage-collection" class="md-nav__link">
+  <a href="#6-moving-uncommitted-changes-to-a-new-branch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Git Garbage Collection
+        6. Moving Uncommitted Changes to a New Branch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Moving Uncommitted Changes to a New Branch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-1-changes-not-yet-committed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case 1: Changes not yet committed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-2-already-committed-on-wrong-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case 2: Already committed on wrong branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-3-extra-safe-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case 3: Extra safe approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-reset-branch-to-match-upstream-exactly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Reset Branch to Match Upstream Exactly
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Reset Branch to Match Upstream Exactly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-case_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Case
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safer-version-save-work-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safer version — save work first
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ssh-post-quantum-warning-on-git-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. SSH Post-Quantum Warning on git fetch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. SSH Post-Quantum Warning on git fetch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root-cause_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Root Cause
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-pr-closed-after-upstream-rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. PR Closed After Upstream Rebase
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. PR Closed After Upstream Rebase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-inspecting-what-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Inspecting What Changed
       
     </span>
   </a>
@@ -2489,10 +2845,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#categories" class="md-nav__link">
+  <a href="#quick-reference-skip-worktree-vs-assume-unchanged" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Categories
+        Quick Reference: skip-worktree vs assume-unchanged
       
     </span>
   </a>
@@ -2519,11 +2875,11 @@
   
 
 
-<h1 id="remotes-workflows">Remotes &amp; Workflows<a class="headerlink" href="#remotes-workflows" title="Permalink">¶</a></h1>
+<h1 id="issues-troubleshooting">Issues &amp; Troubleshooting<a class="headerlink" href="#issues-troubleshooting" title="Permalink">¶</a></h1>
 <div class="blog-meta">
   <div class="blog-meta-container">
     <span class="meta-content">
-      By: &nbsp;<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
+      By: <strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
       &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/git/"><em>git</em></a>&nbsp;•&nbsp;
                <a href="/categories/workflow/"><em>workflow</em></a>&nbsp;•&nbsp;
       ⏱️ ~8 min read</span>
@@ -2532,253 +2888,258 @@
 </div>
 
 <blockquote>
-<p>"GitHub is a free tool that lets you host your local repository."</p>
+<p>"When git behaves unexpectedly, the answer is almost always in the history."</p>
 </blockquote>
+<p>A personal log of real git issues encountered during development; root causes, investigation steps, and fixes. Not theory — things that actually happened.</p>
 <hr />
-<h2 id="remote-repositories">Remote Repositories<a class="headerlink" href="#remote-repositories" title="Permalink">¶</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w">                                       </span><span class="c1"># List all linked remote repositories</span>
-git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w">                                    </span><span class="c1"># Verify remotes with URLs</span>
-git<span class="w"> </span>remote<span class="w"> </span>show<span class="w"> </span>origin<span class="w">                           </span><span class="c1"># Show URL of remote repository</span>
-git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>&lt;url&gt;<span class="w">                      </span><span class="c1"># Add remote via HTTPS</span>
-git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:user/repo.git<span class="w">  </span><span class="c1"># Add remote via SSH</span>
-git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>origin<span class="w"> </span>git@github.com:user/repo.git<span class="w">  </span><span class="c1"># Update remote URL to SSH</span>
-git<span class="w"> </span>remote<span class="w"> </span>remove<span class="w"> </span>&lt;name&gt;<span class="w">                         </span><span class="c1"># Remove a linked remote</span>
-git<span class="w"> </span>push<span class="w">                                         </span><span class="c1"># Push to remote</span>
-git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main<span class="w">                          </span><span class="c1"># Push and set upstream tracking</span>
-git<span class="w"> </span>pull<span class="w">                                         </span><span class="c1"># Pull latest from remote</span>
-git<span class="w"> </span>clone<span class="w"> </span>&lt;url&gt;<span class="w">                                  </span><span class="c1"># Clone a repository</span>
-git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>+master<span class="w">                          </span><span class="c1"># Remove a commit already pushed remotely</span>
+<h2 id="1-merge-blocked-by-skip-worktree-file">1. Merge Blocked by skip-worktree File<a class="headerlink" href="#1-merge-blocked-by-skip-worktree-file" title="Permalink">¶</a></h2>
+<h3 id="problem">Problem<a class="headerlink" href="#problem" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>error: Your local changes to the following files would be overwritten by merge:
+        path/to/SomeFile.java
+Please commit your changes or stash them before you merge.
+Aborting
 </code></pre></div>
+<h3 id="investigation">Investigation<a class="headerlink" href="#investigation" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff<span class="w"> </span>path/to/SomeFile.java<span class="w">                   </span><span class="c1"># nothing</span>
+git<span class="w"> </span>diff<span class="w"> </span>HEAD<span class="w"> </span>path/to/SomeFile.java<span class="w">              </span><span class="c1"># nothing</span>
+git<span class="w"> </span>diff<span class="w"> </span>--cached<span class="w"> </span>path/to/SomeFile.java<span class="w">          </span><span class="c1"># nothing</span>
+
+<span class="c1"># Compare against upstream</span>
+git<span class="w"> </span>diff<span class="w"> </span>upstream/&lt;branch&gt;<span class="w"> </span>--<span class="w"> </span>path/to/SomeFile.java
+<span class="c1"># Result: only a trailing newline difference, harmless</span>
+</code></pre></div>
+<h3 id="root-cause">Root Cause<a class="headerlink" href="#root-cause" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>ls-files<span class="w"> </span>-v<span class="w"> </span>path/to/SomeFile.java
+<span class="c1"># Output: S path/to/SomeFile.java</span>
+</code></pre></div>
+<p><code>S</code> prefix means the file is marked with <code>--skip-worktree</code>. Git still detects the upstream conflict despite the flag.</p>
+<h3 id="fix">Fix<a class="headerlink" href="#fix" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>update-index<span class="w"> </span>--no-skip-worktree<span class="w"> </span>path/to/SomeFile.java
+git<span class="w"> </span>merge<span class="w"> </span>upstream/&lt;branch&gt;
+</code></pre></div>
+<p>Re-apply after merge:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>path/to/SomeFile.java
+</code></pre></div>
+<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permalink">¶</a></h3>
+<ul>
+<li>Always check <code>git ls-files -v &lt;file&gt;</code> when git behaves unexpectedly on a specific file</li>
+<li><code>S</code> = skip-worktree (intentional local override, survives resets)</li>
+<li><code>h</code> = assume-unchanged (performance hint, weaker)</li>
+</ul>
 <hr />
-<h2 id="merging-a-pull-request-locally">Merging a Pull Request Locally<a class="headerlink" href="#merging-a-pull-request-locally" title="Permalink">¶</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main<span class="w">                             </span><span class="c1"># Step 1: update local repo</span>
-git<span class="w"> </span>checkout<span class="w"> </span>main<span class="w">                                </span><span class="c1"># Step 2: switch to base branch</span>
-git<span class="w"> </span>merge<span class="w"> </span>&lt;branch-name&gt;<span class="w">                          </span><span class="c1"># Step 3: merge the PR branch</span>
-git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main<span class="w">                          </span><span class="c1"># Step 4: push the result</span>
-</code></pre></div>
-<hr />
-<h2 id="the-push-workflow-always-pull-before-you-push">The Push Workflow: Always Pull Before You Push<a class="headerlink" href="#the-push-workflow-always-pull-before-you-push" title="Permalink">¶</a></h2>
-<p>A safe and consistent push habit for every project:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.<span class="w">                                        </span><span class="c1"># stage your changes</span>
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;your message&quot;</span><span class="w">                     </span><span class="c1"># commit</span>
-git<span class="w"> </span>pull<span class="w">                                         </span><span class="c1"># sync with remote first</span>
-git<span class="w"> </span>push<span class="w">                                         </span><span class="c1"># then push</span>
-</code></pre></div>
-<p>This avoids rejected pushes when someone else or your own CI/CD pipeline has committed to the remote while you were working locally.</p>
-<div class="admonition tip">
-<p class="admonition-title">Make pull always rebase</p>
-<p><div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>pull.rebase<span class="w"> </span><span class="nb">true</span>
-</code></pre></div>
-This keeps your history linear; no merge commits from pulls, just a clean straight line of work. Good habit for all projects.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The only time you can skip the pull is when you're 100% certain you're the only one touching that branch and no automation commits back. Even then, pulling costs nothing.</p>
-</div>
-<hr />
-<h2 id="fetch-a-single-file-from-another-branch">Fetch a Single File from Another Branch<a class="headerlink" href="#fetch-a-single-file-from-another-branch" title="Permalink">¶</a></h2>
-<p>Pull one specific file from another branch without merging everything:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>upstream/&lt;branch&gt;<span class="w"> </span>--<span class="w"> </span>path/to/file.java<span class="w">   </span><span class="c1"># overwrite local file with branch version</span>
-git<span class="w"> </span>checkout<span class="w"> </span>HEAD<span class="w"> </span>--<span class="w"> </span>path/to/file.java<span class="w">                </span><span class="c1"># undo; restore from current branch</span>
-</code></pre></div>
-<p>The file is overwritten locally and staged automatically.</p>
-<hr />
-<h2 id="ignore-future-changes-but-keep-the-file-in-the-repo">Ignore Future Changes but Keep the File in the Repo<a class="headerlink" href="#ignore-future-changes-but-keep-the-file-in-the-repo" title="Permalink">¶</a></h2>
-<h3 id="assume-unchanged-performance-hint">assume-unchanged (performance hint)<a class="headerlink" href="#assume-unchanged-performance-hint" title="Permalink">¶</a></h3>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>update-index<span class="w"> </span>--assume-unchanged<span class="w"> </span>&lt;path/to/file&gt;<span class="w">    </span><span class="c1"># git won&#39;t notice local edits</span>
-git<span class="w"> </span>update-index<span class="w"> </span>--no-assume-unchanged<span class="w"> </span>&lt;path/to/file&gt;<span class="w"> </span><span class="c1"># resume tracking</span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code>assume-unchanged</code> can be silently overwritten by Git during merges and checkouts. Use <code>skip-worktree</code> instead for files you actively modify locally.</p>
-</div>
-<h3 id="skip-worktree-local-config-files-you-never-want-to-push">skip-worktree (local config files you never want to push)<a class="headerlink" href="#skip-worktree-local-config-files-you-never-want-to-push" title="Permalink">¶</a></h3>
-<p><code>.gitignore</code> only works for untracked files. If a file is already committed, use <code>skip-worktree</code>:</p>
+<h2 id="2-setting-up-skip-worktree-for-local-config-files">2. Setting up skip-worktree for Local Config Files<a class="headerlink" href="#2-setting-up-skip-worktree-for-local-config-files" title="Permalink">¶</a></h2>
+<h3 id="problem_1">Problem<a class="headerlink" href="#problem_1" title="Permalink">¶</a></h3>
+<p>Config files like <code>application.properties</code> and <code>logback.xml</code> contain local environment values that should never be committed, but git keeps picking them up.</p>
+<h3 id="solution">Solution<a class="headerlink" href="#solution" title="Permalink">¶</a></h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>path/to/application.properties
 git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>path/to/logback.xml
+
+<span class="c1"># Add logs folder to local gitignore (invisible to teammates)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;logs/&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.git/info/exclude
 </code></pre></div>
-<p>The file won't appear in <code>git status</code>, won't be touched by <code>git add .</code>, and won't be committed. Your local changes stay permanently without any effort.</p>
-<p>To undo:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>update-index<span class="w"> </span>--no-skip-worktree<span class="w"> </span>path/to/application.properties
+<h3 id="verify-it-worked">Verify it worked<a class="headerlink" href="#verify-it-worked" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status<span class="w">                                       </span><span class="c1"># those files should NOT appear</span>
+</code></pre></div>
+<h3 id="common-mistake">Common Mistake<a class="headerlink" href="#common-mistake" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># WRONG: git reads the whole thing as one path</span>
+git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>application.properties<span class="w"> </span>git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>logback.xml
+<span class="c1"># fatal: Unable to mark file git</span>
+
+<span class="c1"># CORRECT: run separately</span>
+git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>application.properties
+git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>logback.xml
+</code></pre></div>
+<h3 id="limitation">Limitation<a class="headerlink" href="#limitation" title="Permalink">¶</a></h3>
+<p><code>skip-worktree</code> does NOT fully protect against merges. If the incoming merge touches that file, Git blocks. Fix:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>update-index<span class="w"> </span>--no-skip-worktree<span class="w"> </span>application.properties
+git<span class="w"> </span>stash
+git<span class="w"> </span>merge<span class="w"> </span>upstream/&lt;branch&gt;
+git<span class="w"> </span>stash<span class="w"> </span>pop
+<span class="c1"># manually restore your local values</span>
+git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>application.properties
+</code></pre></div>
+<hr />
+<h2 id="3-merge-conflicts-with-teammates-changes">3. Merge Conflicts with Teammates' Changes<a class="headerlink" href="#3-merge-conflicts-with-teammates-changes" title="Permalink">¶</a></h2>
+<h3 id="problem_2">Problem<a class="headerlink" href="#problem_2" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>CONFLICT (content): Merge conflict in path/to/SomeConstants.java
+CONFLICT (content): Merge conflict in path/to/SomeService.java
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre></div>
+<h3 id="root-cause_1">Root Cause<a class="headerlink" href="#root-cause_1" title="Permalink">¶</a></h3>
+<p>Multiple developers modified the same lines in the same files. Git cannot decide which version to keep.</p>
+<h3 id="resolution-strategy">Resolution Strategy<a class="headerlink" href="#resolution-strategy" title="Permalink">¶</a></h3>
+<p>Open each conflicted file and look for conflict markers:</p>
+<div class="highlight"><pre><span></span><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD          # your version starts here
+your changes
+=======               # separator
+their changes
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream      # their version ends here
+</code></pre></div>
+<p>Three cases:</p>
+<ul>
+<li><strong>Keep yours</strong>: delete from <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> to <code>=======</code> and the closing <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code></li>
+<li><strong>Keep theirs</strong>: delete from <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> to <code>=======</code> and keep theirs</li>
+<li><strong>Merge both</strong>: manually combine the two versions (most common for shared constants/config files)</li>
+</ul>
+<p>After resolving all files:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;merge: resolve conflicts with upstream&quot;</span>
+</code></pre></div>
+<h3 id="nuclear-option-discard-all-local-changes">Nuclear Option (discard all local changes)<a class="headerlink" href="#nuclear-option-discard-all-local-changes" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>upstream<span class="w"> </span>&lt;branch&gt;
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>upstream/&lt;branch&gt;
+git<span class="w"> </span>push<span class="w"> </span>--force<span class="w"> </span>origin<span class="w"> </span>&lt;branch&gt;
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code>skip-worktree</code> breaks during merges; if the incoming merge touches that file, Git blocks. Workaround:</p>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>application.properties<span class="w"> </span>application.properties.local.bak<span class="w">   </span><span class="c1"># backup local values</span>
-git<span class="w"> </span>update-index<span class="w"> </span>--no-skip-worktree<span class="w"> </span>application.properties<span class="w">    </span><span class="c1"># lift skip-worktree</span>
-git<span class="w"> </span>merge<span class="w"> </span>upstream/&lt;branch&gt;<span class="w">                                   </span><span class="c1"># merge</span>
-git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>application.properties<span class="w">       </span><span class="c1"># re-apply skip-worktree</span>
-cp<span class="w"> </span>application.properties.local.bak<span class="w"> </span>application.properties<span class="w">    </span><span class="c1"># restore local values</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;*.local.bak&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.git/info/exclude<span class="w">                       </span><span class="c1"># never track backups</span>
-</code></pre></div>
+<p>This permanently loses all your local commits. See issue #7 for the safer version.</p>
 </div>
 <hr />
-<h2 id="adding-ssh-to-a-remote-platform">Adding SSH to a Remote Platform<a class="headerlink" href="#adding-ssh-to-a-remote-platform" title="Permalink">¶</a></h2>
-<h3 id="check-for-existing-ssh-keys">Check for existing SSH keys<a class="headerlink" href="#check-for-existing-ssh-keys" title="Permalink">¶</a></h3>
-<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-al<span class="w"> </span>~/.ssh<span class="w">                                    </span><span class="c1"># list existing SSH keys</span>
+<h2 id="4-stash-conflict-on-pop">4. Stash Conflict on Pop<a class="headerlink" href="#4-stash-conflict-on-pop" title="Permalink">¶</a></h2>
+<h3 id="problem_3">Problem<a class="headerlink" href="#problem_3" title="Permalink">¶</a></h3>
+<p>After <code>git stash pop</code>, conflicts appear because the stash was saved on a different branch state.</p>
+<h3 id="fix-abort-and-get-back-to-clean">Fix — Abort and get back to clean<a class="headerlink" href="#fix-abort-and-get-back-to-clean" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>.
+git<span class="w"> </span>restore<span class="w"> </span>.
 </code></pre></div>
-<p>Default public key filenames: <code>id_rsa.pub</code>, <code>id_ecdsa.pub</code>, <code>id_ed25519.pub</code></p>
-<h3 id="generate-a-new-ssh-key">Generate a new SSH key<a class="headerlink" href="#generate-a-new-ssh-key" title="Permalink">¶</a></h3>
-<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
+<h3 id="useful-stash-commands">Useful Stash Commands<a class="headerlink" href="#useful-stash-commands" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span><span class="w"> </span>--<span class="w"> </span>path/to/file<span class="w">           </span><span class="c1"># apply only one file from stash</span>
+git<span class="w"> </span>diff<span class="w"> </span>stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span><span class="w"> </span>--<span class="w"> </span>path/to/file<span class="w">               </span><span class="c1"># preview stash contents before applying</span>
+git<span class="w"> </span>show<span class="w"> </span>stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>:path/to/file<span class="w">                  </span><span class="c1"># see one specific file from stash</span>
+git<span class="w"> </span>stash<span class="w"> </span>drop<span class="w"> </span>stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span><span class="w">                         </span><span class="c1"># drop after applying</span>
+git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;wip/description&quot;</span><span class="w">              </span><span class="c1"># named stash for clarity</span>
 </code></pre></div>
-<p>For legacy systems that don't support Ed25519:</p>
-<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
-</code></pre></div>
-<p>Press Enter to accept the default file location, then enter a passphrase.</p>
-<h3 id="add-the-key-to-the-ssh-agent">Add the key to the SSH agent<a class="headerlink" href="#add-the-key-to-the-ssh-agent" title="Permalink">¶</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>ssh-agent<span class="w"> </span>-s<span class="k">)</span><span class="s2">&quot;</span><span class="w">                           </span><span class="c1"># start the SSH agent</span>
-ssh-add<span class="w"> </span>~/.ssh/id_ed25519<span class="w">                        </span><span class="c1"># add your private key</span>
-</code></pre></div>
-<h3 id="copy-the-public-key">Copy the public key<a class="headerlink" href="#copy-the-public-key" title="Permalink">¶</a></h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>xclip
-xclip<span class="w"> </span>-selection<span class="w"> </span>clipboard<span class="w"> </span>&lt;<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w">   </span><span class="c1"># copies key to clipboard</span>
-</code></pre></div>
-<p>Then go to your platform (GitHub, GitLab, Gitea) → Settings → SSH Keys → New SSH key → paste → Save.</p>
 <hr />
-<h2 id="fork-workflow-remote-tracking">Fork Workflow &amp; Remote Tracking<a class="headerlink" href="#fork-workflow-remote-tracking" title="Permalink">¶</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w">                                    </span><span class="c1"># check all configured remotes</span>
-git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>&lt;url&gt;<span class="w">                    </span><span class="c1"># add upstream when missing</span>
-git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>-u<span class="w"> </span>&lt;branch-name&gt;<span class="w">                 </span><span class="c1"># push to fork AND fix tracking</span>
-git<span class="w"> </span>branch<span class="w"> </span>-u<span class="w"> </span>origin/&lt;branch-name&gt;<span class="w">               </span><span class="c1"># fix tracking without pushing</span>
-git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>&lt;branch-name&gt;<span class="w">           </span><span class="c1"># delete a remote branch</span>
+<h2 id="5-fetching-a-single-file-from-upstream">5. Fetching a Single File from Upstream<a class="headerlink" href="#5-fetching-a-single-file-from-upstream" title="Permalink">¶</a></h2>
+<h3 id="use-case">Use Case<a class="headerlink" href="#use-case" title="Permalink">¶</a></h3>
+<p>You have a branch with lots of local modifications. You only want one specific file from upstream without touching anything else.</p>
+<h3 id="solution_1">Solution<a class="headerlink" href="#solution_1" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>upstream<span class="w"> </span>&lt;branch&gt;<span class="w">                      </span><span class="c1"># update local references</span>
+git<span class="w"> </span>checkout<span class="w"> </span>upstream/&lt;branch&gt;<span class="w"> </span>--<span class="w"> </span>path/to/file.java<span class="w">  </span><span class="c1"># pull only that file</span>
+</code></pre></div>
+<h3 id="notes_1">Notes<a class="headerlink" href="#notes_1" title="Permalink">¶</a></h3>
+<ul>
+<li>This <strong>overwrites</strong> your local version of that file with no warning</li>
+<li>The file is automatically staged; just <code>git commit</code> after</li>
+<li>To undo: <code>git checkout HEAD -- path/to/file</code></li>
+</ul>
+<hr />
+<h2 id="6-moving-uncommitted-changes-to-a-new-branch">6. Moving Uncommitted Changes to a New Branch<a class="headerlink" href="#6-moving-uncommitted-changes-to-a-new-branch" title="Permalink">¶</a></h2>
+<h3 id="case-1-changes-not-yet-committed">Case 1: Changes not yet committed<a class="headerlink" href="#case-1-changes-not-yet-committed" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/correct-branch<span class="w">             </span><span class="c1"># uncommitted changes travel with you</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: my changes&quot;</span>
+</code></pre></div>
+<h3 id="case-2-already-committed-on-wrong-branch">Case 2: Already committed on wrong branch<a class="headerlink" href="#case-2-already-committed-on-wrong-branch" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1<span class="w">                          </span><span class="c1"># undo commit, keep changes staged</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/correct-branch
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: my changes&quot;</span>
+</code></pre></div>
+<h3 id="case-3-extra-safe-approach">Case 3: Extra safe approach<a class="headerlink" href="#case-3-extra-safe-approach" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;wip/moving-to-new-branch&quot;</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/correct-branch
+git<span class="w"> </span>stash<span class="w"> </span>pop
+</code></pre></div>
+<hr />
+<h2 id="7-reset-branch-to-match-upstream-exactly">7. Reset Branch to Match Upstream Exactly<a class="headerlink" href="#7-reset-branch-to-match-upstream-exactly" title="Permalink">¶</a></h2>
+<h3 id="use-case_1">Use Case<a class="headerlink" href="#use-case_1" title="Permalink">¶</a></h3>
+<p>You want your branch to match upstream exactly; discard all local commits and changes.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>upstream<span class="w"> </span>&lt;branch&gt;
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>upstream/&lt;branch&gt;
+git<span class="w"> </span>push<span class="w"> </span>--force<span class="w"> </span>origin<span class="w"> </span>&lt;branch&gt;
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>When you <code>git switch</code> to a branch fetched from upstream, Git auto-sets tracking to upstream. Fix it to point to your fork before pushing using <code>git push origin -u &lt;branch-name&gt;</code>.</p>
+<p>All local commits are permanently lost.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>"Write access not granted" on <code>git push</code> means your branch is still tracking upstream where you have no write access. Always use <code>git push origin &lt;branch-name&gt;</code> explicitly until tracking is fixed.</p>
-</div>
-<h3 id="re-fork-syncing-with-upstream">Re-fork / Syncing with Upstream<a class="headerlink" href="#re-fork-syncing-with-upstream" title="Permalink">¶</a></h3>
-<p>When the upstream repo has new commits you want in your fork:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>&lt;original-repo-url&gt;<span class="w">      </span><span class="c1"># link to the original repo</span>
-git<span class="w"> </span>fetch<span class="w"> </span>upstream<span class="w">                               </span><span class="c1"># fetch upstream changes</span>
-git<span class="w"> </span>rebase<span class="w"> </span>upstream/master<span class="w">                       </span><span class="c1"># rebase your fork on upstream</span>
-</code></pre></div>
-<hr />
-<h2 id="multiple-git-identities-conditional-includes">Multiple Git Identities (Conditional Includes)<a class="headerlink" href="#multiple-git-identities-conditional-includes" title="Permalink">¶</a></h2>
-<p>Problem: work PC with work credentials, wanting personal project commits attributed to a personal identity.</p>
-<p>Solution: Git's <code>[includeIf]</code> with <code>hasconfig:remote.*.url</code> switches credentials automatically based on the repo's remote URL; no folder structure required.</p>
-<p><strong><code>~/.gitconfig</code></strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">[user]</span>
-<span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">work@company.com</span>
-<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Work Name</span>
-
-<span class="k">[includeIf &quot;hasconfig:remote.*.url:git@github.com:yourusername/**&quot;]</span>
-<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.gitconfig-personal</span>
-
-<span class="k">[includeIf &quot;hasconfig:remote.*.url:git@gitea.example.com:yourusername/**&quot;]</span>
-<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">~/.gitconfig-work</span>
-</code></pre></div>
-<p><strong><code>~/.gitconfig-personal</code></strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">[user]</span>
-<span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">personal@gmail.com</span>
-<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Personal Name</span>
-</code></pre></div>
-<p><strong>Useful verification commands:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--show-origin<span class="w"> </span>user.email<span class="w">              </span><span class="c1"># which config file is being used</span>
-git<span class="w"> </span>config<span class="w"> </span>--list<span class="w"> </span>--show-origin<span class="w">                  </span><span class="c1"># inspect the full config chain</span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The <code>[includeIf]</code> block must go in <code>~/.gitconfig</code>, NOT in <code>~/.ssh/config</code>. SSH config only understands Host blocks; mixing them breaks git clone.</p>
-</div>
-<hr />
-<h2 id="transfer-a-gist-to-github">Transfer a Gist to GitHub<a class="headerlink" href="#transfer-a-gist-to-github" title="Permalink">¶</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://gist.github.com/&lt;gist-id&gt;<span class="w">     </span><span class="c1"># clone the gist</span>
-mv<span class="w"> </span>&lt;gist-id&gt;/<span class="w"> </span>gist-github/<span class="w">                      </span><span class="c1"># rename the directory</span>
-<span class="nb">cd</span><span class="w"> </span>gist-github/
-git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>github<span class="w"> </span>https://github.com/&lt;user&gt;/&lt;repo&gt;<span class="w">  </span><span class="c1"># add github as remote</span>
-git<span class="w"> </span>push<span class="w"> </span>github<span class="w"> </span>master<span class="w">                           </span><span class="c1"># push to github</span>
-
-<span class="c1"># Sync changes going forward</span>
-git<span class="w"> </span>push<span class="w"> </span>github<span class="w"> </span>master<span class="w">                           </span><span class="c1"># to GitHub</span>
-git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w">                           </span><span class="c1"># to Gist (origin = gist)</span>
-
-<span class="c1"># Clean up remotes</span>
-git<span class="w"> </span>remote<span class="w"> </span>rename<span class="w"> </span>origin<span class="w"> </span>gist
-git<span class="w"> </span>remote<span class="w"> </span>rename<span class="w"> </span>github<span class="w"> </span>origin
-git<span class="w"> </span>remote<span class="w"> </span>remove<span class="w"> </span>gist
-</code></pre></div>
-<hr />
-<h2 id="git-large-file-storage-lfs">Git Large File Storage (LFS)<a class="headerlink" href="#git-large-file-storage-lfs" title="Permalink">¶</a></h2>
-<p>Git LFS replaces large files (audio, video, datasets, graphics) with text pointers inside Git, while storing the actual file contents on a remote server.</p>
-<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permalink">¶</a></h3>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>lfs<span class="w"> </span>install<span class="w">                                  </span><span class="c1"># set up LFS once per user account</span>
-git<span class="w"> </span>lfs<span class="w"> </span>track<span class="w"> </span><span class="s2">&quot;*.psd&quot;</span><span class="w">                            </span><span class="c1"># track all .psd files with LFS</span>
-git<span class="w"> </span>add<span class="w"> </span>.gitattributes<span class="w">                           </span><span class="c1"># always track .gitattributes</span>
-</code></pre></div>
-<h3 id="migrate-existing-files-to-lfs">Migrate existing files to LFS<a class="headerlink" href="#migrate-existing-files-to-lfs" title="Permalink">¶</a></h3>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>lfs<span class="w"> </span>migrate<span class="w"> </span>import<span class="w"> </span>--include<span class="o">=</span><span class="s2">&quot;*.ipynb&quot;</span><span class="w">       </span><span class="c1"># convert pre-existing files to LFS</span>
-</code></pre></div>
-<p>Then commit and push as normal; LFS handles the rest.</p>
-<p>Download LFS: <a href="https://github.com/git-lfs/git-lfs/releases">git-lfs releases</a></p>
-<hr />
-<h2 id="revert-a-commit-pushed-remotely">Revert a Commit Pushed Remotely<a class="headerlink" href="#revert-a-commit-pushed-remotely" title="Permalink">¶</a></h2>
-<p>Reverting creates a new commit that undoes the bad one. The original commit stays in history but no longer affects the current state.</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>revert<span class="w"> </span>&lt;commit-id&gt;<span class="w">                           </span><span class="c1"># safe revert; creates a new commit</span>
-</code></pre></div>
-<p>For reverting a range of commits:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>revert<span class="w"> </span>--no-commit<span class="w"> </span>&lt;old-commit&gt;..HEAD
-git<span class="w"> </span>commit
-git<span class="w"> </span>push
-</code></pre></div>
-<p>See: <a href="https://christoph.ruegg.name/blog/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html">Git HowTo: revert a pushed commit</a></p>
-<hr />
-<h2 id="hard-reset-to-match-upstream-exactly">Hard Reset to Match Upstream Exactly<a class="headerlink" href="#hard-reset-to-match-upstream-exactly" title="Permalink">¶</a></h2>
-<p>When your branch has diverged too far and you want to discard everything and match upstream exactly:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>upstream<span class="w"> </span>&lt;branch&gt;<span class="w">                      </span><span class="c1"># fetch latest from upstream</span>
-git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>upstream/&lt;branch&gt;<span class="w">               </span><span class="c1"># discard ALL local changes</span>
-git<span class="w"> </span>push<span class="w"> </span>--force<span class="w"> </span>origin<span class="w"> </span>&lt;branch&gt;<span class="w">                 </span><span class="c1"># update your fork to match</span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This is destructive; all local commits and changes are permanently lost. Only use when you're sure you want to start from upstream's state.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Save your work first</p>
-<p>If you want to keep your changes but still reset:
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;wip/my-changes&quot;</span><span class="w">           </span><span class="c1"># save your work</span>
+<h3 id="safer-version-save-work-first">Safer version — save work first<a class="headerlink" href="#safer-version-save-work-first" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;wip/before-reset&quot;</span>
 git<span class="w"> </span>fetch<span class="w"> </span>upstream<span class="w"> </span>&lt;branch&gt;
 git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>upstream/&lt;branch&gt;
-git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">                                </span><span class="c1"># re-apply your changes</span>
+git<span class="w"> </span>stash<span class="w"> </span>pop
 <span class="c1"># resolve any conflicts</span>
 git<span class="w"> </span>add<span class="w"> </span>.
 git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: reapply changes on top of upstream&quot;</span>
 git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;branch&gt;
-</code></pre></div></p>
-</div>
+</code></pre></div>
 <hr />
-<h2 id="moving-or-retargeting-a-pull-request">Moving or Retargeting a Pull Request<a class="headerlink" href="#moving-or-retargeting-a-pull-request" title="Permalink">¶</a></h2>
-<h3 id="change-the-base-branch-on-github-easiest">Change the base branch on GitHub (easiest)<a class="headerlink" href="#change-the-base-branch-on-github-easiest" title="Permalink">¶</a></h3>
-<p>If you just need to retarget an existing PR to merge into a different branch; no git commands needed:</p>
-<p>Go to your PR on GitHub &gt; <strong>Edit</strong> (pencil icon next to title) &gt; change the <strong>base branch</strong> &gt; confirm.</p>
-<h3 id="pr-closed-after-upstream-rebase">PR closed after upstream rebase<a class="headerlink" href="#pr-closed-after-upstream-rebase" title="Permalink">¶</a></h3>
-<p>When the maintainer rebases the base branch, GitHub rewrites commit hashes. Your PR may be <strong>automatically closed</strong> because the original commits no longer exist. Fix:</p>
+<h2 id="8-ssh-post-quantum-warning-on-git-fetch">8. SSH Post-Quantum Warning on git fetch<a class="headerlink" href="#8-ssh-post-quantum-warning-on-git-fetch" title="Permalink">¶</a></h2>
+<h3 id="problem_4">Problem<a class="headerlink" href="#problem_4" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to &quot;store now, decrypt later&quot; attacks.
+</code></pre></div>
+<h3 id="root-cause_2">Root Cause<a class="headerlink" href="#root-cause_2" title="Permalink">¶</a></h3>
+<p>The remote server is using a classical key exchange algorithm (ECDH). This is a theoretical future risk only.</p>
+<h3 id="fix_1">Fix<a class="headerlink" href="#fix_1" title="Permalink">¶</a></h3>
+<p>Nothing to fix on your end; this is a server-side configuration issue. Your connection is still encrypted. The <code>git fetch</code> itself completed successfully. Ask your GitHub Enterprise admin to upgrade the SSH config if needed.</p>
+<hr />
+<h2 id="9-pr-closed-after-upstream-rebase">9. PR Closed After Upstream Rebase<a class="headerlink" href="#9-pr-closed-after-upstream-rebase" title="Permalink">¶</a></h2>
+<h3 id="problem_5">Problem<a class="headerlink" href="#problem_5" title="Permalink">¶</a></h3>
+<p>Maintainer rebased the base branch, GitHub rewrote commit hashes, and your PR was automatically closed.</p>
+<h3 id="fix_2">Fix<a class="headerlink" href="#fix_2" title="Permalink">¶</a></h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>upstream<span class="w"> </span>&lt;new-base-branch&gt;
 git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/resubmit-branch<span class="w"> </span>upstream/&lt;new-base-branch&gt;
 git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;your-commit-hash&gt;<span class="w">               </span><span class="c1"># bring your changes over</span>
 git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feat/resubmit-branch
 </code></pre></div>
 <p>Then open a new PR from <code>feat/resubmit-branch</code> and close the old one.</p>
-<h3 id="rebase-your-pr-branch-onto-a-new-base">Rebase your PR branch onto a new base<a class="headerlink" href="#rebase-your-pr-branch-onto-a-new-base" title="Permalink">¶</a></h3>
-<p>If the base branch changed and you want to move your commits on top of it:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>origin
-git<span class="w"> </span>rebase<span class="w"> </span>--onto<span class="w"> </span>&lt;new-base&gt;<span class="w"> </span>&lt;old-base&gt;<span class="w"> </span>&lt;your-pr-branch&gt;
-git<span class="w"> </span>push<span class="w"> </span>--force<span class="w"> </span>origin<span class="w"> </span>&lt;your-pr-branch&gt;
-</code></pre></div>
-<p>Then update the PR's base branch on GitHub.</p>
 <hr />
-<h2 id="git-garbage-collection">Git Garbage Collection<a class="headerlink" href="#git-garbage-collection" title="Permalink">¶</a></h2>
-<p>Git sometimes runs automatic cleanup (<code>auto packing</code>) in the background to optimize repository storage. On Windows you may see:</p>
-<div class="highlight"><pre><span></span><code>Unlink of file &#39;.git/objects/pack/pack-xxx.pack&#39; failed. Should I try again? (y/n)
+<h2 id="10-inspecting-what-changed">10. Inspecting What Changed<a class="headerlink" href="#10-inspecting-what-changed" title="Permalink">¶</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>show<span class="w"> </span>&lt;commit-hash&gt;<span class="w">                           </span><span class="c1"># full diff of a commit</span>
+git<span class="w"> </span>show<span class="w"> </span>&lt;commit-hash&gt;<span class="w"> </span>--stat<span class="w">                    </span><span class="c1"># file names only</span>
+git<span class="w"> </span>show<span class="w"> </span>&lt;commit-hash&gt;<span class="w"> </span>--<span class="w"> </span>path/to/file<span class="w">           </span><span class="c1"># one file only</span>
+git<span class="w"> </span>diff<span class="w"> </span>upstream/&lt;branch&gt;<span class="w"> </span>--<span class="w"> </span>path/to/file<span class="w">       </span><span class="c1"># diff between your branch and upstream</span>
+git<span class="w"> </span>ls-files<span class="w"> </span>-v<span class="w"> </span>path/to/file<span class="w">                     </span><span class="c1"># check file tracking status</span>
 </code></pre></div>
-<p>Press <strong><code>n</code></strong>; this is just a file lock issue on Windows, not an error. Your actual git operation completed successfully. Run manual cleanup later if needed:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>gc<span class="w">                                           </span><span class="c1"># manual garbage collection</span>
-git<span class="w"> </span>gc<span class="w"> </span>--aggressive<span class="w">                              </span><span class="c1"># deeper cleanup, takes longer</span>
-</code></pre></div>
-<h2 id="categories">Categories<a class="headerlink" href="#categories" title="Permalink">¶</a></h2>
+<p>File tracking status prefixes in <code>git ls-files -v</code>:</p>
+<ul>
+<li><code>S</code> = skip-worktree</li>
+<li><code>h</code> = assume-unchanged</li>
+<li>blank = normal tracking</li>
+</ul>
+<hr />
+<h2 id="quick-reference-skip-worktree-vs-assume-unchanged">Quick Reference: skip-worktree vs assume-unchanged<a class="headerlink" href="#quick-reference-skip-worktree-vs-assume-unchanged" title="Permalink">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>--skip-worktree</code></th>
+<th><code>--assume-unchanged</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prefix in <code>git ls-files -v</code></td>
+<td><code>S</code></td>
+<td><code>h</code></td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Intentional local config override</td>
+<td>Performance hint for large files</td>
+</tr>
+<tr>
+<td>Survives <code>git reset</code></td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Blocks merge if upstream touches file</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Recommended for config files</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>## Categories</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><a href="../../../categories/git/">Git</a></li>
 <li><a href="../../../categories/workflow/">Workflow</a></li>
@@ -2805,7 +3166,7 @@ git<span class="w"> </span>gc<span class="w"> </span>--aggressive<span class="w"
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 11, 2026 11:01:10 UTC"><span class="timeago" datetime="2026-05-11T11:01:10+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2026 11:01:10 UTC">2026-05-11</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 11, 2026 19:05:30 UTC"><span class="timeago" datetime="2026-05-11T19:05:30+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2026 19:05:30 UTC">2026-05-11</span>
   </span>
 
     
@@ -2815,7 +3176,7 @@ git<span class="w"> </span>gc<span class="w"> </span>--aggressive<span class="w"
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2026 12:00:05 UTC"><span class="timeago" datetime="2026-05-09T12:00:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2026 12:00:05 UTC">2026-05-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 11, 2026 19:05:30 UTC"><span class="timeago" datetime="2026-05-11T19:05:30+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2026 19:05:30 UTC">2026-05-11</span>
   </span>
 
     
