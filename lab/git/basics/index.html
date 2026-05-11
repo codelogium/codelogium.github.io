@@ -1320,6 +1320,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#git-bisect-find-the-commit-that-introduced-a-bug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Bisect: Find the Commit That Introduced a Bug
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fix-line-endings-windows-crlf-issue" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2214,6 +2225,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#git-bisect-find-the-commit-that-introduced-a-bug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Bisect: Find the Commit That Introduced a Bug
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fix-line-endings-windows-crlf-issue" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2250,38 +2272,6 @@
                 
                   
 
-  <nav class="md-tags" >
-    
-      
-      
-      
-      
-        <span class="md-tag">Basics</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Commands</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Commit</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Git</span>
-      
-    
-  </nav>
-
 
   
   
@@ -2291,11 +2281,10 @@
 <div class="blog-meta">
   <div class="blog-meta-container">
     <span class="meta-content">
-      By —<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
+      By <strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
       &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/git/"><em>git</em></a>&nbsp;•&nbsp;
                <a href="/categories/workflow/"><em>workflow</em></a>&nbsp;•&nbsp;
-
-      ⏱️ ~5 min read</span>
+      ⏱️ ~7 min read</span>
     </span>
   </div>
 </div>
@@ -2487,16 +2476,40 @@ git<span class="w"> </span>blame<span class="w"> </span>-L<span class="w"> </spa
 </code></pre></div>
 <details class="tip">
 <summary>Real Use Case</summary>
-<p>When a build breaks and you need to find who introduced the change:</p>
-</details>
-<p><div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>blame<span class="w"> </span>-L<span class="w"> </span><span class="m">381</span>,381<span class="w"> </span>src/main/java/com/example/MyService.java
-<span class="w">    </span><span class="c1"># fab986cd (Nitika Doe 2026-04-27 13:42:47 +0530 381) problematic code here</span>
+<p>When a build breaks and you need to find who introduced the change:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>blame<span class="w"> </span>-L<span class="w"> </span><span class="m">381</span>,381<span class="w"> </span>src/main/java/com/example/MyService.java
+<span class="c1"># fab986cd (Nitika Doe 2026-04-27 13:42:47 +0530 381) problematic code here</span>
 </code></pre></div>
-    You get the commit hash, author name, timestamp, and the exact line,
-    enough to track down who made the change and when, then cross-reference with <code>git show</code>:
-<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>show<span class="w"> </span>fab986cd<span class="w">                            </span><span class="c1"># see the full diff of that commit</span>
-<span class="w">    </span>git<span class="w"> </span>show<span class="w"> </span>fab986cd<span class="w"> </span>--stat<span class="w">                     </span><span class="c1"># just the files changed</span>
+You get the commit hash, author name, timestamp, and the exact line; enough to track down who made the change and when. Then cross-reference with <code>git show</code>:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>show<span class="w"> </span>fab986cd<span class="w">                            </span><span class="c1"># see the full diff of that commit</span>
+git<span class="w"> </span>show<span class="w"> </span>fab986cd<span class="w"> </span>--stat<span class="w">                     </span><span class="c1"># just the files changed</span>
 </code></pre></div></p>
+</details>
+<hr />
+<h2 id="git-bisect-find-the-commit-that-introduced-a-bug">Git Bisect: Find the Commit That Introduced a Bug<a class="headerlink" href="#git-bisect-find-the-commit-that-introduced-a-bug" title="Permalink">¶</a></h2>
+<p><code>git bisect</code> uses binary search to find exactly which commit broke something. Instead of checking 50 commits manually, it finds the culprit in about 6 steps.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>bisect<span class="w"> </span>start<span class="w">                                 </span><span class="c1"># start the bisect session</span>
+git<span class="w"> </span>bisect<span class="w"> </span>bad<span class="w">                                   </span><span class="c1"># mark current commit as broken</span>
+git<span class="w"> </span>bisect<span class="w"> </span>good<span class="w"> </span>&lt;commit-hash&gt;<span class="w">                    </span><span class="c1"># mark a known working commit</span>
+</code></pre></div>
+<p>Git checks out a commit halfway between good and bad. Test your app, then tell git the result:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>bisect<span class="w"> </span>good<span class="w">                                  </span><span class="c1"># this commit works fine</span>
+git<span class="w"> </span>bisect<span class="w"> </span>bad<span class="w">                                   </span><span class="c1"># bug exists in this commit</span>
+</code></pre></div>
+<p>Keep repeating until git prints:</p>
+<div class="highlight"><pre><span></span><code>abc1234 is the first bad commit
+</code></pre></div>
+<p>Then reset back to your original branch:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>bisect<span class="w"> </span>reset<span class="w">                                 </span><span class="c1"># end session, return to original branch</span>
+</code></pre></div>
+<details class="tip">
+<summary>Real Use Case</summary>
+<p>Your app worked last month, it's broken today, and there are 50 commits in between. Instead of checking all 50, bisect finds the culprit in ~6 steps. Once found:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>show<span class="w"> </span>abc1234<span class="w">                             </span><span class="c1"># see exactly what changed</span>
+git<span class="w"> </span>show<span class="w"> </span>abc1234<span class="w"> </span>--stat<span class="w">                      </span><span class="c1"># just the files that changed</span>
+</code></pre></div>
+Combine with <code>git blame</code> to get the full picture; who wrote it, when, and what broke.</p>
+</details>
 <hr />
 <h2 id="fix-line-endings-windows-crlf-issue">Fix Line Endings (Windows CRLF Issue)<a class="headerlink" href="#fix-line-endings-windows-crlf-issue" title="Permalink">¶</a></h2>
 <p>When working on Windows, files often get CRLF line endings that show up as <code>^M</code> characters in diffs and break Unix-based CI/CD pipelines. Fix before committing:</p>
@@ -2517,7 +2530,7 @@ This forces LF line endings for all text files regardless of the OS.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In your IDE: VSCode → bottom right corner → click <code>CRLF</code> → select <code>LF</code>. IntelliJ → File → Line Separators → LF.</p>
+<p>In your IDE: VSCode, bottom right corner, click <code>CRLF</code> and select <code>LF</code>. IntelliJ: File &gt; Line Separators &gt; LF.</p>
 </div>
 <h2 id="categories">Categories<a class="headerlink" href="#categories" title="Permalink">¶</a></h2>
 <ul>
@@ -2546,7 +2559,7 @@ This forces LF line endings for all text files regardless of the OS.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 11, 2026 10:20:59 UTC"><span class="timeago" datetime="2026-05-11T10:20:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2026 10:20:59 UTC">2026-05-11</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 11, 2026 10:45:44 UTC"><span class="timeago" datetime="2026-05-11T10:45:44+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2026 10:45:44 UTC">2026-05-11</span>
   </span>
 
     

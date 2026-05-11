@@ -1202,12 +1202,12 @@
   <a href="#branch-naming-sub-branches-dont-exist-in-git" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Branch Naming: sub-branches don't exist in Git
+        Branch Naming: Sub-branches Don't Exist in Git
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Branch Naming: sub-branches don&#39;t exist in Git">
+    <nav class="md-nav" aria-label="Branch Naming: Sub-branches Don&#39;t Exist in Git">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1325,7 +1325,7 @@
   <a href="#revert-a-commit-safe-creates-a-new-commit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Revert a Commit (Safe, Creates a New Commit)
+        Revert a Commit (Safe; Creates a New Commit)
       
     </span>
   </a>
@@ -2146,12 +2146,12 @@
   <a href="#branch-naming-sub-branches-dont-exist-in-git" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Branch Naming: sub-branches don't exist in Git
+        Branch Naming: Sub-branches Don't Exist in Git
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Branch Naming: sub-branches don&#39;t exist in Git">
+    <nav class="md-nav" aria-label="Branch Naming: Sub-branches Don&#39;t Exist in Git">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2269,7 +2269,7 @@
   <a href="#revert-a-commit-safe-creates-a-new-commit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Revert a Commit (Safe, Creates a New Commit)
+        Revert a Commit (Safe; Creates a New Commit)
       
     </span>
   </a>
@@ -2406,38 +2406,6 @@
                 
                   
 
-  <nav class="md-tags" >
-    
-      
-      
-      
-      
-        <span class="md-tag">Branches</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Git</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Revert</span>
-      
-    
-      
-      
-      
-      
-        <span class="md-tag">Stash</span>
-      
-    
-  </nav>
-
 
   
   
@@ -2447,9 +2415,9 @@
 <div class="blog-meta">
   <div class="blog-meta-container">
     <span class="meta-content">
-      By —<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
-      &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/git/"><em>Git</em></a>&nbsp;•&nbsp;
-               <a href="/categories/workflow/"><em>Workflow</em></a>&nbsp;•&nbsp;
+      By <strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
+      &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/git/"><em>git</em></a>&nbsp;•&nbsp;
+               <a href="/categories/workflow/"><em>workflow</em></a>&nbsp;•&nbsp;
       ⏱️ ~6 min read</span>
     </span>
   </div>
@@ -2478,11 +2446,11 @@ git<span class="w"> </span>branch<span class="w"> </span>--set-upstream-to<span 
 git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>&lt;name&gt;<span class="w">            </span><span class="c1"># Push and set upstream in one command</span>
 </code></pre></div>
 <h3 id="merging">Merging<a class="headerlink" href="#merging" title="Permalink">¶</a></h3>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>&lt;branch&gt;<span class="w"> </span><span class="c1"># Merge branch into current (be on target branch)</span>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>&lt;branch&gt;<span class="w">                               </span><span class="c1"># Merge branch into current (be on target branch)</span>
 </code></pre></div>
 <hr />
-<h2 id="branch-naming-sub-branches-dont-exist-in-git">Branch Naming: sub-branches don't exist in Git<a class="headerlink" href="#branch-naming-sub-branches-dont-exist-in-git" title="Permalink">¶</a></h2>
-<p>Git has no concept of sub-branches. The <code>/</code> in a branch name is just a string character, purely a human convention for visual grouping.</p>
+<h2 id="branch-naming-sub-branches-dont-exist-in-git">Branch Naming: Sub-branches Don't Exist in Git<a class="headerlink" href="#branch-naming-sub-branches-dont-exist-in-git" title="Permalink">¶</a></h2>
+<p>Git has no concept of sub-branches. The <code>/</code> in a branch name is just a string character; purely a human convention for visual grouping.</p>
 <div class="highlight"><pre><span></span><code>feat/FeatureName
 test/feat/FeatureName<span class="w">     </span><span class="c1"># only &quot;related&quot; by name. Git has no idea</span>
 </code></pre></div>
@@ -2532,13 +2500,13 @@ git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </s
 </code></pre></div>
 <p><strong>Golden rules:</strong></p>
 <ul>
-<li>Keep <strong>one</strong> <code>local/</code> config stash total, pop it, use it, re-stash it. Never duplicate</li>
-<li>Never commit with local config applied, re-stash before <code>git push</code></li>
+<li>Keep <strong>one</strong> <code>local/</code> config stash total; pop it, use it, re-stash it. Never duplicate</li>
+<li>Never commit with local config applied; re-stash before <code>git push</code></li>
 <li>Never mix <code>wip/</code> and <code>local/</code> in the same stash; stash them separately</li>
 <li>Drop a <code>wip/</code> stash as soon as its branch is merged</li>
 </ul>
 <h3 id="renaming-a-stash">Renaming a Stash<a class="headerlink" href="#renaming-a-stash" title="Permalink">¶</a></h3>
-<p>Git has no native rename command, pop and re-stash:</p>
+<p>Git has no native rename command; pop and re-stash:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w"> </span>stash@<span class="o">{</span>N<span class="o">}</span><span class="w">                          </span><span class="c1"># pop the one to rename</span>
 git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;proper/name&quot;</span><span class="w">                  </span><span class="c1"># re-stash with the correct name</span>
 </code></pre></div>
@@ -2552,7 +2520,7 @@ git<span class="w"> </span>diff<span class="w"> </span>stash@<span class="o">{</
 </code></pre></div>
 <hr />
 <h2 id="undoing-reverting">Undoing &amp; Reverting<a class="headerlink" href="#undoing-reverting" title="Permalink">¶</a></h2>
-<h3 id="revert-a-commit-safe-creates-a-new-commit">Revert a Commit (Safe, Creates a New Commit)<a class="headerlink" href="#revert-a-commit-safe-creates-a-new-commit" title="Permalink">¶</a></h3>
+<h3 id="revert-a-commit-safe-creates-a-new-commit">Revert a Commit (Safe; Creates a New Commit)<a class="headerlink" href="#revert-a-commit-safe-creates-a-new-commit" title="Permalink">¶</a></h3>
 <p>Reverting creates a new commit that undoes the changes of a previous one. The original commit stays in history.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>revert<span class="w"> </span>&lt;commit-id&gt;<span class="w">                           </span><span class="c1"># revert a specific commit</span>
 </code></pre></div>
@@ -2588,7 +2556,6 @@ git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w"> </span>origin<span class="w"> </span>&lt;branch-name&gt;
 </code></pre></div>
 <hr />
-<hr />
 <h2 id="cherry-pick">Cherry-pick<a class="headerlink" href="#cherry-pick" title="Permalink">¶</a></h2>
 <p>Apply a specific commit from any branch to your current branch without merging everything:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;commit-hash&gt;<span class="w">                    </span><span class="c1"># apply one specific commit</span>
@@ -2618,11 +2585,11 @@ git<span class="w"> </span>rebase<span class="w"> </span>--abort<span class="w">
 <p>Both commands restore your branch to the state it was in before you started. Safe to run at any point during a conflict resolution.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you accidentally closed your terminal mid-rebase and git is still in rebase state, check with <code>git status</code>: it will tell you a rebase is in progress. Then run <code>git rebase --abort</code> to clean up.</p>
+<p>If you accidentally closed your terminal mid-rebase and git is still in rebase state, check with <code>git status</code>; it will tell you a rebase is in progress. Then run <code>git rebase --abort</code> to clean up.</p>
 </div>
 <hr />
 <h2 id="diagnose-a-contaminated-branch">Diagnose a Contaminated Branch<a class="headerlink" href="#diagnose-a-contaminated-branch" title="Permalink">¶</a></h2>
-<p>When your branch has commits you didn't make, usually because it was created from an old or wrong base:</p>
+<p>When your branch has commits you didn't make; usually because it was created from an old or wrong base:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>base-branch..your-branch<span class="w"> </span>--oneline<span class="w">      </span><span class="c1"># commits in your branch not in base</span>
 git<span class="w"> </span>diff<span class="w"> </span>base-branch..your-branch<span class="w"> </span>--name-only<span class="w">   </span><span class="c1"># files that differ between branches</span>
 </code></pre></div>
@@ -2633,6 +2600,7 @@ git<span class="w"> </span>checkout<span class="w"> </span>feat/OldBranch<span c
 git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: port changes to clean branch&quot;</span>
 git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feat/clean-branch
 </code></pre></div>
+<hr />
 <h2 id="ways-of-resolving-git-push-rejected-non-fast-forward">Ways of Resolving <code>git push rejected non-fast-forward</code><a class="headerlink" href="#ways-of-resolving-git-push-rejected-non-fast-forward" title="Permalink">¶</a></h2>
 <p>Start with:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>origin
@@ -2676,7 +2644,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 11, 2026 10:20:59 UTC"><span class="timeago" datetime="2026-05-11T10:20:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2026 10:20:59 UTC">2026-05-11</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 11, 2026 10:45:44 UTC"><span class="timeago" datetime="2026-05-11T10:45:44+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2026 10:45:44 UTC">2026-05-11</span>
   </span>
 
     
