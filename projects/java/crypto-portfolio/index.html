@@ -6,35 +6,31 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Developer logs, notes, and learning paths">
+        <meta name="description" content="A Spring Boot microservices-style API for managing cryptocurrency portfolios; integrating with CoinMarketCap via WebClient for real-time exchange rates.">
       
       
       
-        <link rel="canonical" href="https://codelogium.github.io/categories/">
+        <link rel="canonical" href="https://codelogium.github.io/projects/java/crypto-portfolio/">
       
       
-        <link rel="prev" href="../blog/2026/05/09/why-my-mkdocs-article-showed-11-months-ago-as-creation-date/">
-      
-      
-        <link rel="next" href="java/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Overview - Codelogium</title>
+        <title>Crypto Portfolio API - Codelogium</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,11 +49,11 @@
       
     
     
-      <link rel="stylesheet" href="../css/timeago.css">
+      <link rel="stylesheet" href="../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -75,17 +71,17 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Overview - Codelogium" />
-<meta property="og:description" content="Developer logs, notes, and learning paths" />
-<meta property="og:image" content="https://codelogium.github.io/assets/images/social/categories/index.png" />
+<meta property="og:title" content="Crypto Portfolio API - Codelogium" />
+<meta property="og:description" content="A Spring Boot microservices-style API for managing cryptocurrency portfolios; integrating with CoinMarketCap via WebClient for real-time exchange rates." />
+<meta property="og:image" content="https://codelogium.github.io/assets/images/social/projects/java/crypto-portfolio.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://codelogium.github.io/categories/" />
+<meta property="og:url" content="https://codelogium.github.io/projects/java/crypto-portfolio/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Overview - Codelogium" />
-<meta property="twitter:description" content="Developer logs, notes, and learning paths" />
-<meta property="twitter:image" content="https://codelogium.github.io/assets/images/social/categories/index.png" />
+<meta property="twitter:title" content="Crypto Portfolio API - Codelogium" />
+<meta property="twitter:description" content="A Spring Boot microservices-style API for managing cryptocurrency portfolios; integrating with CoinMarketCap via WebClient for real-time exchange rates." />
+<meta property="twitter:image" content="https://codelogium.github.io/assets/images/social/projects/java/crypto-portfolio.png" />
 </head>
   
   
@@ -105,7 +101,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#all-categories" class="md-skip">
+        <a href="#crypto-portfolio-api" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +115,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Codelogium" class="md-header__button md-logo" aria-label="Codelogium" data-md-component="logo">
+    <a href="../../.." title="Codelogium" class="md-header__button md-logo" aria-label="Codelogium" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -139,7 +135,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Crypto Portfolio API
             
           </span>
         </div>
@@ -252,7 +248,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -273,7 +269,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../network/" class="md-tabs__link">
+        <a href="../../../network/" class="md-tabs__link">
           
   
   
@@ -295,7 +291,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../databases/" class="md-tabs__link">
+        <a href="../../../databases/" class="md-tabs__link">
           
   
   
@@ -317,7 +313,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../java/" class="md-tabs__link">
+        <a href="../../../java/" class="md-tabs__link">
           
   
   
@@ -339,7 +335,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../spring/" class="md-tabs__link">
+        <a href="../../../spring/" class="md-tabs__link">
           
   
   
@@ -361,7 +357,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../projects/" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -383,7 +379,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../lab/" class="md-tabs__link">
+        <a href="../../../lab/" class="md-tabs__link">
           
   
   
@@ -405,7 +401,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../blog/" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
   
@@ -423,13 +419,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../categories/" class="md-tabs__link">
           
   
   
@@ -465,7 +459,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Codelogium" class="md-nav__button md-logo" aria-label="Codelogium" data-md-component="logo">
+    <a href="../../.." title="Codelogium" class="md-nav__button md-logo" aria-label="Codelogium" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -495,7 +489,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -545,7 +539,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../network/" class="md-nav__link ">
+            <a href="../../../network/" class="md-nav__link ">
               
   
   
@@ -589,7 +583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/basic-network1/" class="md-nav__link">
+      <a href="../../../network/basic-network1/" class="md-nav__link">
         
   
   
@@ -649,7 +643,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../databases/" class="md-nav__link ">
+            <a href="../../../databases/" class="md-nav__link ">
               
   
   
@@ -693,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../databases/postgres-vs-h2/" class="md-nav__link">
+      <a href="../../../databases/postgres-vs-h2/" class="md-nav__link">
         
   
   
@@ -721,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../databases/hibernate-tips/" class="md-nav__link">
+      <a href="../../../databases/hibernate-tips/" class="md-nav__link">
         
   
   
@@ -779,7 +773,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../java/" class="md-nav__link ">
+            <a href="../../../java/" class="md-nav__link ">
               
   
   
@@ -823,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/generic-types/" class="md-nav__link">
+      <a href="../../../java/generic-types/" class="md-nav__link">
         
   
   
@@ -881,7 +875,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../spring/" class="md-nav__link ">
+            <a href="../../../spring/" class="md-nav__link ">
               
   
   
@@ -925,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../spring/jwt-auth/" class="md-nav__link">
+      <a href="../../../spring/jwt-auth/" class="md-nav__link">
         
   
   
@@ -981,7 +975,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../projects/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -1050,7 +1044,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../lab/" class="md-nav__link ">
+            <a href="../../../lab/" class="md-nav__link ">
               
   
   
@@ -1123,7 +1117,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../lab/git/" class="md-nav__link ">
+            <a href="../../../lab/git/" class="md-nav__link ">
               
   
   
@@ -1167,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab/git/basics/" class="md-nav__link">
+      <a href="../../../lab/git/basics/" class="md-nav__link">
         
   
   
@@ -1195,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab/git/branching-stash/" class="md-nav__link">
+      <a href="../../../lab/git/branching-stash/" class="md-nav__link">
         
   
   
@@ -1223,7 +1217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab/git/remotes-workflows/" class="md-nav__link">
+      <a href="../../../lab/git/remotes-workflows/" class="md-nav__link">
         
   
   
@@ -1251,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab/git/issues/" class="md-nav__link">
+      <a href="../../../lab/git/issues/" class="md-nav__link">
         
   
   
@@ -1321,7 +1315,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../blog/" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   
@@ -1365,7 +1359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blog/2026/05/09/why-my-mkdocs-article-showed-11-months-ago-as-creation-date/" class="md-nav__link">
+      <a href="../../../blog/2026/05/09/why-my-mkdocs-article-showed-11-months-ago-as-creation-date/" class="md-nav__link">
         
   
   
@@ -1449,7 +1443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blog/archive/2026/" class="md-nav__link">
+      <a href="../../../blog/archive/2026/" class="md-nav__link">
         
   
   
@@ -1545,7 +1539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blog/category/debugging/" class="md-nav__link">
+      <a href="../../../blog/category/debugging/" class="md-nav__link">
         
   
   
@@ -1575,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blog/category/git/" class="md-nav__link">
+      <a href="../../../blog/category/git/" class="md-nav__link">
         
   
   
@@ -1605,7 +1599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blog/category/mkdocs/" class="md-nav__link">
+      <a href="../../../blog/category/mkdocs/" class="md-nav__link">
         
   
   
@@ -1645,8 +1639,6 @@
       
   
   
-    
-  
   
   
     
@@ -1670,21 +1662,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../../categories/" class="md-nav__link ">
               
   
   
@@ -1702,13 +1691,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_9" id="__nav_9_label" tabindex="">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1728,7 +1717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="java/" class="md-nav__link">
+      <a href="../../../categories/java/" class="md-nav__link">
         
   
   
@@ -1756,7 +1745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="programming/" class="md-nav__link">
+      <a href="../../../categories/programming/" class="md-nav__link">
         
   
   
@@ -1784,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oop/" class="md-nav__link">
+      <a href="../../../categories/oop/" class="md-nav__link">
         
   
   
@@ -1812,7 +1801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="git/" class="md-nav__link">
+      <a href="../../../categories/git/" class="md-nav__link">
         
   
   
@@ -1840,7 +1829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="workflow/" class="md-nav__link">
+      <a href="../../../categories/workflow/" class="md-nav__link">
         
   
   
@@ -1890,6 +1879,202 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is It
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tech-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tech Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exchange-rate-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange Rate Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portfolio-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Portfolio Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running It
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-challenges-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Challenges &amp; Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Challenges &amp; Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-webclient-and-reactive-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. WebClient and Reactive Programming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-user-portfolio-holding-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. User → Portfolio → Holding Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-preventing-id-tampering-on-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Preventing ID Tampering on Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mockwebserver-management-in-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. MockWebServer Management in Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-learnings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Learnings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categories
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1908,19 +2093,178 @@
   
 
 
-<h1 id="all-categories">All Categories<a class="headerlink" href="#all-categories" title="Permalink">¶</a></h1>
-<p>There are a total of 10 categories(s):</p>
+<h1 id="crypto-portfolio-api">Crypto Portfolio API<a class="headerlink" href="#crypto-portfolio-api" title="Permalink">¶</a></h1>
+<div class="blog-meta">
+  <div class="blog-meta-container">
+    <span class="meta-content">
+      By: &nbsp;<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
+      &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/spring/"><em>Spring</em></a>&nbsp;•&nbsp;
+      ⏱️ ~6 min read</span>
+    </span>
+  </div>
+</div>
+
+<blockquote>
+<p>"Built to learn, WebClient, reactive programming, and real API integration, not just theory. The kind of project you do on a job test."</p>
+</blockquote>
+<hr />
+<h2 id="what-is-it">What Is It<a class="headerlink" href="#what-is-it" title="Permalink">¶</a></h2>
+<p>The Crypto Portfolio API lets users manage portfolios of cryptocurrency holdings. Users can create multiple portfolios, add holdings to each, and get their total valuation in different currencies (USD, MAD, EUR, etc.).</p>
+<p>The app consists of two services:</p>
 <ul>
-<li><a href="blockchain/">Blockchain</a> (2)</li>
-<li><a href="debugging/">Debugging</a> (1)</li>
-<li><a href="git/">Git</a> (6)</li>
-<li><a href="java/">Java</a> (2)</li>
-<li><a href="mkdocs/">MkDocs</a> (1)</li>
-<li><a href="oop/">OOP</a> (1)</li>
-<li><a href="programming/">Programming</a> (1)</li>
-<li><a href="projects/">Projects</a> (3)</li>
-<li><a href="spring/">Spring</a> (1)</li>
-<li><a href="workflow/">Workflow</a> (5)</li>
+<li><strong>Portfolio Service</strong> (port 8080) : manages users, portfolios, and holdings</li>
+<li><strong>Exchange Rate Service</strong> (port 8081) : fetches real-time crypto prices from <a href="https://coinmarketcap.com/api/documentation/v1/">CoinMarketCap</a></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Architecture Note</p>
+<p>While the services run on separate ports and follow a modular structure, this is not a full microservices architecture. It's a step toward understanding service separation and inter-service communication via <a href="https://docs.spring.io/spring-framework/reference/web/webflux-webclient.html" target="_blank">WebClient</a>.</p>
+</div>
+<hr />
+<h2 id="tech-stack">Tech Stack<a class="headerlink" href="#tech-stack" title="Permalink">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Language</td>
+<td>Java 17</td>
+</tr>
+<tr>
+<td>Framework</td>
+<td>Spring Boot 3.4.1</td>
+</tr>
+<tr>
+<td>Build</td>
+<td>Maven</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>H2 (in-memory)</td>
+</tr>
+<tr>
+<td>Persistence</td>
+<td>Hibernate / JPA</td>
+</tr>
+<tr>
+<td>HTTP Client</td>
+<td>WebClient (reactive)</td>
+</tr>
+<tr>
+<td>Testing</td>
+<td>JUnit, Mockito, WebTestClient, MockWebServer</td>
+</tr>
+<tr>
+<td>External API</td>
+<td>CoinMarketCap</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permalink">¶</a></h2>
+<div class="highlight"><pre><span></span><code>crypto-portfolio-api/
+├── exchangerateservice/    # Fetches crypto prices from CoinMarketCap
+│   └── port: 8081
+└── portfolioservice/       # Manages users, portfolios, holdings
+    └── port: 8080
+</code></pre></div>
+<p>The Portfolio Service calls the Exchange Rate Service via <strong>WebClient</strong> to fetch live prices when calculating portfolio valuations.</p>
+<hr />
+<h2 id="api-endpoints">API Endpoints<a class="headerlink" href="#api-endpoints" title="Permalink">¶</a></h2>
+<h3 id="exchange-rate-service">Exchange Rate Service<a class="headerlink" href="#exchange-rate-service" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>GET /exchange-rate/latest                        # latest rates for all supported cryptos
+GET /exchange-rate?symbol={symbol}&amp;base={base}   # price for a specific crypto in a base currency
+</code></pre></div>
+<h3 id="portfolio-service">Portfolio Service<a class="headerlink" href="#portfolio-service" title="Permalink">¶</a></h3>
+<div class="highlight"><pre><span></span><code>POST   /users                                                          # create user
+GET    /users/{userId}                                                 # get user
+PATCH  /users/{userId}                                                 # update user
+DELETE /users/{userId}                                                 # delete user
+GET    /users/{userId}/portfolios/all                                  # all portfolios for a user
+
+POST   /users/{userId}/portfolios                                      # create portfolio
+GET    /users/{userId}/portfolios/{portfolioId}                        # get portfolio
+PATCH  /users/{userId}/portfolios/{portfolioId}                        # update portfolio
+DELETE /users/{userId}/portfolios/{portfolioId}                        # delete portfolio
+
+POST   /users/{userId}/portfolios/{portfolioId}/holdings               # add holding
+GET    /users/{userId}/portfolios/{portfolioId}/holdings/{symbol}      # get holding
+PATCH  /users/{userId}/portfolios/{portfolioId}/holdings/{symbol}      # update holding
+DELETE /users/{userId}/portfolios/{portfolioId}/holdings/{symbol}      # remove holding
+GET    /users/{userId}/portfolios/{portfolioId}/holdings/all           # all holdings
+GET    /users/{userId}/portfolios/{portfolioId}/valuation?base={base}  # portfolio value
+</code></pre></div>
+<hr />
+<h2 id="running-it">Running It<a class="headerlink" href="#running-it" title="Permalink">¶</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone</span>
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:alfahami/crypto-portfolio-api.git
+<span class="nb">cd</span><span class="w"> </span>crypto-portfolio-api
+
+<span class="c1"># Terminal 1: Exchange Rate Service</span>
+<span class="nb">cd</span><span class="w"> </span>exchangerateservice
+mvn<span class="w"> </span>clean<span class="w"> </span>install
+mvn<span class="w"> </span>spring-boot:run
+
+<span class="c1"># Terminal 2: Portfolio Service</span>
+<span class="nb">cd</span><span class="w"> </span>portfolioservice
+mvn<span class="w"> </span>clean<span class="w"> </span>install
+mvn<span class="w"> </span>spring-boot:run
+</code></pre></div>
+<p><strong>Run tests:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>exchangerateservice<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mvn<span class="w"> </span><span class="nb">test</span>
+<span class="nb">cd</span><span class="w"> </span>portfolioservice<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mvn<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+<p>A Postman collection is included in the repo: <code>crypto-portfolio.postman_collection.json</code></p>
+<hr />
+<h2 id="key-challenges-decisions">Key Challenges &amp; Decisions<a class="headerlink" href="#key-challenges-decisions" title="Permalink">¶</a></h2>
+<h3 id="1-webclient-and-reactive-programming">1. WebClient and Reactive Programming<a class="headerlink" href="#1-webclient-and-reactive-programming" title="Permalink">¶</a></h3>
+<p>The Exchange Rate Service uses <strong>WebClient</strong> instead of <code>RestTemplate</code> to call CoinMarketCap. This was the main learning objective of the project; understanding how reactive HTTP clients work, how to handle responses, and how to test them with <code>WebTestClient</code> and <code>MockWebServer</code>.</p>
+<h3 id="2-user-portfolio-holding-validation">2. User → Portfolio → Holding Validation<a class="headerlink" href="#2-user-portfolio-holding-validation" title="Permalink">¶</a></h3>
+<p>When managing holdings, every operation needed to validate that the holding belongs to the right portfolio and the portfolio belongs to the right user. Three approaches were tried:</p>
+<ul>
+<li>Injecting <code>UserRepository</code> directly into <code>HoldingService</code> ; works but mixes concerns</li>
+<li>Injecting <code>PortfolioServiceImp</code> into <code>HoldingService</code> ; creates tight coupling</li>
+<li>Creating a dedicated <code>ValidationAuthorizationService</code> ; cleanest approach, respects Single Responsibility Principle</li>
+</ul>
+<h3 id="3-preventing-id-tampering-on-updates">3. Preventing ID Tampering on Updates<a class="headerlink" href="#3-preventing-id-tampering-on-updates" title="Permalink">¶</a></h3>
+<p>When updating an entity via <code>PATCH</code>, there's a risk of ID mismatch between the URI and the request body. The solution: ignore the ID from the request body entirely, retrieve the entity using the URI ID, validate, then update and save the retrieved object.</p>
+<h3 id="4-mockwebserver-management-in-tests">4. MockWebServer Management in Tests<a class="headerlink" href="#4-mockwebserver-management-in-tests" title="Permalink">¶</a></h3>
+<p>Used <code>MockWebServer</code> from OkHttp to simulate the Exchange Rate Service in Portfolio Service integration tests. Key practices:</p>
+<ul>
+<li>Start server once with <code>@BeforeAll</code>, shut down with <code>@AfterAll</code></li>
+<li>Each test enqueues its own response for predictable behavior</li>
+<li>Only one test relied on the external service so no manual request clearing was needed</li>
+</ul>
+<hr />
+<h2 id="key-learnings">Key Learnings<a class="headerlink" href="#key-learnings" title="Permalink">¶</a></h2>
+<ul>
+<li><strong>WebClient</strong> : reactive HTTP client, how it differs from <code>RestTemplate</code>, and how to test it properly</li>
+<li><strong>MockWebServer</strong> : simulating external APIs in integration tests without hitting real endpoints</li>
+<li><strong>Inter-service communication</strong> : how two Spring Boot services talk to each other via REST</li>
+<li><strong>JPA relationships</strong> : designing User → Portfolio → Holding entity relationships with proper cascade and validation</li>
+<li><strong>Global exception handling</strong> : using <code>@ControllerAdvice</code> for consistent error responses across all endpoints</li>
+<li><strong>Transaction management</strong> : ensuring atomic updates when modifying related entities</li>
+</ul>
+<blockquote>
+<p>While building this project I went deep on <strong>WebClient and reactive programming</strong> : a dedicated article on that is coming to the <a href="../../../spring/">Spring section</a>.</p>
+</blockquote>
+<hr />
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permalink">¶</a></h2>
+<ul>
+<li><a href="https://github.com/alfahami/crypto-portfolio" target="_blank">GitHub Repository</a></li>
+<li><a href="https://coinmarketcap.com/api/documentation/v1/" target="_blank">CoinMarketCap API Docs</a></li>
+</ul>
+<hr />
+<h2 id="license">License<a class="headerlink" href="#license" title="Permalink">¶</a></h2>
+<p>MIT - open source and free to use.</p>
+<h2 id="categories">Categories<a class="headerlink" href="#categories" title="Permalink">¶</a></h2>
+<ul>
+<li><a href="../../../categories/java/">Java</a></li>
+<li><a href="../../../categories/projects/">Projects</a></li>
+<li><a href="../../../categories/spring/">Spring</a></li>
 </ul>
 
 
@@ -1944,7 +2288,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2025 19:56:51 UTC"><span class="timeago" datetime="2025-05-09T19:56:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2025 19:56:51 UTC">2025-05-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 13, 2026 18:50:03 UTC"><span class="timeago" datetime="2026-05-13T18:50:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 13, 2026 18:50:03 UTC">2026-05-13</span>
   </span>
 
     
@@ -1954,11 +2298,34 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 9, 2025 01:12:29 UTC"><span class="timeago" datetime="2025-05-09T01:12:29+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 9, 2025 01:12:29 UTC">2025-05-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 13, 2026 18:50:03 UTC"><span class="timeago" datetime="2026-05-13T18:50:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 13, 2026 18:50:03 UTC">2026-05-13</span>
   </span>
 
     
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/alfahami" class="md-author" title="@alfahami">
+          
+          <img src="https://avatars.githubusercontent.com/u/8641474?v=4&size=72" alt="AL-FAHAMI Toihir">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 
@@ -2091,16 +2458,16 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes", "content.tabs.link", "content.code.copy", "search.suggest", "content.code.annotate", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.indexes", "content.tabs.link", "content.code.copy", "search.suggest", "content.code.annotate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../js/timeago.min.js"></script>
+        <script src="../../../js/timeago.min.js"></script>
       
-        <script src="../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../javascript/extra.js"></script>
+        <script src="../../../javascript/extra.js"></script>
       
     
   </body>
