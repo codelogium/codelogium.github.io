@@ -6,3 +6,4 @@ site/
 .cache
 mkdocs.yml
 settings.json
+.claude/
