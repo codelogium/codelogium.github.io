@@ -99,11 +99,26 @@ code span {
   display: none;
 }
 
-/* Active tab styles */
+/* Tab bar — white background */
+.md-tabs {
+  background-color: #fff !important;
+  border-bottom: 1px solid var(--md-border-color);
+}
+
+.md-tabs__link {
+  color: var(--md-default-fg-color--light) !important;
+}
+
+.md-tabs__link:hover {
+  color: var(--md-primary-fg-color) !important;
+}
+
+/* Active tab — green text so it's visible on white */
 .md-tabs__item--active .md-tabs__link,
 .md-tabs__link.md-tabs__link--active {
-  color: white !important;
-  border-bottom: 2px solid white !important;
+  color: var(--md-primary-fg-color) !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
 }
 
 /* ============================================================
@@ -318,4 +333,79 @@ body[data-md-color-scheme="slate"] blockquote:before {
 
 .md-footer a:hover {
   color: white;
+}
+
+/* ============================================================
+   ZENSICAL OVERRIDES — restore Material-style green theme
+   ============================================================ */
+
+/* Header background */
+.md-header {
+  background-color: var(--md-primary-fg-color) !important;
+  color: #fff !important;
+}
+
+.md-header__title,
+.md-header__topic,
+.md-header-nav__button,
+.md-header__button {
+  color: #fff !important;
+}
+
+/* Search bar in header */
+.md-search__input {
+  background-color: rgba(255,255,255,0.15) !important;
+  color: #fff !important;
+}
+
+.md-search__input::placeholder {
+  color: rgba(255,255,255,0.6) !important;
+}
+
+/* Nav sidebar: active/hover item visible on white background */
+.md-nav__link:hover,
+.md-nav__link:focus {
+  background-color: var(--md-primary-fg-color--light) !important;
+  color: var(--md-primary-fg-color--dark) !important;
+  border-radius: 4px;
+}
+
+.md-nav__link--active,
+.md-nav__link[aria-current] {
+  background-color: var(--md-primary-fg-color) !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+/* Dark mode header */
+[data-md-color-scheme="slate"] .md-header {
+  background-color: var(--md-primary-fg-color--dark) !important;
+}
+
+/* Dark mode tab bar — transparent so it blends with the dark page */
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link:hover {
+  color: #fff !important;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__item--active .md-tabs__link,
+[data-md-color-scheme="slate"] .md-tabs__link.md-tabs__link--active {
+  color: var(--md-accent-fg-color) !important;
+  font-weight: 600 !important;
+}
+
+/* Dark mode sidebar active item */
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav__link[aria-current] {
+  background-color: var(--md-primary-fg-color) !important;
+  color: #fff !important;
 }

@@ -15,13 +15,13 @@ theme:
       primary: teal
       accent: teal
       toggle:
-        icon: material/brightness-7
+        icon: lucide/sun
         name: Switch to dark mode
     - scheme: slate
       primary: teal
       accent: teal
       toggle:
-        icon: material/weather-night
+        icon: lucide/moon
         name: Switch to light mode
   features:
     - navigation.top
@@ -129,12 +129,9 @@ extra_javascript:
 
 plugins:
   - search:
-  - awesome-pages:
+  - awesome-nav:
   - blog:
       authors: true
-  - blogging:
-  - categories:
-      enabled: true
   - tags
   # - social: can be installed later preferably in a linux machine
   - social:
