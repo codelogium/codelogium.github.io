@@ -5,4 +5,5 @@ categories/
 site/
 .cache
 mkdocs.yml
-settings.json.claude/
+settings.json
+.claude/
