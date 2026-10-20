@@ -37,10 +37,23 @@
   --md-shadow-color:       rgba(27, 107, 69, 0.10);
   --md-selection-bg-color: rgba(27, 107, 69, 0.18);
 
-  /* Shared book image: header and hero use the same values so they line up */
-  --book-image:   url('/assets/open-book.jpg');
-  --book-pos:     100% 20%;
-  --book-tint:    rgba(0, 8, 4, 0.30);
+  /* Shared background image: header, hero and footer use the same values so they line up.
+     Light mode: daytime library. Dark mode (below): late-night desk. */
+  --book-image:   url('/assets/book-library.jpg');
+  --book-pos:     center 60%;
+  --book-tint:    rgba(0, 0, 0, 0.25);
+  /* Extra shade behind the tabs (bright window) and behind the title (open book) */
+  --shade-top:    rgba(0, 0, 0, 0.45);
+  --shade-header: rgba(0, 0, 0, 0.3);
+  --shade-title:  rgba(0, 0, 0, 0.75);
+}
+
+[data-md-color-scheme="slate"] {
+  --book-image:   url('/assets/book-desk.jpg');
+  --book-tint:    rgba(0, 0, 0, 0.15);
+  --shade-top:    transparent;
+  --shade-header: transparent;
+  --shade-title:  rgba(0, 0, 0, 0.6);
 }
 
 /* ============================================================
@@ -113,6 +126,8 @@ code span {
    ============================================================ */
 .md-header {
   background:
+    linear-gradient(var(--shade-top), var(--shade-header)),
+    linear-gradient(to right, var(--shade-title) 0%, transparent 55%),
     linear-gradient(var(--book-tint), var(--book-tint)),
     var(--book-image) var(--book-pos) / cover no-repeat fixed !important;
   color: #fff !important;
@@ -315,11 +330,80 @@ body[data-md-color-scheme="slate"] blockquote:before {
 /* ============================================================
    FOOTER
    ============================================================ */
+/* Bottom of the book, pinned to the viewport like the header.
+   Darkest behind the links, lighter toward the book's cover at the bottom. */
 .md-footer {
-  background: #021a12;
-  padding: 2rem 1rem;
+  background:
+    linear-gradient(to bottom, rgba(0, 8, 4, 0.9) 0%, rgba(0, 8, 4, 0.65) 60%, rgba(0, 8, 4, 0.4) 100%),
+    var(--book-image) var(--book-pos) / cover no-repeat fixed;
+  padding: 3.5rem 1rem 1.5rem;
   font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Line the copyright and social icons up with the columns above */
+.md-footer-meta__inner {
+  padding-inline: 0 !important;
+}
+
+.md-footer-meta .md-copyright,
+.md-footer-meta .md-social {
+  margin-inline: 0 !important;
+}
+
+.footer-resources {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-brand__name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f0fdf4;
+}
+
+.footer-brand__line {
+  margin: 0.4rem 0 0;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: rgba(134, 239, 172, 0.7);
+}
+
+.footer-col__title {
+  margin: 0 0 0.7rem;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #86efac;
+}
+
+.footer-col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.footer-col a {
+  font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .footer-resources {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
 }
 
 .md-footer,
@@ -330,6 +414,11 @@ body[data-md-color-scheme="slate"] blockquote:before {
 .md-social,
 .md-footer a {
   color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.md-footer-meta,
+.md-footer__inner {
+  background: transparent !important;
 }
 
 .md-footer a {
@@ -360,8 +449,12 @@ body[data-md-color-scheme="slate"] blockquote:before {
   pointer-events: none;
 }
 
+/* Top shade continues the header's below it; left shade keeps the title readable */
 #hero-overlay {
-  background: var(--book-tint);
+  background:
+    linear-gradient(to bottom, var(--shade-top) 0, var(--shade-header) 96px, transparent 260px),
+    linear-gradient(to right, var(--shade-title) 0%, transparent 55%),
+    linear-gradient(var(--book-tint), var(--book-tint));
 }
 
 /* Separate fixed layer above .md-main so the buttons are clickable.
@@ -444,7 +537,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
 .hero-tagline {
   display: block;
   font-family: 'JetBrains Mono', 'Courier New', monospace;
-  font-size: clamp(0.55rem, 1.2vw, calc(0.78rem - 1px));
+  font-size: clamp(0.55rem, 1.2vw, 0.78rem);
   color: #86efac;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -455,6 +548,13 @@ body[data-md-color-scheme="slate"] blockquote:before {
 /* ============================================================
    HOME PAGE CONTENT (slides up over the fixed hero)
    ============================================================ */
+
+/* Hidden for now: home shows only the hero. Remove this rule to bring the content back. */
+body.home-page .md-main,
+body.home-page .md-footer {
+  display: none !important;
+}
+
 body.home-page .md-main {
   position: relative;
   z-index: 1;

@@ -14,8 +14,71 @@ document.addEventListener('DOMContentLoaded', () => {
   if (path === '/' || path === '/index.html') {
     document.body.classList.add('home-page');
     injectHero();
+  } else {
+    injectFooterResources();
   }
 });
+
+// Edit this list to add or remove footer links.
+const FOOTER_COLUMNS = [
+  {
+    title: 'C Language',
+    links: [
+      { label: "Beej's Guide to C", href: 'https://beej.us/guide/bgc/html/split-wide/' },
+      { label: 'C Programming: A Modern Approach', href: 'http://knking.com/books/c2/' },
+      { label: 'Robert C. Seacord', href: 'https://clark.center/users/Rcseacord' },
+    ],
+  },
+  {
+    title: 'Computer Science',
+    links: [
+      { label: 'CS Primer', href: 'https://csprimer.com/courses/' },
+      { label: 'Teach Yourself CS', href: 'https://teachyourselfcs.com/' },
+      { label: 'CS50 on edX', href: 'https://www.edx.org/cs50' },
+    ],
+  },
+  {
+    title: 'Codelogium',
+    links: [
+      { label: 'Blog', href: '/blog/' },
+      { label: 'Lab', href: '/lab/' },
+      { label: 'Projects', href: '/projects/' },
+    ],
+  },
+  {
+    title: 'Elsewhere',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/alfahami' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alfahami' },
+    ],
+  },
+];
+
+function injectFooterResources() {
+  const footer = document.querySelector('.md-footer');
+  if (!footer) return;
+
+  const section = document.createElement('div');
+  section.className = 'footer-resources md-grid';
+  section.innerHTML = `
+    <div class="footer-brand">
+      <span class="footer-brand__name">Codelogium</span>
+      <p class="footer-brand__line">Unlearn. Relearn. Keep learning.</p>
+    </div>
+    ${FOOTER_COLUMNS.map(col => `
+      <nav class="footer-col" aria-label="${col.title}">
+        <h4 class="footer-col__title">${col.title}</h4>
+        <ul>
+          ${col.links.map(l => {
+            const external = l.href.startsWith('http');
+            return `<li><a href="${l.href}"${external ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a></li>`;
+          }).join('')}
+        </ul>
+      </nav>
+    `).join('')}
+  `;
+  footer.prepend(section);
+}
 
 function injectHero() {
   const hero = document.createElement('div');
@@ -45,7 +108,9 @@ function injectHero() {
 
   title.querySelector('[href="#hero-scroll"]').addEventListener('click', e => {
     e.preventDefault();
-    document.querySelector('.md-content__inner').scrollIntoView({ behavior: 'smooth' });
+    const content = document.querySelector('.md-content__inner');
+    // Does nothing while the home content is hidden.
+    if (content && content.offsetParent) content.scrollIntoView({ behavior: 'smooth' });
   });
 
   const alignTitle = () => {
@@ -73,6 +138,13 @@ function initHeroCanvas(canvas) {
     'SELECT', 'while', 'class', 'import', 'return',
     '≤', '≥', '≠', '≡', '⊕', '2ⁿ', 'n·log n', '∇'
   ];
+  // Where glyphs rise from in each mode's photo (the laptop screen), as a fraction of the viewport.
+  // Update these when changing --book-image.
+  const ORIGIN = {
+    light: { x: 0.77, y: 0.62 },
+    dark:  { x: 0.9,  y: 0.6 },
+  };
+  const origin = () => ORIGIN[document.body.dataset.mdColorScheme === 'slate' ? 'dark' : 'light'];
   const GLYPH_COUNT = 70;
   const BURST_SIZE = 12;
 
@@ -80,11 +152,11 @@ function initHeroCanvas(canvas) {
     constructor() { this.reset(true); }
 
     reset(scatter) {
-      // Glyphs rise from the book's spine, ~62% across and ~68% down the photo.
+      const o = origin();
       const side = Math.random() < 0.5 ? -1 : 1;
       const spread = Math.random();
-      this.x = canvas.width * 0.62 + side * spread * canvas.width * 0.16 * (0.2 + Math.random() * 0.8);
-      this.y = canvas.height * 0.68 - spread * canvas.height * 0.05 + (Math.random() - 0.5) * 6;
+      this.x = canvas.width * o.x + side * spread * canvas.width * 0.16 * (0.2 + Math.random() * 0.8);
+      this.y = canvas.height * o.y - spread * canvas.height * 0.05 + (Math.random() - 0.5) * 6;
       this.vx = side * spread * 0.28 + (Math.random() - 0.5) * 0.15;
       this.vy = -(0.28 + Math.random() * 0.62);
 
