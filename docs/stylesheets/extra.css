@@ -566,6 +566,16 @@ body[data-md-color-scheme="slate"] blockquote:before {
   text-align: justify;
 }
 
+/* The description matches the photo: daytime library in light mode, late-night desk in dark */
+.hero-desc--night,
+[data-md-color-scheme="slate"] .hero-desc--day {
+  display: none;
+}
+
+[data-md-color-scheme="slate"] .hero-desc--night {
+  display: inline;
+}
+
 .hero-credit {
   color: rgba(134, 239, 172, 0.7);
   margin-top: 0.6rem;
