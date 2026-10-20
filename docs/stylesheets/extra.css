@@ -18,25 +18,19 @@
   --md-accent-fg-color--transparent: rgba(11, 196, 160, 0.12);
 
   /* Warm paper, to sit with the library photo */
-  --md-default-bg-color:          #F5EFE4;
-  --md-default-bg-color--light:   #ECE4D5;
-  --md-default-bg-color--lighter: #FAF6EE;
+  --md-default-bg-color:        #F5EFE4;
+  --md-default-bg-color--light: #ECE4D5;
 
   --md-default-fg-color:          #132218;
   --md-default-fg-color--light:   #3D5C48;
   --md-default-fg-color--lighter: #6B8C78;
 
-  --md-border-color:  #E2D6C2;
-  --md-divider-color: #DCCFB8;
-
-  --md-hover-color:  #EDE3D1;
-  --md-active-color: #E2D6C2;
-
   --md-code-bg-color: #EDE5D6;
   --md-code-fg-color: #1B3D28;
 
-  --md-shadow-color:       rgba(27, 107, 69, 0.10);
-  --md-selection-bg-color: rgba(27, 107, 69, 0.18);
+  /* Our own tokens (not theme variables) */
+  --md-border-color: #E2D6C2;
+  --header-height:   96px;
 
   /* Shared background image: header, hero and footer use the same values so they line up.
      Light mode: daytime library. Dark mode (below): late-night desk. */
@@ -55,10 +49,9 @@
   --md-accent-fg-color: #6EE7B7;
 
   /* Graphite with a hint of cool, lifted off pure black */
-  --md-default-bg-color:          #18191D;
-  --md-default-bg-color--light:   #1F2125;
-  --md-default-bg-color--lighter: #26282D;
-  --md-code-bg-color:             #1F2125;
+  --md-default-bg-color:        #18191D;
+  --md-default-bg-color--light: #1F2125;
+  --md-code-bg-color:           #1F2125;
 
   --book-image:   url('/assets/book-desk.jpg');
   --book-tint:    rgba(0, 0, 0, 0.15);
@@ -102,6 +95,13 @@ code span {
 .md-header__title,
 .md-source__repository {
   font-weight: 700 !important;
+}
+
+/* Justified article paragraphs; hyphenation keeps word gaps even */
+.md-content .md-typeset p {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .md-typeset h1 { font-size: 2rem; letter-spacing: -0.02em; }
@@ -284,19 +284,6 @@ body[data-md-color-scheme="slate"] blockquote:before {
   align-items: center;
 }
 
-.author-avatar {
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  margin: 0 8px;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
-}
-
-.author-avatar-link:hover .author-avatar {
-  filter: grayscale(0%);
-}
-
 .meta-content {
   display: flex;
   align-items: center;
@@ -350,6 +337,30 @@ body[data-md-color-scheme="slate"] blockquote:before {
   padding: 1.75rem 1rem 1.25rem;
   font-size: 0.9rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.md-footer,
+.md-footer-meta,
+.md-footer-meta__inner,
+.md-copyright,
+.md-copyright__highlight,
+.md-social,
+.md-footer a {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.md-footer-meta,
+.md-footer__inner {
+  background: transparent !important;
+}
+
+.md-footer a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.md-footer a:hover {
+  color: var(--md-accent-fg-color) !important;
 }
 
 /* Line the copyright and social icons up with the columns above */
@@ -417,30 +428,6 @@ body[data-md-color-scheme="slate"] blockquote:before {
   }
 }
 
-.md-footer,
-.md-footer-meta,
-.md-footer-meta__inner,
-.md-copyright,
-.md-copyright__highlight,
-.md-social,
-.md-footer a {
-  color: rgba(255, 255, 255, 0.75) !important;
-}
-
-.md-footer-meta,
-.md-footer__inner {
-  background: transparent !important;
-}
-
-.md-footer a {
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.md-footer a:hover {
-  color: var(--md-accent-fg-color) !important;
-}
-
 /* ============================================================
    HOME PAGE HERO
    ============================================================ */
@@ -463,7 +450,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
 /* Top shade continues the header's below it; left shade keeps the title readable */
 #hero-overlay {
   background:
-    linear-gradient(to bottom, var(--shade-top) 0, var(--shade-header) 96px, transparent 260px),
+    linear-gradient(to bottom, var(--shade-top) 0, var(--shade-header) var(--header-height), transparent 260px),
     linear-gradient(to right, var(--shade-title) 0%, transparent 55%),
     linear-gradient(var(--book-tint), var(--book-tint));
 }
@@ -572,7 +559,7 @@ body.home-page .md-main {
 }
 
 body.home-page .md-content__inner {
-  margin-top: calc(100vh - 96px);
+  margin-top: calc(100vh - var(--header-height));
   padding-top: 2rem !important;
   background: #0b1f12;
   border-radius: 12px 12px 0 0;
