@@ -450,13 +450,32 @@ body[data-md-color-scheme="slate"] blockquote:before {
   font-size: 0.7rem;
 }
 
-@media (max-width: 768px) {
+/* Medium screens: brand on its own row, the four link columns below */
+@media (max-width: 1100px) {
   .footer-resources {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .footer-brand {
     grid-column: 1 / -1;
+  }
+}
+
+/* Small screens: link columns two by two */
+@media (max-width: 600px) {
+  .footer-resources {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.75rem;
+  }
+}
+
+/* iOS ignores background-attachment: fixed. When the footer reaches the bottom of the
+   screen, a viewport-height photo aligned to the bottom shows the same strip. */
+@media (hover: none) and (orientation: portrait) {
+  .md-footer {
+    background-attachment: scroll !important;
+    background-size: auto, auto 100vh !important;
+    background-position: 0 0, center bottom !important;
   }
 }
 
