@@ -17,21 +17,22 @@
   --md-accent-fg-color:              #0BC4A0;
   --md-accent-fg-color--transparent: rgba(11, 196, 160, 0.12);
 
-  --md-default-bg-color:          #EEF3EF;
-  --md-default-bg-color--light:   #E6EDE8;
-  --md-default-bg-color--lighter: #F3F7F4;
+  /* Warm paper, to sit with the library photo */
+  --md-default-bg-color:          #F5EFE4;
+  --md-default-bg-color--light:   #ECE4D5;
+  --md-default-bg-color--lighter: #FAF6EE;
 
   --md-default-fg-color:          #132218;
   --md-default-fg-color--light:   #3D5C48;
   --md-default-fg-color--lighter: #6B8C78;
 
-  --md-border-color:  #D4EAD9;
-  --md-divider-color: #C8E4CE;
+  --md-border-color:  #E2D6C2;
+  --md-divider-color: #DCCFB8;
 
-  --md-hover-color:  #E0F0E6;
-  --md-active-color: #C8E4CE;
+  --md-hover-color:  #EDE3D1;
+  --md-active-color: #E2D6C2;
 
-  --md-code-bg-color: #EEF5F0;
+  --md-code-bg-color: #EDE5D6;
   --md-code-fg-color: #1B3D28;
 
   --md-shadow-color:       rgba(27, 107, 69, 0.10);
@@ -49,6 +50,16 @@
 }
 
 [data-md-color-scheme="slate"] {
+  /* The deep primary green disappears on black, so links use a brighter one */
+  --md-typeset-a-color: #34D399;
+  --md-accent-fg-color: #6EE7B7;
+
+  /* Graphite with a hint of cool, lifted off pure black */
+  --md-default-bg-color:          #18191D;
+  --md-default-bg-color--light:   #1F2125;
+  --md-default-bg-color--lighter: #26282D;
+  --md-code-bg-color:             #1F2125;
+
   --book-image:   url('/assets/book-desk.jpg');
   --book-tint:    rgba(0, 0, 0, 0.15);
   --shade-top:    transparent;
@@ -336,7 +347,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
   background:
     linear-gradient(to bottom, rgba(0, 8, 4, 0.9) 0%, rgba(0, 8, 4, 0.65) 60%, rgba(0, 8, 4, 0.4) 100%),
     var(--book-image) var(--book-pos) / cover no-repeat fixed;
-  padding: 3.5rem 1rem 1.5rem;
+  padding: 1.75rem 1rem 1.25rem;
   font-size: 0.9rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -355,14 +366,14 @@ body[data-md-color-scheme="slate"] blockquote:before {
   display: grid;
   grid-template-columns: 1.4fr repeat(4, 1fr);
   gap: 2rem;
-  padding-bottom: 2.5rem;
-  margin-bottom: 1rem;
+  padding-bottom: 1.75rem;
+  margin-bottom: 0.75rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .footer-brand__name {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #f0fdf4;
 }
@@ -371,7 +382,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
   margin: 0.4rem 0 0;
   font-size: 0.7rem;
   font-style: italic;
-  color: rgba(134, 239, 172, 0.7);
+  color: #86efac !important;
 }
 
 .footer-col__title {
@@ -381,7 +392,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #86efac;
+  color: #4ade80 !important;
 }
 
 .footer-col ul {
