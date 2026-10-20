@@ -2,7 +2,6 @@
 title: Home
 hide:
   - toc
-  - navigation
   - feedback
   - metadata
   - footer

@@ -133,6 +133,15 @@ code span {
   border-radius: 4px;
 }
 
+/* Below the tabs breakpoint the drawer replaces the tabs, so match their typeface */
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title,
+  .md-nav--primary .md-nav__link {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-weight: 600;
+  }
+}
+
 .md-nav__link--active,
 .md-nav__link[aria-current] {
   background-color: var(--md-primary-fg-color) !important;
@@ -158,6 +167,17 @@ code span {
   backdrop-filter: none !important;
 }
 
+/* iOS ignores background-attachment: fixed. On upright touch screens the photo is
+   height-bound, so sizing it to the viewport height from the top gives the same strip. */
+@media (hover: none) and (orientation: portrait) {
+  .md-header {
+    background-attachment: scroll !important;
+    /* Layers: corner shade, top shade, left shade, tint, photo */
+    background-size: 100vw 100vh, auto, auto, auto, auto 100vh !important;
+    background-position: 0 0, 0 0, 0 0, 0 0, center top !important;
+  }
+}
+
 .md-header__inner,
 .md-tabs,
 .md-tabs .md-grid {
@@ -171,7 +191,7 @@ code span {
 .md-header__title,
 .md-header__topic,
 .md-header__button,
-.md-source {
+.md-header .md-source {
   color: #fff !important;
 }
 
@@ -561,13 +581,22 @@ body[data-md-color-scheme="slate"] blockquote:before {
    HOME PAGE CONTENT (slides up over the fixed hero)
    ============================================================ */
 
-/* Hidden for now: home shows only the hero. Remove this rule to bring the content back. */
-body.home-page .md-main,
+/* Hidden for now: home shows only the hero. Remove this rule to bring the content back.
+   Only the article is hidden, not .md-main, which also holds the mobile menu drawer. */
+body.home-page .md-content,
 body.home-page .md-footer {
   display: none !important;
 }
 
-body.home-page .md-main {
+/* On wide screens the sidebar would sit over the hero; below this width it is the menu drawer */
+@media screen and (min-width: 76.25em) {
+  body.home-page .md-sidebar--primary {
+    display: none;
+  }
+}
+
+/* Layer the article (not .md-main) above the hero, or the menu drawer gets trapped under the overlay */
+body.home-page .md-content {
   position: relative;
   z-index: 1;
 }
