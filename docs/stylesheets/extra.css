@@ -114,6 +114,13 @@ code span {
   hyphens: auto;
 }
 
+/* Phone lines are too short to justify without wide word gaps */
+@media (max-width: 600px) {
+  .md-content .md-typeset p {
+    text-align: left;
+  }
+}
+
 .md-typeset h1 { font-size: 2rem; letter-spacing: -0.02em; }
 .md-typeset h2 { font-size: 1.4rem; margin-top: 0.8em; }
 .md-typeset h3 { font-size: 1rem; }
@@ -327,7 +334,21 @@ body[data-md-color-scheme="slate"] blockquote:before {
 @media (max-width: 768px) {
   .blog-meta-container {
     display: block;
-    font-size: 70%;
+  }
+
+  /* Wrap instead of squeezing into columns: author first, tag and read time below */
+  .blog-meta {
+    text-align: left;
+  }
+
+  .meta-content {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    row-gap: 0.25rem;
+  }
+
+  .category-timer-mobile {
+    flex-basis: 100%;
   }
 }
 
