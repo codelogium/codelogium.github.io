@@ -160,7 +160,10 @@ function initHeroCanvas(canvas) {
       y: clamp(((canvas.height - dh) * POS.y + p.y * dh) / canvas.height),
     };
   };
-  const GLYPH_COUNT = 70;
+  // 70 glyphs on a 1440×900 screen, scaled by screen area so phones aren't crowded.
+  const glyphCount = () => Math.round(Math.min(70, Math.max(24, canvas.width * canvas.height / 18500)));
+  // Horizontal spread around the origin, with a floor so narrow screens don't get a thin column.
+  const spreadWidth = () => Math.max(canvas.width * 0.16, 110);
   const BURST_SIZE = 12;
 
   class Glyph {
@@ -170,7 +173,7 @@ function initHeroCanvas(canvas) {
       const o = origin();
       const side = Math.random() < 0.5 ? -1 : 1;
       const spread = Math.random();
-      this.x = canvas.width * o.x + side * spread * canvas.width * 0.16 * (0.2 + Math.random() * 0.8);
+      this.x = canvas.width * o.x + side * spread * spreadWidth() * (0.2 + Math.random() * 0.8);
       this.y = canvas.height * o.y - spread * canvas.height * 0.05 + (Math.random() - 0.5) * 6;
       this.vx = side * spread * 0.28 + (Math.random() - 0.5) * 0.15;
       this.vy = -(0.28 + Math.random() * 0.62);
@@ -216,7 +219,7 @@ function initHeroCanvas(canvas) {
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    glyphs = Array.from({ length: GLYPH_COUNT }, () => new Glyph());
+    glyphs = Array.from({ length: glyphCount() }, () => new Glyph());
   }
 
   function animate() {
