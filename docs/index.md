@@ -8,8 +8,6 @@ hide:
   - footer
 ---
 
-# Home
-
 ## Welcome to **Codelogium** 🧠
 <div id="google_translate_element"></div>
 <blockquote>

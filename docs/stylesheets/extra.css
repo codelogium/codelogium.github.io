@@ -1,52 +1,77 @@
 /* ============================================================
    GOOGLE FONTS
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Source+Code+Pro&family=JetBrains+Mono&display=swap');
 
 /* ============================================================
-   GLOBAL COLORS — Premium Deep Green Theme
+   COLORS
+   The theme sets its own light palette on [data-md-color-scheme="default"],
+   so ours must be declared there too to win.
    ============================================================ */
-:root {
-  /* Primary — forest green, confident and mature */
-  --md-primary-fg-color:        #1B6B45;
-  --md-primary-fg-color--light: #E8F5EE;
-  --md-primary-fg-color--dark:  #124D32;
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #0E7A60;
+  --md-primary-fg-color--light: #E0F5EF;
+  --md-primary-fg-color--dark:  #095440;
 
-  /* Accent — electric teal, sharp contrast */
   --md-accent-fg-color:              #0BC4A0;
   --md-accent-fg-color--transparent: rgba(11, 196, 160, 0.12);
 
-  /* Backgrounds — barely-there green tint */
-  --md-default-bg-color:          #FAFCFB;
-  --md-default-bg-color--light:   #F3F8F5;
-  --md-default-bg-color--lighter: #F8FBFA;
+  /* Warm paper, to sit with the library photo */
+  --md-default-bg-color:        #F5EFE4;
+  --md-default-bg-color--light: #ECE4D5;
 
-  /* Text — deep forest, warm not cold */
   --md-default-fg-color:          #132218;
   --md-default-fg-color--light:   #3D5C48;
   --md-default-fg-color--lighter: #6B8C78;
 
-  /* Borders */
-  --md-border-color:  #D4EAD9;
-  --md-divider-color: #C8E4CE;
-
-  /* States */
-  --md-hover-color:  #E0F0E6;
-  --md-active-color: #C8E4CE;
-
-  /* Code */
-  --md-code-bg-color: #EEF5F0;
+  --md-code-bg-color: #EDE5D6;
   --md-code-fg-color: #1B3D28;
 
-  /* Shadows & Selection */
-  --md-shadow-color:        rgba(27, 107, 69, 0.10);
-  --md-selection-bg-color:  rgba(27, 107, 69, 0.18);
+  /* Our own tokens (not theme variables) */
+  --md-border-color: #E2D6C2;
+  --header-height:   96px;
+
+  /* Shared background image: header, hero and footer use the same values so they line up.
+     Light mode: daytime library. Dark mode (below): late-night desk. */
+  --book-image:   url('/assets/book-library.jpg');
+  --book-pos:     center 60%;
+  --book-tint:    rgba(0, 0, 0, 0.25);
+  /* Extra shade behind the tabs (bright window) and behind the title (open book) */
+  --shade-top:    rgba(0, 0, 0, 0.45);
+  --shade-header: rgba(0, 0, 0, 0.3);
+  --shade-title:  rgba(0, 0, 0, 0.75);
+  --shade-corner: transparent;
+  /* Light mode: clean edge where the footer starts */
+  --footer-top:   rgba(0, 0, 0, 0.88);
+  --footer-pad-top: 1.75rem;
+}
+
+[data-md-color-scheme="slate"] {
+  /* The deep primary green disappears on black, so links use a brighter one */
+  --md-typeset-a-color: #34D399;
+  --md-accent-fg-color: #6EE7B7;
+
+  /* Deep blue-slate from the desk photo's night tones, lifted off pure black */
+  --md-default-bg-color:        #161C24;
+  --md-default-bg-color--light: #1D242E;
+  --md-code-bg-color:           #1D242E;
+
+  --book-image:   url('/assets/book-desk.jpg');
+  --book-tint:    rgba(0, 0, 0, 0.15);
+  --shade-top:    transparent;
+  --shade-header: transparent;
+  --shade-title:  rgba(0, 0, 0, 0.6);
+  /* The lamp glows behind the repo badge in the top-right corner */
+  --shade-corner: rgba(0, 0, 0, 0.6);
+  /* Dark mode: the footer fades in from the page color, no hard edge */
+  --footer-top:   #161C24;
+  /* Room for the fade to finish before the columns start */
+  --footer-pad-top: 4rem;
 }
 
 /* ============================================================
-   FONT FAMILIES
+   FONTS & TYPOGRAPHY
    ============================================================ */
 body,
 input,
@@ -67,85 +92,127 @@ code span {
 .md-typeset h3,
 .md-typeset h4,
 .md-typeset h5,
-.md-typeset h6 {
-  font-family: 'Poppins', sans-serif !important;
-  font-weight: 700;
+.md-typeset h6,
+.md-tabs__link,
+.md-header__title,
+.md-source__repository {
+  font-family: 'Space Grotesk', sans-serif !important;
 }
 
-/* ============================================================
-   TYPOGRAPHY
-   ============================================================ */
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6,
+.md-header__title,
+.md-source__repository {
+  font-weight: 700 !important;
+}
+
+/* Justified article paragraphs; hyphenation keeps word gaps even */
+.md-content .md-typeset p {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 .md-typeset h1 { font-size: 2rem; letter-spacing: -0.02em; }
 .md-typeset h2 { font-size: 1.4rem; margin-top: 0.8em; }
 .md-typeset h3 { font-size: 1rem; }
 .md-typeset    { font-size: 0.75rem; line-height: 1.6; }
 
 /* ============================================================
-   NAVIGATION
+   SIDEBAR NAVIGATION
    ============================================================ */
-.md-tabs__link,
-.md-header__title,
-.md-header-nav .md-nav__link a {
-  font-weight: bold !important;
-  font-family: 'Poppins', sans-serif !important;
-}
-
 .md-nav__link {
   font-size: 0.65rem;
 }
 
-/* Hide Categories in TOC */
-.md-nav__link[href="#categories"] {
-  display: none;
+.md-nav__link:hover,
+.md-nav__link:focus {
+  background-color: var(--md-primary-fg-color--light) !important;
+  color: var(--md-primary-fg-color--dark) !important;
+  border-radius: 4px;
 }
 
-/* Tab bar — white background */
+.md-nav__link--active,
+.md-nav__link[aria-current] {
+  background-color: var(--md-primary-fg-color) !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   HEADER & TABS — same on every page and in both modes.
+   The image is pinned to the viewport, so it lines up with the home hero.
+   ============================================================ */
+.md-header {
+  background:
+    radial-gradient(40% 35% at 82% 0%, var(--shade-corner), transparent) fixed,
+    linear-gradient(var(--shade-top), var(--shade-header)),
+    linear-gradient(to right, var(--shade-title) 0%, transparent 55%),
+    linear-gradient(var(--book-tint), var(--book-tint)),
+    var(--book-image) var(--book-pos) / cover no-repeat fixed !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.md-header__inner,
+.md-tabs,
+.md-tabs .md-grid {
+  background: transparent !important;
+}
+
 .md-tabs {
-  background-color: #fff !important;
-  border-bottom: 1px solid var(--md-border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+.md-header__title,
+.md-header__topic,
+.md-header__button,
+.md-source {
+  color: #fff !important;
 }
 
 .md-tabs__link {
-  color: var(--md-default-fg-color--light) !important;
-}
-
-.md-tabs__link:hover {
-  color: var(--md-primary-fg-color) !important;
-}
-
-/* Active tab — green text so it's visible on white */
-.md-tabs__item--active .md-tabs__link,
-.md-tabs__link.md-tabs__link--active {
-  color: var(--md-primary-fg-color) !important;
+  color: rgba(255, 255, 255, 0.75) !important;
   font-weight: 600 !important;
+}
+
+.md-tabs__link:hover,
+.md-tabs__item--active .md-tabs__link {
+  color: #fff !important;
   opacity: 1 !important;
+}
+
+.md-tabs__item--active {
+  border-bottom-color: #fff !important;
+}
+
+/* Search button; ::before is the icon, ::after the ⌘K badge */
+.md-header .md-search__button {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+}
+
+.md-header .md-search__button::before {
+  background-color: #fff !important;
+}
+
+.md-header .md-search__button::after {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #fff !important;
+  box-shadow: none !important;
 }
 
 /* ============================================================
    CODE BLOCKS
    ============================================================ */
-.markdown-body pre {
-  background: rgba(0, 0, 0, 0.7);
-  color: #e0e0e0;
-  padding: 15px;
-  border-radius: 5px;
-  overflow-x: auto;
-  border: none;
-}
-
-.markdown-body code {
-  background: rgba(0, 0, 0, 0.5);
-  color: #e0e0e0;
-  padding: 2px 5px;
-  border-radius: 4px;
-  font-family: 'Source Code Pro', monospace !important;
-}
-
 .md-typeset pre code {
   line-height: 1.6;
 }
 
-/* Scrollbar styling */
 .md-typeset pre {
   scrollbar-width: thin;
   scrollbar-color: var(--md-border-color) transparent;
@@ -189,14 +256,12 @@ blockquote p {
   display: inline;
 }
 
-/* Blockquotes — dark mode */
 body[data-md-color-scheme="slate"] blockquote {
   background-color: #00645A;
   border-left: 8px solid #e1e1e1 !important;
   color: #e1e1e1;
   padding: 1em;
   margin: 1.5em 0;
-  font-style: italic;
   box-shadow: 0 1px 5px rgba(97, 97, 97, 0.1);
 }
 
@@ -230,19 +295,6 @@ body[data-md-color-scheme="slate"] blockquote:before {
   align-items: center;
 }
 
-.author-avatar {
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  margin: 0 8px;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
-}
-
-.author-avatar-link:hover .author-avatar {
-  filter: grayscale(0%);
-}
-
 .meta-content {
   display: flex;
   align-items: center;
@@ -252,61 +304,6 @@ body[data-md-color-scheme="slate"] blockquote:before {
   text-decoration: none;
 }
 
-/* External link icon — only for truly external links */
-.md-typeset a[href^="http"]:not([href*="codelogium.github.io"])::after {
-  content: "";
-  display: inline-block;
-  background-color: var(--md-primary-fg-color);
-  width: 0.8em;
-  height: 0.8em;
-  margin-left: 0.2em;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z'/%3E%3C/svg%3E");
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  vertical-align: middle;
-  opacity: 0.6;
-}
-
-.md-typeset a[href^="http"]:not([href*="codelogium.github.io"])::after,
-.md-footer a::after {
-  display: none !important;
-}
-
-/* ============================================================
-   CONTENT VISIBILITY
-   ============================================================ */
-
-/* Hide categories section */
-#categories,
-#categories+ul,
-#categories+ul li a {
-  display: none !important;
-}
-
-/* Hide contributors and feedback by default */
-.md-source-file,
-.md-feedback {
-  display: none !important;
-}
-
-/* Show on content pages via JS */
-.show-contrib-feedback .md-source-file,
-.show-contrib-feedback .md-feedback {
-  display: block !important;
-}
-
-/* Git committers avatar */
-.md-source-file__fact img {
-  border: 2px solid var(--md-primary-fg-color--light);
-  border-radius: 50%;
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 @media (max-width: 768px) {
   .blog-meta-container {
     display: block;
@@ -315,97 +312,297 @@ body[data-md-color-scheme="slate"] blockquote:before {
 }
 
 /* ============================================================
+   CONTENT VISIBILITY
+   ============================================================ */
+#categories,
+#categories + ul,
+.md-nav__link[href="#categories"] {
+  display: none !important;
+}
+
+/* Contributors and feedback: hidden by default, shown on content pages via JS */
+.md-source-file,
+.md-feedback {
+  display: none !important;
+}
+
+.show-contrib-feedback .md-source-file,
+.show-contrib-feedback .md-feedback {
+  display: block !important;
+}
+
+.md-source-file__fact img {
+  border: 2px solid var(--md-primary-fg-color--light);
+  border-radius: 50%;
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
+/* Bottom of the book, pinned to the viewport like the header.
+   Darkest behind the links, lighter toward the book's cover at the bottom. */
 .md-footer {
-  background: var(--md-primary-fg-color--dark);
-  color: white;
-  padding: 2rem 1rem;
+  background:
+    linear-gradient(to bottom, var(--footer-top) 0%, rgba(0, 0, 0, 0.85) 25%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.4) 100%),
+    var(--book-image) var(--book-pos) / cover no-repeat fixed;
+  /* The theme's 1px top border sits outside the fade, so the raw photo showed through it */
+  border-top: none !important;
+  padding: var(--footer-pad-top) 1rem 1.25rem;
   font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.md-footer,
+.md-footer-meta,
+.md-footer-meta__inner,
+.md-copyright,
+.md-copyright__highlight,
+.md-social,
+.md-footer a {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.md-footer-meta,
+.md-footer__inner {
+  background: transparent !important;
 }
 
 .md-footer a {
-  color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .md-footer a:hover {
-  color: white;
+  color: var(--md-accent-fg-color) !important;
+}
+
+/* Line the copyright and social icons up with the columns above */
+.md-footer-meta__inner {
+  padding-inline: 0 !important;
+}
+
+.md-footer-meta .md-copyright,
+.md-footer-meta .md-social {
+  margin-inline: 0 !important;
+}
+
+.footer-resources {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 2rem;
+  padding-bottom: 1.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-brand__name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f0fdf4;
+}
+
+.footer-brand__line {
+  margin: 0.4rem 0 0;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: #86efac !important;
+}
+
+.footer-col__title {
+  margin: 0 0 0.7rem;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #4ade80 !important;
+}
+
+.footer-col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.footer-col a {
+  font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .footer-resources {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
 }
 
 /* ============================================================
-   ZENSICAL OVERRIDES — restore Material-style green theme
+   HOME PAGE HERO
+   ============================================================ */
+#hero-fixed {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: var(--book-image) var(--book-pos) / cover no-repeat;
+}
+
+#hero-overlay,
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Top shade continues the header's below it; left shade keeps the title readable */
+/* The corner shade is pinned to the viewport (fixed) so it lines up with the header's */
+#hero-overlay {
+  background:
+    radial-gradient(40% 35% at 82% 0%, var(--shade-corner), transparent) fixed,
+    linear-gradient(to bottom, var(--shade-top) 0, var(--shade-header) var(--header-height), transparent 260px),
+    linear-gradient(to right, var(--shade-title) 0%, transparent 55%),
+    linear-gradient(var(--book-tint), var(--book-tint));
+}
+
+/* Separate fixed layer above .md-main so the buttons are clickable.
+   `left` is set at runtime to line up with the first nav tab. */
+#hero-title {
+  position: fixed;
+  bottom: 10%;
+  left: 0;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.hero-site-name {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 3.8vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #f0fdf4;
+  line-height: 1;
+  text-shadow: 0 0 40px rgba(34, 197, 94, 0.4), 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.hero-desc,
+.hero-credit {
+  display: block;
+  font-size: clamp(0.65rem, 1vw, 0.82rem);
+}
+
+.hero-desc {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  margin-top: 0.9rem;
+  max-width: 38ch;
+  text-align: justify;
+}
+
+.hero-credit {
+  color: rgba(134, 239, 172, 0.7);
+  margin-top: 0.6rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.72rem, 1.1vw, 0.88rem);
+  font-weight: 600;
+  padding: 0.5em 1.1em;
+  border-radius: 999px;
+  color: #fff !important;
+  text-decoration: none !important;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.hero-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.hero-btn--primary {
+  background: var(--md-primary-fg-color);
+}
+
+.hero-btn--secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+.hero-tagline {
+  display: block;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: clamp(0.55rem, 1.2vw, 0.78rem);
+  color: #86efac;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 1.2rem;
+  text-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
+}
+
+/* ============================================================
+   HOME PAGE CONTENT (slides up over the fixed hero)
    ============================================================ */
 
-/* Header background */
-.md-header {
-  background-color: var(--md-primary-fg-color) !important;
-  color: #fff !important;
+/* Hidden for now: home shows only the hero. Remove this rule to bring the content back. */
+body.home-page .md-main,
+body.home-page .md-footer {
+  display: none !important;
 }
 
-.md-header__title,
-.md-header__topic,
-.md-header-nav__button,
-.md-header__button {
-  color: #fff !important;
+body.home-page .md-main {
+  position: relative;
+  z-index: 1;
 }
 
-/* Search bar in header */
-.md-search__input {
-  background-color: rgba(255,255,255,0.15) !important;
-  color: #fff !important;
+body.home-page .md-content__inner {
+  margin-top: calc(100vh - var(--header-height));
+  padding-top: 2rem !important;
+  background: #0b1f12;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 40px rgba(0, 0, 0, 0.5);
 }
 
-.md-search__input::placeholder {
-  color: rgba(255,255,255,0.6) !important;
+body.home-page .md-content__inner h1,
+body.home-page .md-content__inner h2,
+body.home-page .md-content__inner h3,
+body.home-page .md-content__inner p,
+body.home-page .md-content__inner li,
+body.home-page .md-content__inner a {
+  color: #d1fae5 !important;
 }
 
-/* Nav sidebar: active/hover item visible on white background */
-.md-nav__link:hover,
-.md-nav__link:focus {
-  background-color: var(--md-primary-fg-color--light) !important;
-  color: var(--md-primary-fg-color--dark) !important;
-  border-radius: 4px;
+body.home-page .md-content__inner a:hover {
+  color: #4ade80 !important;
 }
 
-.md-nav__link--active,
-.md-nav__link[aria-current] {
-  background-color: var(--md-primary-fg-color) !important;
-  color: #fff !important;
-  font-weight: 600;
-  border-radius: 4px;
+body.home-page .md-content__inner blockquote {
+  background: rgba(34, 197, 94, 0.07) !important;
+  border-left-color: #22c55e !important;
+  color: #a7f3d0 !important;
 }
 
-/* Dark mode header */
-[data-md-color-scheme="slate"] .md-header {
-  background-color: var(--md-primary-fg-color--dark) !important;
+body.home-page .md-content__inner blockquote::before {
+  color: #22c55e !important;
 }
 
-/* Dark mode tab bar — transparent so it blends with the dark page */
-[data-md-color-scheme="slate"] .md-tabs {
-  background-color: transparent !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-[data-md-color-scheme="slate"] .md-tabs__link {
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-[data-md-color-scheme="slate"] .md-tabs__link:hover {
-  color: #fff !important;
-}
-
-[data-md-color-scheme="slate"] .md-tabs__item--active .md-tabs__link,
-[data-md-color-scheme="slate"] .md-tabs__link.md-tabs__link--active {
-  color: var(--md-accent-fg-color) !important;
-  font-weight: 600 !important;
-}
-
-/* Dark mode sidebar active item */
-[data-md-color-scheme="slate"] .md-nav__link--active,
-[data-md-color-scheme="slate"] .md-nav__link[aria-current] {
-  background-color: var(--md-primary-fg-color) !important;
-  color: #fff !important;
+body.home-page .md-content__inner hr {
+  border-color: rgba(34, 197, 94, 0.2) !important;
 }
