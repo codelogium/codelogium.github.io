@@ -44,6 +44,7 @@
   --shade-corner: transparent;
   /* Light mode: clean edge where the footer starts */
   --footer-top:   rgba(0, 0, 0, 0.88);
+  --footer-pad-top: 1.75rem;
 }
 
 [data-md-color-scheme="slate"] {
@@ -65,6 +66,8 @@
   --shade-corner: rgba(0, 0, 0, 0.6);
   /* Dark mode: the footer fades in from the page color, no hard edge */
   --footer-top:   #161C24;
+  /* Room for the fade to finish before the columns start */
+  --footer-pad-top: 4rem;
 }
 
 /* ============================================================
@@ -344,7 +347,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
     var(--book-image) var(--book-pos) / cover no-repeat fixed;
   /* The theme's 1px top border sits outside the fade, so the raw photo showed through it */
   border-top: none !important;
-  padding: 1.75rem 1rem 1.25rem;
+  padding: var(--footer-pad-top) 1rem 1.25rem;
   font-size: 0.9rem;
 }
 
