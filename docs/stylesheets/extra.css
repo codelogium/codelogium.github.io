@@ -41,6 +41,9 @@
   --shade-top:    rgba(0, 0, 0, 0.45);
   --shade-header: rgba(0, 0, 0, 0.3);
   --shade-title:  rgba(0, 0, 0, 0.75);
+  --shade-corner: transparent;
+  /* Light mode: clean edge where the footer starts */
+  --footer-top:   rgba(0, 0, 0, 0.88);
 }
 
 [data-md-color-scheme="slate"] {
@@ -48,16 +51,20 @@
   --md-typeset-a-color: #34D399;
   --md-accent-fg-color: #6EE7B7;
 
-  /* Graphite with a hint of cool, lifted off pure black */
-  --md-default-bg-color:        #18191D;
-  --md-default-bg-color--light: #1F2125;
-  --md-code-bg-color:           #1F2125;
+  /* Deep blue-slate from the desk photo's night tones, lifted off pure black */
+  --md-default-bg-color:        #161C24;
+  --md-default-bg-color--light: #1D242E;
+  --md-code-bg-color:           #1D242E;
 
   --book-image:   url('/assets/book-desk.jpg');
   --book-tint:    rgba(0, 0, 0, 0.15);
   --shade-top:    transparent;
   --shade-header: transparent;
   --shade-title:  rgba(0, 0, 0, 0.6);
+  /* The lamp glows behind the repo badge in the top-right corner */
+  --shade-corner: rgba(0, 0, 0, 0.6);
+  /* Dark mode: the footer fades in from the page color, no hard edge */
+  --footer-top:   #161C24;
 }
 
 /* ============================================================
@@ -137,6 +144,7 @@ code span {
    ============================================================ */
 .md-header {
   background:
+    radial-gradient(40% 35% at 82% 0%, var(--shade-corner), transparent) fixed,
     linear-gradient(var(--shade-top), var(--shade-header)),
     linear-gradient(to right, var(--shade-title) 0%, transparent 55%),
     linear-gradient(var(--book-tint), var(--book-tint)),
@@ -332,11 +340,12 @@ body[data-md-color-scheme="slate"] blockquote:before {
    Darkest behind the links, lighter toward the book's cover at the bottom. */
 .md-footer {
   background:
-    linear-gradient(to bottom, rgba(0, 8, 4, 0.9) 0%, rgba(0, 8, 4, 0.65) 60%, rgba(0, 8, 4, 0.4) 100%),
+    linear-gradient(to bottom, var(--footer-top) 0%, rgba(0, 0, 0, 0.85) 25%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.4) 100%),
     var(--book-image) var(--book-pos) / cover no-repeat fixed;
+  /* The theme's 1px top border sits outside the fade, so the raw photo showed through it */
+  border-top: none !important;
   padding: 1.75rem 1rem 1.25rem;
   font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .md-footer,
@@ -448,8 +457,10 @@ body[data-md-color-scheme="slate"] blockquote:before {
 }
 
 /* Top shade continues the header's below it; left shade keeps the title readable */
+/* The corner shade is pinned to the viewport (fixed) so it lines up with the header's */
 #hero-overlay {
   background:
+    radial-gradient(40% 35% at 82% 0%, var(--shade-corner), transparent) fixed,
     linear-gradient(to bottom, var(--shade-top) 0, var(--shade-header) var(--header-height), transparent 260px),
     linear-gradient(to right, var(--shade-title) 0%, transparent 55%),
     linear-gradient(var(--book-tint), var(--book-tint));
