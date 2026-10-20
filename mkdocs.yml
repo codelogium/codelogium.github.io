@@ -11,21 +11,24 @@ theme:
   #logo: assets/logo.png          
   #favicon: assets/favicon.ico
   palette:
-    - scheme: default
-      primary: teal
-      accent: teal
-      toggle:
-        icon: lucide/sun
-        name: Switch to dark mode
-    - scheme: slate
-      primary: teal
-      accent: teal
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: lucide/moon
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: lucide/sun
         name: Switch to light mode
   features:
     - navigation.top
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.indexes
     - content.tabs.link
     - content.code.copy
