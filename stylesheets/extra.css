@@ -114,6 +114,13 @@ code span {
   hyphens: auto;
 }
 
+/* Phone lines are too short to justify without wide word gaps */
+@media (max-width: 600px) {
+  .md-content .md-typeset p {
+    text-align: left;
+  }
+}
+
 .md-typeset h1 { font-size: 2rem; letter-spacing: -0.02em; }
 .md-typeset h2 { font-size: 1.4rem; margin-top: 0.8em; }
 .md-typeset h3 { font-size: 1rem; }
@@ -131,6 +138,15 @@ code span {
   background-color: var(--md-primary-fg-color--light) !important;
   color: var(--md-primary-fg-color--dark) !important;
   border-radius: 4px;
+}
+
+/* Below the tabs breakpoint the drawer replaces the tabs, so match their typeface */
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title,
+  .md-nav--primary .md-nav__link {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-weight: 600;
+  }
 }
 
 .md-nav__link--active,
@@ -158,6 +174,17 @@ code span {
   backdrop-filter: none !important;
 }
 
+/* iOS ignores background-attachment: fixed. On upright touch screens the photo is
+   height-bound, so sizing it to the viewport height from the top gives the same strip. */
+@media (hover: none) and (orientation: portrait) {
+  .md-header {
+    background-attachment: scroll !important;
+    /* Layers: corner shade, top shade, left shade, tint, photo */
+    background-size: 100vw 100vh, auto, auto, auto, auto 100vh !important;
+    background-position: 0 0, 0 0, 0 0, 0 0, center top !important;
+  }
+}
+
 .md-header__inner,
 .md-tabs,
 .md-tabs .md-grid {
@@ -171,7 +198,7 @@ code span {
 .md-header__title,
 .md-header__topic,
 .md-header__button,
-.md-source {
+.md-header .md-source {
   color: #fff !important;
 }
 
@@ -307,7 +334,21 @@ body[data-md-color-scheme="slate"] blockquote:before {
 @media (max-width: 768px) {
   .blog-meta-container {
     display: block;
-    font-size: 70%;
+  }
+
+  /* Wrap instead of squeezing into columns: author first, tag and read time below */
+  .blog-meta {
+    text-align: left;
+  }
+
+  .meta-content {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    row-gap: 0.25rem;
+  }
+
+  .category-timer-mobile {
+    flex-basis: 100%;
   }
 }
 
@@ -430,13 +471,32 @@ body[data-md-color-scheme="slate"] blockquote:before {
   font-size: 0.7rem;
 }
 
-@media (max-width: 768px) {
+/* Medium screens: brand on its own row, the four link columns below */
+@media (max-width: 1100px) {
   .footer-resources {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .footer-brand {
     grid-column: 1 / -1;
+  }
+}
+
+/* Small screens: link columns two by two */
+@media (max-width: 600px) {
+  .footer-resources {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.75rem;
+  }
+}
+
+/* iOS ignores background-attachment: fixed. When the footer reaches the bottom of the
+   screen, a viewport-height photo aligned to the bottom shows the same strip. */
+@media (hover: none) and (orientation: portrait) {
+  .md-footer {
+    background-attachment: scroll !important;
+    background-size: auto, auto 100vh !important;
+    background-position: 0 0, center bottom !important;
   }
 }
 
@@ -475,6 +535,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
   position: fixed;
   bottom: 10%;
   left: 0;
+  right: max(16px, env(safe-area-inset-right, 0px));
   z-index: 3;
   pointer-events: none;
   transition: opacity 0.2s, visibility 0.2s;
@@ -557,17 +618,42 @@ body[data-md-color-scheme="slate"] blockquote:before {
   text-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
 }
 
+/* Short screens (phones held sideways): keep the hero below the header */
+@media (max-height: 540px) {
+  #hero-title {
+    bottom: 1.25rem;
+  }
+
+  .hero-desc,
+  .hero-tagline {
+    display: none;
+  }
+
+  .hero-cta {
+    margin-top: 0.9rem;
+  }
+}
+
 /* ============================================================
    HOME PAGE CONTENT (slides up over the fixed hero)
    ============================================================ */
 
-/* Hidden for now: home shows only the hero. Remove this rule to bring the content back. */
-body.home-page .md-main,
+/* Hidden for now: home shows only the hero. Remove this rule to bring the content back.
+   Only the article is hidden, not .md-main, which also holds the mobile menu drawer. */
+body.home-page .md-content,
 body.home-page .md-footer {
   display: none !important;
 }
 
-body.home-page .md-main {
+/* On wide screens the sidebar would sit over the hero; below this width it is the menu drawer */
+@media screen and (min-width: 76.25em) {
+  body.home-page .md-sidebar--primary {
+    display: none;
+  }
+}
+
+/* Layer the article (not .md-main) above the hero, or the menu drawer gets trapped under the overlay */
+body.home-page .md-content {
   position: relative;
   z-index: 1;
 }
