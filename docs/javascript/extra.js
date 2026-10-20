@@ -113,9 +113,11 @@ function injectHero() {
     if (content && content.offsetParent) content.scrollIntoView({ behavior: 'smooth' });
   });
 
+  // Line up with the first tab; below the tabs breakpoint, with the header title instead.
   const alignTitle = () => {
     const firstTab = document.querySelector('.md-tabs__link');
-    if (firstTab) title.style.left = firstTab.getBoundingClientRect().left + 'px';
+    const anchor = firstTab && firstTab.offsetParent ? firstTab : document.querySelector('.md-header__topic');
+    if (anchor) title.style.left = Math.max(16, anchor.getBoundingClientRect().left) + 'px';
   };
   window.addEventListener('resize', alignTitle);
 
@@ -138,13 +140,26 @@ function initHeroCanvas(canvas) {
     'SELECT', 'while', 'class', 'import', 'return',
     '≤', '≥', '≠', '≡', '⊕', '2ⁿ', 'n·log n', '∇'
   ];
-  // Where glyphs rise from in each mode's photo (the laptop screen), as a fraction of the viewport.
-  // Update these when changing --book-image.
-  const ORIGIN = {
-    light: { x: 0.77, y: 0.62 },
-    dark:  { x: 0.9,  y: 0.6 },
+  // Where glyphs rise from: the laptop screen in each mode's photo, as a fraction of the photo.
+  // Update these when changing --book-image. Must match --book-pos (center 60%).
+  const PHOTOS = {
+    light: { w: 2000, h: 1121, x: 0.74, y: 0.62 },
+    dark:  { w: 2000, h: 1333, x: 0.9,  y: 0.6 },
   };
-  const origin = () => ORIGIN[document.body.dataset.mdColorScheme === 'slate' ? 'dark' : 'light'];
+  const POS = { x: 0.5, y: 0.6 };
+
+  // Map a point on the photo to the screen, the same way `background-size: cover` crops it.
+  const origin = () => {
+    const p = PHOTOS[document.body.dataset.mdColorScheme === 'slate' ? 'dark' : 'light'];
+    const scale = Math.max(canvas.width / p.w, canvas.height / p.h);
+    const dw = p.w * scale, dh = p.h * scale;
+    // On narrow screens the crop pushes the laptop off-screen; keep the glyphs visible.
+    const clamp = v => Math.min(0.85, Math.max(0.15, v));
+    return {
+      x: clamp(((canvas.width - dw) * POS.x + p.x * dw) / canvas.width),
+      y: clamp(((canvas.height - dh) * POS.y + p.y * dh) / canvas.height),
+    };
+  };
   const GLYPH_COUNT = 70;
   const BURST_SIZE = 12;
 
