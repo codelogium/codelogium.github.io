@@ -1,9 +1,9 @@
 ---
-title: "Generic Types in Java"
-tags: [Java, Generics]
+title: "Hibernate Tips"
+tags: [Databases, Hibernate, JPA]
 date: 2025-05-06
 author: Al-Fahami
-description: "Understand how Java generics work in classes and methods for type-safe code."
+description: "Practical tips for working with Hibernate without losing your sanity."
 hide:
   #- toc  # optional: hides the table of contents
 ---
