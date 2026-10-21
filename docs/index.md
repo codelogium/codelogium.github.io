@@ -8,63 +8,46 @@ hide:
 ---
 
 <section class="home-section" id="whats-inside" data-search-exclude>
-  <h2 class="home-section__title">What's inside</h2>
-  <p class="home-section__lead">Three places to start, depending on how deep you want to go.</p>
+  <span class="home-eyebrow">// What's inside</span>
+  <h2 class="home-section__title">Three places to start. <em>Go deep.</em></h2>
+  <p class="home-section__lead">Pick where you are: the foundations, the language underneath everything, or hands-on guides from real work.</p>
 
   <div class="home-cards">
-    <a class="home-card" href="cs-fundamentals/">
-      <div class="home-card__art" aria-hidden="true">
-        <svg viewBox="0 0 200 110">
-          <g class="art-line"><path d="M100 22 L60 55 M100 22 L140 55 M60 55 L38 88 M60 55 L82 88 M140 55 L162 88"/></g>
-          <g class="art-node"><circle cx="100" cy="22" r="11"/><circle cx="60" cy="55" r="11"/><circle cx="140" cy="55" r="11"/><circle cx="38" cy="88" r="9"/><circle cx="82" cy="88" r="9"/><circle cx="162" cy="88" r="9"/></g>
-          <g class="art-text"><text x="100" y="26">8</text><text x="60" y="59">3</text><text x="140" y="59">12</text><text x="38" y="92">1</text><text x="82" y="92">5</text><text x="162" y="92">15</text></g>
-        </svg>
-      </div>
+    <a class="home-card home-card--cs" href="cs-fundamentals/">
       <div class="home-card__body">
+        <span class="home-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7.2 6.6 14.8M12 7.2l5.4 7.6"/><circle cx="12" cy="5" r="2.2"/><circle cx="6" cy="17" r="2.2"/><circle cx="18" cy="17" r="2.2"/></svg></span>
         <h3>CS Fundamentals</h3>
         <p>How a computer actually runs a program: memory, algorithms and data structures, through CS50 and beyond.</p>
-        <span class="home-card__link">Explore the foundations →</span>
+        <span class="home-card__link">Explore the foundations</span>
       </div>
     </a>
 
-    <a class="home-card" href="c/">
-      <div class="home-card__art" aria-hidden="true">
-        <svg viewBox="0 0 200 110">
-          <g class="art-box"><rect x="22" y="38" width="56" height="34" rx="5"/><rect x="122" y="38" width="56" height="34" rx="5"/></g>
-          <g class="art-line"><path d="M78 55 H114"/><path class="art-arrow" d="M108 49 L116 55 L108 61"/></g>
-          <g class="art-text"><text x="50" y="59">p</text><text x="150" y="59">42</text></g>
-          <g class="art-caption"><text x="50" y="90">int *p</text><text x="150" y="90">0x7ffe</text><text x="100" y="24">p = &amp;x;</text></g>
-        </svg>
-      </div>
+    <a class="home-card home-card--c" href="c/">
       <div class="home-card__body">
+        <span class="home-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="8" width="7" height="8" rx="1.5"/><rect x="15" y="8" width="7" height="8" rx="1.5"/><path d="M9 12h5M12 10l2 2-2 2"/></svg></span>
         <h3>C</h3>
         <p>Pointers, memory you manage yourself, and notes from K&amp;R: where you stop guessing what the machine does.</p>
-        <span class="home-card__link">Dive into C →</span>
+        <span class="home-card__link">Dive into C</span>
       </div>
     </a>
 
-    <a class="home-card" href="lab/">
-      <div class="home-card__art" aria-hidden="true">
-        <svg viewBox="0 0 200 110">
-          <g class="art-box"><rect x="20" y="14" width="160" height="82" rx="7"/></g>
-          <g class="art-dots"><circle cx="34" cy="26" r="3"/><circle cx="44" cy="26" r="3"/><circle cx="54" cy="26" r="3"/></g>
-          <g class="art-code"><text x="32" y="52"><tspan class="art-accent">$</tspan> git add .</text><text x="32" y="68"><tspan class="art-accent">$</tspan> git commit -m "fix"</text><text x="32" y="84"><tspan class="art-accent">$</tspan> git push<tspan class="art-cursor">▌</tspan></text></g>
-        </svg>
-      </div>
+    <a class="home-card home-card--lab" href="lab/">
       <div class="home-card__body">
+        <span class="home-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3M7.4 15h9.2"/></svg></span>
         <h3>Lab</h3>
         <p>Hands-on guides and cheatsheets from real work: Git today, Docker and CI/CD next.</p>
-        <span class="home-card__link">Open the Lab →</span>
+        <span class="home-card__link">Open the Lab</span>
       </div>
     </a>
   </div>
 </section>
 
-<section class="home-section home-journey" data-search-exclude>
+<section class="home-section home-band home-band--dark home-journey" data-search-exclude>
   <div class="home-journey__intro">
-    <h2 class="home-section__title">Currently learning</h2>
-    <p class="home-section__lead">Working through CS50 with K&amp;R open on the desk, and writing down what sticks: the wins, the bugs, and the "oh, that's why" moments.</p>
-    <a class="home-btn" href="blog/">Follow the journey</a>
+    <span class="home-eyebrow">// Learning in the open</span>
+    <h2 class="home-section__title">No polish. <em>Just the real notes.</em></h2>
+    <p class="home-section__lead">Every entry is written mid-struggle, not after. No cleaned-up recaps. These are mid-struggle notes: K&amp;R exercises that owned a whole weekend, CS50 problems that clicked only on the third try. The path is open if you want to walk it.</p>
+    <a class="home-btn" href="blog/">Read the notes</a>
   </div>
 
   <div class="home-journey__art" aria-hidden="true">
@@ -81,25 +64,45 @@ hide:
       </g>
     </svg>
   </div>
+</section>
 
-  <div class="home-latest">
-    <h3 class="home-latest__title">Latest notes</h3>
-    <div class="home-mini-cards">
-      <a class="home-mini-card" href="lab/git/basics/">
-        <span class="home-mini-card__kicker">Lab · Git</span>
-        <span class="home-mini-card__title">Basics &amp; Daily Commands</span>
-        <span class="home-card__link">Read →</span>
-      </a>
-      <a class="home-mini-card" href="java/generic-types/">
-        <span class="home-mini-card__kicker">Languages · Java</span>
+<section class="home-section home-latest" data-search-exclude>
+  <span class="home-eyebrow">// Latest notes</span>
+  <h2 class="home-section__title">Fresh from the notebook. <em>Read along.</em></h2>
+
+  <div class="home-mini-cards">
+    <a class="home-mini-card" href="lab/git/">
+      <span class="home-mini-card__image" style="--card-image: url('/assets/posts/git.webp'); --card-focus: center 70%" aria-hidden="true"></span>
+      <span class="home-mini-card__body">
+        <span class="home-mini-card__kicker">Lab · May 9, 2026</span>
+        <span class="home-mini-card__title">Git</span>
+        <span class="home-mini-card__text">A practical reference built from real experience: commands, workflows and solutions that actually came up.</span>
+        <span class="home-card__link">Read</span>
+      </span>
+    </a>
+    <a class="home-mini-card" href="java/generic-types/">
+      <span class="home-mini-card__image" style="--card-pos: 50% 45%; --card-pos-dark: 45% 25%" aria-hidden="true"></span>
+      <span class="home-mini-card__body">
+        <span class="home-mini-card__kicker">Java · May 7, 2025</span>
         <span class="home-mini-card__title">Generic Types in Java</span>
-        <span class="home-card__link">Read →</span>
-      </a>
-      <a class="home-mini-card" href="blog/2026/05/09/why-my-mkdocs-article-showed-11-months-ago-as-creation-date/">
-        <span class="home-mini-card__kicker">Blog · Debugging</span>
+        <span class="home-mini-card__text">How Java generics work across interfaces, classes and multi-type scenarios, with real examples.</span>
+        <span class="home-card__link">Read</span>
+      </span>
+    </a>
+    <a class="home-mini-card" href="blog/2026/05/09/why-my-mkdocs-article-showed-11-months-ago-as-creation-date/">
+      <span class="home-mini-card__image" style="--card-pos: 88% 55%; --card-pos-dark: 96% 55%" aria-hidden="true"></span>
+      <span class="home-mini-card__body">
+        <span class="home-mini-card__kicker">Blog · May 9, 2026</span>
         <span class="home-mini-card__title">Why My Article Showed 11 Months Ago as Creation Date</span>
-        <span class="home-card__link">Read →</span>
-      </a>
-    </div>
+        <span class="home-mini-card__text">A full debugging story, and everything I tried before finding the real fix.</span>
+        <span class="home-card__link">Read</span>
+      </span>
+    </a>
   </div>
+</section>
+
+<section class="home-band home-band--photo home-cta" data-search-exclude>
+  <span class="home-eyebrow">// Your turn</span>
+  <h2 class="home-cta__title">Start where you are. <em>Go as deep as you want.</em></h2>
+  <a class="home-btn home-btn--light" href="cs-fundamentals/">Start with the fundamentals</a>
 </section>

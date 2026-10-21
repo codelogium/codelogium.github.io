@@ -88,7 +88,7 @@ function injectHero() {
   title.id = 'hero-title';
   title.innerHTML = `
     <span class="hero-site-name">Codelogium</span>
-    <p class="hero-desc">For the ones who go deep. No shortcuts, no spoon-feeding. CS fundamentals, C, databases, and the kind of curiosity that <span class="hero-desc--day">keeps you going all day</span><span class="hero-desc--night">keeps you up at night</span>.</p>
+    <p class="hero-desc">Everybody's prompting their way through. This is for the ones still asking <em>why</em>, the kind of curiosity that <span class="hero-desc--day">keeps you going all day</span><span class="hero-desc--night">keeps you up at night</span>.</p>
     <em class="hero-credit">Unlearn • Relearn • Keep learning</em>
     <div class="hero-cta">
       <a href="/lab/" class="hero-btn hero-btn--primary">Start exploring</a>
@@ -99,18 +99,6 @@ function injectHero() {
 
   document.body.prepend(hero, title);
 
-  // The title floats above the page (so its buttons stay clickable); cut it off at the top edge
-  // of the rising content panel so the page appears to slide over it.
-  const coverTitle = () => {
-    const panel = document.querySelector('.md-content__inner');
-    if (!panel) return;
-    const t = title.getBoundingClientRect();
-    const covered = Math.max(0, t.bottom - panel.getBoundingClientRect().top);
-    title.style.clipPath = covered ? `inset(0 0 ${covered}px 0)` : '';
-    title.style.visibility = covered >= t.height ? 'hidden' : 'visible';
-  };
-  window.addEventListener('scroll', () => requestAnimationFrame(coverTitle), { passive: true });
-  window.addEventListener('resize', coverTitle);
 
   title.querySelector('[href="#hero-scroll"]').addEventListener('click', e => {
     e.preventDefault();
@@ -160,7 +148,7 @@ function initHeroCanvas(canvas) {
     const dw = p.w * scale, dh = p.h * scale;
     // Keep the glyphs on screen, and start them above the title so they never rise through it.
     const clamp = v => Math.min(0.85, Math.max(0.15, v));
-    const titleTop = (document.getElementById('hero-title').getBoundingClientRect().top - 24) / canvas.height;
+    const titleTop = (document.getElementById('hero-title').getBoundingClientRect().top + window.scrollY - 24) / canvas.height;
     return {
       x: clamp(((canvas.width - dw) * POS.x + p.x * dw) / canvas.width),
       y: Math.min(clamp(((canvas.height - dh) * POS.y + p.y * dh) / canvas.height), titleTop),
@@ -252,7 +240,7 @@ function initHeroCanvas(canvas) {
       const angle = (Math.PI * 2 * i / BURST_SIZE) + (Math.random() - 0.5) * 0.5;
       const speed = 0.6 + Math.random();
       g.x = e.clientX + (Math.random() - 0.5) * 10;
-      g.y = e.clientY + (Math.random() - 0.5) * 10;
+      g.y = e.clientY + window.scrollY + (Math.random() - 0.5) * 10;
       g.vx = Math.cos(angle) * speed;
       g.vy = Math.sin(angle) * speed - 0.35;
       g.life = 0;

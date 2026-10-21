@@ -1,7 +1,7 @@
 /* ============================================================
    GOOGLE FONTS
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Source+Code+Pro&family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@600;700&family=Source+Code+Pro&family=JetBrains+Mono&display=swap');
 
 /* ============================================================
    COLORS
@@ -337,7 +337,8 @@ code span {
    BLOCKQUOTES
    ============================================================ */
 blockquote {
-  background-color: #f9f9f9;
+  /* Same warm tint as the home cards, so quotes belong to the page */
+  background-color: var(--card-bg);
   border-left: 8px solid #00645A;
   margin: 1.8em 10px;
   font-style: italic;
@@ -369,6 +370,30 @@ body[data-md-color-scheme="slate"] blockquote {
 
 body[data-md-color-scheme="slate"] blockquote:before {
   color: #e1e1e1;
+}
+
+/* ============================================================
+   POST COVER IMAGE (the same 1200x630 image used on the home card)
+   ============================================================ */
+/* A wide 2:1 crop, capped in height, so the first paragraph shows without scrolling */
+.md-typeset img.post-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center 65%;
+  margin: 1rem 0 1.5rem;
+  border-radius: 0;
+}
+
+/* Keep the author line close to the title it belongs to */
+.md-typeset h1:has(+ .blog-meta) {
+  margin-bottom: 0.4em;
+}
+
+.md-typeset h1 + .blog-meta {
+  margin-top: 0;
 }
 
 /* ============================================================
@@ -578,9 +603,13 @@ body[data-md-color-scheme="slate"] blockquote:before {
 /* ============================================================
    HOME PAGE HERO
    ============================================================ */
+/* Part of the page: fills the first screen, then scrolls away with everything else */
 #hero-fixed {
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   z-index: 0;
   background: var(--book-image) var(--book-x) 60% / cover no-repeat;
 }
@@ -604,13 +633,20 @@ body[data-md-color-scheme="slate"] blockquote:before {
     linear-gradient(var(--book-tint), var(--book-tint));
 }
 
-/* Separate fixed layer above .md-main so the buttons are clickable.
+/* Its own layer above .md-main so the buttons are clickable; scrolls with the hero.
    `left` is set at runtime to line up with the first nav tab. */
 #hero-title {
-  position: fixed;
-  bottom: 10%;
+  position: absolute;
+  top: 0;
   left: 0;
   right: max(16px, env(safe-area-inset-right, 0px));
+  height: 100vh;
+  /* Spans the first screen; the text sits at the bottom of it */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-bottom: 10vh;
   z-index: 3;
   pointer-events: none;
 }
@@ -705,7 +741,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
 /* Short screens (phones held sideways): keep the hero below the header */
 @media (max-height: 540px) {
   #hero-title {
-    bottom: 1.25rem;
+    padding-bottom: 1.25rem;
   }
 
   .hero-desc,
@@ -742,7 +778,7 @@ body.home-page .md-content__inner {
   margin-top: calc(100vh - var(--header-height));
   /* Padding, not the theme's bottom margin, so the hero can't show through above the footer */
   margin-bottom: 0;
-  padding-top: 0.5rem !important;
+  padding-top: 1rem !important;
   padding-bottom: 1.5rem;
   background: var(--md-default-bg-color);
   box-shadow: 0 0 0 100vmax var(--md-default-bg-color);
@@ -755,16 +791,6 @@ body.home-page .md-main {
   overflow-x: clip;
 }
 
-/* Thin accent band where the panel meets the hero */
-body.home-page .md-content__inner::before {
-  content: "";
-  display: block;
-  height: 3px;
-  margin: 0 calc(-1 * 100vmax) 1.5rem;
-  background: linear-gradient(90deg, transparent, var(--md-primary-fg-color) 30%, var(--md-accent-fg-color) 70%, transparent);
-  opacity: 0.6;
-}
-
 /* No page title on home; the hero is the title */
 body.home-page .md-content__inner > h1 {
   display: none;
@@ -775,16 +801,22 @@ body.home-page .md-content__inner > h1 {
   --art-bg:     #E3EFE7;
   --art-ink:    var(--md-primary-fg-color);
   --art-string: #B45309;
+  --card-bg:    rgba(255, 255, 255, 0.45);
+  --card-hover: #E9F2EC;
+  --card-line:  #DCD0BC;
 }
 
 [data-md-color-scheme="slate"] {
   --art-bg:     #1D242E;
   --art-ink:    #34D399;
   --art-string: #FBBF24;
+  --card-bg:    var(--md-default-bg-color--light);
+  --card-hover: rgba(52, 211, 153, 0.07);
+  --card-line:  rgba(255, 255, 255, 0.1);
 }
 
 .home-section {
-  padding-block: 2.5rem;
+  padding-block: 5rem;
   scroll-margin-top: calc(var(--header-height) + 1rem);
 }
 
@@ -793,8 +825,28 @@ body.home-page .md-content__inner > h1 {
 }
 
 .md-typeset .home-section__title {
-  margin: 0 0 0.4rem;
-  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.7rem;
+  line-height: 1.2;
+}
+
+/* Two-tone heading: the second phrase in the accent color (Percona-style) */
+.md-typeset .home-section__title em,
+.md-typeset .home-cta__title em {
+  font-style: normal;
+  color: var(--art-ink);
+}
+
+/* Small code-style label above each section heading */
+.home-eyebrow {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--art-ink);
 }
 
 .md-typeset .home-section__lead {
@@ -804,7 +856,7 @@ body.home-page .md-content__inner > h1 {
   text-align: left;
 }
 
-/* Section 2: cards with art on top */
+/* Section 2: text-only cards, Wiley-style */
 .home-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -817,57 +869,105 @@ body.home-page .md-content__inner > h1 {
   flex-direction: column;
   color: var(--md-default-fg-color);
   text-decoration: none;
-  background: var(--md-default-bg-color--light);
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  background: var(--card-bg);
+  border: 1px solid var(--card-line);
+  border-radius: 6px;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 .md-typeset a.home-card:hover,
 .md-typeset a.home-mini-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--art-ink);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.home-card__art {
-  padding: 0.8rem;
-  background: var(--art-bg);
-  border-bottom: 1px solid var(--md-default-fg-color--lightest);
-}
-
-.home-card__art svg,
-.home-journey__art svg {
-  display: block;
-  width: 100%;
-  height: auto;
+  background: var(--card-hover);
+  border-color: var(--md-primary-fg-color);
 }
 
 .home-card__body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 1rem 1.1rem 1.1rem;
+  padding: 1.6rem 1.6rem 1.5rem;
 }
 
 .md-typeset .home-card__body h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1rem;
+  margin: 0 0 0.8rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 .md-typeset .home-card__body p {
-  margin: 0 0 0.9rem;
-  font-size: 0.72rem;
-  color: var(--md-default-fg-color--light);
+  margin: 0 0 1.4rem;
+  font-size: 0.75rem;
+  line-height: 1.65;
   text-align: left;
+}
+
+/* Per-card accent: icon, underline and link (Percona-style) */
+.home-card--cs  { --card-accent: #0E7A60; }
+.home-card--c   { --card-accent: #2563EB; }
+.home-card--lab { --card-accent: #C2410C; }
+
+[data-md-color-scheme="slate"] .home-card--cs  { --card-accent: #34D399; }
+[data-md-color-scheme="slate"] .home-card--c   { --card-accent: #60A5FA; }
+[data-md-color-scheme="slate"] .home-card--lab { --card-accent: #FB923C; }
+
+.home-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-bottom: 1.1rem;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--card-accent) 12%, transparent);
+}
+
+.home-card__icon svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: var(--card-accent);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.md-typeset .home-card[class*="home-card--"] .home-card__body p::after {
+  content: "";
+  display: block;
+  width: 55%;
+  height: 2px;
+  margin-top: 1.2rem;
+  background: var(--card-accent);
+  opacity: 0.7;
+}
+
+.home-card[class*="home-card--"] .home-card__link {
+  color: var(--card-accent);
+}
+
+.md-typeset a.home-card[class*="home-card--"]:hover {
+  border-color: var(--card-line);
+  box-shadow: inset 0 3px 0 var(--card-accent), 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+[data-md-color-scheme="slate"] .md-typeset a.home-card[class*="home-card--"]:hover {
+  border-color: var(--card-line);
+  box-shadow: inset 0 3px 0 var(--card-accent), 0 8px 28px rgba(0, 0, 0, 0.4);
 }
 
 .home-card__link {
   margin-top: auto;
-  font-size: 0.7rem;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.62rem;
   font-weight: 600;
-  color: var(--md-typeset-a-color);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--art-ink);
+}
+
+.home-card__link::after {
+  content: " ›";
 }
 
 /* Section 3: intro + art, then the latest notes */
@@ -876,6 +976,12 @@ body.home-page .md-content__inner > h1 {
   grid-template-columns: 1fr 1.15fr;
   gap: 1rem 2.5rem;
   align-items: center;
+}
+
+.home-journey__art svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .home-journey__art {
@@ -902,15 +1008,6 @@ body.home-page .md-content__inner > h1 {
   transform: translateY(-1px);
 }
 
-.home-latest {
-  grid-column: 1 / -1;
-}
-
-.md-typeset .home-latest__title {
-  margin: 1rem 0 0.8rem;
-  font-size: 0.9rem;
-}
-
 .home-mini-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
@@ -918,8 +1015,43 @@ body.home-page .md-content__inner > h1 {
 }
 
 .md-typeset a.home-mini-card {
+  overflow: hidden;
+}
+
+/* Social-card image band. A card with its own post image sets --card-image
+   (1200x630 in docs/assets/posts/); otherwise it shows a still, zoomed crop of the
+   mode's photo, positioned with --card-pos / --card-pos-dark. */
+.home-mini-card__image {
+  display: block;
+  height: 4.5rem;
+  background: var(--book-image) var(--card-pos, center) / 260% auto no-repeat;
+  border-bottom: 1px solid var(--card-line);
+}
+
+.home-mini-card__image[style*="--card-image"],
+[data-md-color-scheme="slate"] .home-mini-card__image[style*="--card-image"] {
+  /* --card-focus picks which part of the image the short band shows */
+  background: var(--card-image) var(--card-focus, center) / cover no-repeat;
+}
+
+/* The desk photo is laid out differently, so each card picks its own crop at night */
+[data-md-color-scheme="slate"] .home-mini-card__image {
+  background-position: var(--card-pos-dark, var(--card-pos, center));
+}
+
+.home-mini-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   gap: 0.35rem;
-  padding: 1rem 1.1rem;
+  padding: 1.1rem 1.3rem 1.2rem;
+}
+
+.home-mini-card__text {
+  margin-bottom: 0.6rem;
+  font-size: 0.7rem;
+  line-height: 1.55;
+  color: var(--md-default-fg-color--light);
 }
 
 .home-mini-card__kicker {
@@ -931,7 +1063,6 @@ body.home-page .md-content__inner > h1 {
 }
 
 .home-mini-card__title {
-  margin-bottom: 0.4rem;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
@@ -1015,4 +1146,78 @@ body.home-page .md-content__inner > h1 {
   .art-cursor {
     animation: none;
   }
+}
+
+/* ============================================================
+   HOME BANDS: alternating full-width backgrounds, like chapters
+   ============================================================ */
+.home-band {
+  position: relative;
+  background: var(--band-bg);
+  /* Bleed the background to both screen edges */
+  box-shadow: 0 0 0 100vmax var(--band-bg);
+  clip-path: inset(0 -100vmax);
+}
+
+/* Bands don't need the divider line between sections */
+.home-band,
+.home-band + .home-section {
+  border-top: none !important;
+}
+
+/* Dark band: the same night tones in both modes, so it always reads as a chapter break */
+.home-band--dark {
+  --band-bg: #11161D;
+  --md-default-bg-color: #161C24;
+  --md-default-fg-color: #E6EDF3;
+  --md-default-fg-color--light: rgba(230, 237, 243, 0.68);
+  --md-default-fg-color--lightest: rgba(230, 237, 243, 0.12);
+  --art-bg: #1A212B;
+  --art-ink: #34D399;
+  --art-string: #FBBF24;
+  color: var(--md-default-fg-color);
+}
+
+[data-md-color-scheme="slate"] .home-band--dark {
+  --band-bg: #0D1117;
+}
+
+/* Closing band: deep green, edge to edge, right before the photo footer */
+.home-cta {
+  isolation: isolate;
+  padding-block: 6rem;
+  text-align: center;
+  background: none;
+  box-shadow: none;
+  clip-path: none;
+  --art-ink: #86EFAC;
+}
+
+/* A solid brand-green band (the footer below owns the photo), reaching both screen edges */
+.home-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0 -100vmax;
+  z-index: -1;
+  background:
+    radial-gradient(60% 120% at 50% 0%, rgba(52, 211, 153, 0.18), transparent 70%),
+    #063F31;
+}
+
+.md-typeset .home-cta__title {
+  margin: 0 0 1.6rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #F8FAF9;
+}
+
+.md-typeset a.home-btn--light {
+  color: #063F31;
+  background: #F8FAF9;
+}
+
+/* The closing band sits flush on the footer */
+body.home-page .md-content__inner {
+  padding-bottom: 0 !important;
 }
