@@ -8,8 +8,7 @@ theme:
   name: material
   language: en
   # custom_dir: overrides
-  #logo: assets/logo.png          
-  #favicon: assets/favicon.ico
+  favicon: assets/favicon.png
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -53,42 +52,6 @@ markdown_extensions:
   - attr_list
   - tables
 
-nav:
-  - Home: index.md
-  - Network:
-      - Overview: network/index.md
-      - Basic Network Concepts (Part I): network/basic-network1.md
-  - Databases:
-      - Overview: databases/index.md
-      - Postgres vs H2: databases/postgres-vs-h2.md
-      - Hibernate Tips: databases/hibernate-tips.md
-  - Java:
-      - java/index.md
-      - java/generic-types.md
-  - Spring:
-      - Overview: spring/index.md
-      - JWT Auth: spring/jwt-auth.md
-  - Projects:
-      - Overview: projects/index.md
-  - Lab:
-      - Overview: lab/index.md
-      - Git:
-          - Overview: lab/git/index.md
-          - Basics & Daily Commands: lab/git/basics.md
-          - Branches, Stash & Undoing: lab/git/branching-stash.md
-          - Remotes & Workflows: lab/git/remotes-workflows.md
-          - Issues & Troubleshooting: lab/git/issues.md
-
-  - Blog:
-      - Overview: blog/index.md
-      - MkDocs Creation Date Bug: blog/posts/mkdocs-creation-date-debug.md
-  - Categories:
-      - Overview: categories/index.md
-      - Java: categories/java.md
-      - Programming: categories/programming.md
-      - OOP: categories/oop.md
-      - Git: categories/git.md
-      - Workflow: categories/workflow.md
 
 extra:
   pagetime: 'on'
@@ -100,9 +63,9 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/alfahami
       name: alfahami on LinkedIn
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/al_fahami
-      name: alfahami on X (ex Twitter)
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/al_fahami
+      name: alfahami on X
   analytics:
     provider: google
     property: G-9L21ZFFY2J
@@ -138,21 +101,3 @@ plugins:
   # - social: can be installed later preferably in a linux machine
   - social:
       enabled: !ENV [CI, false]
-  - git-committers:
-      repository: codelogium/codelogium.github.io
-      branch: main
-      token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
-      enabled: true
-  - git-revision-date-localized:
-      fallback_to_build_date: true
-      type: timeago
-      enable_creation_date: true
-      enable_git_follow: true
-      exclude:
-        - index.md
-        - network/index.md
-        - java/index.md
-        - spring/index.md
-        - databases/index.md
-        - lab/index.md
-        - projects/index.md

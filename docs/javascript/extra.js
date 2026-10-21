@@ -1,6 +1,6 @@
 // Contributors/feedback are hidden by CSS and shown only on content pages
 // (not on the home page, section overviews, categories or tags).
-const OVERVIEW_PATHS = ['/', '/network/', '/databases/', '/java/', '/spring/', '/lab/', '/blog/', '/projects/'];
+const OVERVIEW_PATHS = ['/', '/cs-fundamentals/', '/c/', '/network/', '/databases/', '/java/', '/spring/', '/lab/', '/blog/', '/projects/'];
 
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
@@ -63,7 +63,7 @@ function injectFooterResources() {
   section.innerHTML = `
     <div class="footer-brand">
       <span class="footer-brand__name">Codelogium</span>
-      <p class="footer-brand__line">Unlearn. Relearn. Keep learning.</p>
+      <p class="footer-brand__line">Unlearn • Relearn • Keep learning</p>
     </div>
     ${FOOTER_COLUMNS.map(col => `
       <nav class="footer-col" aria-label="${col.title}">
@@ -90,9 +90,9 @@ function injectHero() {
   title.innerHTML = `
     <span class="hero-site-name">Codelogium</span>
     <p class="hero-desc">For the ones who go deep. No shortcuts, no spoon-feeding. CS fundamentals, C, databases, and the kind of curiosity that <span class="hero-desc--day">keeps you going all day</span><span class="hero-desc--night">keeps you up at night</span>.</p>
-    <em class="hero-credit">Unlearn. Relearn. Keep learning.</em>
+    <em class="hero-credit">Unlearn • Relearn • Keep learning</em>
     <div class="hero-cta">
-      <a href="/java/" class="hero-btn hero-btn--primary">Start exploring</a>
+      <a href="/lab/" class="hero-btn hero-btn--primary">Start exploring</a>
       <a href="#hero-scroll" class="hero-btn hero-btn--secondary">What's inside</a>
     </div>
     <span class="hero-tagline">Where code meets knowledge</span>
@@ -141,23 +141,25 @@ function initHeroCanvas(canvas) {
     '≤', '≥', '≠', '≡', '⊕', '2ⁿ', 'n·log n', '∇'
   ];
   // Where glyphs rise from: the laptop screen in each mode's photo, as a fraction of the photo.
-  // Update these when changing --book-image. Must match --book-pos (center 60%).
+  // Update these when changing --book-image. Only the aspect ratio of w/h matters.
   const PHOTOS = {
-    light: { w: 2000, h: 1121, x: 0.74, y: 0.62 },
-    dark:  { w: 2000, h: 1333, x: 0.9,  y: 0.6 },
+    light: { w: 2560, h: 1435, x: 0.74, y: 0.62 },
+    dark:  { w: 2560, h: 1707, x: 0.9,  y: 0.6 },
   };
-  const POS = { x: 0.5, y: 0.6 };
 
   // Map a point on the photo to the screen, the same way `background-size: cover` crops it.
+  // The horizontal crop comes from the CSS (--book-x); the vertical one is always 60%.
   const origin = () => {
     const p = PHOTOS[document.body.dataset.mdColorScheme === 'slate' ? 'dark' : 'light'];
+    const POS = { x: parseFloat(getComputedStyle(document.body).getPropertyValue('--book-x')) / 100, y: 0.6 };
     const scale = Math.max(canvas.width / p.w, canvas.height / p.h);
     const dw = p.w * scale, dh = p.h * scale;
-    // On narrow screens the crop pushes the laptop off-screen; keep the glyphs visible.
+    // Keep the glyphs on screen, and start them above the title so they never rise through it.
     const clamp = v => Math.min(0.85, Math.max(0.15, v));
+    const titleTop = (document.getElementById('hero-title').getBoundingClientRect().top - 24) / canvas.height;
     return {
       x: clamp(((canvas.width - dw) * POS.x + p.x * dw) / canvas.width),
-      y: clamp(((canvas.height - dh) * POS.y + p.y * dh) / canvas.height),
+      y: Math.min(clamp(((canvas.height - dh) * POS.y + p.y * dh) / canvas.height), titleTop),
     };
   };
   // 70 glyphs on a 1440×900 screen, scaled by screen area so phones aren't crowded.
