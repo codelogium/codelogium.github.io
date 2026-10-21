@@ -13,7 +13,7 @@ hide:
   <p class="section-hero__lead">Practical guides and cheatsheets built from actual use: the commands that came up, the workflows that stuck, and the fixes that took longer than they should have.</p>
 </section>
 
-<div class="home-mini-cards" style="margin-top: 2.5rem; max-width: 420px;" data-search-exclude>
+<div class="home-mini-cards home-mini-cards--section" data-search-exclude>
   <a class="home-mini-card" href="git/">
     <span class="home-mini-card__image" style="--card-image: url('/assets/posts/git.webp'); --card-focus: center 70%" aria-hidden="true"></span>
     <span class="home-mini-card__body">

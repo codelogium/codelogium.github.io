@@ -874,6 +874,14 @@ body:has(.section-hero) .md-main__inner {
   margin-top: 0;
 }
 
+body:has(.section-hero) .md-content__inner {
+  padding-top: 0;
+}
+
+body:has(.section-hero) .md-content__inner::before {
+  display: none !important;
+}
+
 /* Wiley-style category nav below section hero */
 .project-category-nav {
   display: flex;
@@ -905,14 +913,6 @@ body:has(.section-hero) .md-main__inner {
 .md-typeset .project-category-nav a:hover {
   color: var(--md-default-fg-color);
   border-bottom-color: var(--md-primary-fg-color);
-}
-
-body:has(.section-hero) .md-content__inner {
-  padding-top: 0;
-}
-
-body:has(.section-hero) .md-content__inner::before {
-  display: none !important;
 }
 
 .section-hero__title {
@@ -948,22 +948,6 @@ body:has(.section-hero) .md-content__inner::before {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
-}
-
-.md-typeset a.project-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--card-bg);
-  border: 1px solid var(--card-line);
-  border-radius: 6px;
-  text-decoration: none;
-  color: var(--md-default-fg-color);
-  transition: background-color 0.2s, border-color 0.2s;
-}
-
-.md-typeset a.project-card:hover {
-  background: var(--card-hover);
-  border-color: var(--md-primary-fg-color);
 }
 
 .md-typeset .project-card__body {
@@ -1031,7 +1015,8 @@ body:has(.section-hero) .md-content__inner::before {
 }
 
 .md-typeset a.home-card,
-.md-typeset a.home-mini-card {
+.md-typeset a.home-mini-card,
+.md-typeset a.project-card {
   display: flex;
   flex-direction: column;
   color: var(--md-default-fg-color);
@@ -1039,11 +1024,12 @@ body:has(.section-hero) .md-content__inner::before {
   background: var(--card-bg);
   border: 1px solid var(--card-line);
   border-radius: 6px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .md-typeset a.home-card:hover,
-.md-typeset a.home-mini-card:hover {
+.md-typeset a.home-mini-card:hover,
+.md-typeset a.project-card:hover {
   background: var(--card-hover);
   border-color: var(--md-primary-fg-color);
 }
@@ -1183,6 +1169,12 @@ body:has(.section-hero) .md-content__inner::before {
 
 .md-typeset a.home-mini-card {
   overflow: hidden;
+}
+
+/* Section pages: a few mini-cards under a hero, not stretched edge to edge */
+.home-mini-cards--section {
+  margin-top: 2.5rem;
+  max-width: 420px;
 }
 
 /* Social-card image band. A card with its own post image sets --card-image
