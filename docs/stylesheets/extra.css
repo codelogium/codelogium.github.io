@@ -962,7 +962,7 @@ body:has(.section-hero) .md-content__inner::before {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -970,46 +970,49 @@ body:has(.section-hero) .md-content__inner::before {
 .md-typeset a.project-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.25rem 1.4rem;
   background: var(--card-bg);
   border: 1px solid var(--card-line);
   border-radius: 6px;
   text-decoration: none;
   color: var(--md-default-fg-color);
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .md-typeset a.project-card:hover {
   background: var(--card-hover);
-  box-shadow: inset 0 3px 0 var(--md-primary-fg-color), 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: var(--md-primary-fg-color);
 }
 
-[data-md-color-scheme="slate"] .md-typeset a.project-card:hover {
-  box-shadow: inset 0 3px 0 var(--md-primary-fg-color), 0 8px 24px rgba(0, 0, 0, 0.35);
+.md-typeset .project-card__body {
+  flex: 1;
+  padding: 1.6rem 1.6rem 0;
 }
-
-.md-typeset .project-card__body { flex: 1; }
 
 .md-typeset .project-card__title {
-  margin: 0 0 0.4rem;
-  font-size: 0.9rem;
+  margin: 0 0 0.8rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .md-typeset .project-card__desc {
-  margin: 0;
-  font-size: 0.76rem;
-  line-height: 1.6;
+  margin: 0 0 1.4rem;
+  font-size: 0.75rem;
+  line-height: 1.65;
   color: var(--md-default-fg-color--light);
 }
 
 .md-typeset .project-card__footer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
+  padding: 0 1.6rem 1.5rem;
+}
+
+.md-typeset .project-card__cta {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-primary-fg-color);
 }
 
 .md-typeset .project-tag {
