@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('home-page');
     injectHero();
   }
+
   injectFooterResources();
 });
 

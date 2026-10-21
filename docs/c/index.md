@@ -7,16 +7,14 @@ hide:
   - footer
 ---
 
-# ⚙️ **C**
+<section class="section-hero home-band home-band--dark" data-search-exclude>
+  <span class="home-eyebrow">C</span>
+  <h1 class="section-hero__title">C. <em>Where you stop guessing what the machine does.</em></h1>
+  <p class="section-hero__lead">Pointers, memory you manage yourself, and no runtime to save you. Notes from working through K&amp;R, CS50, and Beej's Guide: the language that makes everything else make sense.</p>
+</section>
 
-Welcome to the **C** corner of Codelogium.
-
-C is where you stop guessing what the machine does and start seeing it: pointers, memory you allocate and free yourself, and no runtime to save you. It's also the language CS50 starts with, which is why I'm here.
-
-I'm learning it from the classics: [The C Programming Language](https://en.wikipedia.org/wiki/The_C_Programming_Language) by Kernighan & Ritchie, alongside [C Programming: A Modern Approach](http://knking.com/books/c2/) and [Beej's Guide to C](https://beej.us/guide/bgc/html/split-wide/).
-
----
-
-## What's Inside
-
-*(Coming soon: notes and exercises from K&R, pointers, memory, and the bugs that taught me something...)*
+<div class="project-sections" data-search-exclude>
+  <div class="project-section">
+    <p class="section-coming-soon"><em>Notes and exercises from K&amp;R, pointers, memory management, and the bugs that taught me something. Coming soon.</em></p>
+  </div>
+</div>

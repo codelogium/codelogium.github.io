@@ -6,7 +6,8 @@ nav:
   - CS Fundamentals: cs-fundamentals
   - c
   - Languages:
-      - java
+    - languages/index.md
+    - java
   - lab
   - projects
   - blog

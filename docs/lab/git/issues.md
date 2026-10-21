@@ -23,7 +23,7 @@ reading_time: 8
 
 > "When git behaves unexpectedly, the answer is almost always in the history."
 
-A personal log of real git issues encountered during development; root causes, investigation steps, and fixes. Not theory — things that actually happened.
+A personal log of real git issues encountered during development; root causes, investigation steps, and fixes. Not theory: things that actually happened.
 
 ---
 
@@ -187,7 +187,7 @@ git push --force origin <branch>
 
 After `git stash pop`, conflicts appear because the stash was saved on a different branch state.
 
-### Fix — Abort and get back to clean
+### Fix: Abort and get back to clean
 
 ```bash
 git restore --staged .
@@ -270,7 +270,7 @@ git push --force origin <branch>
 !!! warning
     All local commits are permanently lost.
 
-### Safer version — save work first
+### Safer version: save work first
 
 ```bash
 git stash push -m "wip/before-reset"
