@@ -7,11 +7,11 @@ hide:
   - footer
 ---
 
-<div class="section-intro" data-search-exclude>
+<section class="section-hero home-band home-band--dark" data-search-exclude>
   <span class="home-eyebrow">Lab</span>
-  <h1 class="section-intro__title">Where theory meets <em>real work.</em></h1>
-  <p class="section-intro__lead">Practical guides and cheatsheets built from actual use: the commands that came up, the workflows that stuck, and the fixes that took longer than they should have.</p>
-</div>
+  <h1 class="section-hero__title">Where theory meets <em>real work.</em></h1>
+  <p class="section-hero__lead">Practical guides and cheatsheets built from actual use: the commands that came up, the workflows that stuck, and the fixes that took longer than they should have.</p>
+</section>
 
 <div class="home-mini-cards" data-search-exclude>
   <a class="home-mini-card" href="git/">
