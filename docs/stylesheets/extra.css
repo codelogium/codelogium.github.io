@@ -892,6 +892,38 @@ body:has(.section-hero) .md-main__inner {
   margin-top: 0;
 }
 
+/* Wiley-style category nav below section hero */
+.project-category-nav {
+  display: flex;
+  overflow-x: auto;
+  gap: 0;
+  background: var(--md-default-bg-color);
+  border-bottom: 1px solid var(--card-line);
+  padding: 0 1rem;
+  scrollbar-width: none;
+}
+
+.project-category-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.md-typeset .project-category-nav a {
+  flex-shrink: 0;
+  padding: 0.85rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--md-default-fg-color--light);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.md-typeset .project-category-nav a:hover {
+  color: var(--md-default-fg-color);
+  border-bottom-color: var(--md-primary-fg-color);
+}
+
 body:has(.section-hero) .md-content__inner {
   padding-top: 0;
 }

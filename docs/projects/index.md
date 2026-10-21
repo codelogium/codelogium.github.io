@@ -14,9 +14,18 @@ hide:
   <p class="section-hero__lead">Academic projects, interview challenges, personal experiments. Not all of them are polished — some were built to learn, some to ship, some to prove a concept.</p>
 </section>
 
+<nav class="project-category-nav" data-search-exclude>
+  <a href="#blockchain">Blockchain</a>
+  <a href="#fullstack">Full Stack &amp; Microservices</a>
+  <a href="#ml">Machine Learning</a>
+  <a href="#mini">Mini Projects</a>
+  <a href="#web">Web &amp; Community</a>
+  <a href="#powerbi">Power BI</a>
+</nav>
+
 <div class="project-sections" data-search-exclude>
 
-  <div class="project-section">
+  <div class="project-section" id="blockchain">
     <span class="home-eyebrow">Blockchain</span>
     <div class="project-grid">
       <a class="project-card" href="blockchain/bcertificate/">
@@ -30,7 +39,7 @@ hide:
     </div>
   </div>
 
-  <div class="project-section">
+  <div class="project-section" id="fullstack">
     <span class="home-eyebrow">Full Stack &amp; Microservices</span>
     <div class="project-grid">
       <a class="project-card" href="java/crypto-portfolio/">
@@ -56,7 +65,7 @@ hide:
     </div>
   </div>
 
-  <div class="project-section">
+  <div class="project-section" id="ml">
     <span class="home-eyebrow">Machine Learning</span>
     <div class="project-grid">
       <a class="project-card" href="ml/ml-flask-app/">
@@ -66,7 +75,7 @@ hide:
     </div>
   </div>
 
-  <div class="project-section">
+  <div class="project-section" id="mini">
     <span class="home-eyebrow">Mini Projects</span>
     <div class="project-grid">
       <a class="project-card" href="java/banking/">
@@ -84,7 +93,7 @@ hide:
     </div>
   </div>
 
-  <div class="project-section">
+  <div class="project-section" id="web">
     <span class="home-eyebrow">Web &amp; Community</span>
     <div class="project-grid">
       <a class="project-card" href="web/acem/">
@@ -106,7 +115,7 @@ hide:
     </div>
   </div>
 
-  <div class="project-section">
+  <div class="project-section" id="powerbi">
     <span class="home-eyebrow">Power BI</span>
     <div class="project-grid">
       <a class="project-card" href="powerbi/powerbi-template/">
