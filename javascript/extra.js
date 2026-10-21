@@ -149,7 +149,9 @@ function initHeroCanvas(canvas) {
     const dw = p.w * scale, dh = p.h * scale;
     // Keep the glyphs on screen, and start them above the title so they never rise through it.
     const clamp = v => Math.min(0.85, Math.max(0.15, v));
-    const titleTop = (document.getElementById('hero-title').getBoundingClientRect().top + window.scrollY - 24) / canvas.height;
+    // #hero-title fills the screen with its text at the bottom, so measure the text itself.
+    const titleText = document.querySelector('#hero-title > :first-child');
+    const titleTop = (titleText.getBoundingClientRect().top + window.scrollY - 24) / canvas.height;
     return {
       x: clamp(((canvas.width - dw) * POS.x + p.x * dw) / canvas.width),
       y: Math.min(clamp(((canvas.height - dh) * POS.y + p.y * dh) / canvas.height), titleTop),
