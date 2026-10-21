@@ -847,6 +847,7 @@ body.home-page .md-content__inner > h1 {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--art-ink);
+  text-decoration: none !important;
 }
 
 .md-typeset .home-section__lead {
@@ -895,6 +896,7 @@ body:has(.section-hero) .md-main__inner {
 /* Wiley-style category nav below section hero */
 .project-category-nav {
   display: flex;
+  justify-content: center;
   overflow-x: auto;
   gap: 0;
   background: var(--md-default-bg-color);
