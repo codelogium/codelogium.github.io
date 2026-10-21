@@ -8,7 +8,7 @@ hide:
 ---
 
 <section class="home-section" id="whats-inside" data-search-exclude>
-  <span class="home-eyebrow">// What's inside</span>
+  <span class="home-eyebrow">What's inside</span>
   <h2 class="home-section__title">Three places to start. <em>Go deep.</em></h2>
   <p class="home-section__lead">Pick where you are: the foundations, the language underneath everything, or hands-on guides from real work.</p>
 
@@ -44,7 +44,7 @@ hide:
 
 <section class="home-section home-band home-band--dark home-journey" data-search-exclude>
   <div class="home-journey__intro">
-    <span class="home-eyebrow">// Learning in the open</span>
+    <span class="home-eyebrow">Learning in the open</span>
     <h2 class="home-section__title">No polish. <em>Just the real notes.</em></h2>
     <p class="home-section__lead">Every entry is written mid-struggle, not after. No cleaned-up recaps. These are mid-struggle notes: K&amp;R exercises that owned a whole weekend, CS50 problems that clicked only on the third try. The path is open if you want to walk it.</p>
     <a class="home-btn" href="blog/">Read the notes</a>
@@ -67,7 +67,7 @@ hide:
 </section>
 
 <section class="home-section home-latest" data-search-exclude>
-  <span class="home-eyebrow">// Latest notes</span>
+  <span class="home-eyebrow">Latest notes</span>
   <h2 class="home-section__title">Fresh from the notebook. <em>Read along.</em></h2>
 
   <div class="home-mini-cards">
@@ -102,7 +102,7 @@ hide:
 </section>
 
 <section class="home-band home-band--photo home-cta" data-search-exclude>
-  <span class="home-eyebrow">// Your turn</span>
+  <span class="home-eyebrow">Your turn</span>
   <h2 class="home-cta__title">Start where you are. <em>Go as deep as you want.</em></h2>
   <a class="home-btn home-btn--light" href="cs-fundamentals/">Start with the fundamentals</a>
 </section>
