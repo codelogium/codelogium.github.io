@@ -29,12 +29,24 @@ hide:
     <span class="home-eyebrow">Blockchain</span>
     <div class="project-grid">
       <a class="project-card" href="blockchain/bcertificate/">
-        <h3 class="project-card__title">bcertificate</h3>
-        <p class="project-card__desc">Hyperledger Fabric blockchain for certifying and verifying academic transcripts.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">bcertificate</h3>
+          <p class="project-card__desc">Hyperledger Fabric blockchain for certifying and verifying academic transcripts.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--go">Go</span>
+          <span class="project-tag project-tag--fabric">Hyperledger Fabric</span>
+        </div>
       </a>
       <a class="project-card" href="blockchain/landcertificate/">
-        <h3 class="project-card__title">landcertificate</h3>
-        <p class="project-card__desc">Hyperledger Fabric blockchain for certifying land property ownership.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">landcertificate</h3>
+          <p class="project-card__desc">Hyperledger Fabric blockchain for certifying land property ownership.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--go">Go</span>
+          <span class="project-tag project-tag--fabric">Hyperledger Fabric</span>
+        </div>
       </a>
     </div>
   </div>
@@ -43,24 +55,54 @@ hide:
     <span class="home-eyebrow">Full Stack &amp; Microservices</span>
     <div class="project-grid">
       <a class="project-card" href="java/crypto-portfolio/">
-        <h3 class="project-card__title">Crypto Portfolio</h3>
-        <p class="project-card__desc">Spring Boot microservices for managing and tracking a crypto portfolio.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">Crypto Portfolio</h3>
+          <p class="project-card__desc">Spring Boot microservices for managing and tracking a crypto portfolio.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--java">Java</span>
+          <span class="project-tag project-tag--spring">Spring Boot</span>
+        </div>
       </a>
       <a class="project-card" href="java/it-support-ticket-system/">
-        <h3 class="project-card__title">IT Support Ticket System</h3>
-        <p class="project-card__desc">Full stack app for managing IT support tickets.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">IT Support Ticket System</h3>
+          <p class="project-card__desc">Full stack app for managing IT support tickets.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--java">Java</span>
+          <span class="project-tag project-tag--spring">Spring Boot</span>
+        </div>
       </a>
       <a class="project-card" href="java/conferences/">
-        <h3 class="project-card__title">Conferences</h3>
-        <p class="project-card__desc">Conference management app with committee and session management.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">Conferences</h3>
+          <p class="project-card__desc">Conference management app with committee and session management.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--java">Java</span>
+          <span class="project-tag project-tag--spring">Spring Boot</span>
+        </div>
       </a>
       <a class="project-card" href="java/pharmacy-mgmt/">
-        <h3 class="project-card__title">Pharmacy Management</h3>
-        <p class="project-card__desc">JEE app for managing pharmacy stock and operations.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">Pharmacy Management</h3>
+          <p class="project-card__desc">JEE app for managing pharmacy stock and operations.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--java">Java</span>
+          <span class="project-tag project-tag--jee">JEE</span>
+        </div>
       </a>
       <a class="project-card" href="web/acemanager/">
-        <h3 class="project-card__title">acemanager</h3>
-        <p class="project-card__desc">Membership management app for a community organization.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">acemanager</h3>
+          <p class="project-card__desc">Membership management app for a community organization.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--js">JavaScript</span>
+          <span class="project-tag project-tag--node">Node.js</span>
+        </div>
       </a>
     </div>
   </div>
@@ -69,8 +111,14 @@ hide:
     <span class="home-eyebrow">Machine Learning</span>
     <div class="project-grid">
       <a class="project-card" href="ml/ml-flask-app/">
-        <h3 class="project-card__title">ML Flask App</h3>
-        <p class="project-card__desc">Machine learning model served via a Flask API.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">ML Flask App</h3>
+          <p class="project-card__desc">Machine learning model served via a Flask API.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--python">Python</span>
+          <span class="project-tag project-tag--flask">Flask</span>
+        </div>
       </a>
     </div>
   </div>
@@ -79,16 +127,31 @@ hide:
     <span class="home-eyebrow">Mini Projects</span>
     <div class="project-grid">
       <a class="project-card" href="java/banking/">
-        <h3 class="project-card__title">Banking</h3>
-        <p class="project-card__desc">Small Java SE application simulating basic banking operations.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">Banking</h3>
+          <p class="project-card__desc">Small Java SE application simulating basic banking operations.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--java">Java</span>
+        </div>
       </a>
       <a class="project-card" href="java/hotel-reservation/">
-        <h3 class="project-card__title">Hotel Reservation</h3>
-        <p class="project-card__desc">Small Java SE hotel reservation system.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">Hotel Reservation</h3>
+          <p class="project-card__desc">Small Java SE hotel reservation system.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--java">Java</span>
+        </div>
       </a>
       <a class="project-card" href="java/rpg/">
-        <h3 class="project-card__title">RPG Java</h3>
-        <p class="project-card__desc">Text-based RPG game built in Java — my first serious project.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">RPG Java</h3>
+          <p class="project-card__desc">Text-based RPG game built in Java — my first serious project.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--java">Java</span>
+        </div>
       </a>
     </div>
   </div>
@@ -97,20 +160,44 @@ hide:
     <span class="home-eyebrow">Web &amp; Community</span>
     <div class="project-grid">
       <a class="project-card" href="web/acem/">
-        <h3 class="project-card__title">acem.tech</h3>
-        <p class="project-card__desc">News and posts app for a Comorian community.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">acem.tech</h3>
+          <p class="project-card__desc">News and posts app for a Comorian community.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--js">JavaScript</span>
+          <span class="project-tag project-tag--react">React</span>
+        </div>
       </a>
       <a class="project-card" href="web/jsc-fes-2021/">
-        <h3 class="project-card__title">jsc-fes-2021</h3>
-        <p class="project-card__desc">Landing page for a Comorian cultural event in Fez.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">jsc-fes-2021</h3>
+          <p class="project-card__desc">Landing page for a Comorian cultural event in Fez.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--html">HTML</span>
+          <span class="project-tag project-tag--css">CSS</span>
+        </div>
       </a>
       <a class="project-card" href="web/masterglcl/">
-        <h3 class="project-card__title">MasterGLCL</h3>
-        <p class="project-card__desc">Website for the Master's program in Software Engineering for the Cloud.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">MasterGLCL</h3>
+          <p class="project-card__desc">Website for the Master's program in Software Engineering for the Cloud.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--html">HTML</span>
+          <span class="project-tag project-tag--css">CSS</span>
+        </div>
       </a>
       <a class="project-card" href="web/codelogium/">
-        <h3 class="project-card__title">Codelogium</h3>
-        <p class="project-card__desc">This documentation site — developer logs, notes, and learning paths.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">Codelogium</h3>
+          <p class="project-card__desc">This documentation site — developer logs, notes, and learning paths.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--python">Python</span>
+          <span class="project-tag project-tag--mkdocs">MkDocs</span>
+        </div>
       </a>
     </div>
   </div>
@@ -119,8 +206,13 @@ hide:
     <span class="home-eyebrow">Power BI</span>
     <div class="project-grid">
       <a class="project-card" href="powerbi/powerbi-template/">
-        <h3 class="project-card__title">Power BI Template</h3>
-        <p class="project-card__desc">A reusable Power BI dashboard template.</p>
+        <div class="project-card__body">
+          <h3 class="project-card__title">Power BI Template</h3>
+          <p class="project-card__desc">A reusable Power BI dashboard template.</p>
+        </div>
+        <div class="project-card__footer">
+          <span class="project-tag project-tag--powerbi">Power BI</span>
+        </div>
       </a>
     </div>
   </div>

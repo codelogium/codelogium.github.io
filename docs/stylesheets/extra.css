@@ -970,6 +970,8 @@ body:has(.section-hero) .md-content__inner::before {
 .md-typeset a.project-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 1.25rem 1.4rem;
   background: var(--card-bg);
   border: 1px solid var(--card-line);
@@ -981,26 +983,59 @@ body:has(.section-hero) .md-content__inner::before {
 
 .md-typeset a.project-card:hover {
   background: var(--card-hover);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 3px 0 var(--md-primary-fg-color), 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 [data-md-color-scheme="slate"] .md-typeset a.project-card:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 3px 0 var(--md-primary-fg-color), 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
+.md-typeset .project-card__body { flex: 1; }
+
 .md-typeset .project-card__title {
-  margin: 0 0 0.5rem;
-  font-size: 0.95rem;
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
   font-weight: 700;
   line-height: 1.3;
 }
 
 .md-typeset .project-card__desc {
   margin: 0;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   line-height: 1.6;
   color: var(--md-default-fg-color--light);
 }
+
+.md-typeset .project-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.md-typeset .project-tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+}
+
+.project-tag--java    { background: rgba(234,106,56,0.12); color: #ea6a38; border-color: rgba(234,106,56,0.25); }
+.project-tag--spring  { background: rgba(109,179,63,0.12); color: #6db33f; border-color: rgba(109,179,63,0.25); }
+.project-tag--jee     { background: rgba(234,106,56,0.12); color: #ea6a38; border-color: rgba(234,106,56,0.25); }
+.project-tag--go      { background: rgba(0,173,216,0.12); color: #00add8; border-color: rgba(0,173,216,0.25); }
+.project-tag--fabric  { background: rgba(0,100,180,0.12); color: #0064b4; border-color: rgba(0,100,180,0.25); }
+.project-tag--python  { background: rgba(55,118,171,0.12); color: #3776ab; border-color: rgba(55,118,171,0.25); }
+.project-tag--flask   { background: rgba(150,150,150,0.12); color: var(--md-default-fg-color--light); border-color: rgba(150,150,150,0.25); }
+.project-tag--js      { background: rgba(247,223,30,0.12); color: #b8960c; border-color: rgba(247,223,30,0.3); }
+.project-tag--node    { background: rgba(68,136,62,0.12); color: #44883e; border-color: rgba(68,136,62,0.25); }
+.project-tag--react   { background: rgba(97,218,251,0.12); color: #087ea4; border-color: rgba(97,218,251,0.3); }
+.project-tag--html    { background: rgba(227,76,38,0.12); color: #e34c26; border-color: rgba(227,76,38,0.25); }
+.project-tag--css     { background: rgba(38,77,228,0.12); color: #264de4; border-color: rgba(38,77,228,0.25); }
+.project-tag--mkdocs  { background: rgba(79,166,155,0.12); color: #4fa69b; border-color: rgba(79,166,155,0.25); }
+.project-tag--powerbi { background: rgba(243,151,0,0.12); color: #f39700; border-color: rgba(243,151,0,0.25); }
 
 /* Section 2: text-only cards, Wiley-style */
 .home-cards {
