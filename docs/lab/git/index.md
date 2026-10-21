@@ -21,6 +21,8 @@ reading_time: 3
   </div>
 </div>
 
+![A git logo sticker held between two fingers](../../assets/posts/git.webp){ .post-cover }
+
 > "Version control is not just a tool; it's a habit."
 
 Git is a **distributed version control system** for tracking changes in files, coordinating work across multiple developers, and reverting to any point in history. Remote platforms like GitHub, GitLab, or Gitea extend that with hosting, collaboration, and workflow automation.

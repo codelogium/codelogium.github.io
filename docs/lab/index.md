@@ -7,21 +7,22 @@ hide:
   - footer
 ---
 
-# 🧪 **Lab**
+<div class="section-intro" data-search-exclude>
+  <span class="home-eyebrow">// Lab</span>
+  <h1 class="section-intro__title">Where theory meets <em>real work.</em></h1>
+  <p class="section-intro__lead">Practical guides and cheatsheets built from actual use: the commands that came up, the workflows that stuck, and the fixes that took longer than they should have.</p>
+</div>
 
-Welcome to the **Lab**: the playground of Codelogium.
+<div class="home-mini-cards" data-search-exclude>
+  <a class="home-mini-card" href="git/">
+    <span class="home-mini-card__image" style="--card-image: url('/assets/posts/git.webp'); --card-focus: center 70%" aria-hidden="true"></span>
+    <span class="home-mini-card__body">
+      <span class="home-mini-card__kicker">Lab · May 9, 2026</span>
+      <span class="home-mini-card__title">Git</span>
+      <span class="home-mini-card__text">A practical reference built from real experience: commands, workflows and solutions that actually came up.</span>
+      <span class="home-card__link">Read</span>
+    </span>
+  </a>
+</div>
 
-This is the space where theory meets practice. Here, you'll find quick guides, cheatsheets, and hands-on examples designed to help you tackle real-world challenges.
-
-This is where I test, break, and rebuild. Expect practical deep dives, hands-on experiments, side projects, and explorations of tools like Git, Docker, CI/CD, and more.
-
-Whether you're looking for a fast reference or experimenting with new tools, the Lab is your go-to spot for practical knowledge. Dive in and start building!
-
----
-
-## What's Inside
-
-- [Git](git/index.md)  
-  _Commands, workflows, and solutions from real experience._
-
-*(More tools coming soon: Docker, CI/CD, Linux...)*
+<p class="section-coming-soon" data-search-exclude><em>Coming soon: Docker, CI/CD, Linux...</em></p>
