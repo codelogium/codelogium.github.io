@@ -10,7 +10,7 @@ hide:
 ## Welcome to **Codelogium** 🧠
 <blockquote>
   <p>Where true craftsmanship lasts.</p><br>
-  <p>&emsp;&emsp;&nbsp;&nbsp;<strong>Unlearn. Relearn. Keep learning.</strong></p>
+  <p>&emsp;&emsp;&nbsp;&nbsp;<strong>Unlearn • Relearn • Keep learning</strong></p>
 </blockquote>
 
 ---

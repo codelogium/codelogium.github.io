@@ -63,7 +63,7 @@ function injectFooterResources() {
   section.innerHTML = `
     <div class="footer-brand">
       <span class="footer-brand__name">Codelogium</span>
-      <p class="footer-brand__line">Unlearn. Relearn. Keep learning.</p>
+      <p class="footer-brand__line">Unlearn • Relearn • Keep learning</p>
     </div>
     ${FOOTER_COLUMNS.map(col => `
       <nav class="footer-col" aria-label="${col.title}">
@@ -90,7 +90,7 @@ function injectHero() {
   title.innerHTML = `
     <span class="hero-site-name">Codelogium</span>
     <p class="hero-desc">For the ones who go deep. No shortcuts, no spoon-feeding. CS fundamentals, C, databases, and the kind of curiosity that <span class="hero-desc--day">keeps you going all day</span><span class="hero-desc--night">keeps you up at night</span>.</p>
-    <em class="hero-credit">Unlearn. Relearn. Keep learning.</em>
+    <em class="hero-credit">Unlearn • Relearn • Keep learning</em>
     <div class="hero-cta">
       <a href="/lab/" class="hero-btn hero-btn--primary">Start exploring</a>
       <a href="#hero-scroll" class="hero-btn hero-btn--secondary">What's inside</a>
