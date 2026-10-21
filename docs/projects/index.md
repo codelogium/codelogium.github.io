@@ -9,7 +9,7 @@ hide:
 ---
 
 <section class="section-hero home-band home-band--dark" data-search-exclude>
-  <span class="home-eyebrow">// Projects</span>
+  <span class="home-eyebrow">Projects</span>
   <h1 class="section-hero__title">Things I've built. <em>All of them taught me something.</em></h1>
   <p class="section-hero__lead">Academic projects, interview challenges, personal experiments. Not all of them are polished — some were built to learn, some to ship, some to prove a concept.</p>
 </section>
@@ -17,7 +17,7 @@ hide:
 <div class="project-sections" data-search-exclude>
 
   <div class="project-section">
-    <span class="home-eyebrow">// Blockchain</span>
+    <span class="home-eyebrow">Blockchain</span>
     <div class="project-grid">
       <a class="project-card" href="blockchain/bcertificate/">
         <h3 class="project-card__title">bcertificate</h3>
@@ -31,7 +31,7 @@ hide:
   </div>
 
   <div class="project-section">
-    <span class="home-eyebrow">// Full Stack &amp; Microservices</span>
+    <span class="home-eyebrow">Full Stack &amp; Microservices</span>
     <div class="project-grid">
       <a class="project-card" href="java/crypto-portfolio/">
         <h3 class="project-card__title">Crypto Portfolio</h3>
@@ -57,7 +57,7 @@ hide:
   </div>
 
   <div class="project-section">
-    <span class="home-eyebrow">// Machine Learning</span>
+    <span class="home-eyebrow">Machine Learning</span>
     <div class="project-grid">
       <a class="project-card" href="ml/ml-flask-app/">
         <h3 class="project-card__title">ML Flask App</h3>
@@ -67,7 +67,7 @@ hide:
   </div>
 
   <div class="project-section">
-    <span class="home-eyebrow">// Mini Projects</span>
+    <span class="home-eyebrow">Mini Projects</span>
     <div class="project-grid">
       <a class="project-card" href="java/banking/">
         <h3 class="project-card__title">Banking</h3>
@@ -85,7 +85,7 @@ hide:
   </div>
 
   <div class="project-section">
-    <span class="home-eyebrow">// Web &amp; Community</span>
+    <span class="home-eyebrow">Web &amp; Community</span>
     <div class="project-grid">
       <a class="project-card" href="web/acem/">
         <h3 class="project-card__title">acem.tech</h3>
@@ -107,7 +107,7 @@ hide:
   </div>
 
   <div class="project-section">
-    <span class="home-eyebrow">// Power BI</span>
+    <span class="home-eyebrow">Power BI</span>
     <div class="project-grid">
       <a class="project-card" href="powerbi/powerbi-template/">
         <h3 class="project-card__title">Power BI Template</h3>

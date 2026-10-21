@@ -8,7 +8,7 @@ hide:
 ---
 
 <div class="section-intro" data-search-exclude>
-  <span class="home-eyebrow">// Lab</span>
+  <span class="home-eyebrow">Lab</span>
   <h1 class="section-intro__title">Where theory meets <em>real work.</em></h1>
   <p class="section-intro__lead">Practical guides and cheatsheets built from actual use: the commands that came up, the workflows that stuck, and the fixes that took longer than they should have.</p>
 </div>
