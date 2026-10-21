@@ -14,9 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (path === '/' || path === '/index.html') {
     document.body.classList.add('home-page');
     injectHero();
-  } else {
-    injectFooterResources();
   }
+  injectFooterResources();
 });
 
 // Edit this list to add or remove footer links.
@@ -89,7 +88,7 @@ function injectHero() {
   title.id = 'hero-title';
   title.innerHTML = `
     <span class="hero-site-name">Codelogium</span>
-    <p class="hero-desc">For the ones who go deep. No shortcuts, no spoon-feeding. CS fundamentals, C, databases, and the kind of curiosity that <span class="hero-desc--day">keeps you going all day</span><span class="hero-desc--night">keeps you up at night</span>.</p>
+    <p class="hero-desc">Everybody's prompting their way through. This is for the ones still asking <em>why</em>, the kind of curiosity that <span class="hero-desc--day">keeps you going all day</span><span class="hero-desc--night">keeps you up at night</span>.</p>
     <em class="hero-credit">Unlearn • Relearn • Keep learning</em>
     <div class="hero-cta">
       <a href="/lab/" class="hero-btn hero-btn--primary">Start exploring</a>
@@ -100,17 +99,10 @@ function injectHero() {
 
   document.body.prepend(hero, title);
 
-  window.addEventListener('scroll', () => {
-    const hidden = window.scrollY > window.innerHeight * 0.7;
-    title.style.opacity = hidden ? '0' : '1';
-    title.style.visibility = hidden ? 'hidden' : 'visible';
-  });
 
   title.querySelector('[href="#hero-scroll"]').addEventListener('click', e => {
     e.preventDefault();
-    const content = document.querySelector('.md-content__inner');
-    // Does nothing while the home content is hidden.
-    if (content && content.offsetParent) content.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('whats-inside')?.scrollIntoView({ behavior: 'smooth' });
   });
 
   // Line up with the first tab; below the tabs breakpoint, with the header title instead.
@@ -156,7 +148,7 @@ function initHeroCanvas(canvas) {
     const dw = p.w * scale, dh = p.h * scale;
     // Keep the glyphs on screen, and start them above the title so they never rise through it.
     const clamp = v => Math.min(0.85, Math.max(0.15, v));
-    const titleTop = (document.getElementById('hero-title').getBoundingClientRect().top - 24) / canvas.height;
+    const titleTop = (document.getElementById('hero-title').getBoundingClientRect().top + window.scrollY - 24) / canvas.height;
     return {
       x: clamp(((canvas.width - dw) * POS.x + p.x * dw) / canvas.width),
       y: Math.min(clamp(((canvas.height - dh) * POS.y + p.y * dh) / canvas.height), titleTop),
@@ -248,7 +240,7 @@ function initHeroCanvas(canvas) {
       const angle = (Math.PI * 2 * i / BURST_SIZE) + (Math.random() - 0.5) * 0.5;
       const speed = 0.6 + Math.random();
       g.x = e.clientX + (Math.random() - 0.5) * 10;
-      g.y = e.clientY + (Math.random() - 0.5) * 10;
+      g.y = e.clientY + window.scrollY + (Math.random() - 0.5) * 10;
       g.vx = Math.cos(angle) * speed;
       g.vy = Math.sin(angle) * speed - 0.35;
       g.life = 0;

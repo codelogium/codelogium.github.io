@@ -1,7 +1,7 @@
 /* ============================================================
    GOOGLE FONTS
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Source+Code+Pro&family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@600;700&family=Source+Code+Pro&family=JetBrains+Mono&display=swap');
 
 /* ============================================================
    COLORS
@@ -337,7 +337,8 @@ code span {
    BLOCKQUOTES
    ============================================================ */
 blockquote {
-  background-color: #f9f9f9;
+  /* Same warm tint as the home cards, so quotes belong to the page */
+  background-color: var(--card-bg);
   border-left: 8px solid #00645A;
   margin: 1.8em 10px;
   font-style: italic;
@@ -369,6 +370,30 @@ body[data-md-color-scheme="slate"] blockquote {
 
 body[data-md-color-scheme="slate"] blockquote:before {
   color: #e1e1e1;
+}
+
+/* ============================================================
+   POST COVER IMAGE (the same 1200x630 image used on the home card)
+   ============================================================ */
+/* A wide 2:1 crop, capped in height, so the first paragraph shows without scrolling */
+.md-typeset img.post-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center 65%;
+  margin: 1rem 0 1.5rem;
+  border-radius: 0;
+}
+
+/* Keep the author line close to the title it belongs to */
+.md-typeset h1:has(+ .blog-meta) {
+  margin-bottom: 0.4em;
+}
+
+.md-typeset h1 + .blog-meta {
+  margin-top: 0;
 }
 
 /* ============================================================
@@ -578,9 +603,13 @@ body[data-md-color-scheme="slate"] blockquote:before {
 /* ============================================================
    HOME PAGE HERO
    ============================================================ */
+/* Part of the page: fills the first screen, then scrolls away with everything else */
 #hero-fixed {
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   z-index: 0;
   background: var(--book-image) var(--book-x) 60% / cover no-repeat;
 }
@@ -604,16 +633,22 @@ body[data-md-color-scheme="slate"] blockquote:before {
     linear-gradient(var(--book-tint), var(--book-tint));
 }
 
-/* Separate fixed layer above .md-main so the buttons are clickable.
+/* Its own layer above .md-main so the buttons are clickable; scrolls with the hero.
    `left` is set at runtime to line up with the first nav tab. */
 #hero-title {
-  position: fixed;
-  bottom: 10%;
+  position: absolute;
+  top: 0;
   left: 0;
   right: max(16px, env(safe-area-inset-right, 0px));
+  height: 100vh;
+  /* Spans the first screen; the text sits at the bottom of it */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-bottom: 10vh;
   z-index: 3;
   pointer-events: none;
-  transition: opacity 0.2s, visibility 0.2s;
 }
 
 .hero-site-name {
@@ -706,7 +741,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
 /* Short screens (phones held sideways): keep the hero below the header */
 @media (max-height: 540px) {
   #hero-title {
-    bottom: 1.25rem;
+    padding-bottom: 1.25rem;
   }
 
   .hero-desc,
@@ -723,13 +758,6 @@ body[data-md-color-scheme="slate"] blockquote:before {
    HOME PAGE CONTENT (slides up over the fixed hero)
    ============================================================ */
 
-/* Hidden for now: home shows only the hero. Remove this rule to bring the content back.
-   Only the article is hidden, not .md-main, which also holds the mobile menu drawer. */
-body.home-page .md-content,
-body.home-page .md-footer {
-  display: none !important;
-}
-
 /* On wide screens the sidebar would sit over the hero; below this width it is the menu drawer */
 @media screen and (min-width: 76.25em) {
   body.home-page .md-sidebar--primary {
@@ -737,43 +765,459 @@ body.home-page .md-footer {
   }
 }
 
-/* Layer the article (not .md-main) above the hero, or the menu drawer gets trapped under the overlay */
-body.home-page .md-content {
+/* Layer the article and footer (not .md-main) above the fixed hero, or the menu drawer
+   gets trapped under the overlay */
+body.home-page .md-content,
+body.home-page .md-footer {
   position: relative;
   z-index: 1;
 }
 
+/* The content panel starts just below the hero; its background bleeds to both screen edges */
 body.home-page .md-content__inner {
   margin-top: calc(100vh - var(--header-height));
-  padding-top: 2rem !important;
-  background: #0b1f12;
-  border-radius: 12px 12px 0 0;
-  box-shadow: 0 -4px 40px rgba(0, 0, 0, 0.5);
+  /* Padding, not the theme's bottom margin, so the hero can't show through above the footer */
+  margin-bottom: 0;
+  padding-top: 1rem !important;
+  padding-bottom: 1.5rem;
+  background: var(--md-default-bg-color);
+  box-shadow: 0 0 0 100vmax var(--md-default-bg-color);
+  clip-path: inset(0 -100vmax);
 }
 
-body.home-page .md-content__inner h1,
-body.home-page .md-content__inner h2,
-body.home-page .md-content__inner h3,
-body.home-page .md-content__inner p,
-body.home-page .md-content__inner li,
-body.home-page .md-content__inner a {
-  color: #d1fae5 !important;
+/* The full-bleed band and background extend past the grid; clip so the page never scrolls sideways
+   (clip, unlike hidden, doesn't create a scroll container that would break the sticky header) */
+body.home-page .md-main {
+  overflow-x: clip;
 }
 
-body.home-page .md-content__inner a:hover {
-  color: #4ade80 !important;
+/* No page title on home; the hero is the title */
+body.home-page .md-content__inner > h1 {
+  display: none;
 }
 
-body.home-page .md-content__inner blockquote {
-  background: rgba(34, 197, 94, 0.07) !important;
-  border-left-color: #22c55e !important;
-  color: #a7f3d0 !important;
+:root,
+[data-md-color-scheme="default"] {
+  --art-bg:     #E3EFE7;
+  --art-ink:    var(--md-primary-fg-color);
+  --art-string: #B45309;
+  --card-bg:    rgba(255, 255, 255, 0.45);
+  --card-hover: #E9F2EC;
+  --card-line:  #DCD0BC;
 }
 
-body.home-page .md-content__inner blockquote::before {
-  color: #22c55e !important;
+[data-md-color-scheme="slate"] {
+  --art-bg:     #1D242E;
+  --art-ink:    #34D399;
+  --art-string: #FBBF24;
+  --card-bg:    var(--md-default-bg-color--light);
+  --card-hover: rgba(52, 211, 153, 0.07);
+  --card-line:  rgba(255, 255, 255, 0.1);
 }
 
-body.home-page .md-content__inner hr {
-  border-color: rgba(34, 197, 94, 0.2) !important;
+.home-section {
+  padding-block: 5rem;
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.home-section + .home-section {
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .home-section__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.7rem;
+  line-height: 1.2;
+}
+
+/* Two-tone heading: the second phrase in the accent color (Percona-style) */
+.md-typeset .home-section__title em,
+.md-typeset .home-cta__title em {
+  font-style: normal;
+  color: var(--art-ink);
+}
+
+/* Small code-style label above each section heading */
+.home-eyebrow {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--art-ink);
+}
+
+.md-typeset .home-section__lead {
+  margin: 0 0 1.6rem;
+  max-width: 60ch;
+  color: var(--md-default-fg-color--light);
+  text-align: left;
+}
+
+/* Section 2: text-only cards, Wiley-style */
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.2rem;
+}
+
+.md-typeset a.home-card,
+.md-typeset a.home-mini-card {
+  display: flex;
+  flex-direction: column;
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  background: var(--card-bg);
+  border: 1px solid var(--card-line);
+  border-radius: 6px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.md-typeset a.home-card:hover,
+.md-typeset a.home-mini-card:hover {
+  background: var(--card-hover);
+  border-color: var(--md-primary-fg-color);
+}
+
+.home-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.6rem 1.6rem 1.5rem;
+}
+
+.md-typeset .home-card__body h3 {
+  margin: 0 0 0.8rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.md-typeset .home-card__body p {
+  margin: 0 0 1.4rem;
+  font-size: 0.75rem;
+  line-height: 1.65;
+  text-align: left;
+}
+
+/* Per-card accent: icon, underline and link (Percona-style) */
+.home-card--cs  { --card-accent: #0E7A60; }
+.home-card--c   { --card-accent: #2563EB; }
+.home-card--lab { --card-accent: #C2410C; }
+
+[data-md-color-scheme="slate"] .home-card--cs  { --card-accent: #34D399; }
+[data-md-color-scheme="slate"] .home-card--c   { --card-accent: #60A5FA; }
+[data-md-color-scheme="slate"] .home-card--lab { --card-accent: #FB923C; }
+
+.home-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-bottom: 1.1rem;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--card-accent) 12%, transparent);
+}
+
+.home-card__icon svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: var(--card-accent);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.md-typeset .home-card[class*="home-card--"] .home-card__body p::after {
+  content: "";
+  display: block;
+  width: 55%;
+  height: 2px;
+  margin-top: 1.2rem;
+  background: var(--card-accent);
+  opacity: 0.7;
+}
+
+.home-card[class*="home-card--"] .home-card__link {
+  color: var(--card-accent);
+}
+
+.md-typeset a.home-card[class*="home-card--"]:hover {
+  border-color: var(--card-line);
+  box-shadow: inset 0 3px 0 var(--card-accent), 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+[data-md-color-scheme="slate"] .md-typeset a.home-card[class*="home-card--"]:hover {
+  border-color: var(--card-line);
+  box-shadow: inset 0 3px 0 var(--card-accent), 0 8px 28px rgba(0, 0, 0, 0.4);
+}
+
+.home-card__link {
+  margin-top: auto;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--art-ink);
+}
+
+.home-card__link::after {
+  content: " ›";
+}
+
+/* Section 3: intro + art, then the latest notes */
+.home-journey {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 1rem 2.5rem;
+  align-items: center;
+}
+
+.home-journey__art svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-journey__art {
+  padding: 1rem;
+  background: var(--art-bg);
+  border-radius: 14px;
+}
+
+.md-typeset a.home-btn {
+  display: inline-block;
+  padding: 0.55em 1.2em;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background: var(--md-primary-fg-color);
+  border-radius: 999px;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.md-typeset a.home-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.home-mini-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+}
+
+.md-typeset a.home-mini-card {
+  overflow: hidden;
+}
+
+/* Social-card image band. A card with its own post image sets --card-image
+   (1200x630 in docs/assets/posts/); otherwise it shows a still, zoomed crop of the
+   mode's photo, positioned with --card-pos / --card-pos-dark. */
+.home-mini-card__image {
+  display: block;
+  height: 4.5rem;
+  background: var(--book-image) var(--card-pos, center) / 260% auto no-repeat;
+  border-bottom: 1px solid var(--card-line);
+}
+
+.home-mini-card__image[style*="--card-image"],
+[data-md-color-scheme="slate"] .home-mini-card__image[style*="--card-image"] {
+  /* --card-focus picks which part of the image the short band shows */
+  background: var(--card-image) var(--card-focus, center) / cover no-repeat;
+}
+
+/* The desk photo is laid out differently, so each card picks its own crop at night */
+[data-md-color-scheme="slate"] .home-mini-card__image {
+  background-position: var(--card-pos-dark, var(--card-pos, center));
+}
+
+.home-mini-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 1.3rem 1.2rem;
+}
+
+.home-mini-card__text {
+  margin-bottom: 0.6rem;
+  font-size: 0.7rem;
+  line-height: 1.55;
+  color: var(--md-default-fg-color--light);
+}
+
+.home-mini-card__kicker {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--art-ink);
+}
+
+.home-mini-card__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+@media (max-width: 760px) {
+  .home-journey {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Code-styled card art */
+.art-line path {
+  fill: none;
+  stroke: var(--art-ink);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.art-node circle,
+.art-box rect {
+  fill: var(--md-default-bg-color);
+  stroke: var(--art-ink);
+  stroke-width: 2;
+}
+
+.art-dots circle {
+  fill: var(--art-ink);
+  opacity: 0.35;
+}
+
+.art-text text,
+.art-caption text,
+.art-code text {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.art-text text {
+  fill: var(--md-default-fg-color);
+  font-size: 10px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.art-caption text {
+  fill: var(--md-default-fg-color--light);
+  font-size: 9px;
+  text-anchor: middle;
+}
+
+.art-code text {
+  fill: var(--md-default-fg-color);
+  font-size: 10px;
+}
+
+.art-code--lg text {
+  font-size: 13px;
+}
+
+.art-accent {
+  fill: var(--art-ink);
+  font-weight: 700;
+}
+
+.art-string {
+  fill: var(--art-string);
+}
+
+.art-cursor {
+  fill: var(--art-ink);
+  animation: art-blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes art-blink {
+  to { visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art-cursor {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   HOME BANDS: alternating full-width backgrounds, like chapters
+   ============================================================ */
+.home-band {
+  position: relative;
+  background: var(--band-bg);
+  /* Bleed the background to both screen edges */
+  box-shadow: 0 0 0 100vmax var(--band-bg);
+  clip-path: inset(0 -100vmax);
+}
+
+/* Bands don't need the divider line between sections */
+.home-band,
+.home-band + .home-section {
+  border-top: none !important;
+}
+
+/* Dark band: the same night tones in both modes, so it always reads as a chapter break */
+.home-band--dark {
+  --band-bg: #11161D;
+  --md-default-bg-color: #161C24;
+  --md-default-fg-color: #E6EDF3;
+  --md-default-fg-color--light: rgba(230, 237, 243, 0.68);
+  --md-default-fg-color--lightest: rgba(230, 237, 243, 0.12);
+  --art-bg: #1A212B;
+  --art-ink: #34D399;
+  --art-string: #FBBF24;
+  color: var(--md-default-fg-color);
+}
+
+[data-md-color-scheme="slate"] .home-band--dark {
+  --band-bg: #0D1117;
+}
+
+/* Closing band: deep green, edge to edge, right before the photo footer */
+.home-cta {
+  isolation: isolate;
+  padding-block: 6rem;
+  text-align: center;
+  background: none;
+  box-shadow: none;
+  clip-path: none;
+  --art-ink: #86EFAC;
+}
+
+/* A solid brand-green band (the footer below owns the photo), reaching both screen edges */
+.home-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0 -100vmax;
+  z-index: -1;
+  background:
+    radial-gradient(60% 120% at 50% 0%, rgba(52, 211, 153, 0.18), transparent 70%),
+    #063F31;
+}
+
+.md-typeset .home-cta__title {
+  margin: 0 0 1.6rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #F8FAF9;
+}
+
+.md-typeset a.home-btn--light {
+  color: #063F31;
+  background: #F8FAF9;
+}
+
+/* The closing band sits flush on the footer */
+body.home-page .md-content__inner {
+  padding-bottom: 0 !important;
 }
