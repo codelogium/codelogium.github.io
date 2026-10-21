@@ -35,13 +35,15 @@
   /* Shared background image: header, hero and footer use the same values so they line up.
      Light mode: daytime library. Dark mode (below): late-night desk. */
   --book-image:   url('/assets/book-library.webp');
-  --book-pos:     center 60%;
+  /* Horizontal crop of the photo; shifted toward the laptop on portrait screens (below) */
+  --book-x:       50%;
   --book-tint:    rgba(0, 0, 0, 0.25);
   /* Extra shade behind the tabs (bright window) and behind the title (open book) */
   --shade-top:    rgba(0, 0, 0, 0.45);
   --shade-header: rgba(0, 0, 0, 0.3);
   --shade-title:  rgba(0, 0, 0, 0.75);
   --shade-corner: transparent;
+  --corner-x:     82%;
   /* Light mode: clean edge where the footer starts */
   --footer-top:   rgba(0, 0, 0, 0.88);
   --footer-pad-top: 1.75rem;
@@ -68,6 +70,21 @@
   --footer-top:   #161C24;
   /* Room for the fade to finish before the columns start */
   --footer-pad-top: 4rem;
+}
+
+/* Portrait screens see only the middle third of these landscape photos.
+   Shift the crop toward each photo's laptop (keep in sync with PHOTOS in extra.js). */
+@media (orientation: portrait) {
+  :root,
+  [data-md-color-scheme="default"] {
+    --book-x: 78%;
+  }
+
+  [data-md-color-scheme="slate"] {
+    --book-x: 100%;
+    /* The lamp moves toward the middle with the crop */
+    --corner-x: 45%;
+  }
 }
 
 /* ============================================================
@@ -163,11 +180,11 @@ code span {
    ============================================================ */
 .md-header {
   background:
-    radial-gradient(40% 35% at 82% 0%, var(--shade-corner), transparent) fixed,
+    radial-gradient(40% 35% at var(--corner-x) 0%, var(--shade-corner), transparent) fixed,
     linear-gradient(var(--shade-top), var(--shade-header)),
     linear-gradient(to right, var(--shade-title) 0%, transparent 55%),
     linear-gradient(var(--book-tint), var(--book-tint)),
-    var(--book-image) var(--book-pos) / cover no-repeat fixed !important;
+    var(--book-image) var(--book-x) 60% / cover no-repeat fixed !important;
   color: #fff !important;
   box-shadow: none !important;
   -webkit-backdrop-filter: none !important;
@@ -181,7 +198,7 @@ code span {
     background-attachment: scroll !important;
     /* Layers: corner shade, top shade, left shade, tint, photo */
     background-size: 100vw 100vh, auto, auto, auto, auto 100vh !important;
-    background-position: 0 0, 0 0, 0 0, 0 0, center top !important;
+    background-position: 0 0, 0 0, 0 0, 0 0, var(--book-x) top !important;
   }
 }
 
@@ -385,7 +402,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
 .md-footer {
   background:
     linear-gradient(to bottom, var(--footer-top) 0%, rgba(0, 0, 0, 0.85) 25%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.4) 100%),
-    var(--book-image) var(--book-pos) / cover no-repeat fixed;
+    var(--book-image) var(--book-x) 60% / cover no-repeat fixed;
   /* The theme's 1px top border sits outside the fade, so the raw photo showed through it */
   border-top: none !important;
   padding: var(--footer-pad-top) 1rem 1.25rem;
@@ -496,7 +513,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
   .md-footer {
     background-attachment: scroll !important;
     background-size: auto, auto 100vh !important;
-    background-position: 0 0, center bottom !important;
+    background-position: 0 0, var(--book-x) bottom !important;
   }
 }
 
@@ -507,7 +524,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background: var(--book-image) var(--book-pos) / cover no-repeat;
+  background: var(--book-image) var(--book-x) 60% / cover no-repeat;
 }
 
 #hero-overlay,
@@ -523,7 +540,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
 /* The corner shade is pinned to the viewport (fixed) so it lines up with the header's */
 #hero-overlay {
   background:
-    radial-gradient(40% 35% at 82% 0%, var(--shade-corner), transparent) fixed,
+    radial-gradient(40% 35% at var(--corner-x) 0%, var(--shade-corner), transparent) fixed,
     linear-gradient(to bottom, var(--shade-top) 0, var(--shade-header) var(--header-height), transparent 260px),
     linear-gradient(to right, var(--shade-title) 0%, transparent 55%),
     linear-gradient(var(--book-tint), var(--book-tint));
