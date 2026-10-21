@@ -14,7 +14,7 @@ summary: |
 
 # Generic Types in Java
 
-<div class="blog-meta">
+<div class="blog-meta" data-search-exclude>
   <div class="blog-meta-container">
     <span class="meta-content">
       By: &nbsp;<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
