@@ -1,9 +1,9 @@
 ---
-title: "Generic Types in Java"
-tags: [Java, Generics]
+title: "Postgres vs H2"
+tags: [Databases, PostgreSQL, H2]
 date: 2025-05-06
 author: Al-Fahami
-description: "Understand how Java generics work in classes and methods for type-safe code."
+description: "When to use a full-fledged PostgreSQL database and when a lightweight in-memory H2 is enough."
 hide:
   #- toc  # optional: hides the table of contents
 ---
