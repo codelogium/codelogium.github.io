@@ -92,7 +92,7 @@ function injectHero() {
     <p class="hero-desc">For the ones who go deep. No shortcuts, no spoon-feeding. CS fundamentals, C, databases, and the kind of curiosity that <span class="hero-desc--day">keeps you going all day</span><span class="hero-desc--night">keeps you up at night</span>.</p>
     <em class="hero-credit">Unlearn. Relearn. Keep learning.</em>
     <div class="hero-cta">
-      <a href="/java/" class="hero-btn hero-btn--primary">Start exploring</a>
+      <a href="/lab/" class="hero-btn hero-btn--primary">Start exploring</a>
       <a href="#hero-scroll" class="hero-btn hero-btn--secondary">What's inside</a>
     </div>
     <span class="hero-tagline">Where code meets knowledge</span>

@@ -1,0 +1,9 @@
+# Top-level tabs. Sections not listed (network, databases, categories, tags)
+# are hidden from navigation until they have real articles; their pages still build.
+nav:
+  - index.md
+  - blog
+  - java
+  - lab
+  - projects
+  - spring
