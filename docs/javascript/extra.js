@@ -1,6 +1,6 @@
 // Contributors/feedback are hidden by CSS and shown only on content pages
 // (not on the home page, section overviews, categories or tags).
-const OVERVIEW_PATHS = ['/', '/network/', '/databases/', '/java/', '/spring/', '/lab/', '/blog/', '/projects/'];
+const OVERVIEW_PATHS = ['/', '/cs-fundamentals/', '/c/', '/network/', '/databases/', '/java/', '/spring/', '/lab/', '/blog/', '/projects/'];
 
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;

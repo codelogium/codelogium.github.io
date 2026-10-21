@@ -1,9 +1,12 @@
-# Top-level tabs. Sections not listed (network, databases, categories, tags)
-# are hidden from navigation until they have real articles; their pages still build.
+# Top-level tabs, in reading order: foundations first, then languages, then practice.
+# Sections not listed (network, databases, spring, categories, tags) are hidden from
+# navigation until they have real articles; their pages still build.
 nav:
   - index.md
-  - blog
-  - java
+  - CS Fundamentals: cs-fundamentals
+  - c
+  - Languages:
+      - java
   - lab
   - projects
-  - spring
+  - blog
