@@ -14,9 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (path === '/' || path === '/index.html') {
     document.body.classList.add('home-page');
     injectHero();
-  } else {
-    injectFooterResources();
   }
+  injectFooterResources();
 });
 
 // Edit this list to add or remove footer links.
@@ -100,17 +99,22 @@ function injectHero() {
 
   document.body.prepend(hero, title);
 
-  window.addEventListener('scroll', () => {
-    const hidden = window.scrollY > window.innerHeight * 0.7;
-    title.style.opacity = hidden ? '0' : '1';
-    title.style.visibility = hidden ? 'hidden' : 'visible';
-  });
+  // The title floats above the page (so its buttons stay clickable); cut it off at the top edge
+  // of the rising content panel so the page appears to slide over it.
+  const coverTitle = () => {
+    const panel = document.querySelector('.md-content__inner');
+    if (!panel) return;
+    const t = title.getBoundingClientRect();
+    const covered = Math.max(0, t.bottom - panel.getBoundingClientRect().top);
+    title.style.clipPath = covered ? `inset(0 0 ${covered}px 0)` : '';
+    title.style.visibility = covered >= t.height ? 'hidden' : 'visible';
+  };
+  window.addEventListener('scroll', () => requestAnimationFrame(coverTitle), { passive: true });
+  window.addEventListener('resize', coverTitle);
 
   title.querySelector('[href="#hero-scroll"]').addEventListener('click', e => {
     e.preventDefault();
-    const content = document.querySelector('.md-content__inner');
-    // Does nothing while the home content is hidden.
-    if (content && content.offsetParent) content.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('whats-inside')?.scrollIntoView({ behavior: 'smooth' });
   });
 
   // Line up with the first tab; below the tabs breakpoint, with the header title instead.

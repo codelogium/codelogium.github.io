@@ -613,7 +613,6 @@ body[data-md-color-scheme="slate"] blockquote:before {
   right: max(16px, env(safe-area-inset-right, 0px));
   z-index: 3;
   pointer-events: none;
-  transition: opacity 0.2s, visibility 0.2s;
 }
 
 .hero-site-name {
@@ -723,13 +722,6 @@ body[data-md-color-scheme="slate"] blockquote:before {
    HOME PAGE CONTENT (slides up over the fixed hero)
    ============================================================ */
 
-/* Hidden for now: home shows only the hero. Remove this rule to bring the content back.
-   Only the article is hidden, not .md-main, which also holds the mobile menu drawer. */
-body.home-page .md-content,
-body.home-page .md-footer {
-  display: none !important;
-}
-
 /* On wide screens the sidebar would sit over the hero; below this width it is the menu drawer */
 @media screen and (min-width: 76.25em) {
   body.home-page .md-sidebar--primary {
@@ -737,43 +729,290 @@ body.home-page .md-footer {
   }
 }
 
-/* Layer the article (not .md-main) above the hero, or the menu drawer gets trapped under the overlay */
-body.home-page .md-content {
+/* Layer the article and footer (not .md-main) above the fixed hero, or the menu drawer
+   gets trapped under the overlay */
+body.home-page .md-content,
+body.home-page .md-footer {
   position: relative;
   z-index: 1;
 }
 
+/* The content panel starts just below the hero; its background bleeds to both screen edges */
 body.home-page .md-content__inner {
   margin-top: calc(100vh - var(--header-height));
-  padding-top: 2rem !important;
-  background: #0b1f12;
-  border-radius: 12px 12px 0 0;
-  box-shadow: 0 -4px 40px rgba(0, 0, 0, 0.5);
+  /* Padding, not the theme's bottom margin, so the hero can't show through above the footer */
+  margin-bottom: 0;
+  padding-top: 0.5rem !important;
+  padding-bottom: 1.5rem;
+  background: var(--md-default-bg-color);
+  box-shadow: 0 0 0 100vmax var(--md-default-bg-color);
+  clip-path: inset(0 -100vmax);
 }
 
-body.home-page .md-content__inner h1,
-body.home-page .md-content__inner h2,
-body.home-page .md-content__inner h3,
-body.home-page .md-content__inner p,
-body.home-page .md-content__inner li,
-body.home-page .md-content__inner a {
-  color: #d1fae5 !important;
+/* The full-bleed band and background extend past the grid; clip so the page never scrolls sideways
+   (clip, unlike hidden, doesn't create a scroll container that would break the sticky header) */
+body.home-page .md-main {
+  overflow-x: clip;
 }
 
-body.home-page .md-content__inner a:hover {
-  color: #4ade80 !important;
+/* Thin accent band where the panel meets the hero */
+body.home-page .md-content__inner::before {
+  content: "";
+  display: block;
+  height: 3px;
+  margin: 0 calc(-1 * 100vmax) 1.5rem;
+  background: linear-gradient(90deg, transparent, var(--md-primary-fg-color) 30%, var(--md-accent-fg-color) 70%, transparent);
+  opacity: 0.6;
 }
 
-body.home-page .md-content__inner blockquote {
-  background: rgba(34, 197, 94, 0.07) !important;
-  border-left-color: #22c55e !important;
-  color: #a7f3d0 !important;
+/* No page title on home; the hero is the title */
+body.home-page .md-content__inner > h1 {
+  display: none;
 }
 
-body.home-page .md-content__inner blockquote::before {
-  color: #22c55e !important;
+:root,
+[data-md-color-scheme="default"] {
+  --art-bg:     #E3EFE7;
+  --art-ink:    var(--md-primary-fg-color);
+  --art-string: #B45309;
 }
 
-body.home-page .md-content__inner hr {
-  border-color: rgba(34, 197, 94, 0.2) !important;
+[data-md-color-scheme="slate"] {
+  --art-bg:     #1D242E;
+  --art-ink:    #34D399;
+  --art-string: #FBBF24;
+}
+
+.home-section {
+  padding-block: 2.5rem;
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.home-section + .home-section {
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .home-section__title {
+  margin: 0 0 0.4rem;
+  font-size: 1.4rem;
+}
+
+.md-typeset .home-section__lead {
+  margin: 0 0 1.6rem;
+  max-width: 60ch;
+  color: var(--md-default-fg-color--light);
+  text-align: left;
+}
+
+/* Section 2: cards with art on top */
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.2rem;
+}
+
+.md-typeset a.home-card,
+.md-typeset a.home-mini-card {
+  display: flex;
+  flex-direction: column;
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  background: var(--md-default-bg-color--light);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.md-typeset a.home-card:hover,
+.md-typeset a.home-mini-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--art-ink);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.home-card__art {
+  padding: 0.8rem;
+  background: var(--art-bg);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.home-card__art svg,
+.home-journey__art svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.md-typeset .home-card__body h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.md-typeset .home-card__body p {
+  margin: 0 0 0.9rem;
+  font-size: 0.72rem;
+  color: var(--md-default-fg-color--light);
+  text-align: left;
+}
+
+.home-card__link {
+  margin-top: auto;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--md-typeset-a-color);
+}
+
+/* Section 3: intro + art, then the latest notes */
+.home-journey {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 1rem 2.5rem;
+  align-items: center;
+}
+
+.home-journey__art {
+  padding: 1rem;
+  background: var(--art-bg);
+  border-radius: 14px;
+}
+
+.md-typeset a.home-btn {
+  display: inline-block;
+  padding: 0.55em 1.2em;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background: var(--md-primary-fg-color);
+  border-radius: 999px;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.md-typeset a.home-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.home-latest {
+  grid-column: 1 / -1;
+}
+
+.md-typeset .home-latest__title {
+  margin: 1rem 0 0.8rem;
+  font-size: 0.9rem;
+}
+
+.home-mini-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+}
+
+.md-typeset a.home-mini-card {
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+}
+
+.home-mini-card__kicker {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--art-ink);
+}
+
+.home-mini-card__title {
+  margin-bottom: 0.4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+@media (max-width: 760px) {
+  .home-journey {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Code-styled card art */
+.art-line path {
+  fill: none;
+  stroke: var(--art-ink);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.art-node circle,
+.art-box rect {
+  fill: var(--md-default-bg-color);
+  stroke: var(--art-ink);
+  stroke-width: 2;
+}
+
+.art-dots circle {
+  fill: var(--art-ink);
+  opacity: 0.35;
+}
+
+.art-text text,
+.art-caption text,
+.art-code text {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.art-text text {
+  fill: var(--md-default-fg-color);
+  font-size: 10px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.art-caption text {
+  fill: var(--md-default-fg-color--light);
+  font-size: 9px;
+  text-anchor: middle;
+}
+
+.art-code text {
+  fill: var(--md-default-fg-color);
+  font-size: 10px;
+}
+
+.art-code--lg text {
+  font-size: 13px;
+}
+
+.art-accent {
+  fill: var(--art-ink);
+  font-weight: 700;
+}
+
+.art-string {
+  fill: var(--art-string);
+}
+
+.art-cursor {
+  fill: var(--art-ink);
+  animation: art-blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes art-blink {
+  to { visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art-cursor {
+    animation: none;
+  }
 }
