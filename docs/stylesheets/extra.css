@@ -34,7 +34,7 @@
 
   /* Shared background image: header, hero and footer use the same values so they line up.
      Light mode: daytime library. Dark mode (below): late-night desk. */
-  --book-image:   url('/assets/book-library.jpg');
+  --book-image:   url('/assets/book-library.webp');
   --book-pos:     center 60%;
   --book-tint:    rgba(0, 0, 0, 0.25);
   /* Extra shade behind the tabs (bright window) and behind the title (open book) */
@@ -57,7 +57,7 @@
   --md-default-bg-color--light: #1D242E;
   --md-code-bg-color:           #1D242E;
 
-  --book-image:   url('/assets/book-desk.jpg');
+  --book-image:   url('/assets/book-desk.webp');
   --book-tint:    rgba(0, 0, 0, 0.15);
   --shade-top:    transparent;
   --shade-header: transparent;
