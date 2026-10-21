@@ -910,7 +910,7 @@ body:has(.section-hero) .md-main__inner {
 .md-typeset .project-category-nav a {
   flex-shrink: 0;
   padding: 0.85rem 1.2rem;
-  font-size: 0.82rem;
+  font-size: 0.68rem;
   font-weight: 500;
   color: var(--md-default-fg-color--light);
   text-decoration: none;
