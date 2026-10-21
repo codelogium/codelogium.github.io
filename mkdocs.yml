@@ -63,9 +63,9 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/alfahami
       name: alfahami on LinkedIn
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/al_fahami
-      name: alfahami on X (ex Twitter)
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/al_fahami
+      name: alfahami on X
   analytics:
     provider: google
     property: G-9L21ZFFY2J
