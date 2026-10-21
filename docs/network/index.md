@@ -22,7 +22,7 @@ hide:
       <a class="project-card" href="basic-network1/">
         <div class="project-card__body">
           <h3 class="project-card__title">Basic Network Concepts (Part I)</h3>
-          <p class="project-card__desc">How applications communicate and what the network actually does between them. Covers the OSI model, the TCP/IP stack, IP addressing, and DNS resolution — the foundation that makes every backend and frontend decision make more sense.</p>
+          <p class="project-card__desc">How applications communicate and what the network actually does between them. Covers the OSI model, the TCP/IP stack, IP addressing, and DNS resolution: the foundation that makes every backend and frontend decision make more sense.</p>
         </div>
         <div class="project-card__footer">
           <span class="project-card__cta">Read article &rsaquo;</span>

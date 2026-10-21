@@ -11,7 +11,7 @@ hide:
 <section class="section-hero home-band home-band--dark" data-search-exclude>
   <span class="home-eyebrow">Databases</span>
   <h1 class="section-hero__title">Databases. <em>Where your data actually lives.</em></h1>
-  <p class="section-hero__lead">Notes on SQL, ORMs, in-memory databases, and the performance decisions that matter in practice. Postgres, H2, Hibernate — and the trade-offs that aren't obvious until you've hit them.</p>
+  <p class="section-hero__lead">Notes on SQL, ORMs, in-memory databases, and the performance decisions that matter in practice. Postgres, H2, Hibernate, and the trade-offs that aren't obvious until you've hit them.</p>
 </section>
 
 <div class="project-sections" data-search-exclude>

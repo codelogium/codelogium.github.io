@@ -22,7 +22,7 @@ hide:
       <a class="project-card" href="jwt-auth/">
         <div class="project-card__body">
           <h3 class="project-card__title">JWT Authentication in Spring</h3>
-          <p class="project-card__desc">A step-by-step walkthrough of implementing JWT-based authentication in a Spring Boot app. Covers token generation, the security filter chain, stateless session configuration, and protecting routes — the full picture from login endpoint to secured resource.</p>
+          <p class="project-card__desc">A step-by-step walkthrough of implementing JWT-based authentication in a Spring Boot app. Covers token generation, the security filter chain, stateless session configuration, and protecting routes: the full picture from login endpoint to secured resource.</p>
         </div>
         <div class="project-card__footer">
           <span class="project-card__cta">Read article &rsaquo;</span>

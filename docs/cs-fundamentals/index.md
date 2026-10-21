@@ -15,6 +15,6 @@ hide:
 
 <div class="project-sections" data-search-exclude>
   <div class="project-section">
-    <p class="section-coming-soon"><em>Notes from CS50, computer architecture, memory, algorithms and data structures — coming soon.</em></p>
+    <p class="section-coming-soon"><em>Notes from CS50, computer architecture, memory, algorithms and data structures. Coming soon.</em></p>
   </div>
 </div>

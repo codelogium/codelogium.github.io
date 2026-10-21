@@ -175,7 +175,7 @@ code span {
 }
 
 /* ============================================================
-   HEADER & TABS — same on every page and in both modes.
+   HEADER & TABS: same on every page and in both modes.
    The image is pinned to the viewport, so it lines up with the home hero.
    ============================================================ */
 .md-header {
@@ -251,7 +251,7 @@ code span {
 }
 
 /* ============================================================
-   BACK TO TOP — small rounded square, arrow only
+   BACK TO TOP: small rounded square, arrow only
    ============================================================ */
 /* Bottom-right corner of the screen instead of centered; the theme centers it with margin + translate */
 [dir=ltr] .md-top {
