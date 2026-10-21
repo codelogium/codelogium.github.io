@@ -175,7 +175,7 @@ code span {
 }
 
 /* ============================================================
-   HEADER & TABS — same on every page and in both modes.
+   HEADER & TABS: same on every page and in both modes.
    The image is pinned to the viewport, so it lines up with the home hero.
    ============================================================ */
 .md-header {
@@ -251,7 +251,7 @@ code span {
 }
 
 /* ============================================================
-   BACK TO TOP — small rounded square, arrow only
+   BACK TO TOP: small rounded square, arrow only
    ============================================================ */
 /* Bottom-right corner of the screen instead of centered; the theme centers it with margin + translate */
 [dir=ltr] .md-top {
@@ -847,6 +847,7 @@ body.home-page .md-content__inner > h1 {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--art-ink);
+  text-decoration: none !important;
 }
 
 .md-typeset .home-section__lead {
@@ -856,6 +857,156 @@ body.home-page .md-content__inner > h1 {
   text-align: left;
 }
 
+/* Section index intro block */
+
+.section-coming-soon {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--lighter);
+}
+
+/* Section hero band (Option D) */
+.section-hero {
+  padding: 4rem 1rem 3.5rem;
+}
+
+body:has(.section-hero) .md-main__inner {
+  margin-top: 0;
+}
+
+body:has(.section-hero) .md-content__inner {
+  padding-top: 0;
+}
+
+body:has(.section-hero) .md-content__inner::before {
+  display: none !important;
+}
+
+/* Wiley-style category nav below section hero */
+.project-category-nav {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  gap: 0;
+  background: var(--md-default-bg-color);
+  border-bottom: 1px solid var(--card-line);
+  padding: 0 1rem;
+  scrollbar-width: none;
+}
+
+.project-category-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.md-typeset .project-category-nav a {
+  flex-shrink: 0;
+  padding: 0.85rem 1.2rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--md-default-fg-color--light);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.md-typeset .project-category-nav a:hover {
+  color: var(--md-default-fg-color);
+  border-bottom-color: var(--md-primary-fg-color);
+}
+
+.section-hero__title {
+  margin: 0.4rem 0 1rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.section-hero__lead {
+  max-width: 60ch;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+/* Project grid */
+.project-sections {
+  padding: 2rem 0;
+}
+
+.project-section {
+  margin-bottom: 3rem;
+}
+
+.project-section .home-eyebrow {
+  margin-bottom: 1rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.md-typeset .project-card__body {
+  flex: 1;
+  padding: 1.6rem 1.6rem 0;
+}
+
+.md-typeset .project-card__title {
+  margin: 0 0 0.8rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.md-typeset .project-card__desc {
+  margin: 0 0 1.4rem;
+  font-size: 0.75rem;
+  line-height: 1.65;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .project-card__footer {
+  padding: 0 1.6rem 1.5rem;
+}
+
+.md-typeset .project-card__cta {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .project-tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+}
+
+.project-tag--java    { background: rgba(234,106,56,0.12); color: #ea6a38; border-color: rgba(234,106,56,0.25); }
+.project-tag--spring  { background: rgba(109,179,63,0.12); color: #6db33f; border-color: rgba(109,179,63,0.25); }
+.project-tag--jee     { background: rgba(234,106,56,0.12); color: #ea6a38; border-color: rgba(234,106,56,0.25); }
+.project-tag--go      { background: rgba(0,173,216,0.12); color: #00add8; border-color: rgba(0,173,216,0.25); }
+.project-tag--fabric  { background: rgba(0,100,180,0.12); color: #0064b4; border-color: rgba(0,100,180,0.25); }
+.project-tag--python  { background: rgba(55,118,171,0.12); color: #3776ab; border-color: rgba(55,118,171,0.25); }
+.project-tag--flask   { background: rgba(150,150,150,0.12); color: var(--md-default-fg-color--light); border-color: rgba(150,150,150,0.25); }
+.project-tag--js      { background: rgba(247,223,30,0.12); color: #b8960c; border-color: rgba(247,223,30,0.3); }
+.project-tag--node    { background: rgba(68,136,62,0.12); color: #44883e; border-color: rgba(68,136,62,0.25); }
+.project-tag--react   { background: rgba(97,218,251,0.12); color: #087ea4; border-color: rgba(97,218,251,0.3); }
+.project-tag--html    { background: rgba(227,76,38,0.12); color: #e34c26; border-color: rgba(227,76,38,0.25); }
+.project-tag--css     { background: rgba(38,77,228,0.12); color: #264de4; border-color: rgba(38,77,228,0.25); }
+.project-tag--mkdocs  { background: rgba(79,166,155,0.12); color: #4fa69b; border-color: rgba(79,166,155,0.25); }
+.project-tag--powerbi { background: rgba(243,151,0,0.12); color: #f39700; border-color: rgba(243,151,0,0.25); }
+
 /* Section 2: text-only cards, Wiley-style */
 .home-cards {
   display: grid;
@@ -864,7 +1015,8 @@ body.home-page .md-content__inner > h1 {
 }
 
 .md-typeset a.home-card,
-.md-typeset a.home-mini-card {
+.md-typeset a.home-mini-card,
+.md-typeset a.project-card {
   display: flex;
   flex-direction: column;
   color: var(--md-default-fg-color);
@@ -872,11 +1024,12 @@ body.home-page .md-content__inner > h1 {
   background: var(--card-bg);
   border: 1px solid var(--card-line);
   border-radius: 6px;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .md-typeset a.home-card:hover,
-.md-typeset a.home-mini-card:hover {
+.md-typeset a.home-mini-card:hover,
+.md-typeset a.project-card:hover {
   background: var(--card-hover);
   border-color: var(--md-primary-fg-color);
 }
@@ -1016,6 +1169,12 @@ body.home-page .md-content__inner > h1 {
 
 .md-typeset a.home-mini-card {
   overflow: hidden;
+}
+
+/* Section pages: a few mini-cards under a hero, not stretched edge to edge */
+.home-mini-cards--section {
+  margin-top: 2.5rem;
+  max-width: 420px;
 }
 
 /* Social-card image band. A card with its own post image sets --card-image

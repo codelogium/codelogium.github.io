@@ -23,7 +23,7 @@
         
       
       
-      <link rel="icon" href="../../../assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.svg">
       <meta name="generator" content="zensical-0.0.71">
     
     
@@ -294,20 +294,6 @@
       
       
         
-      
-    
-    
-    
-    
-      
-  
-  
-  
-  
-    
-      
-      
-        
           
         
       
@@ -318,16 +304,13 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../java/" class="md-tabs__link">
+        <a href="../../../languages/" class="md-tabs__link">
           
   
   Languages
 
         </a>
       </li>
-    
-  
-
     
   
 
@@ -619,6 +602,10 @@
     
       
         
+          
+        
+      
+        
       
     
     
@@ -634,8 +621,9 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../languages/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -648,8 +636,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         
           <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
@@ -661,6 +655,8 @@
 
             </label>
             <ul class="md-nav__list" data-md-scrollfix>
+              
+                
               
                 
                   
@@ -688,7 +684,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -709,15 +705,15 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
         
-          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
-            <label class="md-nav__title" for="__nav_4_1">
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4_2">
               <span class="md-nav__icon md-icon"></span>
               
   
@@ -1270,7 +1266,7 @@
   <a href="#fix-abort-and-get-back-to-clean" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Fix — Abort and get back to clean
+        Fix: Abort and get back to clean
       </span>
     </span>
   </a>
@@ -1420,7 +1416,7 @@
   <a href="#safer-version-save-work-first" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Safer version — save work first
+        Safer version: save work first
       </span>
     </span>
   </a>
@@ -2465,7 +2461,7 @@
   <a href="#fix-abort-and-get-back-to-clean" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Fix — Abort and get back to clean
+        Fix: Abort and get back to clean
       </span>
     </span>
   </a>
@@ -2615,7 +2611,7 @@
   <a href="#safer-version-save-work-first" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Safer version — save work first
+        Safer version: save work first
       </span>
     </span>
   </a>
@@ -2773,7 +2769,7 @@
 <blockquote>
 <p>"When git behaves unexpectedly, the answer is almost always in the history."</p>
 </blockquote>
-<p>A personal log of real git issues encountered during development; root causes, investigation steps, and fixes. Not theory — things that actually happened.</p>
+<p>A personal log of real git issues encountered during development; root causes, investigation steps, and fixes. Not theory: things that actually happened.</p>
 <hr />
 <h2 id="1-merge-blocked-by-skip-worktree-file">1. Merge Blocked by skip-worktree File<a class="headerlink" href="#1-merge-blocked-by-skip-worktree-file" title="Permalink">¶</a></h2>
 <h3 id="problem">Problem<a class="headerlink" href="#problem" title="Permalink">¶</a></h3>
@@ -2881,7 +2877,7 @@ git<span class="w"> </span>push<span class="w"> </span>--force<span class="w"> <
 <h2 id="4-stash-conflict-on-pop">4. Stash Conflict on Pop<a class="headerlink" href="#4-stash-conflict-on-pop" title="Permalink">¶</a></h2>
 <h3 id="problem_3">Problem<a class="headerlink" href="#problem_3" title="Permalink">¶</a></h3>
 <p>After <code>git stash pop</code>, conflicts appear because the stash was saved on a different branch state.</p>
-<h3 id="fix-abort-and-get-back-to-clean">Fix — Abort and get back to clean<a class="headerlink" href="#fix-abort-and-get-back-to-clean" title="Permalink">¶</a></h3>
+<h3 id="fix-abort-and-get-back-to-clean">Fix: Abort and get back to clean<a class="headerlink" href="#fix-abort-and-get-back-to-clean" title="Permalink">¶</a></h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>.
 git<span class="w"> </span>restore<span class="w"> </span>.
 </code></pre></div>
@@ -2935,7 +2931,7 @@ git<span class="w"> </span>push<span class="w"> </span>--force<span class="w"> <
 <p class="admonition-title">Warning</p>
 <p>All local commits are permanently lost.</p>
 </div>
-<h3 id="safer-version-save-work-first">Safer version — save work first<a class="headerlink" href="#safer-version-save-work-first" title="Permalink">¶</a></h3>
+<h3 id="safer-version-save-work-first">Safer version: save work first<a class="headerlink" href="#safer-version-save-work-first" title="Permalink">¶</a></h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">"wip/before-reset"</span>
 git<span class="w"> </span>fetch<span class="w"> </span>upstream<span class="w"> </span>&lt;branch&gt;
 git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>upstream/&lt;branch&gt;

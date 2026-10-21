@@ -23,7 +23,7 @@
         
       
       
-      <link rel="icon" href="../assets/favicon.png">
+      <link rel="icon" href="../assets/favicon.svg">
       <meta name="generator" content="zensical-0.0.71">
     
     
@@ -294,20 +294,6 @@
       
       
         
-      
-    
-    
-    
-    
-      
-  
-  
-  
-  
-    
-      
-      
-        
           
         
       
@@ -318,16 +304,13 @@
     
     
       <li class="md-tabs__item">
-        <a href="../java/" class="md-tabs__link">
+        <a href="../languages/" class="md-tabs__link">
           
   
   Languages
 
         </a>
       </li>
-    
-  
-
     
   
 
@@ -621,6 +604,10 @@
     
       
         
+          
+        
+      
+        
       
     
     
@@ -636,8 +623,9 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../languages/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -650,8 +638,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         
           <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
@@ -663,6 +657,8 @@
 
             </label>
             <ul class="md-nav__list" data-md-scrollfix>
+              
+                
               
                 
                   
@@ -690,7 +686,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -711,15 +707,15 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
         
-          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
-            <label class="md-nav__title" for="__nav_4_1">
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4_2">
               <span class="md-nav__icon md-icon"></span>
               
   
@@ -1653,13 +1649,6 @@
                     
                     
                     
-                      
-                    
-                    
-                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-                      <div class="md-sidebar-button__wrapper">
-                        <label class="md-sidebar-button" for="__toc"></label>
-                      </div>
                     
                   
                   <div class="md-sidebar__inner">
@@ -1672,27 +1661,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of content
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#whats-inside" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        What's Inside
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1712,18 +1680,25 @@
   
 
 
-<h1 id="lab">🧪 <strong>Lab</strong><a class="headerlink" href="#lab" title="Permalink">¶</a></h1>
-<p>Welcome to the <strong>Lab</strong>: the playground of Codelogium.</p>
-<p>This is the space where theory meets practice. Here, you'll find quick guides, cheatsheets, and hands-on examples designed to help you tackle real-world challenges.</p>
-<p>This is where I test, break, and rebuild. Expect practical deep dives, hands-on experiments, side projects, and explorations of tools like Git, Docker, CI/CD, and more.</p>
-<p>Whether you're looking for a fast reference or experimenting with new tools, the Lab is your go-to spot for practical knowledge. Dive in and start building!</p>
-<hr />
-<h2 id="whats-inside">What's Inside<a class="headerlink" href="#whats-inside" title="Permalink">¶</a></h2>
-<ul>
-<li><a href="git/">Git</a><br />
-<em>Commands, workflows, and solutions from real experience.</em></li>
-</ul>
-<p><em>(More tools coming soon: Docker, CI/CD, Linux...)</em></p>
+<section class="section-hero home-band home-band--dark">
+  <span class="home-eyebrow">Lab</span>
+  <h1 class="section-hero__title">Where theory meets <em>real work.</em></h1>
+  <p class="section-hero__lead">Practical guides and cheatsheets built from actual use: the commands that came up, the workflows that stuck, and the fixes that took longer than they should have.</p>
+</section>
+
+<div class="home-mini-cards home-mini-cards--section">
+  <a class="home-mini-card" href="git/">
+    <span class="home-mini-card__image" style="--card-image: url('/assets/posts/git.webp'); --card-focus: center 70%" aria-hidden="true"></span>
+    <span class="home-mini-card__body">
+      <span class="home-mini-card__kicker">Lab · May 9, 2026</span>
+      <span class="home-mini-card__title">Git</span>
+      <span class="home-mini-card__text">A practical reference built from real experience: commands, workflows and solutions that actually came up.</span>
+      <span class="home-card__link">Read</span>
+    </span>
+  </a>
+</div>
+
+<p class="section-coming-soon"><em>Coming soon: Docker, CI/CD, Linux...</em></p>
 
   
 
