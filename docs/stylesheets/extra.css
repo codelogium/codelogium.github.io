@@ -1062,6 +1062,13 @@ body:has(.section-hero) .md-content__inner::before {
   color: var(--md-default-fg-color--light);
 }
 
+/* Justified, unlike article paragraphs (which stay ragged-right) */
+.md-content .md-typeset p.article-hero__lead {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 .md-typeset .article-meta {
   display: flex;
   flex-wrap: wrap;
