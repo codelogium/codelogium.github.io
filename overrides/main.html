@@ -33,8 +33,16 @@
 
     <header class="article-hero home-band--dark" data-search-exclude>
       {% if m.cover %}
-        <img class="article-hero__cover" src="{{ m.cover | url }}" alt="{{ m.cover_alt or '' }}"
-             style="{% if m.cover_focus %}object-position: {{ m.cover_focus }};{% endif %}{% if m.cover_ratio %} height: auto; aspect-ratio: {{ m.cover_ratio }};{% endif %}">
+        {% if m.cover_ratio %}
+          {#- A shorter banner: the chosen portion at full height, blurred copy on the sides -#}
+          <div class="article-hero__cover article-hero__cover--framed" style="--cover: url('{{ m.cover | url }}')">
+            <img src="{{ m.cover | url }}" alt="{{ m.cover_alt or '' }}"
+                 style="aspect-ratio: {{ m.cover_ratio }};{% if m.cover_focus %} object-position: {{ m.cover_focus }};{% endif %}">
+          </div>
+        {% else %}
+          <img class="article-hero__cover" src="{{ m.cover | url }}" alt="{{ m.cover_alt or '' }}"
+               {% if m.cover_focus %}style="object-position: {{ m.cover_focus }}"{% endif %}>
+        {% endif %}
       {% endif %}
       {% if ns.label %}
         <a class="home-eyebrow" href="{{ ns.url | url }}">{{ ns.label.title }}</a>

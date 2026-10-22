@@ -1037,11 +1037,50 @@ body:has(.section-hero) .md-content__inner::before {
   border-radius: 8px 8px 0 0;
 }
 
+/* Framed cover (cover_ratio set): the photo's chosen portion, centered over a blurred copy */
+.md-typeset .article-hero__cover--framed {
+  position: relative;
+  height: 9.5rem;
+  overflow: hidden;
+}
+
+.md-typeset .article-hero__cover--framed::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: var(--cover) center / cover no-repeat;
+  filter: blur(18px) brightness(0.8);
+}
+
+.md-typeset .article-hero__cover--framed img {
+  position: relative;
+  display: block;
+  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: cover;
+  /* Fade the photo's sides into the blurred copy so there's no hard seam */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
 @media (max-width: 600px) {
   .md-typeset .article-hero__cover {
     width: calc(100% + 2.4rem);
     height: 9rem;
     margin: -1.5rem -1.2rem 1.3rem;
+  }
+
+  /* Too narrow to frame: the chosen portion fills the width at its own shape */
+  .md-typeset .article-hero__cover--framed {
+    height: auto;
+  }
+
+  .md-typeset .article-hero__cover--framed img {
+    width: 100%;
+    height: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }
 
