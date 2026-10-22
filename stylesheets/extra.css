@@ -33,8 +33,9 @@
   --header-height:   96px;
 
   /* Shared background image: header, hero and footer use the same values so they line up.
-     Light mode: daytime library. Dark mode (below): late-night desk. */
-  --book-image:   url('/assets/book-library.webp');
+     Light mode: library or sunlit desk by date (below). Dark mode: late-night desk.
+     No image until extra.js picks one, so only that photo is downloaded. */
+  --book-image:   none;
   /* Horizontal crop of the photo; shifted toward the laptop on portrait screens (below) */
   --book-x:       50%;
   --book-tint:    rgba(0, 0, 0, 0.25);
@@ -72,11 +73,27 @@
   --footer-pad-top: 4rem;
 }
 
+/* Light-mode photo of the day (extra.js sets data-light-photo by date) */
+html[data-light-photo="desk"],
+html[data-light-photo="desk"] [data-md-color-scheme="default"] {
+  --book-image: url('/assets/desk-light.webp');
+}
+
+html[data-light-photo="library"],
+html[data-light-photo="library"] [data-md-color-scheme="default"] {
+  --book-image: url('/assets/book-library.webp');
+}
+
 /* Portrait screens see only the middle third of these landscape photos.
    Shift the crop toward each photo's laptop (keep in sync with PHOTOS in extra.js). */
 @media (orientation: portrait) {
   :root,
   [data-md-color-scheme="default"] {
+    --book-x: 88%;
+  }
+
+  html[data-light-photo="library"],
+  html[data-light-photo="library"] [data-md-color-scheme="default"] {
     --book-x: 78%;
   }
 
@@ -1231,7 +1248,11 @@ body:has(.section-hero) .md-content__inner::before {
   background: var(--card-image) var(--card-focus, center) / cover no-repeat;
 }
 
-/* The desk photo is laid out differently, so each card picks its own crop at night */
+/* Each photo is laid out differently, so a card can pick its own crop per photo */
+html[data-light-photo="library"] [data-md-color-scheme="default"] .home-mini-card__image:not([style*="--card-image"]) {
+  background-position: var(--card-pos-library, var(--card-pos, center));
+}
+
 [data-md-color-scheme="slate"] .home-mini-card__image {
   background-position: var(--card-pos-dark, var(--card-pos, center));
 }
