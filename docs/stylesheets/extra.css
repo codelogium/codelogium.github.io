@@ -1,7 +1,8 @@
 /* ============================================================
    GOOGLE FONTS
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@600;700&family=Source+Code+Pro&family=JetBrains+Mono&display=swap');
+/* The only font request: theme font loading is off in mkdocs.yml (font: false) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..700;1,300..700&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 /* ============================================================
    COLORS
@@ -118,7 +119,7 @@ textarea {
 code,
 pre,
 code span {
-  font-family: 'Source Code Pro', monospace !important;
+  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
 }
 
 .md-typeset h1,
@@ -141,11 +142,9 @@ code span {
   font-weight: 700 !important;
 }
 
-/* Justified article paragraphs; hyphenation keeps word gaps even */
+/* Ragged-right article paragraphs: even word gaps, no mid-word breaks */
 .md-content .md-typeset p {
-  text-align: justify;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  text-align: left;
 }
 
 /* Phone lines are too short to justify without wide word gaps */
@@ -690,7 +689,6 @@ body[data-md-color-scheme="slate"] blockquote:before {
   line-height: 1.6;
   margin-top: 0.9rem;
   max-width: 38ch;
-  text-align: justify;
 }
 
 /* The description matches the photo: daytime library in light mode, late-night desk in dark */
