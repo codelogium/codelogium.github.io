@@ -8,12 +8,25 @@
 {% block content %}
   {% set m = page.meta or {} %}
   {% if m.date and m.reading_time and "<h1" not in page.content and "blog/" not in (page.url or "") %}
-    {#- `label` is the link above the title: the page's section, or one level up
-        on a section's intro page (its first child). -#}
-    {% set section = page.ancestors[0] if page.ancestors else none %}
-    {% set label = section %}
-    {% if section and section.children and section.children[0].url == page.url and page.ancestors | length > 1 %}
-      {% set label = page.ancestors[1] %}
+    {#- `label` is the link above the title: the nearest section that has an intro page
+        (a first child whose address contains this page's, like lab/git/ for
+        lab/git/basics/). A section's own intro page starts one level up. -#}
+    {% set ns = namespace(label=none, url="", start=0) %}
+    {% if page.ancestors %}
+      {% set s0 = page.ancestors[0] %}
+      {% if s0.children and s0.children | length > 1 and s0.children[0].url == page.url
+            and s0.children[1].url and page.url in s0.children[1].url %}
+        {% set ns.start = 1 %}
+      {% endif %}
+      {% for a in page.ancestors[ns.start:] %}
+        {% if ns.label is none and a.children %}
+          {% set first = a.children[0] %}
+          {% if first.url and first.url != page.url and first.url in page.url %}
+            {% set ns.label = a %}
+            {% set ns.url = first.url %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
     {% endif %}
 
     <header class="article-hero home-band--dark" data-search-exclude>
@@ -21,9 +34,8 @@
         <img class="article-hero__cover" src="{{ m.cover | url }}" alt="{{ m.cover_alt or '' }}"
              {% if m.cover_focus %}style="object-position: {{ m.cover_focus }}"{% endif %}>
       {% endif %}
-      {% if label %}
-        {% set label_url = label.url or (label.children[0].url if label.children else "") %}
-        <a class="home-eyebrow" href="{{ label_url | url }}">{{ label.title }}</a>
+      {% if ns.label %}
+        <a class="home-eyebrow" href="{{ ns.url | url }}">{{ ns.label.title }}</a>
       {% endif %}
       <h1 class="article-hero__title">{{ page.title }}</h1>
       {% if m.description %}

@@ -9,18 +9,6 @@ description: "A Spring Boot microservices-style API for managing cryptocurrency 
 reading_time: 6
 ---
 
-# Crypto Portfolio API
-
-<div class="blog-meta" data-search-exclude>
-  <div class="blog-meta-container">
-    <span class="meta-content">
-      By: &nbsp;<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
-      &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/spring/"><em>Spring</em></a>&nbsp;•&nbsp;
-      ⏱️ ~6 min read</span>
-    </span>
-  </div>
-</div>
-
 > "Built to learn, WebClient, reactive programming, and real API integration, not just theory. The kind of project you do on a job test."
 
 ---
