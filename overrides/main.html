@@ -3,7 +3,8 @@
 {#-
   Article layout: a page with `date` and `reading_time` in its front matter and no
   `#` title of its own gets a generated header, then the content, then an author footer.
-  Optional front matter: cover, cover_alt, cover_focus; for projects repo, demo, stack, year.
+  Optional front matter: cover, cover_alt, cover_focus, cover_ratio (banner shape, e.g.
+  "1200 / 380"); for projects repo, demo, stack, year.
   Blog posts keep their own layout.
 -#}
 {% block content %}
@@ -33,7 +34,7 @@
     <header class="article-hero home-band--dark" data-search-exclude>
       {% if m.cover %}
         <img class="article-hero__cover" src="{{ m.cover | url }}" alt="{{ m.cover_alt or '' }}"
-             {% if m.cover_focus %}style="object-position: {{ m.cover_focus }}"{% endif %}>
+             style="{% if m.cover_focus %}object-position: {{ m.cover_focus }};{% endif %}{% if m.cover_ratio %} height: auto; aspect-ratio: {{ m.cover_ratio }};{% endif %}">
       {% endif %}
       {% if ns.label %}
         <a class="home-eyebrow" href="{{ ns.url | url }}">{{ ns.label.title }}</a>

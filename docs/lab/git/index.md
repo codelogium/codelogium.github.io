@@ -8,7 +8,8 @@ description: "A practical reference built from real experience; commands, workfl
 reading_time: 3
 cover: assets/posts/git.webp
 cover_alt: "A git logo sticker held between two fingers"
-cover_focus: center 70%
+cover_focus: center 86%
+cover_ratio: 1200 / 380
 ---
 
 > "Version control is not just a tool; it's a habit."
