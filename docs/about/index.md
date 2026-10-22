@@ -15,7 +15,7 @@ hide:
 </section>
 
 <div class="about" data-search-exclude>
-  <img class="about__photo" src="/assets/about/me.jpg" alt="Al-Fahami Toihir standing on the rocks in front of a waterfall" width="900" height="1200" loading="lazy">
+  <img class="about__photo" src="/assets/about/me.jpg" alt="Al-Fahami Toihir standing on the rocks in front of a waterfall" width="1125" height="1500" loading="lazy">
 
   <div class="about__text">
     <span class="home-eyebrow">What I do</span>

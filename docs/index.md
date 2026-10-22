@@ -102,7 +102,7 @@ hide:
 </section>
 
 <section class="home-section home-band home-band--dark home-about" data-search-exclude>
-  <img class="home-about__photo" src="/assets/about/me.jpg" alt="Al-Fahami Toihir in front of a waterfall" width="900" height="1200" loading="lazy">
+  <img class="home-about__photo" src="/assets/about/me.jpg" alt="Al-Fahami Toihir in front of a waterfall" width="1125" height="1500" loading="lazy">
   <div class="home-about__text">
     <span class="home-eyebrow">Behind the notes</span>
     <h2 class="home-section__title">Hi, I'm Al-Fahami. <em>I write these notes.</em></h2>

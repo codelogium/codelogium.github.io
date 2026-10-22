@@ -1231,10 +1231,6 @@ body:has(.section-hero) .md-content__inner::before {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  /* Keep the person, not the waterfall, in the crop */
-  object-position: 36% 62%;
   border: 1px solid var(--card-line);
   border-radius: 6px;
 }
