@@ -24,6 +24,7 @@ hide:
 
     <span class="home-eyebrow">Away from the keyboard</span>
     <p>When I'm not learning about CS, I'm at the gym, in the forest, swimming, or anywhere out in nature. I love exploring new places and exchanging ideas with like-minded people.</p>
+    <p>That's usually where you'll find me, just like in the photo: visiting the Imlil waterfall, seconds before the slippery rocks almost had me slipping straight into the water.</p>
 
     <span class="home-eyebrow">Say hello</span>
     <p>If something here helped you, or you want to talk code, nature or both, reach out.</p>
