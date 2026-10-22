@@ -101,6 +101,16 @@ hide:
   </div>
 </section>
 
+<section class="home-section home-about" data-search-exclude>
+  <img class="home-about__photo" src="/assets/about/me.jpg" alt="Al-Fahami Toihir in front of a waterfall" width="900" height="1200" loading="lazy">
+  <div class="home-about__text">
+    <span class="home-eyebrow">Behind the notes</span>
+    <h2 class="home-section__title">Hi, I'm Al-Fahami. <em>I write these notes.</em></h2>
+    <p class="home-section__lead">Software engineer at DXC, working with Java and Spring Boot. When I'm not learning computer science, you'll find me at the gym, in the forest, swimming, or anywhere out in nature.</p>
+    <a class="home-btn" href="about/">More about me</a>
+  </div>
+</section>
+
 <section class="home-band home-band--photo home-cta" data-search-exclude>
   <span class="home-eyebrow">Your turn</span>
   <h2 class="home-cta__title">Start where you are. <em>Go as deep as you want.</em></h2>
