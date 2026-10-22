@@ -152,7 +152,7 @@ function initHeroCanvas(canvas) {
 
   // Map a point on the photo to the screen, the same way `background-size: cover` crops it.
   // The horizontal crop comes from the CSS (--book-x); the vertical one is always 60%.
-  const origin = () => {
+  const computeOrigin = () => {
     const p = PHOTOS[document.body.dataset.mdColorScheme === 'slate' ? 'dark' : LIGHT_PHOTO];
     const POS = { x: parseFloat(getComputedStyle(document.body).getPropertyValue('--book-x')) / 100, y: 0.6 };
     const scale = Math.max(canvas.width / p.w, canvas.height / p.h);
@@ -167,6 +167,12 @@ function initHeroCanvas(canvas) {
       y: Math.min(clamp(((canvas.height - dh) * POS.y + p.y * dh) / canvas.height), titleTop),
     };
   };
+  // Layout reads are costly per glyph, so the origin is measured only when the layout or theme changes.
+  let originCache = null;
+  const origin = () => originCache || (originCache = computeOrigin());
+  const invalidateOrigin = () => { originCache = null; };
+  new MutationObserver(invalidateOrigin).observe(document.body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
+  document.fonts?.ready.then(invalidateOrigin);
   // 70 glyphs on a 1440×900 screen, scaled by screen area so phones aren't crowded.
   const glyphCount = () => Math.round(Math.min(70, Math.max(24, canvas.width * canvas.height / 18500)));
   // Horizontal spread around the origin, with a floor so narrow screens don't get a thin column.
@@ -222,14 +228,35 @@ function initHeroCanvas(canvas) {
   }
 
   let glyphs = [];
+  let lastWidth = 0;
 
   function resize() {
+    // Phones fire resize as the address bar slides during scroll; only a width change needs a rebuild.
+    if (window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    invalidateOrigin();
     glyphs = Array.from({ length: glyphCount() }, () => new Glyph());
   }
 
+  let resizeTimer;
+  const onResize = () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 150);
+  };
+
+  // The content panel covers the hero once scrolled a screen down; stop drawing until it's back.
+  let frame = 0;
+  const heroVisible = () => window.scrollY < window.innerHeight;
+  const start = () => { if (!frame && heroVisible()) frame = requestAnimationFrame(animate); };
+  window.addEventListener('scroll', start, { passive: true });
+
   function animate() {
+    if (!heroVisible()) {
+      frame = 0;
+      return;
+    }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.shadowColor = '#22c55e';
     // Ambient glyphs recycle; burst glyphs are removed when they fade out.
@@ -242,7 +269,7 @@ function initHeroCanvas(canvas) {
       g.draw();
       return true;
     });
-    requestAnimationFrame(animate);
+    frame = requestAnimationFrame(animate);
   }
 
   document.addEventListener('click', e => {
@@ -264,7 +291,7 @@ function initHeroCanvas(canvas) {
     }
   });
 
-  window.addEventListener('resize', resize);
+  window.addEventListener('resize', onResize);
   resize();
-  animate();
+  start();
 }
