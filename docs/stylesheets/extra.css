@@ -33,8 +33,9 @@
   --header-height:   96px;
 
   /* Shared background image: header, hero and footer use the same values so they line up.
-     Light mode: sunlit desk, or the library on even days (below). Dark mode: late-night desk. */
-  --book-image:   url('/assets/desk-light.webp');
+     Light mode: library or sunlit desk by date (below). Dark mode: late-night desk.
+     No image until extra.js picks one, so only that photo is downloaded. */
+  --book-image:   none;
   /* Horizontal crop of the photo; shifted toward the laptop on portrait screens (below) */
   --book-x:       50%;
   --book-tint:    rgba(0, 0, 0, 0.25);
@@ -72,7 +73,12 @@
   --footer-pad-top: 4rem;
 }
 
-/* Library days in light mode (extra.js sets data-light-photo by date) */
+/* Light-mode photo of the day (extra.js sets data-light-photo by date) */
+html[data-light-photo="desk"],
+html[data-light-photo="desk"] [data-md-color-scheme="default"] {
+  --book-image: url('/assets/desk-light.webp');
+}
+
 html[data-light-photo="library"],
 html[data-light-photo="library"] [data-md-color-scheme="default"] {
   --book-image: url('/assets/book-library.webp');
