@@ -899,9 +899,8 @@ body.home-page .md-content__inner > h1 {
   text-decoration: none !important;
 }
 
-/* Underlined on home sections and section heroes; group labels inside a page stay plain */
-.home-section .home-eyebrow,
-.home-band .home-eyebrow {
+/* Underlined only on section heroes */
+.section-hero .home-eyebrow {
   text-decoration: underline !important;
   text-decoration-thickness: 1px !important;
   text-underline-offset: 0.45em;
