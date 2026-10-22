@@ -702,8 +702,9 @@ body[data-md-color-scheme="slate"] blockquote:before {
    BUTTONS: dark green primary with an arrow, plain white secondary
    ============================================================ */
 :root {
-  --btn-dark-bg:   #0B200C;
-  --btn-dark-fg:   #86EFAC;
+  --btn-dark-bg:   #0E7A60;
+  --btn-dark-hover: #0B624D;
+  --btn-dark-fg:   #FFFFFF;
   --btn-light-bg:  #FFFFFF;
   --btn-light-fg:  #161616;
   --btn-light-line: #D6D6D6;
@@ -739,8 +740,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
 .md-typeset a.home-btn {
   color: var(--btn-dark-fg) !important;
   background: var(--btn-dark-bg);
-  /* A faint edge so it still reads against the dark bands and photo */
-  border-color: rgba(134, 239, 172, 0.22);
+  border-color: var(--btn-dark-bg);
 }
 
 .hero-btn--primary::after,
@@ -753,8 +753,8 @@ body[data-md-color-scheme="slate"] blockquote:before {
 
 .hero-btn--primary:hover,
 .md-typeset a.home-btn:not(.home-btn--light):hover {
-  background: #123317;
-  border-color: rgba(134, 239, 172, 0.45);
+  background: var(--btn-dark-hover);
+  border-color: var(--btn-dark-hover);
 }
 
 .hero-btn--primary:hover::after,
