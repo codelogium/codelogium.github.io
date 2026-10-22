@@ -33,7 +33,7 @@
   --header-height:   96px;
 
   /* Shared background image: header, hero and footer use the same values so they line up.
-     Light mode: sunlit desk. Dark mode (below): late-night desk. */
+     Light mode: sunlit desk, or the library on even days (below). Dark mode: late-night desk. */
   --book-image:   url('/assets/desk-light.webp');
   /* Horizontal crop of the photo; shifted toward the laptop on portrait screens (below) */
   --book-x:       50%;
@@ -72,12 +72,23 @@
   --footer-pad-top: 4rem;
 }
 
+/* Library days in light mode (extra.js sets data-light-photo by date) */
+html[data-light-photo="library"],
+html[data-light-photo="library"] [data-md-color-scheme="default"] {
+  --book-image: url('/assets/book-library.webp');
+}
+
 /* Portrait screens see only the middle third of these landscape photos.
    Shift the crop toward each photo's laptop (keep in sync with PHOTOS in extra.js). */
 @media (orientation: portrait) {
   :root,
   [data-md-color-scheme="default"] {
     --book-x: 88%;
+  }
+
+  html[data-light-photo="library"],
+  html[data-light-photo="library"] [data-md-color-scheme="default"] {
+    --book-x: 78%;
   }
 
   [data-md-color-scheme="slate"] {
@@ -1231,7 +1242,11 @@ body:has(.section-hero) .md-content__inner::before {
   background: var(--card-image) var(--card-focus, center) / cover no-repeat;
 }
 
-/* The desk photo is laid out differently, so each card picks its own crop at night */
+/* Each photo is laid out differently, so a card can pick its own crop per photo */
+html[data-light-photo="library"] [data-md-color-scheme="default"] .home-mini-card__image:not([style*="--card-image"]) {
+  background-position: var(--card-pos-library, var(--card-pos, center));
+}
+
 [data-md-color-scheme="slate"] .home-mini-card__image {
   background-position: var(--card-pos-dark, var(--card-pos, center));
 }
