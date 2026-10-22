@@ -6,6 +6,13 @@ categories:
   - Projects
 description: "A Hyperledger Fabric blockchain network that automates the issuance, dispatch, and management of university digital credentials; diplomas, transcripts, and degree certifications."
 reading_time: 6
+repo: https://github.com/alfahami/bcertificate
+stack:
+  - Hyperledger Fabric
+  - Node.js
+  - Express.js
+  - Pug
+  - Docker
 ---
 
 > "A blockchain network that lets schools and universities add credentials to an immutable ledger; making diploma fraud a thing of the past."

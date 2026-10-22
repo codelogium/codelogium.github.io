@@ -3,6 +3,7 @@
 {#-
   Article layout: a page with `date` and `reading_time` in its front matter and no
   `#` title of its own gets a generated header, then the content, then an author footer.
+  Optional front matter: cover, cover_alt, cover_focus; for projects repo, demo, stack, year.
   Blog posts keep their own layout.
 -#}
 {% block content %}
@@ -41,18 +42,31 @@
       {% if m.description %}
         <p class="article-hero__lead">{{ m.description }}</p>
       {% endif %}
+      {#- Projects (front matter with `repo` or `stack`) show the year, stack and links -#}
+      {% set is_project = m.repo or m.stack %}
       <div class="article-meta">
         <img class="article-meta__avatar" src="https://github.com/alfahami.png" alt="" width="40" height="40">
         <span>Al-Fahami Toihir</span>
         <span class="article-meta__dot" aria-hidden="true">·</span>
-        <time datetime="{{ m.date }}">{{ m.date | date }}</time>
-        <span class="article-meta__dot" aria-hidden="true">·</span>
-        <span>{{ m.reading_time }} min read</span>
+        {% if is_project %}
+          <span>Built in {{ m.year or (m.date | string)[:4] }}</span>
+        {% else %}
+          <time datetime="{{ m.date }}">{{ m.date | date }}</time>
+          <span class="article-meta__dot" aria-hidden="true">·</span>
+          <span>{{ m.reading_time }} min read</span>
+        {% endif %}
       </div>
-      {% if m.categories %}
+      {% set pills = m.stack if is_project and m.stack else m.categories %}
+      {% if pills %}
         <ul class="article-tags">
-          {% for c in m.categories %}<li>{{ c }}</li>{% endfor %}
+          {% for c in pills %}<li>{{ c }}</li>{% endfor %}
         </ul>
+      {% endif %}
+      {% if m.repo or m.demo %}
+        <div class="article-actions">
+          {% if m.repo %}<a class="home-btn" href="{{ m.repo }}" target="_blank" rel="noopener">View on GitHub</a>{% endif %}
+          {% if m.demo %}<a class="home-btn home-btn--light" href="{{ m.demo }}" target="_blank" rel="noopener">Live demo</a>{% endif %}
+        </div>
       {% endif %}
     </header>
 

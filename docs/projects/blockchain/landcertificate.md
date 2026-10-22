@@ -6,6 +6,14 @@ categories:
   - Projects
 description: "A Hyperledger Fabric blockchain application where clients request land certificates from a land conserver (admin) who certifies ownership on the blockchain; with QR code verification and MongoDB Atlas for request storage."
 reading_time: 6
+repo: https://github.com/alfahami/landcertificate
+stack:
+  - Hyperledger Fabric
+  - Node.js
+  - Express.js
+  - Pug
+  - MongoDB Atlas
+  - Docker
 ---
 
 > "A blockchain network that lets land conservers certify land ownership on an immutable ledger; helping against land ownership fraud and disputes."
