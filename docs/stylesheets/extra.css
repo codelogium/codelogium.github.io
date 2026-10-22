@@ -147,6 +147,14 @@ code span {
   text-align: left;
 }
 
+/* The home page keeps justified blocks; hyphenation evens out the word gaps */
+body.home-page .md-content .md-typeset p,
+.hero-desc {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 /* Phone lines are too short to justify without wide word gaps */
 @media (max-width: 600px) {
   .md-content .md-typeset p {
