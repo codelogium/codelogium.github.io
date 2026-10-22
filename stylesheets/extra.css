@@ -1216,6 +1216,84 @@ body:has(.section-hero) .md-content__inner::before {
   height: auto;
 }
 
+/* ============================================================
+   ABOUT: home band and /about/ page
+   ============================================================ */
+.home-about {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) 1fr;
+  gap: 1.5rem 3rem;
+  align-items: center;
+}
+
+.home-about__photo,
+.about__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--card-line);
+  border-radius: 6px;
+}
+
+/* Lift the shaded waterfall photo so it doesn't sink into the dark band */
+.home-about__photo {
+  filter: brightness(1.1) contrast(1.05) saturate(1.05);
+}
+
+.md-typeset .home-about__text .home-section__lead {
+  margin-bottom: 1.6rem;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 20rem) 1fr;
+  gap: 2rem 3.5rem;
+  align-items: start;
+  padding-block: 3.5rem 4rem;
+}
+
+.about__photo {
+  position: sticky;
+  top: calc(var(--header-height) + 1.5rem);
+}
+
+.md-typeset .about__text {
+  max-width: 62ch;
+}
+
+.md-typeset .about__text .home-eyebrow {
+  margin-top: 2.2rem;
+}
+
+.md-typeset .about__text .home-eyebrow:first-child {
+  margin-top: 0;
+}
+
+.md-typeset .about__text p {
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.about__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+@media (max-width: 760px) {
+  .home-about,
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .home-about__photo,
+  .about__photo {
+    position: static;
+    max-width: 18rem;
+  }
+}
+
 .home-journey__art {
   padding: 1rem;
   background: var(--art-bg);
