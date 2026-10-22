@@ -6,22 +6,10 @@ categories:
   - Workflow
 description: "A practical reference built from real experience; commands, workflows, and solutions that actually came up."
 reading_time: 3
+cover: assets/posts/git.webp
+cover_alt: "A git logo sticker held between two fingers"
+cover_focus: center 70%
 ---
-
-# Git
-
-<div class="blog-meta" data-search-exclude>
-  <div class="blog-meta-container">
-    <span class="meta-content">
-      By: &nbsp;<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
-      &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/git/"><em>git</em></a>&nbsp;•&nbsp;
-         <a href="/categories/workflow/"><em>workflow</em></a>&nbsp;•&nbsp;
-      ⏱️ ~3 min read</span>
-    </span>
-  </div>
-</div>
-
-![A git logo sticker held between two fingers](../../assets/posts/git.webp){ .post-cover }
 
 > "Version control is not just a tool; it's a habit."
 

@@ -8,19 +8,6 @@ description: "Push, pull, SSH setup, fork workflows, multiple Git identities, di
 reading_time: 8
 ---
 
-# Remotes & Workflows
-
-<div class="blog-meta" data-search-exclude>
-  <div class="blog-meta-container">
-    <span class="meta-content">
-      By: &nbsp;<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
-      &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/git/"><em>git</em></a>&nbsp;•&nbsp;
-               <a href="/categories/workflow/"><em>workflow</em></a>&nbsp;•&nbsp;
-      ⏱️ ~8 min read</span>
-    </span>
-  </div>
-</div>
-
 > "GitHub is a free tool that lets you host your local repository."
 
 ---

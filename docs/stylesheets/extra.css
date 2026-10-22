@@ -1017,6 +1017,159 @@ body:has(.section-hero) .md-content__inner::before {
 }
 
 /* ============================================================
+   ARTICLE LAYOUT (overrides/main.html): header, quotes, footer
+   ============================================================ */
+.md-typeset .article-hero {
+  margin: 0 0 2rem;
+  padding: 2rem 2rem 1.6rem;
+  background: var(--band-bg);
+  border-radius: 8px;
+}
+
+/* Optional cover picture across the top of the header panel */
+.md-typeset .article-hero__cover {
+  display: block;
+  width: calc(100% + 4rem);
+  max-width: none;
+  height: 12rem;
+  margin: -2rem -2rem 1.6rem;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+@media (max-width: 600px) {
+  .md-typeset .article-hero__cover {
+    width: calc(100% + 2.4rem);
+    height: 9rem;
+    margin: -1.5rem -1.2rem 1.3rem;
+  }
+}
+
+.md-typeset .article-hero__title {
+  margin: 0.4rem 0 0.7rem;
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset .article-hero__lead {
+  max-width: 60ch;
+  margin: 0 0 1.2rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .article-meta__avatar {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+}
+
+.md-typeset ul.article-tags:not([hidden]) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset ul.article-tags li {
+  margin: 0;
+  padding: 0.2rem 0.6rem;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.58rem;
+  color: var(--art-ink);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: 999px;
+}
+
+/* Quiet quotes on articles: italic with a thin accent line, not the green block */
+body:has(.article-hero) .md-content .md-typeset blockquote {
+  padding: 0.1rem 0 0.1rem 1rem;
+  background: none;
+  box-shadow: none;
+  border: 0 !important;
+  border-left: 2px solid var(--md-accent-fg-color) !important;
+  font-style: italic;
+  color: var(--md-default-fg-color--light);
+}
+
+body:has(.article-hero) .md-content .md-typeset blockquote::before {
+  display: none;
+}
+
+.md-typeset .article-end {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--card-line);
+}
+
+.md-typeset .article-author {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.md-typeset .article-author__photo {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+}
+
+.md-typeset .article-author .home-eyebrow {
+  margin-bottom: 0.2rem;
+}
+
+.md-typeset .article-author__name {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.md-typeset .article-author__bio {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .article-author__link {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.md-typeset .article-author__link::after {
+  content: " ›";
+}
+
+@media (max-width: 600px) {
+  .md-typeset .article-hero {
+    padding: 1.5rem 1.2rem 1.3rem;
+  }
+}
+
+/* ============================================================
    BLOG INDEX: the plugin's post excerpts styled as cards
    ============================================================ */
 .md-typeset .blog-list__label {
