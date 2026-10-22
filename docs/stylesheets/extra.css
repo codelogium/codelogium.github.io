@@ -810,6 +810,13 @@ body[data-md-color-scheme="slate"] blockquote:before {
   text-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
 }
 
+/* Phones: let the description use the full width so both margins match */
+@media (max-width: 600px) {
+  .hero-desc {
+    max-width: none;
+  }
+}
+
 /* Short screens (phones held sideways): keep the hero below the header */
 @media (max-height: 540px) {
   #hero-title {
