@@ -1,6 +1,6 @@
 ---
 title: About
-description: "Al-Fahami Toihir: software engineer at DXC working with Java and Spring Boot, learning computer science in the open."
+description: "Al-Fahami Toihir: software engineer at DXC Technology working with Java and Spring Boot, learning computer science in the open."
 hide:
   - toc
   - navigation
@@ -11,7 +11,7 @@ hide:
 <section class="section-hero home-band home-band--dark" data-search-exclude>
   <span class="home-eyebrow">About</span>
   <h1 class="section-hero__title">Hi, I'm Al-Fahami. <em>I write these notes.</em></h1>
-  <p class="section-hero__lead">Software engineer at DXC, learning computer science in the open. Codelogium is where the notes end up, written while figuring things out.</p>
+  <p class="section-hero__lead">Software engineer at DXC Technology, learning computer science in the open. Codelogium is where the notes end up, written while figuring things out.</p>
 </section>
 
 <div class="about" data-search-exclude>
@@ -19,7 +19,7 @@ hide:
 
   <div class="about__text">
     <span class="home-eyebrow">What I do</span>
-    <p>I'm Al-Fahami Toihir, a software engineer at DXC. Day to day I work with Java and Spring Boot.</p>
+    <p>I'm Al-Fahami Toihir, a software engineer at DXC Technology. Day to day I work with Java and Spring Boot.</p>
     <p>Outside of work I keep going back to the foundations: C, how computers actually work, algorithms and data structures. This site is my notebook for all of it.</p>
 
     <span class="home-eyebrow">Away from the keyboard</span>
