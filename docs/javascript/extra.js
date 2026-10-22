@@ -136,7 +136,7 @@ function initHeroCanvas(canvas) {
   // Where glyphs rise from: the laptop screen in each mode's photo, as a fraction of the photo.
   // Update these when changing --book-image. Only the aspect ratio of w/h matters.
   const PHOTOS = {
-    light: { w: 2560, h: 1435, x: 0.74, y: 0.62 },
+    light: { w: 2000, h: 1125, x: 0.8, y: 0.5 },
     dark:  { w: 2560, h: 1707, x: 0.9,  y: 0.6 },
   };
 
