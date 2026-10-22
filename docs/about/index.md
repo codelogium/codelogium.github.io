@@ -31,6 +31,7 @@ hide:
     <div class="about__links">
       <a class="home-btn" href="https://github.com/alfahami" target="_blank" rel="noopener">GitHub</a>
       <a class="home-btn home-btn--light" href="https://www.linkedin.com/in/alfahami" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="home-btn home-btn--light" href="/assets/about/Al-Fahami-Toihir-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
     </div>
   </div>
 </div>
