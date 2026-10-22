@@ -1235,6 +1235,11 @@ body:has(.section-hero) .md-content__inner::before {
   border-radius: 6px;
 }
 
+/* Lift the shaded waterfall photo so it doesn't sink into the dark band */
+.home-about__photo {
+  filter: brightness(1.2) contrast(1.05) saturate(1.05);
+}
+
 .md-typeset .home-about__text .home-section__lead {
   margin-bottom: 1.6rem;
 }
