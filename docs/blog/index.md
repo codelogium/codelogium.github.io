@@ -5,13 +5,14 @@ description: "The Codelogium blog: stories, debugging sessions, random thoughts,
 hide:
   - navigation
   - toc
+  - feedback
 ---
 
-# 📝 Blog
+<section class="section-hero home-band home-band--dark" data-search-exclude>
+  <span class="home-eyebrow">Blog</span>
+  <h1 class="section-hero__title">The free zone. <em>Stories, bugs and brain dumps.</em></h1>
+  <p class="section-hero__lead">Posts that don't quite fit under a specific tech category: ideas, books, tools, debugging sessions, random findings.</p>
+  <p class="home-journey__quote">“Not all who wander are lost; some are just debugging.”</p>
+</section>
 
-Welcome to the **Blog**: the free zone. Here, you'll find posts that don't quite fit under a specific tech category. It could be ideas, books, tools, random findings, or digital brain dumps.
-
----
-
-## Posts
-> _Not all who wander are lost; some are just debugging._
+<span class="home-eyebrow blog-list__label">Latest posts</span>
