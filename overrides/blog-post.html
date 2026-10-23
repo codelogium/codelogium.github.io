@@ -135,16 +135,19 @@
         </div>
       </div>
     </div>
-    {#- Codelogium: breadcrumbs (Home › Blog), as on articles -#}
-    {% if "navigation.path" in features %}
-      {% include "partials/path.html" %}
-    {% endif %}
-    <article class="md-content__inner md-typeset">
-      <a id="__skip" tabindex="-1"></a>
-      {% block content %}
-        {#- Codelogium: the shared article header and footer instead of the plain content -#}
-        {% include "partials/article.html" %}
-      {% endblock %}
-    </article>
+    {#- Codelogium: breadcrumbs (Home › Blog) above the post. The post container lays its
+        children out side by side, so breadcrumbs and article share one column. -#}
+    <div class="md-post__column">
+      {% if "navigation.path" in features %}
+        {% include "partials/path.html" %}
+      {% endif %}
+      <article class="md-content__inner md-typeset">
+        <a id="__skip" tabindex="-1"></a>
+        {% block content %}
+          {#- Codelogium: the shared article header and footer instead of the plain content -#}
+          {% include "partials/article.html" %}
+        {% endblock %}
+      </article>
+    </div>
   </div>
 {% endblock %}
