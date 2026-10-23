@@ -73,7 +73,7 @@ function injectFooterResources() {
       <nav class="footer-col" aria-label="${col.title}">
         <h4 class="footer-col__title">${col.title}</h4>
         <ul>
-          ${col.links.map(l => {
+          ${[...col.links].sort((a, b) => a.label.length - b.label.length).map(l => {
             const external = l.href.startsWith('http');
             return `<li><a href="${l.href}"${external ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a></li>`;
           }).join('')}
