@@ -56,13 +56,6 @@ const FOOTER_COLUMNS = [
       { label: 'Projects', href: '/projects/' },
     ],
   },
-  {
-    title: 'Elsewhere',
-    links: [
-      { label: 'GitHub', href: 'https://github.com/alfahami' },
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alfahami' },
-    ],
-  },
 ];
 
 function injectFooterResources() {
