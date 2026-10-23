@@ -1452,7 +1452,7 @@ body:has(.article-hero) .md-content .md-typeset blockquote::before {
 }
 
 .md-typeset .home-card__body p {
-  margin: 0 0 1.4rem;
+  margin: 0 0 1.2rem;
   font-size: 0.75rem;
   line-height: 1.65;
   text-align: left;
@@ -1488,12 +1488,14 @@ body:has(.article-hero) .md-content .md-typeset blockquote::before {
   stroke-linejoin: round;
 }
 
-.md-typeset .home-card[class*="home-card--"] .home-card__body p::after {
+/* The accent line sits on the link (which is pinned to the card bottom), so lines and
+   links align across cards whatever the text length */
+.md-typeset .home-card[class*="home-card--"] .home-card__link::before {
   content: "";
   display: block;
   width: 55%;
   height: 2px;
-  margin-top: 1.2rem;
+  margin: 0 0 1.4rem;
   background: var(--card-accent);
   opacity: 0.7;
 }
@@ -1513,6 +1515,7 @@ body:has(.article-hero) .md-content .md-typeset blockquote::before {
 }
 
 .home-card__link {
+  display: block;
   margin-top: auto;
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   font-size: 0.62rem;
