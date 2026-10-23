@@ -1602,6 +1602,14 @@ body:has(.article-hero) .md-content .md-typeset blockquote::before {
   line-height: 1.75;
 }
 
+/* Justified like the home page; hyphenation keeps the word gaps even */
+.md-content .md-typeset .about__text p,
+body:has(.about) .section-hero__lead {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 .about__links {
   display: flex;
   flex-wrap: wrap;
