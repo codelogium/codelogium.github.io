@@ -1,3 +1,0 @@
-# JWT Auth
-
-## JWT History
