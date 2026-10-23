@@ -1862,8 +1862,8 @@ body.home-page .md-content__inner {
 /* About: one line per country, the flag stands in for the bullet */
 .md-typeset ul.about__dishes {
   list-style: none;
-  margin-left: 0;
-  font-size: 0.85rem;
+  margin-left: 1.25rem;
+  font-size: 0.75rem;
   line-height: 1.75;
 }
 
