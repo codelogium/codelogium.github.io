@@ -1612,14 +1612,6 @@ body:has(.article-hero) .md-content .md-typeset blockquote::before {
   line-height: 1.75;
 }
 
-/* Justified like the home page; hyphenation keeps the word gaps even */
-.md-content .md-typeset .about__text p,
-body:has(.about) .section-hero__lead {
-  text-align: justify;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-}
-
 .about__links {
   display: flex;
   flex-wrap: wrap;
@@ -1865,4 +1857,16 @@ html[data-light-photo="library"] [data-md-color-scheme="default"] .home-mini-car
 /* The closing band sits flush on the footer */
 body.home-page .md-content__inner {
   padding-bottom: 0 !important;
+}
+
+/* About: one line per country, the flag stands in for the bullet */
+.md-typeset ul.about__dishes {
+  list-style: none;
+  margin-left: 0;
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.md-typeset ul.about__dishes li {
+  margin-left: 0;
 }
