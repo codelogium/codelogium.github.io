@@ -15,8 +15,9 @@
   --md-primary-fg-color--light: #E0F5EF;
   --md-primary-fg-color--dark:  #095440;
 
-  --md-accent-fg-color:              #0BC4A0;
-  --md-accent-fg-color--transparent: rgba(11, 196, 160, 0.12);
+  /* Deep enough to read on the cream page (5:1 on the nav tint); dark mode has its own */
+  --md-accent-fg-color:              #0A6650;
+  --md-accent-fg-color--transparent: rgba(10, 102, 80, 0.12);
 
   /* Warm paper, to sit with the library photo */
   --md-default-bg-color:        #F5EFE4;
@@ -55,6 +56,7 @@
   /* The deep primary green disappears on black, so links use a brighter one */
   --md-typeset-a-color: #34D399;
   --md-accent-fg-color: #6EE7B7;
+  --md-accent-fg-color--transparent: rgba(11, 196, 160, 0.12);
 
   /* Deep blue-slate from the desk photo's night tones, lifted off pure black */
   --md-default-bg-color:        #161C24;
@@ -170,16 +172,7 @@ body.home-page .md-content .md-typeset p,
 /* ============================================================
    SIDEBAR NAVIGATION
    ============================================================ */
-.md-nav__link {
-  font-size: 0.65rem;
-}
-
-.md-nav__link:hover,
-.md-nav__link:focus {
-  background-color: var(--md-primary-fg-color--light) !important;
-  color: var(--md-primary-fg-color--dark) !important;
-  border-radius: 4px;
-}
+/* Sidebars use Zensical's own styling; only the phone drawer font is customized */
 
 /* Below the tabs breakpoint the drawer replaces the tabs, so match their typeface */
 @media screen and (max-width: 76.234375em) {
@@ -188,14 +181,6 @@ body.home-page .md-content .md-typeset p,
     font-family: 'Space Grotesk', sans-serif !important;
     font-weight: 600;
   }
-}
-
-.md-nav__link--active,
-.md-nav__link[aria-current] {
-  background-color: var(--md-primary-fg-color) !important;
-  color: #fff !important;
-  font-weight: 600;
-  border-radius: 4px;
 }
 
 /* ============================================================
@@ -552,7 +537,7 @@ body[data-md-color-scheme="slate"] blockquote:before {
 
 .footer-resources {
   display: grid;
-  grid-template-columns: 1.4fr repeat(4, 1fr);
+  grid-template-columns: 1.4fr repeat(3, 1fr);
   gap: 2rem;
   padding-bottom: 1.75rem;
   margin-bottom: 0.75rem;
@@ -595,10 +580,10 @@ body[data-md-color-scheme="slate"] blockquote:before {
   font-size: 0.7rem;
 }
 
-/* Medium screens: brand on its own row, the four link columns below */
+/* Medium screens: brand on its own row, the three link columns below */
 @media (max-width: 1100px) {
   .footer-resources {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .footer-brand {
@@ -960,6 +945,11 @@ body:has(.section-hero) .md-main__inner {
   margin-top: 0;
 }
 
+/* Breadcrumbs belong to articles; hero pages are one level deep and start with their band */
+body:has(.section-hero) .md-path {
+  display: none;
+}
+
 body:has(.section-hero) .md-content__inner {
   padding-top: 0;
 }
@@ -1150,6 +1140,12 @@ body:has(.section-hero) .md-content__inner::before {
 .md-sidebar--post .md-post__authors,
 .md-sidebar--post .md-post__meta {
   display: none;
+}
+
+/* Blog post: breadcrumbs and article stacked in the column beside the post sidebar */
+.md-post__column {
+  flex-grow: 1;
+  min-width: 0;
 }
 
 /* Blog posts keep their `#` title (the blog list builds card titles from it);
@@ -1612,6 +1608,14 @@ body:has(.article-hero) .md-content .md-typeset blockquote::before {
   line-height: 1.75;
 }
 
+/* Justified like the home page; hyphenation keeps the word gaps even */
+.md-content .md-typeset .about__text p,
+body:has(.about) .section-hero__lead {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 .about__links {
   display: flex;
   flex-wrap: wrap;
@@ -1812,6 +1816,8 @@ html[data-light-photo="library"] [data-md-color-scheme="default"] .home-mini-car
   --md-default-fg-color: #E6EDF3;
   --md-default-fg-color--light: rgba(230, 237, 243, 0.68);
   --md-default-fg-color--lightest: rgba(230, 237, 243, 0.12);
+  /* Dark bands use the bright accent in both modes; the deep light-mode one vanishes here */
+  --md-accent-fg-color: #6EE7B7;
   --art-bg: #1A212B;
   --art-ink: #34D399;
   --art-string: #FBBF24;

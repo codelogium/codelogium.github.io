@@ -33,6 +33,8 @@ const FOOTER_COLUMNS = [
   {
     title: 'C Language',
     links: [
+      { label: 'The C Programming Language (K&R)', href: 'https://www.informit.com/store/c-programming-language-9780133086225' },
+      { label: 'Le langage C (K&R, FR)', href: 'https://www.dunod.com/sciences-techniques/langage-c-norme-ansi-0' },
       { label: "Beej's Guide to C", href: 'https://beej.us/guide/bgc/html/split-wide/' },
       { label: 'C Programming: A Modern Approach', href: 'http://knking.com/books/c2/' },
       { label: 'Robert C. Seacord', href: 'https://clark.center/users/Rcseacord' },
@@ -54,13 +56,6 @@ const FOOTER_COLUMNS = [
       { label: 'Projects', href: '/projects/' },
     ],
   },
-  {
-    title: 'Elsewhere',
-    links: [
-      { label: 'GitHub', href: 'https://github.com/alfahami' },
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alfahami' },
-    ],
-  },
 ];
 
 function injectFooterResources() {
@@ -78,7 +73,7 @@ function injectFooterResources() {
       <nav class="footer-col" aria-label="${col.title}">
         <h4 class="footer-col__title">${col.title}</h4>
         <ul>
-          ${col.links.map(l => {
+          ${[...col.links].sort((a, b) => a.label.length - b.label.length).map(l => {
             const external = l.href.startsWith('http');
             return `<li><a href="${l.href}"${external ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a></li>`;
           }).join('')}
