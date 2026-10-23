@@ -50,7 +50,7 @@
     {#- Projects (front matter with `repo` or `stack`) show the year, stack and links -#}
     {% set is_project = m.repo or m.stack %}
     <div class="article-meta">
-      <img class="article-meta__avatar" src="https://github.com/alfahami.png" alt="" width="40" height="40">
+      <img class="article-meta__avatar" src="{{ 'assets/about/avatar.jpg' | url }}" alt="" width="40" height="40">
       <span>Al-Fahami Toihir</span>
       <span class="article-meta__dot" aria-hidden="true">·</span>
       {% if is_project %}
@@ -80,7 +80,7 @@
 
   <footer class="article-end" data-search-exclude>
     <div class="article-author">
-      <img class="article-author__photo" src="https://github.com/alfahami.png" alt="" width="72" height="72" loading="lazy">
+      <img class="article-author__photo" src="{{ 'assets/about/avatar.jpg' | url }}" alt="" width="72" height="72" loading="lazy">
       <div>
         <span class="home-eyebrow">Written by</span>
         <p class="article-author__name">Al-Fahami Toihir</p>

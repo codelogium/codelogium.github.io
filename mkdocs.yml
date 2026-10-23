@@ -1,6 +1,7 @@
 site_name: Codelogium
-site_description: Developer logs, notes, and learning paths
-site_url: https://codelogium.github.io
+site_description: "Codelogium is Al-Fahami Toihir's learning journal: notes on CS fundamentals, C, Java, Spring and real-world engineering, written while figuring it out."
+site_author: Al-Fahami Toihir
+site_url: https://codelogium.github.io/
 repo_url: https://github.com/alfahami/codelogium.github.io
 repo_name: alfahami/codelogium
 

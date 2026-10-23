@@ -35,7 +35,7 @@ hide:
       <div class="home-card__body">
         <span class="home-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3M7.4 15h9.2"/></svg></span>
         <h3>Lab</h3>
-        <p>Hands-on guides and cheatsheets from real work: Git today, Docker and CI/CD next.</p>
+        <p>Hands-on guides and cheatsheets from real work: the commands, workflows and fixes that actually came up. Git today, Docker and CI/CD next.</p>
         <span class="home-card__link">Open the Lab</span>
       </div>
     </a>

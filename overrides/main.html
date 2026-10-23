@@ -7,6 +7,51 @@
   Optional front matter: cover, cover_alt, cover_focus, cover_ratio (banner shape, e.g.
   "1200 / 380"); for projects repo, demo, stack, year.
 -#}
+{#- Search results: pair the brand with the author so it isn't mistaken for Codeium/CodeLogic -#}
+{% block htmltitle %}
+  {% if not page.url %}
+    <title>{{ config.site_name }} · {{ config.site_author }}: notes on C, Java &amp; CS</title>
+  {% else %}
+    <title>{{ (page.meta.title if page.meta and page.meta.title else page.title) | striptags }} · {{ config.site_name }}</title>
+  {% endif %}
+{% endblock %}
+
+{#- Structured data (schema.org) on the home and About pages: who runs the site -#}
+{% block extrahead %}
+  {% if not page.url or page.url == "about/" %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "{{ config.site_url }}#website",
+          "name": "{{ config.site_name }}",
+          "alternateName": "{{ config.site_name }} by {{ config.site_author }}",
+          "url": "{{ config.site_url }}",
+          "description": {{ config.site_description | tojson }},
+          "author": { "@id": "{{ config.site_url }}#author" }
+        },
+        {
+          "@type": "Person",
+          "@id": "{{ config.site_url }}#author",
+          "name": "{{ config.site_author }}",
+          "url": "{{ config.site_url }}about/",
+          "image": "{{ config.site_url }}assets/about/avatar.jpg",
+          "jobTitle": "Software Engineer",
+          "worksFor": { "@type": "Organization", "name": "DXC Technology" },
+          "sameAs": [
+            "https://github.com/alfahami",
+            "https://www.linkedin.com/in/alfahami",
+            "https://www.credly.com/badges/550ad245-d58e-4984-b239-60931322c443"
+          ]
+        }
+      ]
+    }
+    </script>
+  {% endif %}
+{% endblock %}
+
 {% block content %}
   {% set m = page.meta or {} %}
   {% if m.date and m.reading_time and "<h1" not in page.content and "blog/" not in (page.url or "") %}
