@@ -1,5 +1,9 @@
 ---
 title: Home
+social:
+  cards_layout_options:
+    title: "Al-Fahami Toihir's learning journal"
+    description: "Notes on CS fundamentals, C, Java and Spring, written while figuring it out."
 hide:
   - toc
   - feedback

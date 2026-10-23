@@ -104,3 +104,7 @@ plugins:
   # - social: can be installed later preferably in a linux machine
   - social:
       enabled: !ENV [CI, false]
+      cards_layout_options:
+        background_color: "#0E7A60"
+        color: "#FFFFFF"
+        font_family: Inter
