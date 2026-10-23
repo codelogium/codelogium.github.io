@@ -1589,6 +1589,10 @@ body:has(.article-hero) .md-content .md-typeset blockquote::before {
 .about__photo {
   position: sticky;
   top: calc(var(--header-height) + 1.5rem);
+  /* Fit the viewport, or a tall photo scrolls out from under the header */
+  max-height: calc(100vh - var(--header-height) - 3rem);
+  object-fit: cover;
+  object-position: center 60%;
 }
 
 .md-typeset .about__text {
