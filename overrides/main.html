@@ -25,7 +25,7 @@
   {% set share_image = m.share_image or m.cover_share or m.cover %}
   {% if share_image and m.social and m.social.cards == false %}
     {% set cover_url = config.site_url ~ share_image %}
-    {% set share_title = (m.title or page.title) ~ " · " ~ config.site_name %}
+    {% set share_title = m.share_title or ((m.title or page.title) ~ " · " ~ config.site_name) %}
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="{{ config.site_name }}">
     <meta property="og:title" content="{{ share_title }}">

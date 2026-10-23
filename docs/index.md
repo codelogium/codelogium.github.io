@@ -1,9 +1,10 @@
 ---
 title: Home
+share_image: assets/home-share.jpg
+share_image_alt: "Stacked books, a bookshelf, a lamp and an open laptop at night"
+share_title: "Codelogium · Al-Fahami Toihir's learning journal"
 social:
-  cards_layout_options:
-    title: "Al-Fahami Toihir's learning journal"
-    description: "Notes on CS fundamentals, C, Java and Spring, written while figuring it out."
+  cards: false
 hide:
   - toc
   - feedback
