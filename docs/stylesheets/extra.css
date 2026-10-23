@@ -1870,3 +1870,14 @@ body.home-page .md-content__inner {
 .md-typeset ul.about__dishes li {
   margin-left: 0;
 }
+
+/* SVG flags: Windows has no flag emoji and shows "KM", "MA"… instead */
+.md-typeset .about__flag {
+  display: inline-block;
+  width: 23px;
+  height: 14px;
+  object-fit: contain;
+  object-position: left center;
+  margin-right: 0.35em;
+  vertical-align: -0.2em;
+}
