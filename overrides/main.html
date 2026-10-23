@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{#-
+  Article layout: a page with `date` and `reading_time` in its front matter and no
+  `#` title of its own gets partials/article.html (generated header, content, author
+  footer). Blog posts get it through blog-post.html instead.
+  Optional front matter: cover, cover_alt, cover_focus, cover_ratio (banner shape, e.g.
+  "1200 / 380"); for projects repo, demo, stack, year.
+-#}
+{% block content %}
+  {% set m = page.meta or {} %}
+  {% if m.date and m.reading_time and "<h1" not in page.content and "blog/" not in (page.url or "") %}
+    {% include "partials/article.html" %}
+  {% else %}
+    {{ super() }}
+  {% endif %}
+{% endblock %}

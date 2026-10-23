@@ -115,11 +115,11 @@ function injectHero() {
     document.getElementById('whats-inside')?.scrollIntoView({ behavior: 'smooth' });
   });
 
-  // Line up with the first tab; below the tabs breakpoint, with the header title instead.
+  // Line up with the first tab; below the tabs breakpoint, use the same 16px gutter as the right edge.
   const alignTitle = () => {
     const firstTab = document.querySelector('.md-tabs__link');
-    const anchor = firstTab && firstTab.offsetParent ? firstTab : document.querySelector('.md-header__topic');
-    if (anchor) title.style.left = Math.max(16, anchor.getBoundingClientRect().left) + 'px';
+    const left = firstTab && firstTab.offsetParent ? firstTab.getBoundingClientRect().left : 16;
+    title.style.left = Math.max(16, left) + 'px';
   };
   window.addEventListener('resize', alignTitle);
 

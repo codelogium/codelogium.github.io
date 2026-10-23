@@ -8,19 +8,6 @@ description: "Branching strategies, stash workflows, reverting commits, resettin
 reading_time: 6
 ---
 
-# Branches, Stash & Undoing
-
-<div class="blog-meta" data-search-exclude>
-  <div class="blog-meta-container">
-    <span class="meta-content">
-      By: &nbsp;<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
-      &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/git/"><em>git</em></a>&nbsp;•&nbsp;
-               <a href="/categories/workflow/"><em>workflow</em></a>&nbsp;•&nbsp;
-      ⏱️ ~6 min read</span>
-    </span>
-  </div>
-</div>
-
 > "A branch is a lightweight movable pointer to one of these commits."
 
 ---

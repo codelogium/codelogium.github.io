@@ -7,24 +7,9 @@ categories:
   - OOP
 description: "Explore how Java generics work across interfaces, classes, and multi-type scenarios with real examples."
 reading_time: 5
-cover: /assets/images/generics-cover.png
 summary: |
   Dive deeper into Java generics through interfaces, key-value pairs, and multi-type generic classes. Understand how to apply them in real use cases like repositories and collections.
 ---
-
-# Generic Types in Java
-
-<div class="blog-meta" data-search-exclude>
-  <div class="blog-meta-container">
-    <span class="meta-content">
-      By: &nbsp;<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
-      &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/java/"><em>java</em></a>&nbsp;•&nbsp;  
-         <a href="/categories/programming/"><em>programming</em></a>&nbsp;•&nbsp; 
-         <a href="/categories/oop/"><em>oop</em></a>&nbsp;•&nbsp;  
-      ⏱️ ~5 min read</span>
-    </span>
-  </div>
-</div>
 
 > "Write once, use many": Generics let you write flexible and reusable code.
 

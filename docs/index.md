@@ -46,7 +46,8 @@ hide:
   <div class="home-journey__intro">
     <span class="home-eyebrow">Learning in the open</span>
     <h2 class="home-section__title">No polish. <em>Just the real notes.</em></h2>
-    <p class="home-section__lead">Every entry is written mid-struggle, not after. No cleaned-up recaps. These are mid-struggle notes: K&amp;R exercises that owned a whole weekend, CS50 problems that clicked only on the third try. The path is open if you want to walk it.</p>
+    <p class="home-journey__quote">“Note-taking is thinking made visible.”</p>
+    <p class="home-section__lead">Every entry is written mid-struggle, not after: K&amp;R exercises that owned a whole weekend, CS50 problems that clicked only on the third try. No cleaned-up recaps. The path is open if you want to walk it.</p>
     <a class="home-btn" href="blog/">Read the notes</a>
   </div>
 
@@ -106,7 +107,7 @@ hide:
   <div class="home-about__text">
     <span class="home-eyebrow">Behind the notes</span>
     <h2 class="home-section__title">Hi, I'm Al-Fahami. <em>I write these notes.</em></h2>
-    <p class="home-section__lead">Software engineer at DXC, working with Java and Spring Boot. When I'm not learning computer science, you'll find me at the gym, in the forest, swimming, or anywhere out in nature.</p>
+    <p class="home-section__lead">Software engineer at DXC Technology, working with Java and Spring Boot. When I'm not learning computer science, you'll find me at the gym, in the forest, swimming, or anywhere out in nature.</p>
     <a class="home-btn" href="about/">More about me</a>
   </div>
 </section>

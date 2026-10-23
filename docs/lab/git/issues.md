@@ -8,19 +8,6 @@ description: "Real git issues encountered during development; root causes, inves
 reading_time: 8
 ---
 
-# Issues & Troubleshooting
-
-<div class="blog-meta" data-search-exclude>
-  <div class="blog-meta-container">
-    <span class="meta-content">
-      By: &nbsp;<strong><a href="https://github.com/alfahami" target="_blank">Al-Fahami Toihir</a></strong>
-      &nbsp; <span class="category-timer-mobile"> 🏷️&nbsp;<a href="/categories/git/"><em>git</em></a>&nbsp;•&nbsp;
-               <a href="/categories/workflow/"><em>workflow</em></a>&nbsp;•&nbsp;
-      ⏱️ ~8 min read</span>
-    </span>
-  </div>
-</div>
-
 > "When git behaves unexpectedly, the answer is almost always in the history."
 
 A personal log of real git issues encountered during development; root causes, investigation steps, and fixes. Not theory: things that actually happened.
