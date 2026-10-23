@@ -163,7 +163,7 @@ Used `MockWebServer` from OkHttp to simulate the Exchange Rate Service in Portfo
 - **Global exception handling** : using `@ControllerAdvice` for consistent error responses across all endpoints
 - **Transaction management** : ensuring atomic updates when modifying related entities
 
-> While building this project I went deep on **WebClient and reactive programming** : a dedicated article on that is coming to the [Spring section](../../spring/index.md).
+> While building this project I went deep on **WebClient and reactive programming**.
 
 ---
 
