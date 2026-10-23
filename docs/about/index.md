@@ -30,7 +30,12 @@ hide:
     <span class="home-eyebrow">Away from the keyboard</span>
     <p>When I'm not learning about CS, I'm at the gym, in the forest, swimming, or anywhere out in nature. I love exploring new places and exchanging ideas with like-minded people.</p>
     <p>That's usually where you'll find me, just like in the photo: visiting the Imlil waterfall, seconds before the slippery rocks almost had me slipping straight into the water.</p>
-    <p>I'm also a die-hard fan of traditional food, from home and from other cultures. From the Comoros 🇰🇲: pilau, madaba, couscouma, koko ntrédé, mkatra futra. From Morocco 🇲🇦: couscous, harira, rfissa, tanjia and tajine. From Senegal 🇸🇳: poulet yassa and thieboudienne (jollof rice). And plenty more.</p>
+    <p>I'm also a die-hard fan of traditional food, from home and from other cultures:</p>
+    <ul class="about__dishes">
+      <li>🇰🇲&nbsp; <strong>Comoros:</strong> pilau, couscouma, madaba, samboussa, futra, mhogo…</li>
+      <li>🇲🇦&nbsp; <strong>Morocco:</strong> couscous, harira, rfissa, tanjia, tajine, taqliya…</li>
+      <li>🇸🇳&nbsp; <strong>Senegal:</strong> thieboudienne (jollof rice), poulet yassa… and plenty more</li>
+    </ul>
 
     <span class="home-eyebrow">Say hello</span>
     <p>If something here helped you, or you want to talk code, nature or both, reach out.</p>

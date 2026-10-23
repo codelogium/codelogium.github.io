@@ -1858,3 +1858,15 @@ html[data-light-photo="library"] [data-md-color-scheme="default"] .home-mini-car
 body.home-page .md-content__inner {
   padding-bottom: 0 !important;
 }
+
+/* About: one line per country, the flag stands in for the bullet */
+.md-typeset ul.about__dishes {
+  list-style: none;
+  margin-left: 0;
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.md-typeset ul.about__dishes li {
+  margin-left: 0;
+}
