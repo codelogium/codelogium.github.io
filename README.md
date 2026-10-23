@@ -2,7 +2,8 @@
 
 > Developer logs, notes, and learning paths; built with MkDocs Material.
 
-Live site: [codelogium.github.io](https://codelogium.com)
+Live site: [codelogium.com](https://codelogium.com)
+
 
 ---
 
