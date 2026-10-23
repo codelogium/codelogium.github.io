@@ -83,7 +83,7 @@ extra:
           data: 0
           note: >-
             Thanks for your feedback! Help us improve this page by
-            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            <a href="https://github.com/codelogium/codelogium.github.io/issues/new?title=Feedback%3A+{title}&body=Page%3A+{url}%0A%0AWhat+could+be+better%3F%0A" target="_blank" rel="noopener">opening an issue on GitHub</a>.
 
 copyright: © 2026 <a href="https://codelogium.github.io/">Codelogium</a> • Crafted with curiosity accompanied by a cup of tea ☕
 
