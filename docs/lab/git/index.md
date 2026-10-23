@@ -10,6 +10,9 @@ cover: assets/posts/git.webp
 cover_alt: "A git logo sticker held between two fingers"
 cover_focus: center 86%
 cover_ratio: 1200 / 380
+cover_share: assets/posts/git.jpg
+social:
+  cards: false
 ---
 
 > "Version control is not just a tool; it's a habit."
