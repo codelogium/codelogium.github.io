@@ -33,6 +33,8 @@ const FOOTER_COLUMNS = [
   {
     title: 'C Language',
     links: [
+      { label: 'The C Programming Language (K&R)', href: 'https://www.informit.com/store/c-programming-language-9780133086225' },
+      { label: 'Le langage C (K&R, FR)', href: 'https://www.dunod.com/sciences-techniques/langage-c-norme-ansi-0' },
       { label: "Beej's Guide to C", href: 'https://beej.us/guide/bgc/html/split-wide/' },
       { label: 'C Programming: A Modern Approach', href: 'http://knking.com/books/c2/' },
       { label: 'Robert C. Seacord', href: 'https://clark.center/users/Rcseacord' },
