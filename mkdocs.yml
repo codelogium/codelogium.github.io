@@ -31,6 +31,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.indexes
+    - navigation.path
     - content.tabs.link
     - content.code.copy
     - search.suggest
