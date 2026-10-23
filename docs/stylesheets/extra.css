@@ -15,8 +15,9 @@
   --md-primary-fg-color--light: #E0F5EF;
   --md-primary-fg-color--dark:  #095440;
 
-  --md-accent-fg-color:              #0BC4A0;
-  --md-accent-fg-color--transparent: rgba(11, 196, 160, 0.12);
+  /* Deep enough to read on the cream page (5:1 on the nav tint); dark mode has its own */
+  --md-accent-fg-color:              #0A6650;
+  --md-accent-fg-color--transparent: rgba(10, 102, 80, 0.12);
 
   /* Warm paper, to sit with the library photo */
   --md-default-bg-color:        #F5EFE4;
@@ -55,6 +56,7 @@
   /* The deep primary green disappears on black, so links use a brighter one */
   --md-typeset-a-color: #34D399;
   --md-accent-fg-color: #6EE7B7;
+  --md-accent-fg-color--transparent: rgba(11, 196, 160, 0.12);
 
   /* Deep blue-slate from the desk photo's night tones, lifted off pure black */
   --md-default-bg-color:        #161C24;
@@ -1800,6 +1802,8 @@ html[data-light-photo="library"] [data-md-color-scheme="default"] .home-mini-car
   --md-default-fg-color: #E6EDF3;
   --md-default-fg-color--light: rgba(230, 237, 243, 0.68);
   --md-default-fg-color--lightest: rgba(230, 237, 243, 0.12);
+  /* Dark bands use the bright accent in both modes; the deep light-mode one vanishes here */
+  --md-accent-fg-color: #6EE7B7;
   --art-bg: #1A212B;
   --art-ink: #34D399;
   --art-string: #FBBF24;
