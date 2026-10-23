@@ -31,15 +31,6 @@
         <loc>https://codelogium.github.io/cs-fundamentals/</loc>
       </url>
       <url>
-        <loc>https://codelogium.github.io/databases/</loc>
-      </url>
-      <url>
-        <loc>https://codelogium.github.io/databases/hibernate-tips/</loc>
-      </url>
-      <url>
-        <loc>https://codelogium.github.io/databases/postgres-vs-h2/</loc>
-      </url>
-      <url>
         <loc>https://codelogium.github.io/java/</loc>
       </url>
       <url>
@@ -67,12 +58,6 @@
         <loc>https://codelogium.github.io/languages/</loc>
       </url>
       <url>
-        <loc>https://codelogium.github.io/network/</loc>
-      </url>
-      <url>
-        <loc>https://codelogium.github.io/network/basic-network1/</loc>
-      </url>
-      <url>
         <loc>https://codelogium.github.io/projects/</loc>
       </url>
       <url>
@@ -83,11 +68,5 @@
       </url>
       <url>
         <loc>https://codelogium.github.io/projects/java/crypto-portfolio/</loc>
-      </url>
-      <url>
-        <loc>https://codelogium.github.io/spring/</loc>
-      </url>
-      <url>
-        <loc>https://codelogium.github.io/spring/jwt-auth/</loc>
       </url>
 </urlset>
