@@ -170,15 +170,17 @@ body.home-page .md-content .md-typeset p,
 /* ============================================================
    SIDEBAR NAVIGATION
    ============================================================ */
+/* Zensical-docs style: plain links that only change color on hover; the current page
+   gets a faint tint, and the "On this page" list just colors the current section */
 .md-nav__link {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
+  transition: color 0.15s;
 }
 
 .md-nav__link:hover,
 .md-nav__link:focus {
-  background-color: var(--md-primary-fg-color--light) !important;
-  color: var(--md-primary-fg-color--dark) !important;
-  border-radius: 4px;
+  background: none !important;
+  color: var(--md-typeset-a-color) !important;
 }
 
 /* Below the tabs breakpoint the drawer replaces the tabs, so match their typeface */
@@ -190,12 +192,21 @@ body.home-page .md-content .md-typeset p,
   }
 }
 
-.md-nav__link--active,
-.md-nav__link[aria-current] {
-  background-color: var(--md-primary-fg-color) !important;
-  color: #fff !important;
+/* The tint is drawn as a spread shadow so the text stays aligned with its siblings */
+.md-nav--primary .md-nav__link--active,
+.md-nav--primary .md-nav__link[aria-current] {
+  --nav-tint: color-mix(in srgb, var(--md-typeset-a-color) 14%, transparent);
+  background-color: var(--nav-tint) !important;
+  box-shadow: 0 0 0 0.35rem var(--nav-tint);
+  color: var(--md-typeset-a-color) !important;
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: 3px;
+}
+
+.md-nav--secondary .md-nav__link--active {
+  background: none !important;
+  color: var(--md-typeset-a-color) !important;
+  font-weight: 600;
 }
 
 /* ============================================================

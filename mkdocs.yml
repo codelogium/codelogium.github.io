@@ -39,7 +39,7 @@ theme:
 
 markdown_extensions:
   - toc:
-      title: "Table of content"
+      title: "On this page"
       permalink: "¶"
       permalink_title: Permalink
       toc_depth: "1-6"
