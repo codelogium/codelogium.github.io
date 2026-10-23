@@ -31,6 +31,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.indexes
+    - navigation.path
     - content.tabs.link
     - content.code.copy
     - search.suggest
@@ -39,7 +40,7 @@ theme:
 
 markdown_extensions:
   - toc:
-      title: "Table of content"
+      title: "On this page"
       permalink: "¶"
       permalink_title: Permalink
       toc_depth: "1-6"
@@ -103,3 +104,7 @@ plugins:
   # - social: can be installed later preferably in a linux machine
   - social:
       enabled: !ENV [CI, false]
+      cards_layout_options:
+        background_color: "#0E7A60"
+        color: "#FFFFFF"
+        font_family: Inter
