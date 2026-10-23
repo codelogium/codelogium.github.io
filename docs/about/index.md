@@ -1,6 +1,10 @@
 ---
 title: About
 description: "Al-Fahami Toihir: software engineer at DXC Technology working with Java, Spring Boot and microservices, learning computer science in the open."
+share_image: assets/about/me-share.jpg
+share_image_alt: "Al-Fahami Toihir at the Imlil waterfall"
+social:
+  cards: false
 hide:
   - toc
   - navigation

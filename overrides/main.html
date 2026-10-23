@@ -18,12 +18,13 @@
 
 {#- Structured data (schema.org) on the home and About pages: who runs the site -#}
 {% block extrahead %}
-  {#- Pages with a cover photo and `social: cards: false` share the photo itself as their
-      link preview (the social plugin adds no tags for them) -#}
+  {#- Pages with a photo and `social: cards: false` share the photo itself as their link
+      preview (the social plugin adds no tags for them). The photo is `share_image`, else
+      `cover_share` (a JPG/PNG copy, since LinkedIn doesn't take WebP), else `cover`. -#}
   {% set m = page.meta or {} %}
-  {% if m.cover and m.social and m.social.cards == false %}
-    {#- cover_share: optional JPG/PNG copy, since LinkedIn doesn't take WebP previews -#}
-    {% set cover_url = config.site_url ~ (m.cover_share or m.cover) %}
+  {% set share_image = m.share_image or m.cover_share or m.cover %}
+  {% if share_image and m.social and m.social.cards == false %}
+    {% set cover_url = config.site_url ~ share_image %}
     {% set share_title = (m.title or page.title) ~ " · " ~ config.site_name %}
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="{{ config.site_name }}">
@@ -31,7 +32,7 @@
     <meta property="og:description" content="{{ m.description or config.site_description }}">
     <meta property="og:url" content="{{ page.canonical_url }}">
     <meta property="og:image" content="{{ cover_url }}">
-    {% if m.cover_alt %}<meta property="og:image:alt" content="{{ m.cover_alt }}">{% endif %}
+    {% if m.share_image_alt or m.cover_alt %}<meta property="og:image:alt" content="{{ m.share_image_alt or m.cover_alt }}">{% endif %}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ share_title }}">
     <meta name="twitter:description" content="{{ m.description or config.site_description }}">
