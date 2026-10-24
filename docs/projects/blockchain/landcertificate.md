@@ -128,37 +128,37 @@ Then visit:
 
 **Admin panel: all certified lands:**
 
-![Admin all certificates](https://raw.githubusercontent.com/alfahami/landcertificate/main/screenshots/admin_all_certificates.png)
+![Admin all certificates](/assets/projects/landcertificate/admin_all_certificates.webp){ width="1000" height="265" loading=lazy }
 
 **Admin: adding a new land certificate:**
 
-![Admin add land](https://raw.githubusercontent.com/alfahami/landcertificate/main/screenshots/admin_addland.png)
+![Admin add land](/assets/projects/landcertificate/admin_addland.webp){ width="1000" height="630" loading=lazy }
 
 **Client: request form:**
 
-![Client index](https://raw.githubusercontent.com/alfahami/landcertificate/main/screenshots/client_index.png)
+![Client index](/assets/projects/landcertificate/client_index.webp){ width="1000" height="648" loading=lazy }
 
 **Client: form filled:**
 
-![Client form filled](https://raw.githubusercontent.com/alfahami/landcertificate/main/screenshots/client_req_filled.png)
+![Client form filled](/assets/projects/landcertificate/client_req_filled.webp){ width="1000" height="640" loading=lazy }
 
 **Client: form submitted:**
 
-![Client request sent](https://raw.githubusercontent.com/alfahami/landcertificate/main/screenshots/client_req_sent.png)
+![Client request sent](/assets/projects/landcertificate/client_req_sent.webp){ width="1000" height="662" loading=lazy }
 
 **Admin receives the request:**
 
-![Admin add land filled](https://raw.githubusercontent.com/alfahami/landcertificate/main/screenshots/admin_addland_filled.png)
+![Admin add land filled](/assets/projects/landcertificate/admin_addland_filled.webp){ width="1000" height="616" loading=lazy }
 
 **All certified lands after validation:**
 
-![Admin all certificates updated](https://raw.githubusercontent.com/alfahami/landcertificate/main/screenshots/admin_all_certificates_w_newly_entered.png)
+![Admin all certificates updated](/assets/projects/landcertificate/admin_all_certificates_w_newly_entered.webp){ width="1000" height="294" loading=lazy }
 
 **Certified land with QR Code:**
 
-![Land detail with QR](https://raw.githubusercontent.com/alfahami/landcertificate/main/screenshots/land_detail1.png)
+![Land detail with QR](/assets/projects/landcertificate/land_detail1.webp){ width="1000" height="720" loading=lazy }
 
-![Land detail QR close up](https://raw.githubusercontent.com/alfahami/landcertificate/main/screenshots/land_detail2.png)
+![Land detail QR close up](/assets/projects/landcertificate/land_detail2.webp){ width="1000" height="684" loading=lazy }
 
 ---
 
