@@ -90,7 +90,7 @@ hide:
       <span class="home-mini-card__image" style="--card-pos: 18% 80%; --card-pos-library: 50% 45%; --card-pos-dark: 45% 25%" aria-hidden="true"></span>
       <span class="home-mini-card__body">
         <span class="home-mini-card__kicker">Java · May 7, 2025</span>
-        <span class="home-mini-card__title">Generic Types in Java</span>
+        <span class="home-mini-card__title">Java Generics</span>
         <span class="home-mini-card__text">How Java generics work across interfaces, classes and multi-type scenarios, with real examples.</span>
         <span class="home-card__link">Read</span>
       </span>

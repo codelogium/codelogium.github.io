@@ -1,5 +1,5 @@
 ---
-title: "Generic Types in Java"
+title: "Java Generics"
 date: 2025-05-07
 categories:
   - Java
