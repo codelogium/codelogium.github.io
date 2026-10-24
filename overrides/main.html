@@ -18,6 +18,10 @@
 
 {#- Structured data (schema.org) on the home and About pages: who runs the site -#}
 {% block extrahead %}
+  {#- The only font request: theme font loading is off in mkdocs.yml (font: false) -#}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..700;1,300..700&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap">
   {#- Pages with a photo and `social: cards: false` share the photo itself as their link
       preview (the social plugin adds no tags for them). The photo is `share_image`, else
       `cover_share` (a JPG/PNG copy, since LinkedIn doesn't take WebP), else `cover`. -#}
