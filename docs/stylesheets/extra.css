@@ -1951,3 +1951,11 @@ body:has(#hero-title) .md-content__inner {
   margin-right: 0.35em;
   vertical-align: -0.2em;
 }
+
+/* Sidebar groups (navigation.sections): show only the group you're reading (Blockchain
+   projects don't list the Java ones); the section pages' cards link across groups */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary .md-nav__item--section:not(.md-nav__item--active) {
+    display: none;
+  }
+}
