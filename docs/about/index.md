@@ -19,7 +19,7 @@ hide:
 </section>
 
 <div class="about" data-search-exclude>
-  <img class="about__photo" src="/assets/about/me.jpg" alt="Al-Fahami Toihir standing on the rocks in front of a waterfall" width="1125" height="1500" loading="lazy">
+  <img class="about__photo" src="/assets/about/me-800.webp" srcset="/assets/about/me-480.webp 480w, /assets/about/me-800.webp 800w" sizes="(max-width: 76.1875em) 18rem, 20rem" alt="Al-Fahami Toihir standing on the rocks in front of a waterfall" width="1125" height="1500" fetchpriority="high">
 
   <div class="about__text">
     <span class="home-eyebrow">What I do</span>
