@@ -23,21 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('hero-title')) initHero();
 
   injectFooterResources();
-  initFeedback();
 });
-
-// The theme only wires the feedback widget to Google Analytics; without it the form would reload
-// the page. Show the chosen rating's note instead (votes aren't recorded).
-function initFeedback() {
-  const form = document.forms.feedback;
-  if (!form) return;
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const value = e.submitter?.dataset.mdValue;
-    form.firstElementChild.disabled = true;
-    form.querySelector(`.md-feedback__note [data-md-value="${value}"]`)?.removeAttribute('hidden');
-  });
-}
 
 // Edit this list to add or remove footer links.
 const FOOTER_COLUMNS = [

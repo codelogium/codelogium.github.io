@@ -16,8 +16,9 @@
   {% endif %}
 {% endblock %}
 
-{#- Cloudflare Web Analytics instead of Google Analytics: ~6 KB, no cookies -#}
+{#- Cloudflare Web Analytics alongside Google Analytics -#}
 {% block analytics %}
+  {{ super() }}
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0589850466a440b2a08595cc8deb4b25"}'></script>
 {% endblock %}
 
