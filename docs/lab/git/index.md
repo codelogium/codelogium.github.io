@@ -13,6 +13,7 @@ cover_ratio: 1200 / 380
 cover_share: assets/posts/git.jpg
 social:
   cards: false
+icon: lucide/git-graph
 ---
 
 > "Version control is not just a tool; it's a habit."
@@ -25,13 +26,13 @@ This section is a **living reference**, not a tutorial. Every entry here came fr
 
 ## What's Inside
 
-**[Basics & Daily Commands](basics.md)**
+**[Daily Commands](basics.md)**
 
 The commands you run every day: init, add, commit, status, .gitignore, aliases, and commit message conventions.
 
 ---
 
-**[Branches, Stash & Undoing](branching-stash.md)**
+**[Branches & Stash](branching-stash.md)**
 
 Branching strategies, stash workflows, reverting commits, resetting history, and inspecting specific commits.
 
@@ -41,7 +42,7 @@ Branching strategies, stash workflows, reverting commits, resetting history, and
 
 Push, pull, SSH setup, fork workflows, multiple Git identities, divergent branches, and Git LFS.
 
-**[Issues & Troubleshooting](issues.md)**
+**[Troubleshooting](issues.md)**
 
 Real git issues encountered during development: root causes, investigation steps, and fixes.
 

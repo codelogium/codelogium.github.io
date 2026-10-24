@@ -13,6 +13,7 @@ stack:
   - Express.js
   - Pug
   - Docker
+icon: lucide/graduation-cap
 ---
 
 > "A blockchain network that lets schools and universities add credentials to an immutable ledger; making diploma fraud a thing of the past."

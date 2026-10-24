@@ -6,6 +6,7 @@ hide:
   - navigation
   - feedback
   - footer
+icon: lucide/code
 ---
 
 <section class="section-hero home-band home-band--dark" data-search-exclude>
@@ -27,7 +28,7 @@ hide:
 
       <a class="project-card" href="/java/generic-types/">
         <div class="project-card__body">
-          <h3 class="project-card__title">Generic Types in Java</h3>
+          <h3 class="project-card__title">Java Generics</h3>
           <p class="project-card__desc">How Java generics work across interfaces, classes, and multi-type scenarios, with real examples. Covers type parameters, bounded wildcards, and the patterns that make reusable code actually work without casting everything.</p>
         </div>
         <div class="project-card__footer">

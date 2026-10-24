@@ -1,11 +1,12 @@
 ---
-title: "Branches, Stash & Undoing"
+title: "Branches & Stash"
 date: 2026-05-09
 categories:
   - Git
   - Workflow
 description: "Branching strategies, stash workflows, reverting commits, resetting history, and inspecting specific commits."
 reading_time: 6
+icon: lucide/git-branch
 ---
 
 > "A branch is a lightweight movable pointer to one of these commits."

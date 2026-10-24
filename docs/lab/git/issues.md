@@ -1,11 +1,12 @@
 ---
-title: "Issues & Troubleshooting"
+title: "Troubleshooting"
 date: 2026-05-11
 categories:
   - Git
   - Workflow
 description: "Real git issues encountered during development; root causes, investigation steps, and fixes."
 reading_time: 8
+icon: lucide/bug
 ---
 
 > "When git behaves unexpectedly, the answer is almost always in the history."

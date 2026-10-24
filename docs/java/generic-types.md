@@ -1,5 +1,5 @@
 ---
-title: "Generic Types in Java"
+title: "Java Generics"
 date: 2025-05-07
 categories:
   - Java
@@ -9,6 +9,7 @@ description: "Explore how Java generics work across interfaces, classes, and mul
 reading_time: 5
 summary: |
   Dive deeper into Java generics through interfaces, key-value pairs, and multi-type generic classes. Understand how to apply them in real use cases like repositories and collections.
+icon: lucide/braces
 ---
 
 > "Write once, use many": Generics let you write flexible and reusable code.

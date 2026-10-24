@@ -14,6 +14,7 @@ stack:
   - Pug
   - MongoDB Atlas
   - Docker
+icon: lucide/map
 ---
 
 > "A blockchain network that lets land conservers certify land ownership on an immutable ledger; helping against land ownership fraud and disputes."
@@ -128,37 +129,37 @@ Then visit:
 
 **Admin panel: all certified lands:**
 
-![Admin all certificates](/assets/projects/landcertificate/admin_all_certificates.webp){ width="1000" height="265" loading=lazy }
+![Admin all certificates](/assets/projects/landcertificate/admin_all_certificates.webp){ width="1747" height="463" loading=lazy }
 
 **Admin: adding a new land certificate:**
 
-![Admin add land](/assets/projects/landcertificate/admin_addland.webp){ width="1000" height="630" loading=lazy }
+![Admin add land](/assets/projects/landcertificate/admin_addland.webp){ width="1402" height="883" loading=lazy }
 
 **Client: request form:**
 
-![Client index](/assets/projects/landcertificate/client_index.webp){ width="1000" height="648" loading=lazy }
+![Client index](/assets/projects/landcertificate/client_index.webp){ width="1257" height="814" loading=lazy }
 
 **Client: form filled:**
 
-![Client form filled](/assets/projects/landcertificate/client_req_filled.webp){ width="1000" height="640" loading=lazy }
+![Client form filled](/assets/projects/landcertificate/client_req_filled.webp){ width="1296" height="829" loading=lazy }
 
 **Client: form submitted:**
 
-![Client request sent](/assets/projects/landcertificate/client_req_sent.webp){ width="1000" height="662" loading=lazy }
+![Client request sent](/assets/projects/landcertificate/client_req_sent.webp){ width="1252" height="829" loading=lazy }
 
 **Admin receives the request:**
 
-![Admin add land filled](/assets/projects/landcertificate/admin_addland_filled.webp){ width="1000" height="616" loading=lazy }
+![Admin add land filled](/assets/projects/landcertificate/admin_addland_filled.webp){ width="1434" height="883" loading=lazy }
 
 **All certified lands after validation:**
 
-![Admin all certificates updated](/assets/projects/landcertificate/admin_all_certificates_w_newly_entered.webp){ width="1000" height="294" loading=lazy }
+![Admin all certificates updated](/assets/projects/landcertificate/admin_all_certificates_w_newly_entered.webp){ width="1747" height="514" loading=lazy }
 
 **Certified land with QR Code:**
 
-![Land detail with QR](/assets/projects/landcertificate/land_detail1.webp){ width="1000" height="720" loading=lazy }
+![Land detail with QR](/assets/projects/landcertificate/land_detail1.webp){ width="1309" height="943" loading=lazy }
 
-![Land detail QR close up](/assets/projects/landcertificate/land_detail2.webp){ width="1000" height="684" loading=lazy }
+![Land detail QR close up](/assets/projects/landcertificate/land_detail2.webp){ width="1285" height="879" loading=lazy }
 
 ---
 
