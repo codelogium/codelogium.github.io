@@ -20,10 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     || path.includes('tags');
   document.body.classList.toggle('show-contrib-feedback', !isOverviewPage);
 
-  if (path === '/' || path === '/index.html') {
-    document.body.classList.add('home-page');
-    injectHero();
-  }
+  if (document.getElementById('hero-title')) initHero();
 
   injectFooterResources();
 });
@@ -84,44 +81,16 @@ function injectFooterResources() {
   footer.prepend(section);
 }
 
-function injectHero() {
-  const hero = document.createElement('div');
-  hero.id = 'hero-fixed';
-  hero.innerHTML = '<div id="hero-overlay"></div><canvas id="hero-canvas"></canvas>';
-
-  const title = document.createElement('div');
-  title.id = 'hero-title';
-  title.innerHTML = `
-    <span class="hero-site-name">Codelogium</span>
-    <p class="hero-desc">Everybody's prompting their way through. This is for the ones still asking <em>why</em>, the kind of curiosity that <span class="hero-desc--day">keeps you going all day</span><span class="hero-desc--night">keeps you up at night</span>.</p>
-    <em class="hero-credit">Unlearn • Relearn • Keep learning</em>
-    <div class="hero-cta">
-      <a href="/lab/" class="hero-btn hero-btn--primary">Start exploring</a>
-      <a href="#hero-scroll" class="hero-btn hero-btn--secondary">What's inside</a>
-    </div>
-    <span class="hero-tagline">Where code meets knowledge</span>
-  `;
-
-  document.body.prepend(hero, title);
-
-
-  title.querySelector('[href="#hero-scroll"]').addEventListener('click', e => {
+// The hero markup is rendered by overrides/main.html (home page only), so it shows without waiting for this script.
+function initHero() {
+  document.querySelector('#hero-title [href="#hero-scroll"]').addEventListener('click', e => {
     e.preventDefault();
     document.getElementById('whats-inside')?.scrollIntoView({ behavior: 'smooth' });
   });
 
-  // Line up with the first tab; below the tabs breakpoint, use the same 16px gutter as the right edge.
-  const alignTitle = () => {
-    const firstTab = document.querySelector('.md-tabs__link');
-    const left = firstTab && firstTab.offsetParent ? firstTab.getBoundingClientRect().left : 16;
-    title.style.left = Math.max(16, left) + 'px';
-  };
-  window.addEventListener('resize', alignTitle);
-
-  // Wait two frames so the theme has laid out the tabs and viewport.
+  // Wait two frames so the theme has laid out the viewport.
   requestAnimationFrame(() => requestAnimationFrame(() => {
-    alignTitle();
-    initHeroCanvas(hero.querySelector('canvas'));
+    initHeroCanvas(document.getElementById('hero-canvas'));
   }));
 }
 
