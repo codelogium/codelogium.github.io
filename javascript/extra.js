@@ -68,7 +68,7 @@ function injectFooterResources() {
     </div>
     ${FOOTER_COLUMNS.map(col => `
       <nav class="footer-col" aria-label="${col.title}">
-        <h4 class="footer-col__title">${col.title}</h4>
+        <h2 class="footer-col__title">${col.title}</h2>
         <ul>
           ${[...col.links].sort((a, b) => a.label.length - b.label.length).map(l => {
             const external = l.href.startsWith('http');
