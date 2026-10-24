@@ -23,8 +23,7 @@ hide:
 
   <div class="about__text">
     <span class="home-eyebrow">What I do</span>
-    <p>I'm Al-Fahami Toihir, a software engineer at DXC Technology.<br>
-    Day to day I build microservices with Java and Spring Boot, using hexagonal architecture, domain-driven design and clean code practices.</p>
+    <p>I'm Al-Fahami Toihir, a software engineer at DXC Technology. Day to day I build microservices with Java and Spring Boot, using hexagonal architecture, domain-driven design and clean code practices.</p>
     <p>Outside of work I keep going back to the foundations: C, how computers actually work, algorithms and data structures. This site is my notebook for all of it.</p>
     <p>I'm also a <a href="https://www.credly.com/badges/550ad245-d58e-4984-b239-60931322c443" target="_blank" rel="noopener">Claude Certified Associate (Foundations)</a> by <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic</a>, and I'm working toward the Developer certification next.</p>
 
