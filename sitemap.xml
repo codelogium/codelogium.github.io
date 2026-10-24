@@ -61,10 +61,16 @@
         <loc>https://codelogium.com/projects/</loc>
       </url>
       <url>
+        <loc>https://codelogium.com/projects/blockchain/</loc>
+      </url>
+      <url>
         <loc>https://codelogium.com/projects/blockchain/bcertificate/</loc>
       </url>
       <url>
         <loc>https://codelogium.com/projects/blockchain/landcertificate/</loc>
+      </url>
+      <url>
+        <loc>https://codelogium.com/projects/java/</loc>
       </url>
       <url>
         <loc>https://codelogium.com/projects/java/crypto-portfolio/</loc>
