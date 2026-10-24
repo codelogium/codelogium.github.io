@@ -1,5 +1,5 @@
 ---
-title: "Branches, Stash & Undoing"
+title: "Branches & Stash"
 date: 2026-05-09
 categories:
   - Git

@@ -1,5 +1,5 @@
 ---
-title: "Issues & Troubleshooting"
+title: "Troubleshooting"
 date: 2026-05-11
 categories:
   - Git

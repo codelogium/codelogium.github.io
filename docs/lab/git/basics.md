@@ -1,5 +1,5 @@
 ---
-title: "Basics & Daily Commands"
+title: "Daily Commands"
 date: 2026-05-09
 categories:
   - Git
