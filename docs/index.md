@@ -10,6 +10,7 @@ hide:
   - feedback
   - metadata
   - footer
+icon: lucide/house
 ---
 
 <section class="home-section" id="whats-inside" data-search-exclude>
