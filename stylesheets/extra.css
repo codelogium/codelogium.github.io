@@ -14,21 +14,21 @@
   --md-primary-fg-color--light: #E0F5EF;
   --md-primary-fg-color--dark:  #095440;
 
-  /* Deep enough to read on the cream page (5:1 on the nav tint); dark mode has its own */
+  /* Deep enough to read on white and the nav tint; dark mode has its own */
   --md-accent-fg-color:              #0A6650;
   --md-accent-fg-color--transparent: rgba(10, 102, 80, 0.12);
 
-  /* Warm paper, to sit with the library photo */
-  --md-default-bg-color:        #F5EFE4;
-  --md-default-bg-color--light: #ECE4D5;
+  /* Ink on off-white: deep text, softer glare than pure white; green stays for links and accents */
+  --md-default-bg-color:        #FAFAF9;
+  --md-default-bg-color--light: #F1F1EF;
 
-  --md-default-fg-color:          #132218;
-  --md-default-fg-color--light:   #3D5C48;
-  --md-default-fg-color--lighter: #6B8C78;
+  --md-default-fg-color:          #18181B;
+  --md-default-fg-color--light:   #3F3F46;
+  --md-default-fg-color--lighter: #71717A;
 
-  --md-code-bg-color: #EDE5D6;
-  --md-code-fg-color: #1B3D28;
-  /* Syntax colors darkened from the theme's so they pass 4.5:1 on the paper code background */
+  --md-code-bg-color: #F1F1EF;
+  --md-code-fg-color: #18181B;
+  /* Syntax colors darkened from the theme's so they pass 4.5:1 on the code background */
   --md-code-hl-constant-color: #5640C2;
   --md-code-hl-function-color: #87368F;
   --md-code-hl-keyword-color:  #2C55A0;
@@ -37,7 +37,7 @@
   --md-code-hl-string-color:   #166539;
 
   /* Our own tokens (not theme variables) */
-  --md-border-color: #E2D6C2;
+  --md-border-color: #E7E5E4;
   --header-height:   96px;
 
   /* Shared background image: header, hero and footer use the same values so they line up.
@@ -871,9 +871,9 @@ body:has(#hero-title) .md-content__inner > h1 {
   --art-bg:     #E3EFE7;
   --art-ink:    var(--md-primary-fg-color);
   --art-string: #B45309;
-  --card-bg:    rgba(255, 255, 255, 0.45);
-  --card-hover: #E9F2EC;
-  --card-line:  #DCD0BC;
+  --card-bg:    #FFFFFF;
+  --card-hover: #F0F7F3;
+  --card-line:  #E7E5E4;
 }
 
 [data-md-color-scheme="slate"] {
