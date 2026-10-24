@@ -6,6 +6,7 @@ hide:
   - navigation
   - toc
   - feedback
+icon: lucide/notebook-pen
 ---
 
 <section class="section-hero home-band home-band--dark" data-search-exclude>

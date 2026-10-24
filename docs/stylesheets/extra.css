@@ -1951,3 +1951,112 @@ body:has(#hero-title) .md-content__inner {
   margin-right: 0.35em;
   vertical-align: -0.2em;
 }
+
+/* Sidebar groups (navigation.sections): show only the group you're reading (Blockchain
+   projects don't list the Java ones); the section pages' cards link across groups */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary .md-nav__item--section:not(.md-nav__item--active) {
+    display: none;
+  }
+}
+
+/* ============================================================
+   PROJECT GRID CARDS (Zensical "grid cards" on the Projects page), in the site's card style
+   ============================================================ */
+.md-typeset .project-sections .grid.cards > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.3rem 1.4rem 1.2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-line);
+  border-radius: 6px;
+  box-shadow: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+/* The whole card is clickable: the "View project" link stretches over it */
+.md-typeset .project-sections .grid.cards > ul > li:hover {
+  border-color: var(--card-line);
+  background: var(--card-hover);
+  box-shadow: inset 0 3px 0 var(--md-primary-fg-color), 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* Title line: icon in a tinted square, then the name */
+.md-typeset .project-sections .grid.cards > ul > li > p:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.md-typeset .project-sections .grid.cards > ul > li > p:first-child .twemoji {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 7px;
+  color: var(--md-primary-fg-color);
+  background: color-mix(in srgb, var(--md-primary-fg-color) 12%, transparent);
+}
+
+.md-typeset .project-sections .grid.cards > ul > li > p:first-child .twemoji svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.md-typeset .project-sections .grid.cards > ul > li > hr {
+  margin: 1rem 0;
+  border-color: var(--card-line);
+}
+
+.md-typeset .project-sections .grid.cards > ul > li > p:not(:first-child):not(:last-child) {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.65;
+  color: var(--md-default-fg-color--light);
+}
+
+/* "View project →": the site's mono call to action, arrow nudges on hover */
+.md-typeset .project-sections .grid.cards > ul > li > p:last-child {
+  margin: auto 0 0;
+}
+
+.md-typeset .project-sections .grid.cards > ul > li > p:last-child a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--md-primary-fg-color);
+  text-decoration: none;
+}
+
+.md-typeset .project-sections .grid.cards > ul > li > p:last-child a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.md-typeset .project-sections .grid.cards > ul > li > p:last-child a .twemoji svg {
+  width: 1.1em;
+  height: 1.1em;
+  transition: transform 0.2s;
+}
+
+.md-typeset .project-sections .grid.cards > ul > li:hover > p:last-child a .twemoji svg {
+  transform: translateX(3px);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .project-sections .grid.cards > ul > li > p:first-child .twemoji,
+[data-md-color-scheme="slate"] .md-typeset .project-sections .grid.cards > ul > li > p:last-child a {
+  color: var(--md-accent-fg-color);
+}

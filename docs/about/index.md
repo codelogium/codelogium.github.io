@@ -10,6 +10,7 @@ hide:
   - navigation
   - feedback
   - footer
+icon: lucide/user-round
 ---
 
 <section class="section-hero home-band home-band--dark" data-search-exclude>
