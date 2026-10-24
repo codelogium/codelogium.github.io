@@ -28,6 +28,13 @@
 
   --md-code-bg-color: #EDE5D6;
   --md-code-fg-color: #1B3D28;
+  /* Syntax colors darkened from the theme's so they pass 4.5:1 on the paper code background */
+  --md-code-hl-constant-color: #5640C2;
+  --md-code-hl-function-color: #87368F;
+  --md-code-hl-keyword-color:  #2C55A0;
+  --md-code-hl-number-color:   #AE1F1F;
+  --md-code-hl-special-color:  #B0104A;
+  --md-code-hl-string-color:   #166539;
 
   /* Our own tokens (not theme variables) */
   --md-border-color: #E2D6C2;
@@ -911,6 +918,11 @@ body:has(#hero-title) .md-content__inner > h1 {
   text-transform: uppercase;
   color: var(--art-ink);
   text-decoration: none !important;
+}
+
+/* Linked eyebrows (article headers) keep the eyebrow color, not the theme's link color */
+.md-typeset a.home-eyebrow {
+  color: var(--art-ink);
 }
 
 /* Underlined only on section heroes */
