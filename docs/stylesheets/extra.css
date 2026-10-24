@@ -1005,6 +1005,35 @@ body:has(.section-hero) .md-content__inner::before {
   opacity: 0.8;
 }
 
+/* Short laptop screens (e.g. 1366x768): half the padding, so content starts on the first screen */
+@media (min-width: 600.02px) and (max-height: 800px) {
+  .section-hero {
+    padding: 2.2rem 1rem 2rem;
+  }
+
+  .section-hero__title {
+    margin: 0.3rem 0 0.7rem;
+  }
+}
+
+/* Phones: two-line title, tighter band */
+@media (max-width: 600px) {
+  .section-hero {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  /* .md-typeset h1 sets 2rem; match its specificity to shrink it here */
+  .md-typeset .section-hero__title {
+    margin: 0.3rem 0 0.7rem;
+    font-size: 1.5rem;
+  }
+
+  .section-hero__lead {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+}
+
 /* ============================================================
    ARTICLE LAYOUT (overrides/main.html): header, quotes, footer
    ============================================================ */
@@ -1232,6 +1261,33 @@ body:has(.article-hero) .md-content .md-typeset blockquote::before {
 @media (max-width: 600px) {
   .md-typeset .article-hero {
     padding: 1.5rem 1.2rem 1.3rem;
+  }
+}
+
+/* Short laptop screens: a slimmer header and cover */
+@media (min-width: 600.02px) and (max-height: 800px) {
+  .md-typeset .article-hero {
+    margin-bottom: 1.2rem;
+    padding: 1.2rem 1.6rem 1.1rem;
+  }
+
+  .md-typeset .article-hero__cover {
+    width: calc(100% + 3.2rem);
+    height: 6.5rem;
+    margin: -1.2rem -1.6rem 1rem;
+  }
+
+  .md-typeset .article-hero__cover--framed {
+    height: 6.5rem;
+  }
+
+  .md-typeset .article-hero__title {
+    margin: 0.3rem 0 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .md-typeset .article-hero__lead {
+    margin-bottom: 0.9rem;
   }
 }
 
