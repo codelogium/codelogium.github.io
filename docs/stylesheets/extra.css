@@ -1610,6 +1610,9 @@ body:has(.article-hero) .md-content .md-typeset blockquote::before {
 .md-typeset .about__text p {
   font-size: 0.85rem;
   line-height: 1.75;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .about__links {
