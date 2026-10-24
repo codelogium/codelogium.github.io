@@ -149,7 +149,7 @@ code span {
 }
 
 /* The home page keeps justified blocks; hyphenation evens out the word gaps */
-body.home-page .md-content .md-typeset p,
+body:has(#hero-title) .md-content .md-typeset p,
 .hero-desc {
   text-align: justify;
   -webkit-hyphens: auto;
@@ -642,11 +642,11 @@ body[data-md-color-scheme="slate"] blockquote:before {
 }
 
 /* Its own layer above .md-main so the buttons are clickable; scrolls with the hero.
-   `left` is set at runtime to line up with the first nav tab. */
+   Lines up with the first nav tab (grid edge + 1rem); below that, the 16px gutter. */
 #hero-title {
   position: absolute;
   top: 0;
-  left: 0;
+  left: max(16px, calc((100% - 61rem) / 2 + 1rem));
   right: max(16px, env(safe-area-inset-right, 0px));
   height: 100vh;
   /* Spans the first screen; the text sits at the bottom of it */
@@ -823,21 +823,21 @@ body[data-md-color-scheme="slate"] blockquote:before {
 
 /* On wide screens the sidebar would sit over the hero; below this width it is the menu drawer */
 @media screen and (min-width: 76.25em) {
-  body.home-page .md-sidebar--primary {
+  body:has(#hero-title) .md-sidebar--primary {
     display: none;
   }
 }
 
 /* Layer the article and footer (not .md-main) above the fixed hero, or the menu drawer
    gets trapped under the overlay */
-body.home-page .md-content,
-body.home-page .md-footer {
+body:has(#hero-title) .md-content,
+body:has(#hero-title) .md-footer {
   position: relative;
   z-index: 1;
 }
 
 /* The content panel starts just below the hero; its background bleeds to both screen edges */
-body.home-page .md-content__inner {
+body:has(#hero-title) .md-content__inner {
   margin-top: calc(100vh - var(--header-height));
   /* Padding, not the theme's bottom margin, so the hero can't show through above the footer */
   margin-bottom: 0;
@@ -850,12 +850,12 @@ body.home-page .md-content__inner {
 
 /* The full-bleed band and background extend past the grid; clip so the page never scrolls sideways
    (clip, unlike hidden, doesn't create a scroll container that would break the sticky header) */
-body.home-page .md-main {
+body:has(#hero-title) .md-main {
   overflow-x: clip;
 }
 
 /* No page title on home; the hero is the title */
-body.home-page .md-content__inner > h1 {
+body:has(#hero-title) .md-content__inner > h1 {
   display: none;
 }
 
@@ -1857,7 +1857,7 @@ html[data-light-photo="library"] [data-md-color-scheme="default"] .home-mini-car
 }
 
 /* The closing band sits flush on the footer */
-body.home-page .md-content__inner {
+body:has(#hero-title) .md-content__inner {
   padding-bottom: 0 !important;
 }
 

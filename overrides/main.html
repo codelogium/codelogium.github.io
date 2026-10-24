@@ -76,6 +76,24 @@
   {% endif %}
 {% endblock %}
 
+{#- Home page hero: in the HTML so the title paints at once (it was built by extra.js) -#}
+{% block header %}
+  {% if not page.url %}
+    <div id="hero-fixed"><div id="hero-overlay"></div><canvas id="hero-canvas"></canvas></div>
+    <div id="hero-title">
+      <span class="hero-site-name">Codelogium</span>
+      <p class="hero-desc">Everybody's prompting their way through. This is for the ones still asking <em>why</em>, the kind of curiosity that <span class="hero-desc--day">keeps you going all day</span><span class="hero-desc--night">keeps you up at night</span>.</p>
+      <em class="hero-credit">Unlearn • Relearn • Keep learning</em>
+      <div class="hero-cta">
+        <a href="/lab/" class="hero-btn hero-btn--primary">Start exploring</a>
+        <a href="#hero-scroll" class="hero-btn hero-btn--secondary">What's inside</a>
+      </div>
+      <span class="hero-tagline">Where code meets knowledge</span>
+    </div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
+
 {% block content %}
   {% set m = page.meta or {} %}
   {% if m.date and m.reading_time and "<h1" not in page.content and "blog/" not in (page.url or "") %}
