@@ -16,6 +16,11 @@
   {% endif %}
 {% endblock %}
 
+{#- Cloudflare Web Analytics instead of Google Analytics: ~6 KB, no cookies -#}
+{% block analytics %}
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0589850466a440b2a08595cc8deb4b25"}'></script>
+{% endblock %}
+
 {#- Structured data (schema.org) on the home and About pages: who runs the site -#}
 {% block extrahead %}
   {#- The only font request: theme font loading is off in mkdocs.yml (font: false) -#}

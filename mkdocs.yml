@@ -69,9 +69,8 @@ extra:
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/al_fahami
       name: alfahami on X
+  # Cloudflare Web Analytics is loaded in overrides/main.html; this block only drives the feedback widget
   analytics:
-    provider: google
-    property: G-9L21ZFFY2J
     feedback:
       title: Was this page helpful?
       ratings:
