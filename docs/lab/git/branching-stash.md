@@ -6,6 +6,7 @@ categories:
   - Workflow
 description: "Branching strategies, stash workflows, reverting commits, resetting history, and inspecting specific commits."
 reading_time: 6
+icon: lucide/git-branch
 ---
 
 > "A branch is a lightweight movable pointer to one of these commits."

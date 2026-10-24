@@ -6,6 +6,7 @@ categories:
   - Workflow
 description: "The git commands you use every day: init, add, commit, status, .gitignore, aliases, and commit message conventions."
 reading_time: 7
+icon: lucide/terminal
 ---
 
 > "You decide when to take a snapshot by making a commit."

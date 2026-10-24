@@ -14,6 +14,7 @@ stack:
   - Pug
   - MongoDB Atlas
   - Docker
+icon: lucide/map
 ---
 
 > "A blockchain network that lets land conservers certify land ownership on an immutable ledger; helping against land ownership fraud and disputes."

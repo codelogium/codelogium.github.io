@@ -6,6 +6,7 @@ categories:
   - Workflow
 description: "Push, pull, SSH setup, fork workflows, multiple Git identities, divergent branches, skip-worktree, assume-unchanged, LFS, and gist transfer."
 reading_time: 8
+icon: lucide/git-pull-request
 ---
 
 > "GitHub is a free tool that lets you host your local repository."

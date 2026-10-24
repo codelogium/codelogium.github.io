@@ -15,6 +15,7 @@ stack:
   - Hibernate / JPA
   - H2
   - JUnit
+icon: lucide/wallet
 ---
 
 > "Built to learn, WebClient, reactive programming, and real API integration, not just theory. The kind of project you do on a job test."
