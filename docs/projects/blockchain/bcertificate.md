@@ -126,15 +126,15 @@ Then visit:
 
 **All certificates in the ledger:**
 
-![All certificates](https://raw.githubusercontent.com/alfahami/bcertificate/main/screenshots/allcertificates.png)
+![All certificates](/assets/projects/bcertificate/allcertificates.webp){ width="1000" height="540" loading=lazy }
 
 **Adding a certificate (with Excel bulk import support):**
 
-![Add certificate](https://raw.githubusercontent.com/alfahami/bcertificate/main/screenshots/add-certificate.png)
+![Add certificate](/assets/projects/bcertificate/add-certificate.webp){ width="1000" height="539" loading=lazy }
 
 **Querying a specific certificate:**
 
-![Certificate details](https://raw.githubusercontent.com/alfahami/bcertificate/main/screenshots/git-github.png)
+![Certificate details](/assets/projects/bcertificate/git-github.webp){ width="1000" height="540" loading=lazy }
 
 ---
 
