@@ -22,13 +22,13 @@ icon: lucide/cpu
     </div>
     <div class="track-panel__meta">
       <span><a href="https://www.edx.org/cs50" target="_blank" rel="noopener">Course · Harvard on edX</a></span>
-      <span class="track-panel__count">2 / 10 weeks</span>
+      <span class="track-panel__count">3 / 10 weeks</span>
     </div>
     <ul class="track-panel__list">
       <li class="is-done">Scratch</li>
       <li class="is-done">C</li>
-      <li>Arrays</li>
-      <li>Algorithms</li>
+      <li class="is-done">Arrays</li>
+      <li class="is-current">Algorithms</li>
     </ul>
     <details class="track-panel__all">
       <summary><span class="track-panel__show">Show all 10 weeks <span>(+6)</span></span><span class="track-panel__hide">Show less</span></summary>

@@ -2311,6 +2311,16 @@ body:has(#hero-title) .md-content__inner {
 }
 
 /* Bottom action: the site's button to the notes, or a muted placeholder until they exist */
+/* In progress: the circle half filled, like the course's own tracker */
+.md-typeset ul.track-panel__list li.is-current::before {
+  border-color: var(--group-accent);
+  background: linear-gradient(90deg, var(--group-accent) 50%, transparent 50%);
+}
+
+.md-typeset ul.track-panel__list li.is-current {
+  font-weight: 600;
+}
+
 .md-typeset .track-panel__btn {
   justify-content: center;
   width: 100%;
