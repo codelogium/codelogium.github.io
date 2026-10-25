@@ -31,7 +31,7 @@ icon: lucide/book-open
       <li>Functions and Program Structure</li>
     </ul>
     <details class="track-panel__all">
-      <summary>Show all 8 chapters <span>(+4)</span></summary>
+      <summary><span class="track-panel__show">Show all 8 chapters <span>(+4)</span></span><span class="track-panel__hide">Show less</span></summary>
       <ul class="track-panel__list">
         <li>Pointers and Arrays</li>
         <li>Structures</li>
@@ -58,7 +58,7 @@ icon: lucide/book-open
       <li>Pointers</li>
     </ul>
     <details class="track-panel__all">
-      <summary>Show all 8 sections <span>(+4)</span></summary>
+      <summary><span class="track-panel__show">Show all 8 sections <span>(+4)</span></span><span class="track-panel__hide">Show less</span></summary>
       <ul class="track-panel__list">
         <li>Arrays</li>
         <li>Strings</li>

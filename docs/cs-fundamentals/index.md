@@ -31,7 +31,7 @@ icon: lucide/cpu
       <li>Algorithms</li>
     </ul>
     <details class="track-panel__all">
-      <summary>Show all 10 weeks <span>(+6)</span></summary>
+      <summary><span class="track-panel__show">Show all 10 weeks <span>(+6)</span></span><span class="track-panel__hide">Show less</span></summary>
       <ul class="track-panel__list">
         <li>Memory</li>
         <li>Data Structures</li>
@@ -60,7 +60,7 @@ icon: lucide/cpu
       <li>Math for CS</li>
     </ul>
     <details class="track-panel__all">
-      <summary>Show all 9 subjects <span>(+5)</span></summary>
+      <summary><span class="track-panel__show">Show all 9 subjects <span>(+5)</span></span><span class="track-panel__hide">Show less</span></summary>
       <ul class="track-panel__list">
         <li>Operating Systems</li>
         <li>Computer Networking</li>

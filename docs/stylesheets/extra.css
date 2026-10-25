@@ -2280,17 +2280,30 @@ body:has(#hero-title) .md-content__inner {
   display: none;
 }
 
-.md-typeset details.track-panel__all > summary span {
+.md-typeset details.track-panel__all > summary .track-panel__show span {
   color: var(--md-default-fg-color--lighter);
 }
 
-.md-typeset details.track-panel__all[open] > summary {
+.md-typeset details.track-panel__all .track-panel__hide,
+.md-typeset details.track-panel__all[open] .track-panel__show {
   display: none;
 }
 
-/* Opened, the rest continues the list with the same spacing */
+.md-typeset details.track-panel__all[open] .track-panel__hide {
+  display: inline;
+}
+
+/* Opened, the rest continues the list with the same spacing, and "Show less" moves below it */
 .md-typeset details.track-panel__all[open] {
+  display: flex;
+  flex-direction: column;
   margin-top: -1.2rem;
+}
+
+.md-typeset details.track-panel__all[open] > summary {
+  order: 1;
+  align-self: flex-start;
+  margin-top: 0.4rem;
 }
 
 .md-typeset details.track-panel__all > ul.track-panel__list {
