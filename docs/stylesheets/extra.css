@@ -2120,6 +2120,8 @@ body:has(#hero-title) .md-content__inner {
   --group-accent: var(--md-primary-fg-color);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  /* Each panel keeps its own height, so opening one list doesn't stretch its neighbor */
+  align-items: start;
   gap: 1rem;
   padding: 2.5rem 0 1rem;
 }
