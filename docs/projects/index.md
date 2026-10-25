@@ -22,7 +22,6 @@ icon: lucide/folder-kanban
   <a href="#ml">Machine Learning</a>
   <a href="#mini">Mini Projects</a>
   <a href="#web">Web &amp; Community</a>
-  <a href="#powerbi">Power BI</a>
 </nav>
 
 <div class="project-sections" data-search-exclude markdown>
@@ -214,23 +213,15 @@ icon: lucide/folder-kanban
 
     [View project :lucide-arrow-right:](web/codelogium/)
 
-</div>
-</div>
-
-<div class="project-section" markdown id="powerbi">
-
-<span class="home-eyebrow">Power BI</span>
-<div class="grid cards" markdown>
-
--   :lucide-chart-column:{ .lg .middle } __Power BI Template__
+-   :lucide-chart-column:{ .lg .middle } __Power BI Dashboard Template__
 
     ---
 
-    A reusable Power BI dashboard template with a consistent color scheme, layout, and data model structure. Built to speed up report creation for recurring reporting needs: swap the data source, keep the design.
+    A dashboard template built with HTML and CSS for Power BI reports: one color scheme and layout, so recurring reports start from the same design.
 
     ---
 
-    [View project :lucide-arrow-right:](powerbi/powerbi-template/)
+    [View project :lucide-arrow-right:](web/powerbi-template/)
 
 </div>
 </div>
