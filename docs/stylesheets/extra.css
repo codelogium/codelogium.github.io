@@ -2345,6 +2345,8 @@ body:has(#hero-title) .md-content__inner {
 /* About: the two "What I do" panels sit in the text column, side by side when it's wide enough */
 .track-panels--about {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  /* Nothing expands here: equal heights keep the two buttons on one line */
+  align-items: stretch;
   padding: 0.6rem 0 1.6rem;
 }
 
