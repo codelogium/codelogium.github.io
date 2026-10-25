@@ -25,7 +25,7 @@ icon: lucide/book-open
       <span class="track-panel__count">0 / 8 chapters</span>
     </div>
     <ul class="track-panel__list">
-      <li>A Tutorial Introduction</li>
+      <li class="is-current">A Tutorial Introduction</li>
       <li>Types, Operators and Expressions</li>
       <li>Control Flow</li>
       <li>Functions and Program Structure</li>
