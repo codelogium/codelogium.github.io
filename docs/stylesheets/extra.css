@@ -2095,3 +2095,174 @@ body:has(#hero-title) .md-content__inner {
 .project-section {
   margin-bottom: 3.5rem;
 }
+
+/* Section index pages reuse the grid cards, with the accent of their home page card */
+.project-sections--lab  { --group-accent: #C2410C; }
+.project-sections--lang { --group-accent: #4338CA; }
+.project-sections--c    { --group-accent: #2563EB; }
+.project-sections--cs   { --group-accent: #0E7A60; }
+
+[data-md-color-scheme="slate"] .project-sections--lab  { --group-accent: #FB923C; }
+[data-md-color-scheme="slate"] .project-sections--lang { --group-accent: #A5B4FC; }
+[data-md-color-scheme="slate"] .project-sections--c    { --group-accent: #60A5FA; }
+[data-md-color-scheme="slate"] .project-sections--cs   { --group-accent: #34D399; }
+
+/* Cards keep one width everywhere: a lone card doesn't stretch across the page */
+.md-typeset .project-sections .grid.cards {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+}
+
+/* ============================================================
+   TRACK PANELS (C, CS Fundamentals): a learning track at a glance, with a checklist
+   Mark progress by adding class="is-done" to a list item and updating the count.
+   ============================================================ */
+.track-panels {
+  --group-accent: var(--md-primary-fg-color);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: 1rem;
+  padding: 2.5rem 0 1rem;
+}
+
+.track-panels--c  { --group-accent: #2563EB; }
+.track-panels--cs { --group-accent: #0E7A60; }
+[data-md-color-scheme="slate"] .track-panels--c  { --group-accent: #60A5FA; }
+[data-md-color-scheme="slate"] .track-panels--cs { --group-accent: #34D399; }
+
+.md-typeset .track-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 1.5rem 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-line);
+  border-radius: 6px;
+}
+
+/* The main track of the section stands out with the accent bar the cards show on hover */
+.md-typeset .track-panel--featured {
+  box-shadow: inset 0 3px 0 var(--group-accent), 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+.md-typeset .track-panel__head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--card-line);
+}
+
+.md-typeset .track-panel__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 7px;
+  color: var(--group-accent);
+  background: color-mix(in srgb, var(--group-accent) 12%, transparent);
+}
+
+.md-typeset .track-panel__icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.md-typeset .track-panel__title {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.md-typeset .track-panel__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  font-size: 0.72rem;
+  color: var(--md-default-fg-color--light);
+  border-bottom: 1px solid var(--card-line);
+}
+
+.md-typeset .track-panel__count {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--group-accent);
+}
+
+/* Checklist: an open circle for what's next, a check in the accent color once done */
+.md-typeset ul.track-panel__list {
+  margin: 1rem 0 1.2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset ul.track-panel__list li {
+  position: relative;
+  margin: 0 0 0.55rem;
+  padding-left: 1.6rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.md-typeset ul.track-panel__list li::before {
+  content: "";
+  position: absolute;
+  top: 0.2em;
+  left: 0;
+  width: 0.95em;
+  height: 0.95em;
+  border: 1.5px solid var(--md-default-fg-color--lighter);
+  border-radius: 50%;
+}
+
+.md-typeset ul.track-panel__list li.is-done::before {
+  border-color: var(--group-accent);
+  background: var(--group-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 70% no-repeat;
+}
+
+/* The source (book, course) is a quiet link in the meta line */
+.md-typeset .track-panel__meta a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--card-line);
+  text-underline-offset: 0.25em;
+}
+
+.md-typeset .track-panel__meta a:hover {
+  color: var(--group-accent);
+}
+
+/* The rest of the list is summarized; the full list lives on the notes page */
+.md-typeset ul.track-panel__list li.track-panel__more {
+  color: var(--md-default-fg-color--lighter);
+}
+
+.md-typeset ul.track-panel__list li.track-panel__more::before {
+  border-style: dashed;
+}
+
+/* Bottom action: the site's button to the notes, or a muted placeholder until they exist */
+.md-typeset .track-panel__btn {
+  justify-content: center;
+  width: 100%;
+  margin-top: auto;
+}
+
+.md-typeset .track-panel__btn--soon {
+  display: flex;
+  padding: 0.75em 1em;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--lighter);
+  border: 1px dashed var(--card-line);
+  border-radius: 6px;
+}
