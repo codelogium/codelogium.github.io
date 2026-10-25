@@ -66,6 +66,7 @@ icon: lucide/user-round
     <span class="home-eyebrow">Away from the keyboard</span>
     <p>When I'm not learning about CS, I'm at the gym, in the forest, swimming, or anywhere out in nature. I love exploring new places and exchanging ideas with like-minded people.</p>
     <p>That's usually where you'll find me, just like in the photo: visiting the Imlil waterfall, seconds before the slippery rocks almost had me slipping straight into the water.</p>
+    <p>I also love the English language: I speak it every day, can hardly go a day without it, and I've taught it a few times in the past. Besides English, I speak French, Darija (Moroccan Arabic) and, of course, my native Shikomori, a Bantu language closely related to Swahili.</p>
     <p>I'm also a die-hard fan of traditional food, from home and from other cultures:</p>
     <ul class="about__dishes">
       <li><img class="about__flag" src="/assets/flags/km.svg" alt="" width="23" height="14"> <strong>Comoros:</strong> pilau, couscouma, madaba, samboussa, futra, mhogo…</li>
