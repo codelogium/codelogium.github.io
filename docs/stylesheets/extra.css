@@ -2240,18 +2240,6 @@ body:has(#hero-title) .md-content__inner {
   color: var(--group-accent);
 }
 
-/* Second-language edition, a small tag next to the main source link */
-.md-typeset .track-panel__meta a.track-panel__alt {
-  margin-left: 0.4rem;
-  padding: 0.05rem 0.35rem;
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
-  font-size: 0.58rem;
-  font-weight: 600;
-  text-decoration: none;
-  border: 1px solid var(--card-line);
-  border-radius: 4px;
-}
-
 /* The rest of the list folds away; "Show all" opens it in place */
 .md-typeset details.track-panel__all {
   margin: -0.65rem 0 1.2rem;
@@ -2356,4 +2344,47 @@ body:has(#hero-title) .md-content__inner {
 
 .md-typeset .about__text .track-panels--about p {
   text-align: left;
+}
+
+/* Current track (C, CS Fundamentals): a small light travels around the border, in the section's
+   accent, in place of the static top bar. About keeps the bar: there it means "featured". */
+@property --trail-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.md-typeset .track-panels:not(.track-panels--about) .track-panel--featured {
+  position: relative;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+.md-typeset .track-panels:not(.track-panels--about) .track-panel--featured::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--trail-angle),
+    transparent 0deg 280deg,
+    color-mix(in srgb, var(--group-accent) 35%, transparent) 320deg,
+    var(--group-accent) 352deg,
+    transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: track-trail 7s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes track-trail {
+  to { --trail-angle: 360deg; }
+}
+
+/* Reduced motion: a still accent outline instead of the moving light */
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .track-panels:not(.track-panels--about) .track-panel--featured::before {
+    animation: none;
+    background: color-mix(in srgb, var(--group-accent) 55%, transparent);
+  }
 }
