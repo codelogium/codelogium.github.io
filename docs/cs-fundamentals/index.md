@@ -21,16 +21,26 @@ icon: lucide/cpu
       <h3 class="track-panel__title">CS50: Introduction to Computer Science</h3>
     </div>
     <div class="track-panel__meta">
-      <a href="https://www.edx.org/cs50" target="_blank" rel="noopener">Course · Harvard on edX</a>
-      <span class="track-panel__count">0 / 10 weeks</span>
+      <span><a href="https://www.edx.org/cs50" target="_blank" rel="noopener">Course · Harvard on edX</a></span>
+      <span class="track-panel__count">2 / 10 weeks</span>
     </div>
     <ul class="track-panel__list">
-      <li>Scratch</li>
-      <li>C</li>
+      <li class="is-done">Scratch</li>
+      <li class="is-done">C</li>
       <li>Arrays</li>
       <li>Algorithms</li>
-      <li class="track-panel__more">+ 6 more weeks</li>
     </ul>
+    <details class="track-panel__all">
+      <summary>Show all 10 weeks <span>(+6)</span></summary>
+      <ul class="track-panel__list">
+        <li>Memory</li>
+        <li>Data Structures</li>
+        <li>Python</li>
+        <li>SQL</li>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Flask</li>
+      </ul>
+    </details>
     <!-- When the notes page exists: <a class="home-btn track-panel__btn" href="/cs-fundamentals/cs50/">Notes &amp; exercises</a> -->
     <span class="track-panel__btn track-panel__btn--soon">Notes &amp; exercises · coming soon</span>
   </div>
@@ -40,7 +50,7 @@ icon: lucide/cpu
       <h3 class="track-panel__title">Teach Yourself CS</h3>
     </div>
     <div class="track-panel__meta">
-      <a href="https://teachyourselfcs.com/" target="_blank" rel="noopener">Self-study curriculum</a>
+      <span><a href="https://teachyourselfcs.com/" target="_blank" rel="noopener">Self-study curriculum</a></span>
       <span class="track-panel__count">0 / 9 subjects</span>
     </div>
     <ul class="track-panel__list">
@@ -48,8 +58,17 @@ icon: lucide/cpu
       <li>Computer Architecture</li>
       <li>Algorithms and Data Structures</li>
       <li>Math for CS</li>
-      <li class="track-panel__more">+ 5 more subjects</li>
     </ul>
+    <details class="track-panel__all">
+      <summary>Show all 9 subjects <span>(+5)</span></summary>
+      <ul class="track-panel__list">
+        <li>Operating Systems</li>
+        <li>Computer Networking</li>
+        <li>Databases</li>
+        <li>Languages and Compilers</li>
+        <li>Distributed Systems</li>
+      </ul>
+    </details>
     <!-- When the notes page exists: <a class="home-btn track-panel__btn" href="/cs-fundamentals/teach-yourself-cs/">Notes &amp; exercises</a> -->
     <span class="track-panel__btn track-panel__btn--soon">Notes &amp; exercises · coming soon</span>
   </div>

@@ -21,7 +21,7 @@ icon: lucide/book-open
       <h3 class="track-panel__title">K&amp;R: The C Programming Language</h3>
     </div>
     <div class="track-panel__meta">
-      <a href="https://www.informit.com/store/c-programming-language-9780133086225" target="_blank" rel="noopener">Book · 2nd edition</a>
+      <span><a href="https://www.informit.com/store/c-programming-language-9780133086225" target="_blank" rel="noopener">Book · 2nd edition</a> <a class="track-panel__alt" href="https://www.dunod.com/sciences-techniques/langage-c-norme-ansi-0" target="_blank" rel="noopener" hreflang="fr" title="Le langage C, French edition">FR</a></span>
       <span class="track-panel__count">0 / 8 chapters</span>
     </div>
     <ul class="track-panel__list">
@@ -29,8 +29,16 @@ icon: lucide/book-open
       <li>Types, Operators and Expressions</li>
       <li>Control Flow</li>
       <li>Functions and Program Structure</li>
-      <li class="track-panel__more">+ 4 more chapters</li>
     </ul>
+    <details class="track-panel__all">
+      <summary>Show all 8 chapters <span>(+4)</span></summary>
+      <ul class="track-panel__list">
+        <li>Pointers and Arrays</li>
+        <li>Structures</li>
+        <li>Input and Output</li>
+        <li>The UNIX System Interface</li>
+      </ul>
+    </details>
     <!-- When the notes page exists: <a class="home-btn track-panel__btn" href="/c/kr/">Notes &amp; exercises</a> -->
     <span class="track-panel__btn track-panel__btn--soon">Notes &amp; exercises · coming soon</span>
   </div>
@@ -40,7 +48,7 @@ icon: lucide/book-open
       <h3 class="track-panel__title">Beej&#x27;s Guide to C</h3>
     </div>
     <div class="track-panel__meta">
-      <a href="https://beej.us/guide/bgc/html/split-wide/" target="_blank" rel="noopener">Free online guide</a>
+      <span><a href="https://beej.us/guide/bgc/html/split-wide/" target="_blank" rel="noopener">Free online guide</a></span>
       <span class="track-panel__count">0 / 8 sections</span>
     </div>
     <ul class="track-panel__list">
@@ -48,8 +56,16 @@ icon: lucide/book-open
       <li>Variables and Statements</li>
       <li>Functions</li>
       <li>Pointers</li>
-      <li class="track-panel__more">+ 4 more sections</li>
     </ul>
+    <details class="track-panel__all">
+      <summary>Show all 8 sections <span>(+4)</span></summary>
+      <ul class="track-panel__list">
+        <li>Arrays</li>
+        <li>Strings</li>
+        <li>Structs</li>
+        <li>File Input/Output</li>
+      </ul>
+    </details>
     <!-- When the notes page exists: <a class="home-btn track-panel__btn" href="/c/beej/">Notes &amp; exercises</a> -->
     <span class="track-panel__btn track-panel__btn--soon">Notes &amp; exercises · coming soon</span>
   </div>
