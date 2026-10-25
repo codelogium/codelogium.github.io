@@ -2329,3 +2329,17 @@ body:has(#hero-title) .md-content__inner {
   border: 1px dashed var(--card-line);
   border-radius: 6px;
 }
+
+/* About: the two "What I do" panels sit in the text column, side by side when it's wide enough */
+.track-panels--about {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  padding: 0.6rem 0 1.6rem;
+}
+
+.md-typeset .track-panels--about ul.track-panel__list li {
+  font-size: 0.72rem;
+}
+
+.md-typeset .about__text .track-panels--about p {
+  text-align: left;
+}
