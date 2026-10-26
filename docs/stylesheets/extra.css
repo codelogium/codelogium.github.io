@@ -972,7 +972,9 @@ body:has(.section-hero) .md-content__inner::before {
 /* Wiley-style category nav below section hero */
 .project-category-nav {
   display: flex;
-  justify-content: center;
+  /* Centered when it fits; on narrow screens it scrolls from the first item (plain
+     justify-content: center would push the first links out of reach on the left) */
+  justify-content: flex-start;
   overflow-x: auto;
   gap: 0;
   background: var(--md-default-bg-color);
@@ -983,6 +985,14 @@ body:has(.section-hero) .md-content__inner::before {
 
 .project-category-nav::-webkit-scrollbar {
   display: none;
+}
+
+.md-typeset .project-category-nav a:first-child {
+  margin-left: auto;
+}
+
+.md-typeset .project-category-nav a:last-child {
+  margin-right: auto;
 }
 
 .md-typeset .project-category-nav a {
