@@ -13,6 +13,9 @@ cover_ratio: 1200 / 380
 cover_share: assets/posts/git.jpg
 social:
   cards: false
+tags:
+  - Git
+  - Tooling
 ---
 
 > "Version control is not just a tool; it's a habit."

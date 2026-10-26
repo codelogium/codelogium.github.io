@@ -6,7 +6,6 @@ hide:
   - navigation
   - feedback
   - footer
-icon: lucide/folder-kanban
 ---
 
 <section class="section-hero home-band home-band--dark" data-search-exclude>
@@ -19,10 +18,9 @@ icon: lucide/folder-kanban
 <nav class="project-category-nav" data-search-exclude>
   <a href="#blockchain">Blockchain</a>
   <a href="#fullstack">Full Stack &amp; Microservices</a>
-  <a href="#ml">Machine Learning</a>
-  <a href="#mini">Mini Projects</a>
   <a href="#web">Web &amp; Community</a>
-  <a href="#powerbi">Power BI</a>
+  <a href="#mini">Mini Projects</a>
+  <a href="#ml">Machine Learning</a>
 </nav>
 
 <div class="project-sections" data-search-exclude markdown>
@@ -113,62 +111,6 @@ icon: lucide/folder-kanban
 </div>
 </div>
 
-<div class="project-section" markdown id="ml">
-
-<span class="home-eyebrow">Machine Learning</span>
-<div class="grid cards" markdown>
-
--   :lucide-brain:{ .lg .middle } __ML Flask App__
-
-    ---
-
-    A machine learning model exposed via a REST API built with Flask. The model is trained offline and served as a prediction endpoint: input features in, prediction out. Built to practice the gap between a notebook experiment and a deployable service.
-
-    ---
-
-    [View project :lucide-arrow-right:](ml/ml-flask-app/)
-
-</div>
-</div>
-
-<div class="project-section" markdown id="mini">
-
-<span class="home-eyebrow">Mini Projects</span>
-<div class="grid cards" markdown>
-
--   :lucide-landmark:{ .lg .middle } __Banking__
-
-    ---
-
-    A Java SE console app simulating core banking operations: account creation, deposits, withdrawals, and transfer between accounts. Focused on OOP design (accounts, transactions, and a simple in-memory ledger) rather than persistence or UI.
-
-    ---
-
-    [View project :lucide-arrow-right:](java/banking/)
-
--   :lucide-bed-double:{ .lg .middle } __Hotel Reservation__
-
-    ---
-
-    A Java SE command-line hotel reservation system. Guests can search available rooms by date, make and cancel bookings, and view their reservations. Built as a practice project for encapsulation, collections, and modeling date-based availability logic.
-
-    ---
-
-    [View project :lucide-arrow-right:](java/hotel-reservation/)
-
--   :lucide-swords:{ .lg .middle } __RPG Java__
-
-    ---
-
-    A text-based RPG built in Java, my first serious project. Players explore rooms, fight enemies, collect items and level up. Looking back, the code is messy, but finishing it was the moment programming stopped feeling abstract and started feeling real.
-
-    ---
-
-    [View project :lucide-arrow-right:](java/rpg/)
-
-</div>
-</div>
-
 <div class="project-section" markdown id="web">
 
 <span class="home-eyebrow">Web &amp; Community</span>
@@ -214,23 +156,71 @@ icon: lucide/folder-kanban
 
     [View project :lucide-arrow-right:](web/codelogium/)
 
+-   :lucide-chart-column:{ .lg .middle } __Power BI Dashboard Template__
+
+    ---
+
+    A dashboard template built with HTML and CSS for Power BI reports: one color scheme and layout, so recurring reports start from the same design.
+
+    ---
+
+    [View project :lucide-arrow-right:](web/powerbi-template/)
+
 </div>
 </div>
 
-<div class="project-section" markdown id="powerbi">
+<div class="project-section" markdown id="mini">
 
-<span class="home-eyebrow">Power BI</span>
+<span class="home-eyebrow">Mini Projects</span>
 <div class="grid cards" markdown>
 
--   :lucide-chart-column:{ .lg .middle } __Power BI Template__
+-   :lucide-landmark:{ .lg .middle } __Banking__
 
     ---
 
-    A reusable Power BI dashboard template with a consistent color scheme, layout, and data model structure. Built to speed up report creation for recurring reporting needs: swap the data source, keep the design.
+    A Java SE console app simulating core banking operations: account creation, deposits, withdrawals, and transfer between accounts. Focused on OOP design (accounts, transactions, and a simple in-memory ledger) rather than persistence or UI.
 
     ---
 
-    [View project :lucide-arrow-right:](powerbi/powerbi-template/)
+    [View project :lucide-arrow-right:](java/banking/)
+
+-   :lucide-bed-double:{ .lg .middle } __Hotel Reservation__
+
+    ---
+
+    A Java SE command-line hotel reservation system. Guests can search available rooms by date, make and cancel bookings, and view their reservations. Built as a practice project for encapsulation, collections, and modeling date-based availability logic.
+
+    ---
+
+    [View project :lucide-arrow-right:](java/hotel-reservation/)
+
+-   :lucide-swords:{ .lg .middle } __RPG Java__
+
+    ---
+
+    A text-based RPG built in Java, my first serious project. Players explore rooms, fight enemies, collect items and level up. Looking back, the code is messy, but finishing it was the moment programming stopped feeling abstract and started feeling real.
+
+    ---
+
+    [View project :lucide-arrow-right:](java/rpg/)
+
+</div>
+</div>
+
+<div class="project-section" markdown id="ml">
+
+<span class="home-eyebrow">Machine Learning</span>
+<div class="grid cards" markdown>
+
+-   :lucide-brain:{ .lg .middle } __ML Flask App__
+
+    ---
+
+    A machine learning model exposed via a REST API built with Flask. The model is trained offline and served as a prediction endpoint: input features in, prediction out. Built to practice the gap between a notebook experiment and a deployable service.
+
+    ---
+
+    [View project :lucide-arrow-right:](ml/ml-flask-app/)
 
 </div>
 </div>

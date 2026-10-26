@@ -2068,14 +2068,12 @@ body:has(#hero-title) .md-content__inner {
 .project-section#ml          { --group-accent: #B45309; }
 .project-section#mini        { --group-accent: #1D4ED8; }
 .project-section#web         { --group-accent: #BE123C; }
-.project-section#powerbi     { --group-accent: #A16207; }
 
 [data-md-color-scheme="slate"] .project-section#blockchain { --group-accent: #A78BFA; }
 [data-md-color-scheme="slate"] .project-section#fullstack  { --group-accent: #34D399; }
 [data-md-color-scheme="slate"] .project-section#ml         { --group-accent: #FBBF24; }
 [data-md-color-scheme="slate"] .project-section#mini       { --group-accent: #60A5FA; }
 [data-md-color-scheme="slate"] .project-section#web        { --group-accent: #FB7185; }
-[data-md-color-scheme="slate"] .project-section#powerbi    { --group-accent: #FACC15; }
 
 /* The group label takes its accent, with a short bar under it, and a bit more air between groups */
 .md-typeset .project-section .home-eyebrow {
