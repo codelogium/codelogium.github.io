@@ -6,7 +6,6 @@ hide:
   - navigation
   - feedback
   - footer
-icon: lucide/code
 ---
 
 <section class="section-hero home-band home-band--dark" data-search-exclude>

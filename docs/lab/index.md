@@ -5,7 +5,6 @@ hide:
   - navigation
   - feedback
   - footer
-icon: lucide/flask-conical
 ---
 
 <section class="section-hero home-band home-band--dark" data-search-exclude>

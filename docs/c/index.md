@@ -5,7 +5,6 @@ hide:
   - navigation
   - feedback
   - footer
-icon: lucide/book-open
 ---
 
 <section class="section-hero home-band home-band--dark" data-search-exclude>
