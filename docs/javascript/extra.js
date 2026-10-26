@@ -60,6 +60,7 @@ const FOOTER_COLUMNS = [
       { label: "Beej's Guide to C", href: 'https://beej.us/guide/bgc/html/split-wide/' },
       { label: 'C Programming: A Modern Approach', href: 'http://knking.com/books/c2/' },
       { label: 'Robert C. Seacord', href: 'https://clark.center/users/Rcseacord' },
+      { label: 'C reference (cppreference)', href: 'https://en.cppreference.com/c' },
     ],
   },
   {
@@ -68,6 +69,7 @@ const FOOTER_COLUMNS = [
       { label: 'CS Primer', href: 'https://csprimer.com/courses/' },
       { label: 'Teach Yourself CS', href: 'https://teachyourselfcs.com/' },
       { label: 'CS50 on edX', href: 'https://www.edx.org/cs50' },
+      { label: 'SICP (MIT Press, free online)', href: 'https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/index.html' },
     ],
   },
   {
