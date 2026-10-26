@@ -18,6 +18,12 @@
 
 {#- Cloudflare Web Analytics alongside Google Analytics -#}
 {% block analytics %}
+  {#- No Google Analytics on the local preview (zensical serve), so test visits aren't counted -#}
+  <script>
+    if (["localhost", "127.0.0.1", "[::1]"].includes(location.hostname)) {
+      window["ga-disable-{{ config.extra.analytics.property }}"] = true;
+    }
+  </script>
   {{ super() }}
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0589850466a440b2a08595cc8deb4b25"}'></script>
 {% endblock %}
