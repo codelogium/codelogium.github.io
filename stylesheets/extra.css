@@ -111,6 +111,22 @@ html[data-light-photo="library"] [data-md-color-scheme="default"] {
     /* The lamp moves toward the middle with the crop */
     --corner-x: 45%;
   }
+
+  /* Phones: the same photos at 1080px tall (same shape, so the glyph positions still match),
+     about a third of the download */
+  [data-md-color-scheme="slate"] {
+    --book-image: url('/assets/book-desk-m.webp');
+  }
+
+  html[data-light-photo="desk"],
+  html[data-light-photo="desk"] [data-md-color-scheme="default"] {
+    --book-image: url('/assets/desk-light-m.webp');
+  }
+
+  html[data-light-photo="library"],
+  html[data-light-photo="library"] [data-md-color-scheme="default"] {
+    --book-image: url('/assets/book-library-m.webp');
+  }
 }
 
 /* ============================================================
