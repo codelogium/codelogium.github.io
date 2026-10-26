@@ -114,9 +114,10 @@ plugins:
       date_from_meta:
         as_creation: date
       categories:
-        - categories
         - tags
       feed_title: Codelogium
+      # No XSLT styling: Chrome is removing XSLT and warns on styled feeds; readers ignore it anyway
+      stylesheet: ""
       image: https://codelogium.com/assets/home-share.jpg
   # - social: can be installed later preferably in a linux machine
   - social:
