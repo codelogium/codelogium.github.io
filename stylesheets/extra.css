@@ -2608,3 +2608,7 @@ body:has(#hero-title) .md-content__inner {
   .md-typeset .notes-deck--hero .notes-deck__label { display: none; }
   .md-typeset .notes-deck--hero .notes-deck__expand { width: 1rem; height: 1rem; }
 }
+
+/* A single highlighted bit in a binary example (e.g. the bit worth 32 between H and h) */
+.md-typeset .bit-flip { color: #DC2626; font-weight: 700; }
+[data-md-color-scheme="slate"] .md-typeset .bit-flip { color: #F87171; }

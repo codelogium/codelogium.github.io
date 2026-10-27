@@ -2361,20 +2361,19 @@
 <h2 id="everything-is-zeros-and-ones">Everything is zeros and ones<a class="headerlink" href="#everything-is-zeros-and-ones" title="Permalink">¶</a></h2>
 <p>Computers only have two symbols: 0 and 1. That's <strong>binary</strong>, base 2. A single binary digit is a <strong>bit</strong>: 0 is a switch off, 1 is a switch on. A computer is millions of tiny switches, transistors, each holding a bit.</p>
 <p>Binary works like decimal, just with powers of 2 instead of 10:</p>
-<div class="highlight"><pre><span></span><code>123 (decimal) = 1×10² + 2×10¹ + 3×10⁰
+<div class="highlight"><pre><span></span><code>123 (decimal) = 1×10² + 2×10¹ + 3×10⁰  =  100 + 20 + 3  =  123
 
-  4 2 1
-  0 1 1  =  2 + 1  =  3
-  1 0 0  =  4
+011 (binary)  = 0×2² + 1×2¹ + 1×2⁰  =  0 + 2 + 1  =  3
+100 (binary)  = 1×2² + 0×2¹ + 0×2⁰  =  4 + 0 + 0  =  4
 </code></pre></div>
 <p>To count to 8 you need a fourth bit. Run out of bits and the counter wraps back to zero, so more numbers literally means more hardware.</p>
 <p>Eight bits make a <strong>byte</strong>, which counts from <code>00000000</code> (0) to <code>11111111</code> (255): 256 possible values.</p>
 <h3 id="text">Text<a class="headerlink" href="#text" title="Permalink">¶</a></h3>
 <p>Letters are just numbers everyone agreed on. In <strong>ASCII</strong>, <code>A</code> is 65, <code>B</code> is 66, and so on. So <code>72 73 33</code> spells <strong>HI!</strong></p>
 <p>The detail I liked: lowercase letters sit exactly 32 above uppercase (<code>A</code> = 65, <code>a</code> = 97). In binary, going from <code>H</code> to <code>h</code> flips a single bit:</p>
-<div class="highlight"><pre><span></span><code>H  01001000
-h  01101000
-</code></pre></div>
+<pre><code>H  01<span class="bit-flip">0</span>01000
+h  01<span class="bit-flip">1</span>01000</code></pre>
+
 <p>ASCII only covers 256 characters. <strong>Unicode</strong> uses up to 32 bits, enough for every human language and every emoji, like 😂. Still just zeros and ones in the end.</p>
 <h3 id="colors-video-and-sound">Colors, video and sound<a class="headerlink" href="#colors-video-and-sound" title="Permalink">¶</a></h3>
 <ul>
