@@ -2546,6 +2546,10 @@ body:has(#hero-title) .md-content__inner {
 .md-typeset .notes-deck__count { min-width: 3rem; font-size: 0.75rem; text-align: center; font-variant-numeric: tabular-nums; }
 
 @media (max-width: 30em) {
-  .md-typeset .article-hero:has(.notes-deck--hero) { padding-right: 1.2rem; padding-bottom: 6.5rem; }
-  .md-typeset .notes-deck--hero { right: 1.2rem; bottom: 1.1rem; }
+  /* Phones: a smaller stack beside the tags, so the hero keeps its height */
+  .md-typeset .article-hero:has(.notes-deck--hero) { padding-right: 1.2rem; }
+  .md-typeset .notes-deck--hero { right: 1.4rem; bottom: 1rem; }
+  .md-typeset .notes-deck--hero .notes-deck__stack { width: 2rem; height: 2.7rem; }
+  .md-typeset .notes-deck--hero .notes-deck__label { display: none; }
+  .md-typeset .notes-deck--hero .notes-deck__expand { width: 1rem; height: 1rem; }
 }
