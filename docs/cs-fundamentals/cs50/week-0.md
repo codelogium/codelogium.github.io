@@ -8,6 +8,10 @@ reading_time: 5
 icon: lucide/graduation-cap
 tags:
   - CS50
+share_image: assets/cs50/week0/share.jpg   # link preview (LinkedIn, X, WhatsApp) instead of the generated card
+share_image_alt: "CS50 Week 0: Thinking Before Coding, with a stack of handwritten notebook pages"
+social:
+  cards: false
 notes:
   path: assets/cs50/week0
   pages:
