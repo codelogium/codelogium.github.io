@@ -5,7 +5,8 @@ nav:
   - CS Fundamentals:
     - cs-fundamentals/index.md
     # Short sidebar labels; the full title stays on the page
-    - "CS50 · Week 0": cs-fundamentals/cs50-week-0.md
+    - CS50:
+      - "Week 0": cs-fundamentals/cs50/week-0.md
   - c
   - Languages:
     - languages/index.md
