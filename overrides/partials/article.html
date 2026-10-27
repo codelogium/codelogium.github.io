@@ -43,7 +43,7 @@
     {% if ns.label %}
       <a class="home-eyebrow" href="{{ ns.url | url }}">{{ ns.label.title }}</a>
     {% endif %}
-    <h1 class="article-hero__title">{{ page.title }}</h1>
+    <h1 class="article-hero__title">{{ m.title or page.title }}</h1>
     {% if m.description %}
       <p class="article-hero__lead">{{ m.description }}</p>
     {% endif %}
