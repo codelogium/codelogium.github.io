@@ -74,6 +74,29 @@
         {% if m.demo %}<a class="home-btn home-btn--light" href="{{ m.demo }}" target="_blank" rel="noopener">Live demo</a>{% endif %}
       </div>
     {% endif %}
+    {#- Handwritten notes (front matter `notes`): a small fanned stack in the corner that opens a page viewer -#}
+    {% if m.notes %}
+      {% set n = m.notes %}
+      <div class="notes-deck notes-deck--hero">
+        <button class="notes-deck__card" type="button" aria-label="Open my handwritten notes, {{ n.pages | length }} pages">
+          <span class="notes-deck__stack" aria-hidden="true">
+            {% for i in [3, 2, 1] if i <= n.pages | length %}<img src="{{ (n.path ~ '/page-' ~ i ~ '-thumb.webp') | url }}" alt="" width="360" height="480">{% endfor %}
+          </span>
+          <span class="notes-deck__label">My handwritten notes</span>
+        </button>
+        <dialog class="notes-deck__viewer" aria-label="Handwritten notes">
+          <div class="notes-deck__pages">
+            {% for p in n.pages %}<img src="{{ (n.path ~ '/page-' ~ loop.index ~ '.webp') | url }}" alt="Notes page {{ loop.index }}: {{ p }}" width="1200" height="1600" loading="lazy">{% endfor %}
+          </div>
+          <div class="notes-deck__bar">
+            <button type="button" data-deck="prev" aria-label="Previous page">‹</button>
+            <span class="notes-deck__count">1 / {{ n.pages | length }}</span>
+            <button type="button" data-deck="next" aria-label="Next page">›</button>
+            <button type="button" data-deck="close" aria-label="Close">✕</button>
+          </div>
+        </dialog>
+      </div>
+    {% endif %}
   </header>
 
   {{ page.content }}

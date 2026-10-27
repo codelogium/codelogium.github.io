@@ -8,6 +8,14 @@ reading_time: 5
 icon: lucide/graduation-cap
 tags:
   - CS50
+notes:
+  path: assets/cs50/week0
+  pages:
+    - "Why foundations still matter"
+    - "Computer science, problem solving and binary"
+    - "Counting in binary, bytes and ASCII"
+    - "Unicode, colors, video and music"
+    - "Algorithms, design, code and pseudocode"
 ---
 
 > You're still in the driver's seat: the conductor, the pilot.
