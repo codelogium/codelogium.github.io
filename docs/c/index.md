@@ -17,10 +17,10 @@ hide:
   <div class="track-panel track-panel--featured">
     <div class="track-panel__head">
       <span class="track-panel__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-marked" viewBox="0 0 24 24"><path d="M10 2v7.751a.25.25 0 0 0 .407.195l2.28-1.834a.5.5 0 0 1 .627 0l2.28 1.834A.25.25 0 0 0 16 9.751V2"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg></span>
-      <h3 class="track-panel__title">K&amp;R: The C Programming Language</h3>
+      <h3 class="track-panel__title">The C Programming Language</h3>
     </div>
     <div class="track-panel__meta">
-      <span><a href="https://www.informit.com/store/c-programming-language-9780133086225" target="_blank" rel="noopener">Book · 2nd edition</a> · <a href="https://www.dunod.com/sciences-techniques/langage-c-norme-ansi-0" target="_blank" rel="noopener" hreflang="fr">French edition</a></span>
+      <span><a href="https://www.informit.com/store/c-programming-language-9780133086225" target="_blank" rel="noopener">Book · 2nd edition</a> · Kernighan &amp; Ritchie · <a href="https://www.dunod.com/sciences-techniques/langage-c-norme-ansi-0" target="_blank" rel="noopener" hreflang="fr">French edition</a></span>
       <span class="track-panel__count">0 / 8 chapters</span>
     </div>
     <ul class="track-panel__list">
