@@ -20,7 +20,7 @@ hide:
       <h3 class="track-panel__title">The C Programming Language</h3>
     </div>
     <div class="track-panel__meta">
-      <span><a href="https://www.informit.com/store/c-programming-language-9780133086225" target="_blank" rel="noopener">Book · 2nd edition</a> · Kernighan &amp; Ritchie · <a href="https://www.dunod.com/sciences-techniques/langage-c-norme-ansi-0" target="_blank" rel="noopener" hreflang="fr">French edition</a></span>
+      <span><a href="https://www.informit.com/store/c-programming-language-9780133086225" target="_blank" rel="noopener">Book · 2nd edition</a> · Kernighan &amp; Ritchie</span>
       <span class="track-panel__count">0 / 8 chapters</span>
     </div>
     <ul class="track-panel__list">
