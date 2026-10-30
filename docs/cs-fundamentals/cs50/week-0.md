@@ -112,4 +112,12 @@ Week 0 has almost no code, and that's the point: before writing anything, you ne
 
 ---
 
+## Wait, what is Scratch?
+
+If you open CS50's Week 0, you'll see it's titled *Scratch*, and you might wonder what that is, since I skipped it. Well, [Scratch](https://scratch.mit.edu/) is a visual programming language from MIT: instead of typing code, you snap colored blocks together, a bit like puzzle pieces, and a cat on the screen does what they say.
+
+It's how the course gets you building something before you have to worry about syntax. If you're curious, [CS50's own Week 0 notes](https://cs50.harvard.edu/x/notes/0/) pick up where mine stop.
+
+---
+
 <small>Based on [CS50x](https://cs50.harvard.edu/x/) by David J. Malan, Harvard University, licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). These notes are my own summary.</small>
