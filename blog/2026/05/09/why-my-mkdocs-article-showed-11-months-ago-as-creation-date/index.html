@@ -75,7 +75,26 @@
     
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0589850466a440b2a08595cc8deb4b25"}'></script>
 
-    <link rel="alternate" type="application/rss+xml" title="Codelogium: latest" href="https://codelogium.com/feed_rss_created.xml">
+    <script>
+    (function () {
+      var d = new Date();
+      var day = Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5);
+      var light = day % 2 === 0 ? "library" : "desk";
+      document.documentElement.dataset.lightPhoto = light;
+      var palette = null;
+      try { palette = __md_get("__palette"); } catch (e) {}
+      var scheme = palette && palette.color && palette.color.scheme;
+      if (!scheme) scheme = matchMedia("(prefers-color-scheme: dark)").matches ? "slate" : "default";
+      var name = scheme === "slate" ? "book-desk" : light === "library" ? "book-library" : "desk-light";
+      var portrait = matchMedia("(orientation: portrait)").matches;
+      var link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = "/assets/" + name + (portrait ? "-m" : "") + ".webp";
+      link.fetchPriority = "high";
+      document.head.appendChild(link);
+    })();
+  </script><link rel="alternate" type="application/rss+xml" title="Codelogium: latest" href="https://codelogium.com/feed_rss_created.xml">
   <link rel="alternate" type="application/rss+xml" title="Codelogium: updated" href="https://codelogium.com/feed_rss_updated.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
